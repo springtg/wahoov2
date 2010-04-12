@@ -89,5 +89,23 @@ namespace WahooData.Controller
                 throw ex;
             }
         }
+        /// <summary>
+        /// Update all channel to STARTED, STOPED...
+        /// </summary>
+        /// <param name="statusExecute"></param>
+        /// <returns></returns>
+        public Boolean UpdateAllChannelStatusExecute(string statusExecute)
+        {
+            return DataAccessLayer.UpdateAllChannelStatusExecute(statusExecute);
+        }
+        /// <summary>
+        /// Update all channel to isDeployed or not
+        /// </summary>
+        /// <param name="isDeployed"></param>
+        /// <returns></returns>
+        public Boolean UpdateAllChannelDeployed(Boolean isDeployed)
+        {
+            return DataAccessLayer.UpdateAllChannelDeployed(isDeployed);
+        }
     }
 }
