@@ -12,8 +12,8 @@ namespace WahooConfiguration
         public static string ENABLED_CHANNEL_CONTROL = "Enabled";
         public static string DEPLOY_CHANNEL_CONTROL = "Deploy Channel";
         public static string UNDEPLOY_CHANNEL_CONTROL = "Undeploy Channel";
-        //public static string PAUSE_CHANNEL_CONTROL = "Pause Channel";
-        //public static string START_CHANNEL_CONTROL = "Start Channel";
+        public static string PAUSE_CHANNEL_CONTROL = "Pause Channel";
+        public static string START_CHANNEL_CONTROL = "Start Channel";
         //public static string EDIT_CLIENT_GROUP_CONTROL = "Edit Client";
         //public static string CREATE_CLIENT_GROUP_CONTROL = "Create Client";
         public static string EDIT_USER_GROUP_CONTROL = "Edit User";
