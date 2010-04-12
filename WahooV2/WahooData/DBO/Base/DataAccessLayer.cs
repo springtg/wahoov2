@@ -203,7 +203,24 @@ namespace WahooData.DBO.Base
         {
             return ServiceReader.Delete(obj);
         }
-
+        /// <summary>
+        /// Update all channel to STARTED, STOPED...
+        /// </summary>
+        /// <param name="statusExecute"></param>
+        /// <returns></returns>
+        public static bool UpdateAllChannelStatusExecute(string statusExecute)
+        {
+            return ServiceReader.UpdateAllChannelStatusExecute(statusExecute);
+        }
+        /// <summary>
+        /// Update all channel to isDeploy or not
+        /// </summary>
+        /// <param name="isDeployed"></param>
+        /// <returns></returns>
+        public static bool UpdateAllChannelDeployed(Boolean isDeployed)
+        {
+            return ServiceReader.UpdateAllChannelDeployed(isDeployed);
+        }
         #endregion
     }
 }

@@ -329,5 +329,55 @@ namespace WahooData.DBO.Base
             Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
             return configObl.ReadSetting("strConnectionString");
         }
+        /// <summary>
+        /// Update all channel to STARTED, STOPED...
+        /// </summary>
+        /// <param name="statusExecute"></param>
+        /// <returns></returns>
+        public static bool UpdateAllChannelStatusExecute(string statusExecute)
+        {
+            try
+            {
+                SqlParameter param = new SqlParameter("@STATUSEXECUTE", statusExecute);
+                int i = SqlHelper.ExecuteNonQuery(ServiceReader._conectionString, CommandType.StoredProcedure, "UPDATE_ALL_CHANNEL_STATUSEXECUTE", param);
+                if (i > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        /// <summary>
+        /// Update all channel to deploy or not
+        /// </summary>
+        /// <param name="isDeployed"></param>
+        /// <returns></returns>
+        public static bool UpdateAllChannelDeployed(Boolean isDeployed)
+        {
+            try
+            {
+                SqlParameter param = new SqlParameter("@IsDeployed", isDeployed);
+                int i = SqlHelper.ExecuteNonQuery(ServiceReader._conectionString, CommandType.StoredProcedure, "UPDATE_ALL_CHANNEL_ISDEPLOYED", param);
+                if (i > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
