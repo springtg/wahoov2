@@ -1,5 +1,0 @@
-F:\lam viec\wahooV2\lastest wahoo\WahooV2\WahooConfiguration\bin\Debug\WahooConfiguration.dll
-F:\lam viec\wahooV2\lastest wahoo\WahooV2\WahooConfiguration\bin\Debug\WahooConfiguration.pdb
-F:\lam viec\wahooV2\lastest wahoo\WahooV2\WahooConfiguration\obj\Debug\ResolveAssemblyReference.cache
-F:\lam viec\wahooV2\lastest wahoo\WahooV2\WahooConfiguration\obj\Debug\WahooConfiguration.dll
-F:\lam viec\wahooV2\lastest wahoo\WahooV2\WahooConfiguration\obj\Debug\WahooConfiguration.pdb
