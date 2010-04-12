@@ -503,7 +503,7 @@ namespace WahooService
             {
                 return false;
             }
-            string printerPath = configObl.ReadSetting(Alias.PRINTER_PATH);
+            string printerPath = configObl.ReadSetting(Alias.PRINTER_NAME_DEFAULT);
             PrintClass printObj = new PrintClass();
 
             if (Path.GetExtension(path).ToUpper() == ".DOC")

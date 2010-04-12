@@ -16,7 +16,7 @@ namespace HL7Source
         public const string WEB_SERVICE_ADDRESS_CONFIG = "WsdlUrl";
         public const string SERVER_FOLDER_CONFIG = "ServerFolder";
         public const string TRANSFER_SPEED_CONFIG = "TransferSpeed";
-        public const string PRINTER_PATH = "PrinterPath";
+        public const string PRINTER_NAME_DEFAULT = "PrinterNameDefault";
         public const string ACROBAT_EXE_PATH = "AcrobatExe";
         public const string PRINTED_EXTENTION_FILE = "PrintedExtFile";
         public const string IS_SETTING_INFO_CONFIG = "IsSettingInfo";

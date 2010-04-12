@@ -26,6 +26,7 @@ namespace HL7ServerTransfer
         //Folder in web server
         private string _serverFolder = "";
         private Boolean _mUpdateInfo = false;
+        private HL7Source.PrintClass _cPrinter;
         public frmMain()
         {
             InitializeComponent();
@@ -39,6 +40,7 @@ namespace HL7ServerTransfer
         {
             try
             {
+                _cPrinter = new PrintClass();
                 //Load info
                 ResetHL7Setup();
                 //System.Drawing.Printing.PrintDocument printDoc;
@@ -49,7 +51,7 @@ namespace HL7ServerTransfer
             }
             catch (Exception ex)
             {
-                
+
             }
         }
         /// <summary>
@@ -94,11 +96,7 @@ namespace HL7ServerTransfer
                 //Set transfer speed
                 txtTransferSpeed.Text = configObl.ReadSetting(Alias.TRANSFER_SPEED_CONFIG);
                 //Find printers
-                foreach (string strPrinter in System.Drawing.Printing.PrinterSettings.InstalledPrinters)
-                {
-                    cbPrinter.Items.Add(strPrinter);
-                }
-                cbPrinter.Text = configObl.ReadSetting(Alias.PRINTER_PATH);
+                _cPrinter.getAllPrinter(ref cbPrinter, configObl);
                 //Set file format
                 string formatFiles = configObl.ReadSetting(Alias.PRINTED_EXTENTION_FILE);
                 string[] arrFormats = formatFiles.Split(';');
@@ -151,7 +149,7 @@ namespace HL7ServerTransfer
                 txtNumOfCopies.Text = configObl.ReadSetting(Alias.NUMBER_OF_COPIES_CONFIG);
                 //Set schedule
                 string scheduleStr = configObl.ReadSetting(Alias.SCHEDULE_CONFIG);
-                string []scheduleDateArr = scheduleStr.Split('|')[0].Split(',');
+                string[] scheduleDateArr = scheduleStr.Split('|')[0].Split(',');
                 foreach (string date in scheduleDateArr)
                 {
                     switch (date)
@@ -182,7 +180,7 @@ namespace HL7ServerTransfer
                     }
                 }
                 string[] scheduleTimerFromArr = scheduleStr.Split('|')[1].Split(',');
-                DateTime fromValue = new DateTime(DateTime.Now.Year,DateTime.Now.Month,DateTime.Now.Day,
+                DateTime fromValue = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,
                                                     int.Parse(scheduleTimerFromArr[0]), int.Parse(scheduleTimerFromArr[1]), int.Parse(scheduleTimerFromArr[2]));
                 dtpFrom.Value = fromValue;
                 string[] scheduleTimerToArr = scheduleStr.Split('|')[2].Split(',');
@@ -222,9 +220,9 @@ namespace HL7ServerTransfer
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
-        {            
+        {
             try
-            {                
+            {
                 if (!CheckInfo())
                 {
                     return;
@@ -247,17 +245,17 @@ namespace HL7ServerTransfer
                     this.ShowMessageBox("ERR007", string.Format(HL7Source.Message.GetMessageById("ERR007")), MessageType.ERROR);
                     return;
                 }
-                Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");                
+                Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
                 configObl.WriteSetting(Alias.INTERVAL_DOWNLOAD_CONFIG, txtInterval.Text);
                 configObl.WriteSetting(Alias.WEB_SERVICE_ADDRESS_CONFIG, txtURL.Text);
                 configObl.WriteSetting(Alias.FOLDER_DOWNLOAD_CONFIG, txtDownloadFolder.Text);
                 configObl.WriteSetting(Alias.TRANSFER_SPEED_CONFIG, txtTransferSpeed.Text);
-                configObl.WriteSetting(Alias.PRINTER_PATH, cbPrinter.Text);
+                configObl.WriteSetting(Alias.PRINTER_NAME_DEFAULT, cbPrinter.Text);
                 configObl.WriteSetting(Alias.PRINTED_EXTENTION_FILE, txtPrintedFormat);
                 configObl.WriteSetting(Alias.NUMBER_OF_COPIES_CONFIG, txtNumOfCopies.Text);
                 //Set for schedule
                 string scheduleStr = "";
-                string scheduleDateStr="";
+                string scheduleDateStr = "";
                 if (chkMonday.Checked)
                 {
                     scheduleDateStr += "Mon,";
@@ -294,7 +292,7 @@ namespace HL7ServerTransfer
                 {
                     configObl.WriteSetting(Alias.IS_SETTING_INFO_CONFIG, "1");
                     this._mUpdateInfo = true;
-                }                
+                }
                 try
                 {
                     Settings.Default.boolStartup = chkStartup.Checked;
@@ -313,9 +311,9 @@ namespace HL7ServerTransfer
                     }
                     this.ShowMessageBox("INF001", string.Format(HL7Source.Message.GetMessageById("INF001")), MessageType.INFORM);
                 }
-                catch(Exception ex)
-                {                    
-                    //this.ShowMessageBox("INF002", string.Format(HL7Source.Message.GetMessageById("INF002")), MessageType.INFORM);
+                catch (Exception ex)
+                {
+                    this.ShowMessageBox("INF002", string.Format(HL7Source.Message.GetMessageById("INF002")), MessageType.INFORM);
                     //Write log in Log folder
                     string logFolder = AppDomain.CurrentDomain.BaseDirectory + "\\Log";
                     if (!Directory.Exists(logFolder))
@@ -325,9 +323,9 @@ namespace HL7ServerTransfer
                     //Write log
                     Log.Write(ex, logFolder);
                 }
-                this.ShowMessageBox("INF001", string.Format(HL7Source.Message.GetMessageById("INF001")), MessageType.INFORM);
+                //this.ShowMessageBox("INF001", string.Format(HL7Source.Message.GetMessageById("INF001")), MessageType.INFORM);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 //Write log in Log folder
                 string logFolder = AppDomain.CurrentDomain.BaseDirectory + "\\Log";
@@ -381,8 +379,8 @@ namespace HL7ServerTransfer
             {
                 this.ShowMessageBox("ERR006", string.Format(HL7Source.Message.GetMessageById("ERR006")), MessageType.ERROR);
                 return false;
-            }           
-            if (dtpFrom.Value>dtpTo.Value)
+            }
+            if (dtpFrom.Value > dtpTo.Value)
             {
                 this.ShowMessageBox("ERR008", string.Format(HL7Source.Message.GetMessageById("ERR008")), MessageType.ERROR);
                 return false;
@@ -418,7 +416,7 @@ namespace HL7ServerTransfer
                 }
                 Cursor.Current = Cursors.Default;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 //Write log in Log folder
                 string logFolder = AppDomain.CurrentDomain.BaseDirectory + "\\Log";
@@ -433,7 +431,7 @@ namespace HL7ServerTransfer
         }
 
         private void tmDownload_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
-        {            
+        {
             if (!this._mUpdateInfo)
             {
                 return;
@@ -448,7 +446,7 @@ namespace HL7ServerTransfer
                 if (!bgwMain.IsBusy)
                 {
                     bgwMain.RunWorkerAsync();
-                }          
+                }
                 this._mExecuting = false;
             }
         }
@@ -464,7 +462,7 @@ namespace HL7ServerTransfer
                 //Set schedule
                 string scheduleStr = configObl.ReadSetting(Alias.SCHEDULE_CONFIG);
                 string[] scheduleDateArr = scheduleStr.Split('|')[0].Split(',');
-                string dateNow="";
+                string dateNow = "";
                 switch (DateTime.Now.DayOfWeek)
                 {
                     case DayOfWeek.Monday:
@@ -500,13 +498,13 @@ namespace HL7ServerTransfer
                         break;
                     }
                 }
-                if(!isValid)
+                if (!isValid)
                 {
                     return false;
                 }
                 string[] scheduleTimerFromArr = scheduleStr.Split('|')[1].Split(',');
                 DateTime fromValue = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,
-                                                    int.Parse(scheduleTimerFromArr[0]), int.Parse(scheduleTimerFromArr[1]), int.Parse(scheduleTimerFromArr[2]));                
+                                                    int.Parse(scheduleTimerFromArr[0]), int.Parse(scheduleTimerFromArr[1]), int.Parse(scheduleTimerFromArr[2]));
                 string[] scheduleTimerToArr = scheduleStr.Split('|')[2].Split(',');
                 DateTime toValue = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,
                                                     int.Parse(scheduleTimerToArr[0]), int.Parse(scheduleTimerToArr[1]), int.Parse(scheduleTimerToArr[2]));
@@ -523,7 +521,7 @@ namespace HL7ServerTransfer
             catch
             {
                 return false;
-            }            
+            }
         }
         /// <summary>
         /// Download data to web server
@@ -540,7 +538,7 @@ namespace HL7ServerTransfer
                 if (!Directory.Exists(clientFolder))
                 {
                     return;
-                }                
+                }
                 string serverFolder = configObl.ReadSetting(Alias.SERVER_FOLDER_CONFIG) + "\\" + configObl.ReadSetting(Alias.CLIENT_CODE_CONFIG);
                 System.Net.ServicePointManager.CertificatePolicy = new TrustAllCertificatePolicy();
                 HL7Service _mHL7Service = new HL7Service(url);
@@ -662,7 +660,7 @@ namespace HL7ServerTransfer
                 {
                     transferSpeed = 16;
                 }
-                _mHL7Service.Upload(connectFile, storeFile,transferSpeed);
+                _mHL7Service.Upload(connectFile, storeFile, transferSpeed);
             }
             catch (Exception ex)
             {
@@ -693,7 +691,7 @@ namespace HL7ServerTransfer
                 string pathForUpload = System.Windows.Forms.Application.StartupPath + @"\status\status_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xml";
                 File.Move(oldPathForUpload, pathForUpload);
                 //Server folder must be \Upload\ClientCode
-                string serverFolder = configObl.ReadSetting(Alias.SERVER_FOLDER_CONFIG) + "\\" + configObl.ReadSetting(Alias.CLIENT_CODE_CONFIG)+"\\status";
+                string serverFolder = configObl.ReadSetting(Alias.SERVER_FOLDER_CONFIG) + "\\" + configObl.ReadSetting(Alias.CLIENT_CODE_CONFIG) + "\\status";
                 //Accept SSL in web service
                 System.Net.ServicePointManager.CertificatePolicy = new TrustAllCertificatePolicy();
                 //Create object web service
@@ -737,10 +735,10 @@ namespace HL7ServerTransfer
         /// <param name="filename"></param>
         /// <param name="blowfishKey"></param>
         /// <param name="clientFolder"></param>
-        private void DownloadFile(string webUrl, string serverFolder, string localFolder,string file,string blowfishKey,string clientFolder)
+        private void DownloadFile(string webUrl, string serverFolder, string localFolder, string file, string blowfishKey, string clientFolder)
         {
             try
-            {                
+            {
                 //Accept SSL in web service
                 System.Net.ServicePointManager.CertificatePolicy = new TrustAllCertificatePolicy();
                 //Create web service object
@@ -759,7 +757,7 @@ namespace HL7ServerTransfer
                     {
                         Directory.CreateDirectory(pathForDownload);
                     }
-                    string sourceFile = pathForDownload + "\\" + log.FileName;                    
+                    string sourceFile = pathForDownload + "\\" + log.FileName;
                     //Transfer file                    
                     //If have blowfish key
                     if (blowfishKey != "")
@@ -785,9 +783,9 @@ namespace HL7ServerTransfer
                                     if (File.Exists(sourceFile))
                                     {
                                         File.Delete(sourceFile);
-                                    }                                    
+                                    }
                                     //Sent to print
-                                    log.IsSentToPrint = SentToPrint(tempFile);                                    
+                                    log.IsSentToPrint = SentToPrint(tempFile);
                                 }
                                 else
                                 {
@@ -852,7 +850,7 @@ namespace HL7ServerTransfer
                             }
                             return;
                         }
-                    } 
+                    }
                     //Other wise -> move to error folder
                     else
                     {
@@ -874,7 +872,7 @@ namespace HL7ServerTransfer
                         File.Move(sourceFile, fileDest);
                         log.Description += string.Format(HL7Source.Message.GetMessageById("LOG009"));
                         log.ErrorStatus = "ERROR";
-                    }                   
+                    }
                 }
                 log.TimeSentToPrint = DateTime.Now.ToString("yyyyMMddHHmmss");
                 WiteFileStatus(log);
@@ -902,7 +900,7 @@ namespace HL7ServerTransfer
             Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
             string printedExtFile = configObl.ReadSetting(Alias.PRINTED_EXTENTION_FILE);
             string[] extArr = printedExtFile.Split(';');
-            Boolean isPrint=false;
+            Boolean isPrint = false;
             //Check file is printed or not
             foreach (string ext in extArr)
             {
@@ -916,28 +914,23 @@ namespace HL7ServerTransfer
             {
                 return false;
             }
-            string printerPath = configObl.ReadSetting(Alias.PRINTER_PATH);
+            string printerPath = configObl.ReadSetting(Alias.PRINTER_NAME_DEFAULT);
             PrintClass printObj = new PrintClass();
-           
-            if (Path.GetExtension(path).ToUpper() == ".DOC")
-            {                
-                result= printObj.PrintDocFile(path, printerPath);
-            }
-            else if (Path.GetExtension(path).ToUpper() == ".PDF")
+
+            if (printObj.isDOCFile(path))
             {
-                string acrobatFile = configObl.ReadSetting(Alias.ACROBAT_EXE_PATH);
-                if (!File.Exists(acrobatFile))
+                //in file word
+                result = printObj.PrintDocFile(path, printerPath);
+            }
+            else
+                if (printObj.isPDFFile(path))
                 {
-                    result = false;
+                    //in file PDF
+                    result = printObj.PrintPdfFile(path, printerPath);
                 }
                 else
                 {
-                    result = printObj.PrintPdfFile(path, printerPath, acrobatFile);
                 }
-            }
-            else
-            {
-            }
             return result;
         }
         /// <summary>
@@ -1034,7 +1027,7 @@ namespace HL7ServerTransfer
                 else
                 {
                     blowfishKey = originalKey;
-                }               
+                }
                 return blowfishKey;
             }
             catch (Exception ex)
@@ -1050,7 +1043,7 @@ namespace HL7ServerTransfer
                 return "";
             }
         }
-        
+
         /// <summary>
         /// Change infomations
         /// </summary>
@@ -1074,18 +1067,18 @@ namespace HL7ServerTransfer
             ResetHL7Setup();
         }
 
-        private void chkPdf_CheckedChanged_1(object sender, EventArgs e)
-        {
-            Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
-            string acrobatFile = configObl.ReadSetting(Alias.ACROBAT_EXE_PATH);
-            if (chkPdf.Checked)
-            {
-                if (!File.Exists(acrobatFile))
-                {
-                    ChooseAcrobatExe frmChooseAcroExe = new ChooseAcrobatExe();
-                    frmChooseAcroExe.ShowDialog();
-                }
-            }
-        }
+        //private void chkPdf_CheckedChanged_1(object sender, EventArgs e)
+        //{
+        //    Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
+        //    string acrobatFile = configObl.ReadSetting(Alias.ACROBAT_EXE_PATH);
+        //    if (chkPdf.Checked)
+        //    {
+        //        if (!File.Exists(acrobatFile))
+        //        {
+        //            ChooseAcrobatExe frmChooseAcroExe = new ChooseAcrobatExe();
+        //            frmChooseAcroExe.ShowDialog();
+        //        }
+        //    }
+        //}
     }
 }

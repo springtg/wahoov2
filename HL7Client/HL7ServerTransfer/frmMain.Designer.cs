@@ -520,7 +520,6 @@ namespace HL7ServerTransfer
             this.chkPdf.TabIndex = 38;
             this.chkPdf.Text = ".pdf";
             this.chkPdf.UseVisualStyleBackColor = true;
-            this.chkPdf.CheckedChanged += new System.EventHandler(this.chkPdf_CheckedChanged_1);
             // 
             // chkDoc
             // 

@@ -19,26 +19,26 @@ namespace HL7ServerTransfer
             Process[] p = Process.GetProcessesByName("HL7ServerTranfer");
             if (p.Length > 1)
             {
-                MessageBox.Show("You can not run 2 program in a machine at the same time.");
+                MessageBox.Show(HL7Source.Message.GetMessageById("HL7TRANFER_INFO_0001"));// "You can not run 2 program in a machine at the same time.");
                 return;
             }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
-            //string clientCode = configObl.ReadSetting("ClientCode");
-            //string clientName = configObl.ReadSetting("ClientName");
-            //string email = configObl.ReadSetting("ClientEmail");
-            //string strEncode = clientCode + clientName + email;
-            //string licenseKey = configObl.ReadSetting("LicenseKey");
-            //if (licenseKey == EncodeMd5.EncodeString(strEncode))
-            //{
-            //    Application.Run(new frmMain());
-            //}
-            //else
-            //{
-            //    Application.Run(new frmSettingInfo());
-            //}
-            Application.Run(new frmMain());
+            Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
+            string clientCode = configObl.ReadSetting("ClientCode");
+            string clientName = configObl.ReadSetting("ClientName");
+            string email = configObl.ReadSetting("ClientEmail");
+            string strEncode = clientCode + clientName + email;
+            string licenseKey = configObl.ReadSetting("LicenseKey");
+            if (licenseKey == EncodeMd5.EncodeString(strEncode))
+            {
+                Application.Run(new frmMain());
+            }
+            else
+            {
+                Application.Run(new frmSettingInfo());
+            }
+            //Application.Run(new frmMain());
         }
     }
 }
