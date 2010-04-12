@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HL7Source", "HL7Source\HL7Source.csproj", "{2C7CF017-FE27-46EA-9425-190D58DEC75D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HL7ServerTransfer", "HL7ServerTransfer\HL7ServerTransfer.csproj", "{67411AA4-6D68-4762-9151-3BA03919EF4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WahooServiceControl", "WahooServiceControl\WahooServiceControl.csproj", "{D1306399-1F1B-4FF9-97B7-5C6C7F9F745B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WahooService", "WahooService\WahooService.csproj", "{B0170898-5717-4680-81CB-2B4A5C10CEFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2C7CF017-FE27-46EA-9425-190D58DEC75D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C7CF017-FE27-46EA-9425-190D58DEC75D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C7CF017-FE27-46EA-9425-190D58DEC75D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C7CF017-FE27-46EA-9425-190D58DEC75D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67411AA4-6D68-4762-9151-3BA03919EF4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67411AA4-6D68-4762-9151-3BA03919EF4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67411AA4-6D68-4762-9151-3BA03919EF4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67411AA4-6D68-4762-9151-3BA03919EF4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1306399-1F1B-4FF9-97B7-5C6C7F9F745B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1306399-1F1B-4FF9-97B7-5C6C7F9F745B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1306399-1F1B-4FF9-97B7-5C6C7F9F745B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1306399-1F1B-4FF9-97B7-5C6C7F9F745B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0170898-5717-4680-81CB-2B4A5C10CEFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0170898-5717-4680-81CB-2B4A5C10CEFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0170898-5717-4680-81CB-2B4A5C10CEFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0170898-5717-4680-81CB-2B4A5C10CEFC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
