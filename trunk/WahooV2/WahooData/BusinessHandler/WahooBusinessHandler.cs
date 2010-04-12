@@ -161,6 +161,44 @@ namespace WahooData.BusinessHandler
             return result;
         }
 
+        /// <summary>
+        /// Update all channel for status execute
+        /// </summary>
+        /// <param name="statusExecute"></param>
+        /// <returns></returns>
+        public static bool UpdateAllChannelStatusExecute(string statusExecute)
+        {
+            Boolean result = false;
+            ChannelController _ChannelController = new ChannelController();
+            try
+            {
+                result = _ChannelController.UpdateAllChannelStatusExecute(statusExecute);
+            }
+            catch
+            {
+                result = false;
+            }
+            return result;
+        }
+        /// <summary>
+        /// Update all channel for status execute
+        /// </summary>
+        /// <param name="statusExecute"></param>
+        /// <returns></returns>
+        public static bool UpdateAllChannelDeployed(Boolean isDeployed)
+        {
+            Boolean result = false;
+            ChannelController _ChannelController = new ChannelController();
+            try
+            {
+                result = _ChannelController.UpdateAllChannelDeployed(isDeployed);
+            }
+            catch
+            {
+                result = false;
+            }
+            return result;
+        }
         #endregion Channel
 
         #region Client
@@ -247,6 +285,31 @@ namespace WahooData.BusinessHandler
         /// <param name="_DownloadReport">Thong tin ve DownloadReport</param>
         /// <returns></returns>
         public static List<DownloadReport> Get_ListDownloadReport(DownloadReport _DownloadReport)
+        {
+            DownloadReportController _DownloadReportController = new DownloadReportController();
+            List<DownloadReport> objDownloadReport = new List<DownloadReport>();
+            try
+            {
+                objDownloadReport = _DownloadReportController.GetItemsCollection(_DownloadReport);
+            }
+            catch
+            {
+                objDownloadReport = new List<DownloadReport>();
+            }
+            if (objDownloadReport == null)
+            {
+                objDownloadReport = new List<DownloadReport>();
+            }
+            return objDownloadReport;
+        }
+        /// <summary>
+        /// Lay ra danh sach cac DownloadReport co phan trang
+        /// </summary>
+        /// <param name="_DownloadReport">Thong tin ve DownloadReport</param>
+        /// <param name="startIndex">lay tu vi tri nao</param>
+        /// <param name="numOfRows">So record can lay</param>
+        /// <returns></returns>
+        public static List<DownloadReport> Get_ListDownloadReport(DownloadReport _DownloadReport,int startIndex, int numOfRows)
         {
             DownloadReportController _DownloadReportController = new DownloadReportController();
             List<DownloadReport> objDownloadReport = new List<DownloadReport>();
