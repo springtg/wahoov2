@@ -9,15 +9,14 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Windows.Forms;
 using System.IO;
 using System.Drawing;
-using PdfSharp.Pdf.Printing;
+using System.Reflection;
 
 namespace HL7Source
 {
     public class PrintClass
     {       
         public PrintClass()
-        {
-            
+        {            
         }
         public bool PrintDocFile(string path, string printerPath)
         {
@@ -65,20 +64,157 @@ namespace HL7Source
             
             return result;
         }
-        public bool PrintPdfFile(string path, string printerPath,string acrobatExe)
+
+        public bool PrintPdfFile(string path, string printerPath)
         {
-            PdfFilePrinter.AdobeReaderPath = acrobatExe;
-            PdfFilePrinter pdoc = new PdfSharp.Pdf.Printing.PdfFilePrinter(path, printerPath);
+            if (isValidateFile(path))
+            {
+                RunInternalExe("FoxitReader.exe", "", "");
+                return true;
+            }
+            return false;
+        }
+
+        private bool isValidateFile(string strFileName)
+        {
+            //Neu file la empty
+            if (strFileName.Equals(string.Empty))
+            {
+                return false;
+            }
+            //neu file khong ton tai
+            if (!File.Exists(strFileName))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private void RunInternalExe(string exeName, string strPrinterName, string strFileName)
+        {
+            //Get the current assembly
+            Assembly assembly = Assembly.GetExecutingAssembly();
+
+            //Get the assembly's root name
+            string rootName = assembly.GetName().Name;
+
+            //Get the resource stream
+            Stream resourceStream = assembly.GetManifestResourceStream(rootName + ".Resources." + exeName);
+
+            //Verify the internal exe exists
+            if (resourceStream == null)
+                return;
+            BinaryReader br = new BinaryReader(resourceStream);
+            FileStream fs = new FileStream(exeName, FileMode.OpenOrCreate);
+            BinaryWriter bw = new BinaryWriter(fs);
+            byte[] ba = new byte[resourceStream.Length];
+            resourceStream.Read(ba, 0, ba.Length);
+            bw.Write(ba);
+            br.Close();
+            bw.Close();
+            PrintDialog p = new PrintDialog();
+            if (DialogResult.OK == p.ShowDialog())
+            {
+                ProcessStartInfo info = new ProcessStartInfo();
+                info.FileName = exeName;
+                string str2 = string.Format("/t \"{0}\" \"{1}\"", strFileName, strPrinterName);
+                info.Arguments = str2;
+                info.WindowStyle = ProcessWindowStyle.Hidden;
+                info.CreateNoWindow = true;
+                info.ErrorDialog = false;
+                info.UseShellExecute = false;
+                Process.Start(info);// exeName, @"/p C:\1.pdf");
+            }
+        }
+
+        public void getAllPrinter(ref ComboBox cboPrinter,Config cfg)
+        {
             try
             {
-                pdoc.Print();
-                return true;
+                foreach (String strPrinter in System.Drawing.Printing.PrinterSettings.InstalledPrinters)
+                {
+                    cboPrinter.Items.Add(strPrinter);
+                }
+                string strPrinterDefault = cfg.ReadSetting(Alias.PRINTER_NAME_DEFAULT);
+                if (!strPrinterDefault.Equals(string.Empty))
+                {
+                    cboPrinter.SelectedItem = strPrinterDefault;
+                }
             }
             catch (Exception ex)
             {
-                return false;
-            } 
-            return true;
+                MessageBox.Show(ex.Message);
+            }
         }
+
+        public bool isPDFFile(string strFileName)
+        {
+            if (Path.GetExtension(strFileName).ToUpper().Equals(".PDF"))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool isDOCFile(string strFileName)
+        {
+            if (Path.GetExtension(strFileName).ToUpper().Equals(".DOC"))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        ///method to check if a printer is online or offline
+        /// </summary>
+        /// <param name="printerName">name of the Printer</param>
+        /// <returns></returns>
+        public bool IsPrinterOnline(string printerName)
+        {
+            string str = "";
+            bool online = false;
+
+            //set the scope of this search to the local machine
+            ManagementScope scope = new ManagementScope(ManagementPath.DefaultPath);
+            //connect to the machine
+            scope.Connect();
+
+            //query for the ManagementObjectSearcher
+            SelectQuery query = new SelectQuery("select * from Win32_Printer");
+
+            ManagementClass m = new ManagementClass("Win32_Printer");
+
+            ManagementObjectSearcher obj = new ManagementObjectSearcher(scope, query);
+
+            //get each instance from the ManagementObjectSearcher object
+            using (ManagementObjectCollection printers = m.GetInstances())
+                //now loop through each printer instance returned
+                foreach (ManagementObject printer in printers)
+                {
+                    //first make sure we got something back
+                    if (printer != null)
+                    {
+                        //get the current printer name in the loop
+                        str = printer["Name"].ToString().ToLower();
+
+                        //check if it matches the name provided
+                        if (str.Equals(printerName.ToLower()))
+                        {
+                            //since we found a match check it's status
+                            if (printer["WorkOffline"].ToString().ToLower().Equals("true") || printer["PrinterStatus"].Equals(7))
+                                //it's offline
+                                online = false;
+                            else
+                                //it's online
+                                online = true;
+                        }
+                    }
+                    else
+                        throw new Exception("No printers were found");
+                }
+            return online;
+        }
+
     }
 }

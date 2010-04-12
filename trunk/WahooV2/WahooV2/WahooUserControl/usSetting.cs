@@ -76,6 +76,23 @@ namespace WahooV2.WahooUserControl
                 txtExecuteInterval.Focus();
                 double.Parse(txtTransferSpeed.Text);
                 txtTransferSpeed.Focus();
+                if (txtBlowfishKey.Text.Trim().Equals(string.Empty))
+                {
+                    this.ShowMessageBox("ERR015", MessageType.ERROR);
+                    return false;
+                }
+                //Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
+                //string originalKey = configObl.ReadSetting(AliasMessage.BLOWFISH_KEY_CONFIG);
+                //if (txtBlowfishKey.Text != originalKey)
+                //{
+                //    configObl.WriteSetting(AliasMessage.BLOWFISH_KEY_CONFIG, txtBlowfishKey.Text);
+                //    WahooServiceControl.WahooWebServiceControl hl7WebSer = new WahooServiceControl.WahooWebServiceControl(txtWsdlUrl.Text);
+                //    if (!hl7WebSer.UploadBlowfishKey(txtBlowfishKey.Text))
+                //    {
+                //        this.ShowMessageBox("ERR015", MessageType.ERROR);
+                //        return false;
+                //    }
+                //}
                 return true;
             }
             catch
@@ -93,6 +110,17 @@ namespace WahooV2.WahooUserControl
             try
             {
                 Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
+                string originalKey = configObl.ReadSetting(AliasMessage.BLOWFISH_KEY_CONFIG);
+                if (txtBlowfishKey.Text != originalKey)
+                {
+                    configObl.WriteSetting(AliasMessage.BLOWFISH_KEY_CONFIG, txtBlowfishKey.Text);
+                   WahooServiceControl.WahooWebServiceControl hl7WebSer = new WahooServiceControl.WahooWebServiceControl(txtWsdlUrl.Text);
+                    if (!hl7WebSer.UploadBlowfishKey(txtBlowfishKey.Text))
+                    {
+                        this.ShowMessageBox("ERR015", MessageType.ERROR);
+                        return false;
+                    }
+                }
                 configObl.WriteSetting(AliasMessage.DASHBOARD_INTERVAL_CONFIG, txtDashboardRefresh.Text);
                 configObl.WriteSetting(AliasMessage.EXECUTE_INTERVAL_CONFIG, txtExecuteInterval.Text);
                 configObl.WriteSetting(AliasMessage.TRANSFER_SPEED_CONFIG, txtTransferSpeed.Text);
@@ -141,6 +169,7 @@ namespace WahooV2.WahooUserControl
                 txtTransferSpeed.Text = "16";
             }
             txtWsdlUrl.Text = configObl.ReadSetting(AliasMessage.WSDL_URL_CONFIG);
+            txtBlowfishKey.Text = configObl.ReadSetting(AliasMessage.BLOWFISH_KEY_CONFIG);
             LoadResouceInfo();
         }
         /// <summary>

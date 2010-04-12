@@ -46,6 +46,8 @@
             this.txtPrivateKeyFile = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnBrowse = new System.Windows.Forms.Button();
+            this.txtBlowfishKey = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.tabSetting.SuspendLayout();
             this.tabInformation.SuspendLayout();
             this.tbaRsa.SuspendLayout();
@@ -67,6 +69,8 @@
             // 
             // tabInformation
             // 
+            this.tabInformation.Controls.Add(this.txtBlowfishKey);
+            this.tabInformation.Controls.Add(this.label7);
             this.tabInformation.Controls.Add(this.txtTransferSpeed);
             this.tabInformation.Controls.Add(this.txtExecuteInterval);
             this.tabInformation.Controls.Add(this.txtDashboardRefresh);
@@ -129,7 +133,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(220, 169);
+            this.btnSave.Location = new System.Drawing.Point(220, 203);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(79, 23);
             this.btnSave.TabIndex = 8;
@@ -251,6 +255,24 @@
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
+            // txtBlowfishKey
+            // 
+            this.txtBlowfishKey.Location = new System.Drawing.Point(220, 166);
+            this.txtBlowfishKey.Name = "txtBlowfishKey";
+            this.txtBlowfishKey.Size = new System.Drawing.Size(100, 20);
+            this.txtBlowfishKey.TabIndex = 10;
+            this.txtBlowfishKey.Visible = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(24, 170);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 13);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Encrypt Key:";
+            this.label7.Visible = false;
+            // 
             // usSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,5 +310,7 @@
         private System.Windows.Forms.TextBox txtPrivateKeyFile;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnBrowse;
+        private System.Windows.Forms.TextBox txtBlowfishKey;
+        private System.Windows.Forms.Label label7;
     }
 }
