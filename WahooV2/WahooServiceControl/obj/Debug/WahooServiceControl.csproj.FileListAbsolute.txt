@@ -1,6 +1,0 @@
-F:\lam viec\wahooV2\lastest wahoo\WahooV2\WahooServiceControl\bin\Debug\WahooServiceControl.dll.config
-F:\lam viec\wahooV2\lastest wahoo\WahooV2\WahooServiceControl\bin\Debug\WahooServiceControl.dll
-F:\lam viec\wahooV2\lastest wahoo\WahooV2\WahooServiceControl\bin\Debug\WahooServiceControl.pdb
-F:\lam viec\wahooV2\lastest wahoo\WahooV2\WahooServiceControl\obj\Debug\ResolveAssemblyReference.cache
-F:\lam viec\wahooV2\lastest wahoo\WahooV2\WahooServiceControl\obj\Debug\WahooServiceControl.dll
-F:\lam viec\wahooV2\lastest wahoo\WahooV2\WahooServiceControl\obj\Debug\WahooServiceControl.pdb
