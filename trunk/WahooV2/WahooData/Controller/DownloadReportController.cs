@@ -67,6 +67,32 @@ namespace WahooData.Controller
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="condition"></param>
+        /// <param name="index"></param>
+        /// <param name="numOfRow"></param>
+        /// <returns></returns>
+        public List<DownloadReport> GetItemsCollection(DownloadReport condition, int index, int numOfRow)
+        {
+            try
+            {
+                List<object> items = base.GetItemsCollection(condition, index, numOfRow);
+                if (items == null)
+                    return null;
+
+                return items.ConvertAll<DownloadReport>(delegate(object objDownloadReport)
+                {
+                    return (DownloadReport)objDownloadReport;
+                });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
         /// Get DownloadReport collection match condition contain in obj
         /// </summary>
         /// <param name="condition">The obj contain conditions to filter.</param>
