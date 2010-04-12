@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="HL7Client">
+</Property><Property Name="Solution File" Value="D:\VuPT\Wahoo Project\wahoo\HL7Client\HL7Client.sln">
+</Property><Property Name="User Options File" Value="D:\VuPT\Wahoo Project\wahoo\HL7Client\HL7Client.suo">
+</Property><Property Name="Date" Value="Monday, March 22, 2010">
+</Property><Property Name="Time" Value="15:46 PM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="HL7Client.sln" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7Client.sln">
+</Event><Event ErrorLevel="0" Project="" Source="HL7Client.suo" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7Client.suo">
+</Event><Event ErrorLevel="0" Project="HL7Source" Source="HL7Source\HL7Source.csproj" Description="Project file successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7Source\HL7Source.csproj">
+</Event><Event ErrorLevel="0" Project="HL7Source" Source="HL7Source\HL7Source.csproj.user" Description="Project user file successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7Source\HL7Source.csproj.user">
+</Event><Event ErrorLevel="0" Project="HL7Source" Source="HL7Source\Alias.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7Source\Alias.cs">
+</Event><Event ErrorLevel="0" Project="HL7Source" Source="HL7Source\BlowFish.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7Source\BlowFish.cs">
+</Event><Event ErrorLevel="0" Project="HL7Source" Source="HL7Source\cNetworkDrive.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7Source\cNetworkDrive.cs">
+</Event><Event ErrorLevel="0" Project="HL7Source" Source="HL7Source\Config.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7Source\Config.cs">
+</Event><Event ErrorLevel="0" Project="HL7Source" Source="HL7Source\Web References\Cryption.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7Source\Web References\Cryption.cs">
+</Event><Event ErrorLevel="0" Project="HL7Source" Source="HL7Source\EncodeMd5.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7Source\EncodeMd5.cs">
+</Event><Event ErrorLevel="0" Project="HL7Source" Source="HL7Source\HL7Service.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7Source\HL7Service.cs">
+</Event><Event ErrorLevel="0" Project="HL7Source" Source="HL7Source\Log.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7Source\Log.cs">
+</Event><Event ErrorLevel="0" Project="HL7Source" Source="HL7Source\Message.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7Source\Message.cs">
+</Event><Event ErrorLevel="0" Project="HL7Source" Source="HL7Source\PrintClass.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7Source\PrintClass.cs">
+</Event><Event ErrorLevel="0" Project="HL7Source" Source="HL7Source\Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7Source\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="HL7Source" Source="HL7Source\Properties\Settings.Designer.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7Source\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="HL7Source" Source="HL7Source\Resource.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7Source\Resource.cs">
+</Event><Event ErrorLevel="0" Project="HL7Source" Source="HL7Source\TrustAllCertificatePolicy.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7Source\TrustAllCertificatePolicy.cs">
+</Event><Event ErrorLevel="0" Project="HL7Source" Source="HL7Source\UtilityFunction.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7Source\UtilityFunction.cs">
+</Event><Event ErrorLevel="0" Project="HL7Source" Source="HL7Source\Web References\HL7WebService\Reference.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7Source\Web References\HL7WebService\Reference.cs">
+</Event><Event ErrorLevel="0" Project="HL7Source" Source="HL7Source\app.config" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7Source\app.config">
+</Event><Event ErrorLevel="0" Project="HL7Source" Source="HL7Source\Properties\Settings.settings" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7Source\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="HL7Source" Source="HL7Source\Web References\HL7WebService\HL7Service.wsdl" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7Source\Web References\HL7WebService\HL7Service.wsdl">
+</Event><Event ErrorLevel="0" Project="HL7Source" Source="HL7Source\Web References\HL7WebService\HL7Service.disco" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7Source\Web References\HL7WebService\HL7Service.disco">
+</Event><Event ErrorLevel="0" Project="HL7Source" Source="HL7Source\Web References\HL7WebService\Reference.map" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7Source\Web References\HL7WebService\Reference.map">
+</Event><Event ErrorLevel="0" Project="HL7Source" Source="HL7Source\HL7Source.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="HL7Source" Source="HL7Source\HL7Source.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="HL7ServerTransfer" Source="HL7ServerTransfer\HL7ServerTransfer.csproj" Description="Project file successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7ServerTransfer\HL7ServerTransfer.csproj">
+</Event><Event ErrorLevel="0" Project="HL7ServerTransfer" Source="HL7ServerTransfer\ChooseAcrobatExe.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7ServerTransfer\ChooseAcrobatExe.cs">
+</Event><Event ErrorLevel="0" Project="HL7ServerTransfer" Source="HL7ServerTransfer\ChooseAcrobatExe.Designer.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7ServerTransfer\ChooseAcrobatExe.Designer.cs">
+</Event><Event ErrorLevel="0" Project="HL7ServerTransfer" Source="HL7ServerTransfer\frmBase.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7ServerTransfer\frmBase.cs">
+</Event><Event ErrorLevel="0" Project="HL7ServerTransfer" Source="HL7ServerTransfer\frmBase.Designer.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7ServerTransfer\frmBase.Designer.cs">
+</Event><Event ErrorLevel="0" Project="HL7ServerTransfer" Source="HL7ServerTransfer\frmLicenseKey.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7ServerTransfer\frmLicenseKey.cs">
+</Event><Event ErrorLevel="0" Project="HL7ServerTransfer" Source="HL7ServerTransfer\frmLicenseKey.Designer.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7ServerTransfer\frmLicenseKey.Designer.cs">
+</Event><Event ErrorLevel="0" Project="HL7ServerTransfer" Source="HL7ServerTransfer\frmMain.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7ServerTransfer\frmMain.cs">
+</Event><Event ErrorLevel="0" Project="HL7ServerTransfer" Source="HL7ServerTransfer\frmMain.Designer.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7ServerTransfer\frmMain.Designer.cs">
+</Event><Event ErrorLevel="0" Project="HL7ServerTransfer" Source="HL7ServerTransfer\frmSettingInfo.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7ServerTransfer\frmSettingInfo.cs">
+</Event><Event ErrorLevel="0" Project="HL7ServerTransfer" Source="HL7ServerTransfer\frmSettingInfo.Designer.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7ServerTransfer\frmSettingInfo.Designer.cs">
+</Event><Event ErrorLevel="0" Project="HL7ServerTransfer" Source="HL7ServerTransfer\Program.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7ServerTransfer\Program.cs">
+</Event><Event ErrorLevel="0" Project="HL7ServerTransfer" Source="HL7ServerTransfer\Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7ServerTransfer\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="HL7ServerTransfer" Source="HL7ServerTransfer\Properties\Resources.Designer.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7ServerTransfer\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="HL7ServerTransfer" Source="HL7ServerTransfer\Properties\Settings.Designer.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7ServerTransfer\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="HL7ServerTransfer" Source="HL7ServerTransfer\App.config" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7ServerTransfer\App.config">
+</Event><Event ErrorLevel="0" Project="HL7ServerTransfer" Source="HL7ServerTransfer\Properties\Settings.settings" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7ServerTransfer\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="HL7ServerTransfer" Source="HL7ServerTransfer\ChooseAcrobatExe.resx" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7ServerTransfer\ChooseAcrobatExe.resx">
+</Event><Event ErrorLevel="0" Project="HL7ServerTransfer" Source="HL7ServerTransfer\frmLicenseKey.resx" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7ServerTransfer\frmLicenseKey.resx">
+</Event><Event ErrorLevel="0" Project="HL7ServerTransfer" Source="HL7ServerTransfer\frmMain.resx" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7ServerTransfer\frmMain.resx">
+</Event><Event ErrorLevel="0" Project="HL7ServerTransfer" Source="HL7ServerTransfer\frmSettingInfo.resx" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7ServerTransfer\frmSettingInfo.resx">
+</Event><Event ErrorLevel="0" Project="HL7ServerTransfer" Source="HL7ServerTransfer\Properties\Resources.resx" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\HL7ServerTransfer\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="HL7ServerTransfer" Source="HL7ServerTransfer\HL7ServerTransfer.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="HL7ServerTransfer" Source="HL7ServerTransfer\HL7ServerTransfer.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="WahooServiceControl" Source="WahooServiceControl\WahooServiceControl.csproj" Description="Project file successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\WahooServiceControl\WahooServiceControl.csproj">
+</Event><Event ErrorLevel="0" Project="WahooServiceControl" Source="WahooServiceControl\ControlEx\ServiceControllerEx.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\WahooServiceControl\ControlEx\ServiceControllerEx.cs">
+</Event><Event ErrorLevel="0" Project="WahooServiceControl" Source="WahooServiceControl\Form1.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\WahooServiceControl\Form1.cs">
+</Event><Event ErrorLevel="0" Project="WahooServiceControl" Source="WahooServiceControl\Form1.Designer.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\WahooServiceControl\Form1.Designer.cs">
+</Event><Event ErrorLevel="0" Project="WahooServiceControl" Source="WahooServiceControl\Program.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\WahooServiceControl\Program.cs">
+</Event><Event ErrorLevel="0" Project="WahooServiceControl" Source="WahooServiceControl\Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\WahooServiceControl\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="WahooServiceControl" Source="WahooServiceControl\Properties\Resources.Designer.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\WahooServiceControl\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="WahooServiceControl" Source="WahooServiceControl\Properties\Settings.Designer.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\WahooServiceControl\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="WahooServiceControl" Source="WahooServiceControl\Properties\Settings.settings" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\WahooServiceControl\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="WahooServiceControl" Source="WahooServiceControl\Form1.resx" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\WahooServiceControl\Form1.resx">
+</Event><Event ErrorLevel="0" Project="WahooServiceControl" Source="WahooServiceControl\Properties\Resources.resx" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\WahooServiceControl\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="WahooServiceControl" Source="WahooServiceControl\WahooServiceControl.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="WahooServiceControl" Source="WahooServiceControl\WahooServiceControl.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="WahooService" Source="WahooService\WahooService.csproj" Description="Project file successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\WahooService\WahooService.csproj">
+</Event><Event ErrorLevel="0" Project="WahooService" Source="WahooService\Program.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\WahooService\Program.cs">
+</Event><Event ErrorLevel="0" Project="WahooService" Source="WahooService\Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\WahooService\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="WahooService" Source="WahooService\WahooService.cs" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\WahooService\WahooService.cs">
+</Event><Event ErrorLevel="0" Project="WahooService" Source="WahooService\WahooService.resx" Description="File successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\WahooService\WahooService.resx">
+</Event><Event ErrorLevel="0" Project="WahooService" Source="WahooService\WahooService.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="WahooService" Source="WahooService\WahooService.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="WahooClientSetup.vdproj" Source="WahooClientSetup\WahooClientSetup.vdproj" Description="Project file successfully backed up as D:\VuPT\Wahoo Project\wahoo\HL7Client\Backup\WahooClientSetup\WahooClientSetup.vdproj">
+</Event><Event ErrorLevel="0" Project="" Source="HL7Client.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="HL7Client.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="HL7Source" Source="HL7Source\HL7Source.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="HL7ServerTransfer" Source="HL7ServerTransfer\HL7ServerTransfer.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="WahooServiceControl" Source="WahooServiceControl\WahooServiceControl.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="WahooService" Source="WahooService\WahooService.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>
