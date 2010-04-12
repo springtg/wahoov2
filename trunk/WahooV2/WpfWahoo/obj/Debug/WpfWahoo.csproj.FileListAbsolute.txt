@@ -1,0 +1,12 @@
+F:\lam viec\wahooV2\lastest wahoo\WahooV2\WpfWahoo\bin\Debug\WpfWahoo.exe
+F:\lam viec\wahooV2\lastest wahoo\WahooV2\WpfWahoo\bin\Debug\WpfWahoo.pdb
+F:\lam viec\wahooV2\lastest wahoo\WahooV2\WpfWahoo\obj\Debug\ResolveAssemblyReference.cache
+F:\lam viec\wahooV2\lastest wahoo\WahooV2\WpfWahoo\obj\Debug\Window1.baml
+F:\lam viec\wahooV2\lastest wahoo\WahooV2\WpfWahoo\obj\Debug\Window1.g.cs
+F:\lam viec\wahooV2\lastest wahoo\WahooV2\WpfWahoo\obj\Debug\App.g.cs
+F:\lam viec\wahooV2\lastest wahoo\WahooV2\WpfWahoo\obj\Debug\WpfWahoo_MarkupCompile.cache
+F:\lam viec\wahooV2\lastest wahoo\WahooV2\WpfWahoo\obj\Debug\WpfWahoo.g.resources
+F:\lam viec\wahooV2\lastest wahoo\WahooV2\WpfWahoo\obj\Debug\WpfWahoo.Properties.Resources.resources
+F:\lam viec\wahooV2\lastest wahoo\WahooV2\WpfWahoo\obj\Debug\WpfWahoo.csproj.GenerateResource.Cache
+F:\lam viec\wahooV2\lastest wahoo\WahooV2\WpfWahoo\obj\Debug\WpfWahoo.exe
+F:\lam viec\wahooV2\lastest wahoo\WahooV2\WpfWahoo\obj\Debug\WpfWahoo.pdb
