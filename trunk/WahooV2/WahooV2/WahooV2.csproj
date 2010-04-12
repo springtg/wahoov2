@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{14E0B415-79D8-4A3E-8B4F-F791E0B0E089}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WahooV2</RootNamespace>
+    <AssemblyName>WahooV2</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\software\log4net-1.2.10\bin\net\2.0\debug\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XPPanel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c1a4c9eadd4711d4">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\wahoo\HL7Brigde\HL7Brigde\HL7Brigde\dll\XPPanel.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\SoapProtocol.cs" />
+    <Compile Include="ExControl\TextBoxForNum.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBase.Designer.cs">
+      <DependentUpon>frmBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditClient.Designer.cs">
+      <DependentUpon>frmEditClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditUser.Designer.cs">
+      <DependentUpon>frmEditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditClient.resx">
+      <DependentUpon>frmEditClient.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditUser.resx">
+      <DependentUpon>frmEditUser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WahooUserControl\ucChannels.resx">
+      <DependentUpon>ucChannels.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WahooUserControl\ucClients.resx">
+      <DependentUpon>ucClients.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WahooUserControl\ucNewChannel.resx">
+      <DependentUpon>ucNewChannel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WahooUserControl\ucUser.resx">
+      <DependentUpon>ucUser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WahooUserControl\usMonitor.resx">
+      <DependentUpon>usMonitor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WahooUserControl\usSetting.resx">
+      <DependentUpon>usSetting.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="WahooUserControl\controlBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WahooUserControl\controlBase.Designer.cs">
+      <DependentUpon>controlBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WahooUserControl\ucChannels.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WahooUserControl\ucChannels.Designer.cs">
+      <DependentUpon>ucChannels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WahooUserControl\ucClients.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WahooUserControl\ucClients.Designer.cs">
+      <DependentUpon>ucClients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WahooUserControl\ucNewChannel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WahooUserControl\ucNewChannel.Designer.cs">
+      <DependentUpon>ucNewChannel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WahooUserControl\ucUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WahooUserControl\ucUser.Designer.cs">
+      <DependentUpon>ucUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WahooUserControl\usMonitor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WahooUserControl\usMonitor.Designer.cs">
+      <DependentUpon>usMonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WahooUserControl\usSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WahooUserControl\usSetting.Designer.cs">
+      <DependentUpon>usSetting.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Clients.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Monitor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StartAll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StopAll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Start.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Enable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Deploy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Deploy All.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Undeploy All.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UserEdit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UserDelete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddClient.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ClientDelete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EditClient.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\log4net.dll" />
+    <Content Include="bin\Debug\log4net.pdb" />
+    <Content Include="bin\Debug\log4net.xml" />
+    <Content Include="bin\Debug\Resource\Message.xml" />
+    <Content Include="bin\Debug\Resource\Resource.xml" />
+    <Content Include="bin\Debug\XPPanel.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WahooCommon\WahooCommon.csproj">
+      <Project>{B3F04200-DF60-4300-8E3F-2E95AC8004E0}</Project>
+      <Name>WahooCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WahooConfiguration\WahooConfiguration.csproj">
+      <Project>{8EC8DB4D-2E5B-4727-9C60-37B9AF4CFDE3}</Project>
+      <Name>WahooConfiguration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WahooData\WahooData.csproj">
+      <Project>{63F0C468-77DB-437C-8982-FD961A4F564B}</Project>
+      <Name>WahooData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WahooServiceControl\WahooServiceControl.csproj">
+      <Project>{D235B575-116D-4918-BA88-28C8459F00CC}</Project>
+      <Name>WahooServiceControl</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
