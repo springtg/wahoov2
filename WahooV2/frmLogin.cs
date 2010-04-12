@@ -1,0 +1,60 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using WahooData.DBO;
+using WahooData.BusinessHandler;
+using System.Threading;
+
+namespace WahooV2
+{
+    public partial class frmLogin : Form
+    {
+        private frmMain objMain;
+        public frmLogin()
+        {
+            InitializeComponent();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            if (txtUsername.Text.Trim() == "")
+            {
+                MessageBox.Show("Username is empty.", "Login fail!", MessageBoxButtons.OK);
+                return;
+            }
+            User objUser = new User();
+            objUser.Username=txtUsername.Text;
+            objUser.Password=txtPassword.Text;
+            //Lay ra User
+            List<User> objListUser=WahooBusinessHandler.Get_ListUser(objUser);
+            if (objListUser.Count==0)
+            {
+                MessageBox.Show("Invalid usename, password", "Login fail!", MessageBoxButtons.OK);
+                return;
+            }
+            this.Hide();
+            objMain = new frmMain();
+            //Thread th = new Thread(new ThreadStart(InitData));
+            //th.Start();
+            //msg = new frmProgress("Loading data...");
+            //msg.ShowDialog();
+            //if (msg.DialogResult == DialogResult.OK)
+            //    th.Abort();
+            //objMain.InitData();
+            objMain.ShowDialog();
+            this.Close();
+            Cursor.Current = Cursors.Default;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtPassword.Text = txtUsername.Text = string.Empty;
+        }
+    }
+}
