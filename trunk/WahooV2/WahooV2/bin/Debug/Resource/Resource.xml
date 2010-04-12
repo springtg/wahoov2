@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sections>
+  <comment>Controls name for form Client</comment>
+  <section name="CLIENT_FORM_CONTROL">
+    <item key="CLIENT_FORM_CONTROL" id="CREATE_NAME_COLUMN" value="Create Client"/>
+    <item key="CLIENT_FORM_CONTROL" id="UPDATE_NAME_COLUMN" value="Edit Client"/>
+  </section>
+  <section name="USER_FORM_CONTROL">
+    <item key="USER_FORM_CONTROL" id="FORM_NAME_CREATE" value="Create User"/>
+    <item key="USER_FORM_CONTROL" id="FORM_NAME_UPDATE" value="Edit User"/>
+    <item key="USER_FORM_CONTROL" id="LABEL_NAME_CONFIGPASSWORD" value="Confirm Password:"/>
+    <item key="USER_FORM_CONTROL" id="LABEL_NAME_DESCRIPTION" value="Description:"/>
+    <item key="USER_FORM_CONTROL" id="LABEL_NAME_EMAIL" value="Email:"/>
+    <item key="USER_FORM_CONTROL" id="LABEL_NAME_FIRSTNAME" value="First Name:"/>
+    <item key="USER_FORM_CONTROL" id="LABEL_NAME_LASTNAME" value="Last Name:"/>
+    <item key="USER_FORM_CONTROL" id="LABEL_NAME_ORGANIZATION" value="Organization:"/>
+    <item key="USER_FORM_CONTROL" id="LABEL_NAME_PASSWORD" value="Password:"/>
+    <item key="USER_FORM_CONTROL" id="LABEL_NAME_PHONE" value="Phone:"/>
+    <item key="USER_FORM_CONTROL" id="LABEL_NAME_USERNAME" value="Username:"/>
+    <item key="USER_FORM_CONTROL" id="BUTTON_NAME_CANCEL" value="Cancel"/>
+    <item key="USER_FORM_CONTROL" id="BUTTON_NAME_FINISH" value="Finish"/>
+    <item key="USER_FORM_CONTROL" id="HEADER_NAME_USERNAME" value="Username"/>
+    <item key="USER_FORM_CONTROL" id="HEADER_NAME_FIRSTNAME" value="First Name"/>
+    <item key="USER_FORM_CONTROL" id="HEADER_NAME_LASTNAME" value="Last Name"/>
+    <item key="USER_FORM_CONTROL" id="HEADER_NAME_ORGANIZATION" value="Organization"/>
+    <item key="USER_FORM_CONTROL" id="HEADER_NAME_EMAIL" value="Email"/>
+    <item key="USER_FORM_CONTROL" id="HEADER_NAME_PHONE" value="Phone Number"/>
+    <item key="USER_FORM_CONTROL" id="HEADER_NAME_DESCRIPTION" value="Description"/>
+    <item key="USER_FORM_CONTROL" id="MENUITEM_NAME_NEWUSER" value="New User"/>
+    <item key="USER_FORM_CONTROL" id="MENUITEM_NAME_EDITUSER" value="Edit User"/>
+    <item key="USER_FORM_CONTROL" id="MENUITEM_NAME_DELETEUSER" value="Delete User"/>
+  </section>
+
+  <section  name="MONITOR_FORM_CONTROL">
+    <item key="MONITOR_FORM_CONTROL" id="HEADER_LABLE_TEXT" value="Report(s)"/>
+    <item key="MONITOR_FORM_CONTROL" id="HEADER_LABLE_TEXT_FOR_CLIENT" value="Resport for"/>
+    <item key="MONITOR_FORM_CONTROL" id="GROUP_NAME" value="Search Information"/>
+    <item key="MONITOR_FORM_CONTROL" id="CHECKBOX_NAME" value="Date"/>
+    <item key="MONITOR_FORM_CONTROL" id="LABEL_NAME_FILENAME" value="File name:"/>
+    <item key="MONITOR_FORM_CONTROL" id="LABEL_NAME_FILE" value="File(s):"/>
+    <item key="MONITOR_FORM_CONTROL" id="LABEL_NAME_CLIENT" value="Client(s):"/>
+    <item key="MONITOR_FORM_CONTROL" id="LABEL_NAME_DOWNLOADSTATUS" value="Download status:"/>
+    <item key="MONITOR_FORM_CONTROL" id="LABEL_NAME_SENTTOPRINTERSTATUS" value="Sent to print status:"/>
+    <item key="MONITOR_FORM_CONTROL" id="LABEL_NAME_IPADDRESS" value="Ip Address:"/>
+    <item key="MONITOR_FORM_CONTROL" id="LABEL_NAME_DOWNLOADTIME" value="Downloaded time:"/>
+    <item key="MONITOR_FORM_CONTROL" id="LABEL_NAME_SENDTOPRINTERTIME" value="Sent to print time:"/>
+    <item key="MONITOR_FORM_CONTROL" id="GRID_COLUMN_IPADDRESS" value="Ip address"/>
+    <item key="MONITOR_FORM_CONTROL" id="GRID_COLUMN_FILENAME" value="File name"/>
+    <item key="MONITOR_FORM_CONTROL" id="GRID_COLUMN_DOWNLOADED" value="Downloaded"/>
+    <item key="MONITOR_FORM_CONTROL" id="GRID_COLUMN_SENTTOPRINTER" value="Sent to print"/>
+    
+    
+    
+  </section>
+  
+  <section  name="SETTING_FORM_CONTROL">
+    <item key="SETTING_FORM_CONTROL" id="HEADER_LABLE_TEXT" value="Setting"/>
+    <item key="SETTING_FORM_CONTROL" id="LABEL_NAME_DASHBOARD" value="Dashboard refresh interval (Seconds):"/>
+    <item key="SETTING_FORM_CONTROL" id="LABEL_NAME_EXECUTE" value="Execute interval (Seconds):"/>
+    <item key="SETTING_FORM_CONTROL" id="LABEL_NAME_TRANFER" value="Transfer Speed(Kbps):"/>
+    <item key="SETTING_FORM_CONTROL" id="LABEL_NAME_WSADDRESS" value="Web service address:"/>
+    <item key="SETTING_FORM_CONTROL" id="TEXTBOX_DASHBOARD_LENGHT" value="5"/>
+    <item key="SETTING_FORM_CONTROL" id="TEXTBOX_EXECUTE_LENGHT" value="5"/>
+    <item key="SETTING_FORM_CONTROL" id="TEXTBOX_TRANSFER_LENGHT" value="5"/>        
+    <item key="SETTING_FORM_CONTROL" id="BUTTON_NAME_SAVE" value="Save"/>
+    <item key="SETTING_FORM_CONTROL" id="TAB_NAME_INFO" value="Information"/>
+    <item key="SETTING_FORM_CONTROL" id="TAB_NAME_RSA" value="RSA"/>
+    <item key="SETTING_FORM_CONTROL" id="LABEL_NAME_PRIVATE" value="Private key file:"/>
+    <item key="SETTING_FORM_CONTROL" id="LABEL_NAME_PUBLIC" value="Public key file:"/>
+    <item key="SETTING_FORM_CONTROL" id="LABEL_NAME_CREATE" value="Create new"/>
+    <item key="SETTING_FORM_CONTROL" id="LABEL_NAME_BROWSE" value="..."/>
+    <item key="SETTING_FORM_CONTROL" id="TITLE_FOLDERBROWSER" value="Select folder"/>
+    
+    
+  </section>
+
+  <section name="CHANNELS_FORM_CONTROL">
+    <item key="CHANNELS_FORM_CONTROL" id="HEADER_NAME_CHANNELNAME" value="Channel Name"/>
+    <item key="CHANNELS_FORM_CONTROL" id="HEADER_NAME_DESCRIPTION" value="Description"/>
+    <item key="CHANNELS_FORM_CONTROL" id="HEADER_NAME_STATUS" value="Status"/>
+    <item key="CHANNELS_FORM_CONTROL" id="MENUITEM_NAME_NEWCHANNEL" value="New Channel"/>
+    <item key="CHANNELS_FORM_CONTROL" id="MENUITEM_NAME_EDITCHANNEL" value="Edit Channel"/>
+    <item key="CHANNELS_FORM_CONTROL" id="MENUITEM_NAME_DELETECHANNEL" value="Delete Channel"/>
+    <item key="CHANNELS_FORM_CONTROL" id="MENUITEM_NAME_DISABLECHANNEL" value="Enabled"/>
+    <item key="CHANNELS_FORM_CONTROL" id="MENUITEM_NAME_DEPLOYCHANNEL" value="Deploy Channel"/>
+    <item key="CHANNELS_FORM_CONTROL" id="MENUITEM_NAME_DEPLOYALLCHANNEL" value="Deploy All"/>
+    <item key="CHANNELS_FORM_CONTROL" id="MENUITEM_NAME_UNDEPLOYALLCHANNEL" value="Undeploy All"/>
+  </section>
+
+  <section name="NEWCHANNEL_FORM_CONTROL">
+    <item key="NEWCHANNEL_FORM_CONTROL" id="TAP_NAME_SUMARY" value="Sumary"/>
+    <item key="NEWCHANNEL_FORM_CONTROL" id="TAP_NAME_SOURCE" value="Source"/>
+    <item key="NEWCHANNEL_FORM_CONTROL" id="GROUPBOX_NAME_CHANNEL" value="Channel Information"/>
+    <item key="NEWCHANNEL_FORM_CONTROL" id="GROUPBOX_NAME_CLIENT" value="Client Information"/>
+    <item key="NEWCHANNEL_FORM_CONTROL" id="CHECKBOX_NAME_ENALBLE" value="Enable"/>
+    <item key="NEWCHANNEL_FORM_CONTROL" id="CHECKBOX_NAME_STOREFILE" value="Backup file(s)"/>
+    <item key="NEWCHANNEL_FORM_CONTROL" id="LABLE_NAME_ADDRESS1" value="Address 1:"/>
+    <item key="NEWCHANNEL_FORM_CONTROL" id="LABLE_NAME_ADDRESS2" value="Address 2:"/>
+    <item key="NEWCHANNEL_FORM_CONTROL" id="LABLE_NAME_CHANNELDESCRIPTION" value="Description:"/>
+    <item key="NEWCHANNEL_FORM_CONTROL" id="LABLE_NAME_CHANNELNAME" value="Channel Name:"/>
+    <item key="NEWCHANNEL_FORM_CONTROL" id="LABLE_NAME_CHOOSECLIENT" value="Choose Client:"/>
+    <item key="NEWCHANNEL_FORM_CONTROL" id="LABLE_NAME_CITY" value="City:"/>
+    <item key="NEWCHANNEL_FORM_CONTROL" id="LABLE_NAME_CLIENTCODE" value=""/>
+    <item key="NEWCHANNEL_FORM_CONTROL" id="LABLE_NAME_CLIENTDESCRIPTION" value="Description:"/>
+    <item key="NEWCHANNEL_FORM_CONTROL" id="LABLE_NAME_CLIENTNAME" value="Client Name:"/>
+    <item key="NEWCHANNEL_FORM_CONTROL" id="LABLE_NAME_MAIL" value="Mail:"/>
+    <item key="NEWCHANNEL_FORM_CONTROL" id="LABLE_NAME_PATH" value="Outbound folder:"/>
+    <item key="NEWCHANNEL_FORM_CONTROL" id="LABLE_NAME_PHONE" value="Phone:"/>
+    <item key="NEWCHANNEL_FORM_CONTROL" id="LABLE_NAME_STATE" value="State:"/>
+    <item key="NEWCHANNEL_FORM_CONTROL" id="LABLE_NAME_URL" value="WSDL URL:"/>
+    <item key="NEWCHANNEL_FORM_CONTROL" id="LABLE_NAME_ZIPCODE" value="Zip Code:"/>
+    <item key="NEWCHANNEL_FORM_CONTROL" id="BUTTON_NAME_BROWSE" value="..."/>
+  </section>
+  
+</sections>
