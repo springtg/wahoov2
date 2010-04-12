@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<HL7MESSAGE>
+  <!-- START ERROR MESSAGE FOR CLIENT-->
+  <MSG MessageId="CLIENT_ERR001" Value="You must fill in client for name." />
+  <MSG MessageId="CLIENT_ERR002" Value="You must fill in client code." />
+  <MSG MessageId="CLIENT_ERR003" Value="You must fill in email." />
+  <MSG MessageId="CLIENT_ERR004" Value="Email is not valid." />
+  <MSG MessageId="CLIENT_ERR005" Value="Update client failed." />
+  <MSG MessageId="CLIENT_ERR006" Value="This client code does not exist." />
+  <MSG MessageId="CLIENT_ERR007" Value="Create client failed." />
+  <MSG MessageId="CLIENT_ERR008" Value="Error. Please try again." />
+  <!-- END ERROR MESSAGE FOR CLIENT-->
+  
+  
+  <!-- START INFORM MESSAGE FOR CLIENT-->
+  <MSG MessageId="CLIENT_CONF001" Value="Complete update client." />
+  <MSG MessageId="CLIENT_CONF002" Value="Successfully create client." />
+  <!-- END INFORM MESSAGE FOR CLIENT-->
+  
+  
+  <!-- QUESTION MESSAGE -->
+  <MSG MessageId="CLIENT_QUEST001" Value="Are you sure you want to delete this client?" />
+  <MSG MessageId="USER_QUEST001" Value="Are you sure you want to delete this user?" />
+  <MSG MessageId="CHANNEL_QUEST001" Value="Are you sure you want to delete this channel?" />
+  <MSG MessageId="SETTING_QUEST001" Value="Data has changed. Do you want to save"/>
+
+  <!-- START ERROR MESSAGE FOR USER-->
+  <MSG MessageId="USER_ERR001" Value="You must fill in user name." />
+  <MSG MessageId="USER_ERR002" Value="You must fill in Password" />
+  <MSG MessageId="USER_ERR003" Value="Password does not match." />
+  <MSG MessageId="USER_ERR004" Value="You must fill in first name" />
+  <MSG MessageId="USER_ERR005" Value="You must fill in last name" />
+  <MSG MessageId="USER_ERR006" Value="You must fill in Organization" />
+  <MSG MessageId="USER_ERR007" Value="You must fill in Email." />
+  <MSG MessageId="USER_ERR008" Value="Invalid email address." />
+  <MSG MessageId="USER_ERR009" Value="Error. Please try again." />
+  <MSG MessageId="USER_ERR010" Value="Update User failed." />
+  <MSG MessageId="USER_ERR011" Value="Create User failed." />
+  <MSG MessageId="USER_ERR012" Value="User already exists." />
+  <MSG MessageId="USER_ERR013" Value="Delete User failed." />
+  <!-- END ERROR MESSAGE FOR USER-->
+
+  <!-- START ERROR MESSAGE FOR CHANNEL-->
+  <MSG MessageId="CHANNEL_ERR001" Value="Channel name is required." />
+  <MSG MessageId="CHANNEL_ERR002" Value="Client must be choosen first before proceed." />
+  <MSG MessageId="CHANNEL_ERR003" Value="WSDL Url can not be empty." />
+  <MSG MessageId="CHANNEL_ERR004" Value="File path can not be empty." />
+  <MSG MessageId="CHANNEL_ERR005" Value="File path does not exist." />
+  <MSG MessageId="CHANNEL_ERR006" Value="Channel name does not exists." />
+  <MSG MessageId="CHANNEL_ERR007" Value="Create channel failed." />
+  <MSG MessageId="CHANNEL_ERR008" Value="Edit channel failed." />
+  <MSG MessageId="CHANNEL_ERR009" Value="Error. Please try again." />
+  <MSG MessageId="CHANNEL_ERR010" Value="You only create {0} channels." />
+  <MSG MessageId="CHANNEL_ERR011" Value="You must choose channel to edit." />
+  <MSG MessageId="CHANNEL_ERR012" Value="" />
+  <MSG MessageId="CHANNEL_ERR013" Value="" />
+  <!-- END ERROR MESSAGE FOR CHANNEL-->
+  
+  <!-- START INFORM MESSAGE FOR USER-->
+  <MSG MessageId="USER_CONF001" Value="Complete update user." />
+  <MSG MessageId="USER_CONF002" Value="Successfully create user." />
+  <!-- END INFORM MESSAGE FOR USER-->
+
+  <!-- ERROR MESSAGE -->
+  <MSG MessageId="ERR001" Value="Are you sure to delete1 this channel?" />
+  <MSG MessageId="ERR002" Value="HL7 folder must be selected." />
+  <MSG MessageId="ERR003" Value="Ftp address can not be empty." />
+  <MSG MessageId="ERR004" Value="Ftp port can not be empty." />
+  <MSG MessageId="ERR005" Value="Ftp timeout can not be empty." />
+  <MSG MessageId="ERR006" Value="File path can not be empty." />
+  <MSG MessageId="ERR007" Value="File path does not exist." />
+  <MSG MessageId="ERR008" Value="Ftp timeout is invalid." />
+  <MSG MessageId="ERR009" Value="You must choose folder which contains file public key." />
+  <MSG MessageId="ERR010" Value="WSDL Url can not be empty." />
+  <MSG MessageId="ERR011" Value="Server folder can not be empty." />
+  <MSG MessageId="ERR012" Value="This client code does not exist." />
+  <MSG MessageId="ERR013" Value="Error. Please try again." />
+  <MSG MessageId="ERR014" Value="Client name is required." />
+  <MSG MessageId="ERR015" Value="Blowfish key can not be empty." />
+  <MSG MessageId="ERR016" Value="Private key file can not be empty." />
+  <MSG MessageId="ERR017" Value="Client code must be filled before creating rsa file." />
+  <MSG MessageId="ERR018" Value="Patient ID file can not be empty." />
+  <MSG MessageId="ERR019" Value="This patient ID does not exist with the client." />
+  <MSG MessageId="ERR020" Value="User already exists." />
+  <MSG MessageId="ERR021" Value="Username can not be blank." />
+  <MSG MessageId="ERR022" Value="Password can not be blank." />
+  <MSG MessageId="ERR023" Value="password does not match." />
+  <MSG MessageId="ERR024" Value="First name can not be blank." />
+  <MSG MessageId="ERR025" Value="Lastname can not be blank." />
+  <MSG MessageId="ERR026" Value="Organization can not be empty." />
+  <MSG MessageId="ERR027" Value="Email can not be blank." />
+  <MSG MessageId="ERR028" Value="Invalid email address." />
+  <MSG MessageId="ERR029" Value="Channel name is required." />
+  <MSG MessageId="ERR030" Value="Channel name does not exists." />
+  <MSG MessageId="ERR031" Value="Client must be choosen first before proceed." />
+  <MSG MessageId="ERR032" Value="If Client is selected, you must select download." />
+  <MSG MessageId="ERR033" Value="If customer is selected, you must select upload." />
+  <MSG MessageId="ERR034" Value="You must choose channel to edit." />
+  <MSG MessageId="ERR035" Value="The infomation invalid." />
+  <MSG MessageId="ERR036" Value="You only create {0} channels." />
+  <!-- INFORM MESSAGE -->
+  <MSG MessageId="CONF001" Value="Active channels associated with this client, you can not delete this client." />
+  <MSG MessageId="CONF002" Value="Successfully Output HL7 file." />
+  <MSG MessageId="CONF003" Value="Failed to Output HL7 file." />
+  <MSG MessageId="CONF004" Value="Export completed." />
+  <MSG MessageId="CONF005" Value="Import completed." />
+  <MSG MessageId="CONF006" Value="File successfully created." />
+  <MSG MessageId="CONF007" Value="Can not create RSA file. Please try again." />
+  <MSG MessageId="CONF008" Value="Complete update client." />
+  <MSG MessageId="CONF009" Value="Update client failed." />
+  <MSG MessageId="CONF010" Value="Successfully create client." />
+  <MSG MessageId="CONF011" Value="Create client failed." />
+  <MSG MessageId="CONF012" Value="Successfully create RSA file." />
+  <MSG MessageId="CONF013" Value="Can not create RSA file. Please try again." />
+  <MSG MessageId="CONF014" Value="This client code has not yet downloaded." />
+  <MSG MessageId="CONF015" Value="Complete update user." />
+  <MSG MessageId="CONF016" Value="Update user failed." />
+  <MSG MessageId="CONF017" Value="Successfully create user." />
+  <MSG MessageId="CONF018" Value="Create user failed." />
+  <MSG MessageId="CONF019" Value="Infomation has been updated." />
+  <MSG MessageId="CONF020" Value="Failed update infomation." />
+  <!-- QUESTION MESSAGE -->
+  <MSG MessageId="QUEST001" Value="Are you sure you want to delete this channel?" />
+  <MSG MessageId="QUEST002" Value="Are you sure you want to delete this client?" />
+  <MSG MessageId="QUEST003" Value="Are you sure you want to delete this user?" />
+  <MSG MessageId="QUEST004" Value="Would you like to save changes for this channel?" />
+  <MSG MessageId="QUEST005" Value="Would you like to save changes for these rules?" />
+  <!-- QUESTION MESSAGE -->
+  
+  <!--Monitor Message: NTXUAN:01/04/2010 -->
+  <MSG MessageId="MONITOR_TEXT001" Value="file(s)" />
+  <MSG MessageId="MONITOR_Text002" Value="ERROR"/>
+  <MSG MessageId="MONITOR_Text003" Value="SUCCESS"/>
+  <MSG MessageId="MONITOR_CBO001" Value="-----------All------------"/>
+  <MSG MessageId="MONITOR_CBO002" Value="--Have been printed--"/>
+  <MSG MessageId="MONITOR_CBO003" Value="--Have been delivered--"/>
+  <MSG MessageId="MONITOR_CBO004" Value="------Error------"/>
+  
+ 
+
+</HL7MESSAGE>
