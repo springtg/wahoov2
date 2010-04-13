@@ -11,13 +11,14 @@ using WahooData.DBO;
 using WahooData.BusinessHandler;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+using log4net;
 
 namespace WahooV2
 {
     public partial class frmEditClient : frmBase
     {
         #region variable
-
+        private static readonly ILog _logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         //Staus to Create or Update
         private string _mStatus = "";
 
@@ -165,6 +166,9 @@ namespace WahooV2
             }
             catch (Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 this.ShowMessageBox("CLIENT_ERR008", string.Format(WahooConfiguration.Message.GetMessageById("CLIENT_ERR008")), MessageType.ERROR);
             }
         }

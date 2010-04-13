@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using WahooV2.ExControl;
+using log4net;
 
 namespace WahooV2
 {
     public partial class frmBase : Form
     {
+        private static readonly ILog _logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         #region Enumerations
 
         public enum MessageType
@@ -71,6 +73,9 @@ namespace WahooV2
             }
             catch (Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 //4.Error handling
                 //Write exception here
                 return DialogResult.None;

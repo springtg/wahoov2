@@ -46,10 +46,7 @@ namespace WahooV2
         /// <param name="e"></param>
         private void frmMain_Load(object sender, EventArgs e)
         {
-            InitData();
-            //Write log
-            if (_logger.IsDebugEnabled)
-                _logger.Debug("Program started!");
+            InitData();            
         }
 
         /// <summary>
@@ -263,9 +260,11 @@ namespace WahooV2
                     ShowControlClientsNormal();
                 }
             }
-            catch
+            catch (Exception ex)
             {
-
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
             }
         }
         /// <summary>
@@ -289,9 +288,11 @@ namespace WahooV2
                     ShowControlClientsNormal();
                 }
             }
-            catch
+            catch (Exception ex)
             {
-
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
             }
         }
         /// <summary>
@@ -334,8 +335,11 @@ namespace WahooV2
             {
                 _ucClients = (ucClients)pnMain.Controls[0];
             }
-            catch
+            catch(Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 return;
             }
             //Create new client
@@ -357,8 +361,11 @@ namespace WahooV2
             {
                 _ucClients = (ucClients)pnMain.Controls[0];
             }
-            catch
+            catch(Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 return;
             }
             //Edit new client
@@ -380,8 +387,11 @@ namespace WahooV2
             {
                 _ucClients = (ucClients)pnMain.Controls[0];
             }
-            catch
+            catch(Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 return;
             }
             //Delete new client
@@ -602,9 +612,11 @@ namespace WahooV2
                     ShowControlUserNormal();
                 }
             }
-            catch
+            catch(Exception ex)
             {
-
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
             }
         }
 
@@ -624,9 +636,11 @@ namespace WahooV2
                     ShowControlUserNormal();
                 }
             }
-            catch
+            catch(Exception ex)
             {
-
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
             }
         }
 
@@ -643,8 +657,11 @@ namespace WahooV2
                 //Create new client
                 _ucUser.CreateUser();
             }
-            catch
+            catch(Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 return;
             }
         }
@@ -662,8 +679,11 @@ namespace WahooV2
                 //Create new client
                 _ucUser.EditUser();
             }
-            catch
+            catch(Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 return;
             }
         }
@@ -681,8 +701,11 @@ namespace WahooV2
                 //Create new client
                 _ucUser.DeleteUser();
             }
-            catch
+            catch(Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 return;
             }
         }
@@ -833,8 +856,11 @@ namespace WahooV2
                 ucNewChannel newChannel = (ucNewChannel)pnMain.Controls[0];
                 return newChannel.SaveChannel(this._mChannelStatus);
             }
-            catch
+            catch(Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 this.ShowMessageBox("CHANNEL_ERR009", MessageType.ERROR);
                 return false;
             }
@@ -1007,8 +1033,11 @@ namespace WahooV2
                 idChannel = channels.IdChannels;
                 ShowEditChannel(idChannel);
             }
-            catch
+            catch(Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 this.ShowMessageBox("CHANNEL_ERR011", MessageType.ERROR);
             }
             finally
@@ -1038,8 +1067,11 @@ namespace WahooV2
                 if (channels.IdChannels == 0)
                     ShowControlWhenNoChooseItemChannel();
             }
-            catch
+            catch(Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 this.ShowMessageBox("CHANNEL_ERR009", MessageType.ERROR);
             }
             finally
@@ -1079,8 +1111,11 @@ namespace WahooV2
                     this.linkEnableChannel.Image = global::WahooV2.Properties.Resources.Enable;
                 }
             }
-            catch
+            catch(Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 this.ShowMessageBox("CHANNEL_ERR009", MessageType.ERROR);
             }
             finally
@@ -1163,8 +1198,11 @@ namespace WahooV2
                     this.linkDeployChannel.Image = global::WahooV2.Properties.Resources.Deploy;
                 }
             }
-            catch
+            catch(Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 this.ShowMessageBox("CHANNEL_ERR009", MessageType.ERROR);
             }
             finally
@@ -1194,8 +1232,11 @@ namespace WahooV2
                 linkDeployChannel.Text = AliasMessage.UNDEPLOY_CHANNEL_FORMMAIN_CONTROL;
                 this.linkDeployChannel.Image = global::WahooV2.Properties.Resources.Stop;
             }
-            catch
+            catch(Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 this.ShowMessageBox("CHANNEL_ERR009", MessageType.ERROR);
             }
             finally
@@ -1225,8 +1266,11 @@ namespace WahooV2
                 linkDeployChannel.Text = AliasMessage.DEPLOY_CHANNEL_FORMMAIN_CONTROL;
                 this.linkDeployChannel.Image = global::WahooV2.Properties.Resources.Deploy;
             }
-            catch
+            catch(Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 this.ShowMessageBox("CHANNEL_ERR009", MessageType.ERROR);
             }
             finally
@@ -1264,8 +1308,11 @@ namespace WahooV2
                 {
                     transferSpeed = double.Parse(configObl.ReadSetting(AliasMessage.TRANSFER_SPEED_CONFIG));
                 }
-                catch
+                catch(Exception ex)
                 {
+                    //Write log
+                    if (_logger.IsErrorEnabled)
+                        _logger.Error(ex);
                     transferSpeed = 16;
                 }
                 foreach (Channel objChannel in objListChannel)
@@ -1281,13 +1328,18 @@ namespace WahooV2
                     }
                     catch (Exception ex)
                     {
-
+                        //Write log
+                        if (_logger.IsErrorEnabled)
+                            _logger.Error(ex);
                     }
                 }
                 Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 Cursor.Current = Cursors.Default;
             }
         }
@@ -1312,8 +1364,11 @@ namespace WahooV2
                 {
                     temp = int.Parse(configObl.ReadSetting(AliasMessage.EXECUTE_INTERVAL_CONFIG));
                 }
-                catch
+                catch(Exception ex)
                 {
+                    //Write log
+                    if (_logger.IsErrorEnabled)
+                        _logger.Error(ex);
                     temp = 0;
                 }
                 if (temp < 10)

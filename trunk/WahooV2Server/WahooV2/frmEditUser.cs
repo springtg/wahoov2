@@ -10,12 +10,13 @@ using System.Windows.Forms;
 using WahooConfiguration;
 using WahooData.DBO;
 using WahooData.BusinessHandler;
-
+using log4net;
 namespace WahooV2
 {
     public partial class frmEditUser : frmBase
     {
         #region variable
+        private static readonly ILog _logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         //Status( Create or update)
         private string _mStatus = "";
@@ -126,6 +127,9 @@ namespace WahooV2
             }
             catch (Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 this.ShowMessageBox("USER_ERR009", MessageType.ERROR);
             }
         }
