@@ -54,17 +54,21 @@ namespace HL7ServerTransfer
         {
             if (txtClientCode.Text.Trim() == "")
             {
-                MessageBox.Show("You must fill in client code.");
+                ShowMessageBox("MSG_TEXT_ERROR_0000", MessageType.ERROR, getNameControl(label1));
+                //MessageBox.Show("You must fill in client code.");
+                txtClientCode.Focus();
                 return false;
             }
             if (txtClientName.Text.Trim() == "")
             {
                 MessageBox.Show("You must fill in client name.");
+                txtClientName.Focus();
                 return false;
             }
             if (txtEmail.Text.Trim() == "")
             {
                 MessageBox.Show("You must fill in email.");
+                txtEmail.Focus();
                 return false;
             }
             return true;

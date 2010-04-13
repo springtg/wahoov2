@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{67411AA4-6D68-4762-9151-3BA03919EF4C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -116,6 +116,11 @@
       <Project>{2C7CF017-FE27-46EA-9425-190D58DEC75D}</Project>
       <Name>HL7Source</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Resource\Message.xml" />
+    <Content Include="bin\Debug\Resource\Message_.xml" />
+    <Content Include="bin\Debug\Resource\Resource.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
