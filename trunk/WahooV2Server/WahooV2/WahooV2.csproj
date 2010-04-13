@@ -305,6 +305,7 @@
     <Content Include="bin\Debug\Resource\Message.xml" />
     <Content Include="bin\Debug\Resource\Resource.xml" />
     <Content Include="bin\Debug\XPPanel.dll" />
+    <None Include="Resources\edit.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WahooCommon\WahooCommon.csproj">
