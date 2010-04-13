@@ -462,7 +462,7 @@ namespace WahooV2
                     xpPanelUser.Visible = false;
                     xpPanelClient.Visible = false;
 
-                    //View seting control                
+                    //View seting control 
                     setControltoPanel(new usSetting(), 0, 0, _ucWidth, _ucHeight);
                 }
             }
