@@ -156,7 +156,7 @@
             this.newChannelItem.Text = "New Channel";
             this.newChannelItem.Click += new System.EventHandler(this.ClickToolStripItem);
             // 
-<<<<<<< .mine
+//<<<<<<< .mine
             // editChannelItem
             // 
             this.editChannelItem.Image = global::WahooV2.Properties.Resources.edit;
@@ -165,8 +165,8 @@
             this.editChannelItem.Text = "Edit Channel";
             this.editChannelItem.Click += new System.EventHandler(this.ClickToolStripItem);
             // 
-=======
->>>>>>> .r61
+//=======
+//>>>>>>> .r61
             // deleteChannelItem
             // 
             this.deleteChannelItem.Image = global::WahooV2.Properties.Resources.Delete;

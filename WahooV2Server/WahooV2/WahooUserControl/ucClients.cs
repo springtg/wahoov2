@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using WahooData.DBO;
 using WahooData.BusinessHandler;
 using WahooConfiguration;
+using log4net;
 
 namespace WahooV2.WahooUserControl
 {
@@ -16,6 +17,7 @@ namespace WahooV2.WahooUserControl
     {
 
         #region variable
+        private static readonly ILog _logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         //Check client is loaded
         private int _mCheckLoad = 0;
@@ -92,6 +94,9 @@ namespace WahooV2.WahooUserControl
             }
             catch (Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 throw ex;
             }
         }
@@ -229,6 +234,9 @@ namespace WahooV2.WahooUserControl
             }
             catch (Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 throw ex;
             }
         }

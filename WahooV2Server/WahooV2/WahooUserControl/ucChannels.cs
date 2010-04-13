@@ -10,13 +10,15 @@ using WahooConfiguration;
 using WahooV2.WahooUserControl;
 using WahooData.BusinessHandler;
 using WahooData.DBO;
+using log4net;
 
 namespace WahooV2.WahooUserControl
 {
     public partial class ucChannels : controlBase
     {
         #region variable
-        
+        private static readonly ILog _logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         //Declare delegate for gird double click
         public delegate void GridChannel_CellDoubleClick(object sender, DataGridViewCellEventArgs e);
         public event GridChannel_CellDoubleClick GridDoubleClick;
@@ -133,6 +135,9 @@ namespace WahooV2.WahooUserControl
             }
             catch (Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 throw ex;
             }
         }
@@ -346,6 +351,9 @@ namespace WahooV2.WahooUserControl
             }
             catch (Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 throw ex;
             }
         }
@@ -369,6 +377,9 @@ namespace WahooV2.WahooUserControl
                 }
                 catch (Exception ex)
                 {
+                    //Write log
+                    if (_logger.IsErrorEnabled)
+                        _logger.Error(ex);
                     throw ex;
                 }
             }
@@ -409,6 +420,9 @@ namespace WahooV2.WahooUserControl
             }
             catch (Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 throw ex;
             }
 
@@ -437,6 +451,9 @@ namespace WahooV2.WahooUserControl
             }
             catch (Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 throw ex;
             }
         }
@@ -464,6 +481,9 @@ namespace WahooV2.WahooUserControl
             }
             catch (Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 throw ex;
             }
         }

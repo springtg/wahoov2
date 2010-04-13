@@ -10,12 +10,14 @@ using WahooConfiguration;
 using WahooV2.WahooUserControl;
 using WahooData.BusinessHandler;
 using WahooData.DBO;
+using log4net;
 
 namespace WahooV2.WahooUserControl
 {
     public partial class ucUser : controlBase
     {
         #region variable
+        private static readonly ILog _logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         //Check client is loaded
         private int _mCheckLoad = 0;
@@ -70,6 +72,9 @@ namespace WahooV2.WahooUserControl
             }
             catch (Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 throw ex;
             }
         }
@@ -198,6 +203,9 @@ namespace WahooV2.WahooUserControl
             }
             catch (Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 throw ex;
             }
         }
