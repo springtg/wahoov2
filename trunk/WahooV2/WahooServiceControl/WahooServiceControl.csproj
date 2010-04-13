@@ -93,6 +93,12 @@
     <None Include="Web References\WebService\Service.disco" />
     <None Include="Web References\WebService\Service.wsdl" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WahooConfiguration\WahooConfiguration.csproj">
+      <Project>{8EC8DB4D-2E5B-4727-9C60-37B9AF4CFDE3}</Project>
+      <Name>WahooConfiguration</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
