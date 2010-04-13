@@ -216,6 +216,10 @@ namespace WahooV2.WahooUserControl
             {
                 q = q.Where(c => c.IdClient.Equals(WahooConfiguration.DataTypeProtect.ProtectInt32(cbClient.SelectedValue)));
             }
+            //if (IdClient != -1)
+            //{
+            //    q = q.Where(c => c.IdClient.Equals(WahooConfiguration.DataTypeProtect.ProtectInt32(cbClient.SelectedValue)));
+            //}
             if (cbFilterSearch.SelectedValue != null)
             {
                 switch (cbFilterSearch.SelectedValue.ToString())
@@ -372,9 +376,13 @@ namespace WahooV2.WahooUserControl
             Thread th = new Thread(new ThreadStart(iniData));
             th.Start();
             th.Join();
-            //lstAll = new List<DownloadReport>();
-            ////lay tat ca thong tin trong table download report
-            //lstAll = getObjList(new DownloadReport());
+            BindClientCombo();
+            BindFilterCombo();
+            if (_mIdClient != -1)
+            {
+                cbClient.SelectedValue = _mIdClient;
+                cbClient.Enabled = false;
+            }
             //lay tong so dong tren 1 page
             WahooConfiguration.Config cfg = new WahooConfiguration.Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
             iRowofPage = WahooConfiguration.DataTypeProtect.ProtectInt32(cfg.ReadSetting("MaxNumberRowofPage"));
@@ -384,24 +392,13 @@ namespace WahooV2.WahooUserControl
             {
                 gridReport.Rows[0].Selected = true;
             }
-            ShowResult(0);
-            BindClientCombo();
-            BindFilterCombo();
+            ShowResult(0);            
             chkSearchDate.Focus();
             cbClient.SelectedIndexChanged += new EventHandler(cbClient_SelectedIndexChanged);
             cbFilterSearch.SelectedIndexChanged += new EventHandler(cbFilterSearch_SelectedIndexChanged);
             txtFilename.TextChanged += new EventHandler(txtFilename_TextChanged);
             this.Disposed += new EventHandler(usMonitor_Disposed);
-            gridReport.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(gridReport_DataBindingComplete);
-            if (_mIdClient != -1)
-            {
-                cbClient.SelectedValue = _mIdClient;
-                cbClient.Enabled = false;
-            }          
-            
-            createPagingNegative(getPage(lstAll));
-
-
+            gridReport.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(gridReport_DataBindingComplete);           
         }
         /// <summary>
         /// xu ly xu kien data duoc bind den data source cua grid
