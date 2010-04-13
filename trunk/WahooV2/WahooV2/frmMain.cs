@@ -28,6 +28,8 @@ namespace WahooV2
         private WahooConfiguration.Resource _resource;
         //Check program is uploading file or not
         private Boolean _mExecuting = false;
+        //Check have delete control in panel
+        private Boolean checkClearControl = false;
         private const int _ucWidth = 1102;
         private const int _ucHeight = 686;
         public frmMain()
@@ -95,30 +97,30 @@ namespace WahooV2
             xpPanelUser.Visible = false;
             xpPanelClient.Visible = false;
 
-            ////View grid dashboard
-            //this.checkClearControl = true;
-            //foreach (Control preControl in pnMain.Controls)
-            //{
-            //    preControl.Dispose();
-            //}
-            //pnMain.Controls.Clear();
-            //this.checkClearControl = false;
-            //Dashboard dashboard = new Dashboard();
-            //dashboard.GridSelectionChanged += new Dashboard.GridDashboard_SelectionChanged(GridDashboardSelectionChanged);
-            //dashboard.GridMouseDown += new Dashboard.GridDashboard_MouseDown(GridDashboardMouseDown);
-            //dashboard.Left = 0;
-            //dashboard.Top = 0;
-            //dashboard.Width = 858;
-            //dashboard.Height = 695;
-            //pnMain.Controls.Add(dashboard);
-            //if (dashboard.IdDashboard != "-1")
-            //{
-            //    ShowControlDashboardNormal();
-            //}
-            //else
-            //{
-            //    ShowControlWhenNoChooseItemDashboard();
-            //}
+            //View grid dashboard
+            this.checkClearControl = true;
+            foreach (Control preControl in pnMain.Controls)
+            {
+                preControl.Dispose();
+            }
+            pnMain.Controls.Clear();
+            this.checkClearControl = false;
+            ucDashboard dashboard = new ucDashboard();
+            dashboard.GridSelectionChanged += new ucDashboard.GridDashboard_SelectionChanged(GridDashboardSelectionChanged);
+            dashboard.GridMouseDown += new ucDashboard.GridDashboard_MouseDown(GridDashboardMouseDown);
+            dashboard.Left = 0;
+            dashboard.Top = 0;
+            dashboard.Width = 1010;
+            dashboard.Height = 695;
+            pnMain.Controls.Add(dashboard);
+            if (dashboard.IdDashboard != 0)
+            {
+                ShowControlDashboardNormal();
+            }
+            else
+            {
+                ShowControlWhenNoChooseItemDashboard();
+            }
         }
 
 
@@ -179,13 +181,13 @@ namespace WahooV2
 
             //View client control
             clearControl();
-            //this.checkClearControl = true;
-            //foreach (Control preControl in pnMain.Controls)
-            //{
-            //    preControl.Dispose();
-            //}
-            //pnMain.Controls.Clear();
-            //this.checkClearControl = false;
+            this.checkClearControl = true;
+            foreach (Control preControl in pnMain.Controls)
+            {
+                preControl.Dispose();
+            }
+            pnMain.Controls.Clear();
+            this.checkClearControl = false;
             //Khoi tao ucClient
             ucClients _ucClients = new ucClients();
 
@@ -196,6 +198,8 @@ namespace WahooV2
             //Thiet lap cac thong so cho ucClients
             _ucClients.Left = 0;
             _ucClients.Top = 0;
+            _ucClients.Width = 1010;
+            _ucClients.Height = 695;
             _ucClients.Width = _ucWidth;
             _ucClients.Height = _ucHeight;
             pnMain.Controls.Add(_ucClients);
@@ -207,7 +211,6 @@ namespace WahooV2
             //Show control when choose item
             else
             {
-
                 ShowControlClientsNormal();
             }
             lblTop.Text = AliasMessage.CLIENT_HEADER_LABEL_CONTROL;
@@ -1312,6 +1315,258 @@ namespace WahooV2
                 this._mExecuting = false;
             }
         }
-        #endregion CUONG
+        #region Dashboard
+
+        #region event
+
+        /// <summary>
+        /// Click start all channel link
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void linkStartAllChannel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                return;
+            }
+            Cursor.Current = Cursors.WaitCursor;
+            ucDashboard dashboard = (ucDashboard)pnMain.Controls[0];
+            dashboard.StartAllChannel();
+            linkPauseChannel.Text = AliasMessage.PAUSE_CHANNEL_FORMMAIN_CONTROL;
+            linkPauseChannel.Image = global::WahooV2.Properties.Resources.Pause;
+            linkPauseChannel.Top = 125;
+            linkPauseChannel.Visible = true;
+            linkStopChannel.Visible = true;
+            linkStopChannel.Top = 150;
+            xpPanelDashboardTask.Height = 175;
+            Cursor.Current = Cursors.Default;
+        }
+
+        /// <summary>
+        /// Click stop all channel link
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void linkStopAllChannel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                return;
+            }
+            Cursor.Current = Cursors.WaitCursor;
+            ucDashboard dashboard = (ucDashboard)pnMain.Controls[0];
+            dashboard.StopAllChannel();
+            linkPauseChannel.Text = AliasMessage.START_CHANNEL_FORMMAIN_CONTROL;
+            linkPauseChannel.Image = global::WahooV2.Properties.Resources.Start;
+            linkPauseChannel.Top = 125;
+            linkPauseChannel.Visible = true;
+            linkStopChannel.Visible = false;
+            linkStopChannel.Top = 125;
+            xpPanelDashboardTask.Height = 150;
+            Cursor.Current = Cursors.Default;
+        }
+
+        /// <summary>
+        /// Click pause channel link
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void linkPauseChannel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                return;
+            }
+            Cursor.Current = Cursors.WaitCursor;
+            ucDashboard dashboard = (ucDashboard)pnMain.Controls[0];
+            if (dashboard.PauseChannel() == AliasMessage.PAUSE_CHANNEL_CONTROL)
+            {
+                linkPauseChannel.Text = AliasMessage.PAUSE_CHANNEL_FORMMAIN_CONTROL;
+                linkPauseChannel.Image = global::WahooV2.Properties.Resources.Pause;
+            }
+            else
+            {
+                linkPauseChannel.Text = AliasMessage.START_CHANNEL_FORMMAIN_CONTROL;
+                linkPauseChannel.Image = global::WahooV2.Properties.Resources.Start;
+            }
+            if (linkStopChannel.Visible == false)
+            {
+                linkStopChannel.Visible = true;
+                linkStopChannel.Top = 150;
+                xpPanelDashboardTask.Height = 125;
+            }
+            Cursor.Current = Cursors.Default;
+        }
+
+        /// <summary>
+        /// Click stop channel link
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void linkStopChannel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                return;
+            }
+            Cursor.Current = Cursors.WaitCursor;
+            ucDashboard dashboard = (ucDashboard)pnMain.Controls[0];
+            dashboard.StopChannel();
+            linkStopChannel.Visible = false;
+            linkStopChannel.Top = 125;
+            xpPanelDashboardTask.Height = 150;
+            Cursor.Current = Cursors.Default;
+        }
+
+        /// <summary>
+        /// Click dashboard
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void linkDashboard_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                return;
+            }
+            ////Inform message if user have not yet save infomation channel,then if user choose CANCEL->return
+            //if (CheckEdittingChannelToSave() == "CANCEL")
+            //{
+            //    return;
+            //}
+            Cursor.Current = Cursors.WaitCursor;
+            //Click dashboard link
+            linkDashboardClick();
+            Cursor.Current = Cursors.Default;
+        }
+
+        #endregion event
+
+        #region function
+
+        /// <summary>
+        /// Show dashboard when choose dashboard
+        /// </summary>
+        private void ShowControlDashboardNormal()
+        {
+            ucDashboard dashboard = (ucDashboard)pnMain.Controls[0];
+            linkPauseChannel.Visible = true;
+            linkPauseChannel.Top = 125;
+            //If channel status is started-> show pause channel
+            if (dashboard.DashboardStatus == AliasMessage.STARTED_STATUS)
+            {
+                linkPauseChannel.Text = AliasMessage.PAUSE_CHANNEL_FORMMAIN_CONTROL;
+                linkPauseChannel.Image = global::WahooV2.Properties.Resources.Pause;
+                linkStopChannel.Visible = true;
+                xpPanelDashboardTask.Height = 175;
+            }
+            //If channel status is paused-> show start channel
+            else if (dashboard.DashboardStatus == AliasMessage.PAUSED_STATUS)
+            {
+                linkPauseChannel.Text = AliasMessage.START_CHANNEL_FORMMAIN_CONTROL;
+                linkPauseChannel.Image = global::WahooV2.Properties.Resources.Start;
+                linkStopChannel.Visible = true;
+                linkStopChannel.Top = 150;
+                xpPanelDashboardTask.Height = 175;
+            }
+            //If channel status is stoped-> show start channel,disable stop button
+            else if (dashboard.DashboardStatus == AliasMessage.STOPPED_STATUS)
+            {
+                linkPauseChannel.Text = AliasMessage.START_CHANNEL_FORMMAIN_CONTROL;
+                linkPauseChannel.Image = global::WahooV2.Properties.Resources.Start;
+                linkStopChannel.Visible = false;
+                linkStopChannel.Top = 125;
+                xpPanelDashboardTask.Height = 150;
+            }
+        }
+
+        /// <summary>
+        /// Show coltrol when don't choose dashboard
+        /// </summary>
+        private void ShowControlWhenNoChooseItemDashboard()
+        {
+            linkPauseChannel.Top = linkStopChannel.Top = 100;
+            linkStopChannel.Visible = false;
+            linkPauseChannel.Visible = false;
+            xpPanelDashboardTask.Height = 125;
+        }
+
+        /// <summary>
+        /// When selection current of dashboard change
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void GridDashboardSelectionChanged(object sender, EventArgs e)
+        {
+            if (this.checkClearControl)
+            {
+                return;
+            }
+            ucDashboard dashboard = (ucDashboard)pnMain.Controls[0];
+            if (dashboard.CheckLoad == 0)
+            {
+                return;
+            }
+            //If channel status is started-> show pause channel
+            if (dashboard.DashboardStatus == AliasMessage.STARTED_STATUS)
+            {
+                linkPauseChannel.Text = AliasMessage.PAUSE_CHANNEL_FORMMAIN_CONTROL;
+                linkPauseChannel.ImageIndex = 25;
+                linkStopChannel.Visible = true;
+                linkPauseChannel.Visible = true;
+                linkStopChannel.Top = 150;
+                linkPauseChannel.Top = 125;
+                xpPanelDashboardTask.Height = 175;
+            }
+            //If channel status is paused-> show start channel
+            else if (dashboard.DashboardStatus == AliasMessage.PAUSED_STATUS)
+            {
+                linkPauseChannel.Text = AliasMessage.START_CHANNEL_FORMMAIN_CONTROL;
+                linkPauseChannel.ImageIndex = 13;
+                linkStopChannel.Top = 150;
+                linkPauseChannel.Top = 125;
+                linkStopChannel.Visible = true;
+                linkPauseChannel.Visible = true;
+                xpPanelDashboardTask.Height = 175;
+            }
+            //If channel status is stoped-> show start channel,disable stop button
+            else if (dashboard.DashboardStatus == AliasMessage.STOPPED_STATUS)
+            {
+                linkPauseChannel.Text = AliasMessage.START_CHANNEL_FORMMAIN_CONTROL;
+                linkPauseChannel.ImageIndex = 13;
+                linkStopChannel.Visible = false;
+                linkPauseChannel.Visible = true;
+                linkStopChannel.Top = 125;
+                linkPauseChannel.Top = 125;
+                xpPanelDashboardTask.Height = 150;
+            }
+        }
+
+        /// <summary>
+        /// Click right mouse or left mouse in(out) dashboard grid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void GridDashboardMouseDown(object sender, EventArgs e)
+        {
+            ucDashboard dashboard = (ucDashboard)pnMain.Controls[0];
+            if (dashboard.IdDashboard == 0)
+            {
+                //Click out grid
+                ShowControlWhenNoChooseItemDashboard();
+            }
+            else
+            {
+                //Click in grid
+                ShowControlDashboardNormal();
+            }
+        }
+
+        #endregion function
+
+        #endregion Dashboard
+
+        #endregion CUONG        
     }
 }
