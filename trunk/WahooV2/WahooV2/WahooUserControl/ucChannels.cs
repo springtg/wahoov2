@@ -477,7 +477,7 @@ namespace WahooV2.WahooUserControl
             
             clChannelName.HeaderText = objResource.GetResourceByKey("CHANNELS_FORM_CONTROL", "HEADER_NAME_CHANNELNAME");
             clDescription.HeaderText = objResource.GetResourceByKey("CHANNELS_FORM_CONTROL", "HEADER_NAME_DESCRIPTION");
-            clStatus.HeaderText = objResource.GetResourceByKey("CHANNEL_FORMS_CONTROL", "HEADER_NAME_STATUS");
+            clStatus.HeaderText = objResource.GetResourceByKey("CHANNELS_FORM_CONTROL", "HEADER_NAME_STATUS");
 
             newChannelItem.Text = objResource.GetResourceByKey("CHANNELS_FORM_CONTROL", "MENUITEM_NAME_NEWCHANNEL");
             editChannelItem.Text = objResource.GetResourceByKey("CHANNELS_FORM_CONTROL", "MENUITEM_NAME_EDITCHANNEL");
