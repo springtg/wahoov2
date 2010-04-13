@@ -80,7 +80,7 @@
             this.lblLine.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblLine.Location = new System.Drawing.Point(3, 409);
             this.lblLine.Name = "lblLine";
-            this.lblLine.Size = new System.Drawing.Size(1004, 2);
+            this.lblLine.Size = new System.Drawing.Size(1100, 2);
             this.lblLine.TabIndex = 1;
             // 
             // gbLogInfo
@@ -88,7 +88,7 @@
             this.gbLogInfo.Controls.Add(this.tabLogHistory);
             this.gbLogInfo.Location = new System.Drawing.Point(3, 414);
             this.gbLogInfo.Name = "gbLogInfo";
-            this.gbLogInfo.Size = new System.Drawing.Size(1004, 274);
+            this.gbLogInfo.Size = new System.Drawing.Size(1099, 269);
             this.gbLogInfo.TabIndex = 2;
             this.gbLogInfo.TabStop = false;
             this.gbLogInfo.Text = "Log Information";
@@ -100,7 +100,7 @@
             this.tabLogHistory.Location = new System.Drawing.Point(6, 19);
             this.tabLogHistory.Name = "tabLogHistory";
             this.tabLogHistory.SelectedIndex = 0;
-            this.tabLogHistory.Size = new System.Drawing.Size(1000, 216);
+            this.tabLogHistory.Size = new System.Drawing.Size(1090, 216);
             this.tabLogHistory.TabIndex = 0;
             // 
             // tabAllLog
@@ -109,7 +109,7 @@
             this.tabAllLog.Location = new System.Drawing.Point(4, 22);
             this.tabAllLog.Name = "tabAllLog";
             this.tabAllLog.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAllLog.Size = new System.Drawing.Size(992, 190);
+            this.tabAllLog.Size = new System.Drawing.Size(1082, 190);
             this.tabAllLog.TabIndex = 0;
             this.tabAllLog.Text = "All Log";
             this.tabAllLog.UseVisualStyleBackColor = true;
@@ -131,7 +131,7 @@
             this.gridHistAllLog.ReadOnly = true;
             this.gridHistAllLog.RowHeadersVisible = false;
             this.gridHistAllLog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridHistAllLog.Size = new System.Drawing.Size(991, 185);
+            this.gridHistAllLog.Size = new System.Drawing.Size(1080, 185);
             this.gridHistAllLog.TabIndex = 0;
             // 
             // clDescriptionAllLog
@@ -172,7 +172,7 @@
             this.tabErrorLog.Location = new System.Drawing.Point(4, 22);
             this.tabErrorLog.Name = "tabErrorLog";
             this.tabErrorLog.Padding = new System.Windows.Forms.Padding(3);
-            this.tabErrorLog.Size = new System.Drawing.Size(992, 190);
+            this.tabErrorLog.Size = new System.Drawing.Size(1082, 190);
             this.tabErrorLog.TabIndex = 1;
             this.tabErrorLog.Text = "Error Log";
             this.tabErrorLog.UseVisualStyleBackColor = true;
@@ -194,7 +194,7 @@
             this.gridErrorLog.ReadOnly = true;
             this.gridErrorLog.RowHeadersVisible = false;
             this.gridErrorLog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridErrorLog.Size = new System.Drawing.Size(1000, 185);
+            this.gridErrorLog.Size = new System.Drawing.Size(1080, 185);
             this.gridErrorLog.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn2
@@ -245,12 +245,12 @@
             this.clClientConnected,
             this.clIsConnected});
             this.gridDashboard.ContextMenuStrip = this.menuStrip;
-            this.gridDashboard.Location = new System.Drawing.Point(3, 6);
+            this.gridDashboard.Location = new System.Drawing.Point(0, 0);
             this.gridDashboard.MultiSelect = false;
             this.gridDashboard.Name = "gridDashboard";
             this.gridDashboard.ReadOnly = true;
             this.gridDashboard.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridDashboard.Size = new System.Drawing.Size(1004, 380);
+            this.gridDashboard.Size = new System.Drawing.Size(1099, 386);
             this.gridDashboard.TabIndex = 0;
             this.gridDashboard.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridDashboard_MouseDown);
             this.gridDashboard.SelectionChanged += new System.EventHandler(this.gridDashboard_SelectionChanged);
@@ -408,7 +408,7 @@
             this.Controls.Add(this.gbLogInfo);
             this.Controls.Add(this.gridDashboard);
             this.Name = "ucDashboard";
-            this.Size = new System.Drawing.Size(1010, 695);
+            this.Size = new System.Drawing.Size(1102, 686);
             this.Load += new System.EventHandler(this.ucDashboard_Load);
             this.gbLogInfo.ResumeLayout(false);
             this.tabLogHistory.ResumeLayout(false);
