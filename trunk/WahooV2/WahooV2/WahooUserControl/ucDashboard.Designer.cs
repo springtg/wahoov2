@@ -46,14 +46,6 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gridDashboard = new System.Windows.Forms.DataGridView();
-            this.menuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.startAllChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stopAllChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.resetAllChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pauseChannelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stopChannelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.imageList = new System.Windows.Forms.ImageList(this.components);
-            this.timerRefresh = new System.Timers.Timer();
             this.clId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clIdClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clStatusExecute = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +55,14 @@
             this.clError = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clClientConnected = new System.Windows.Forms.DataGridViewImageColumn();
             this.clIsConnected = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.startAllChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopAllChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetAllChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pauseChannelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopChannelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageList = new System.Windows.Forms.ImageList(this.components);
+            this.timerRefresh = new System.Timers.Timer();
             this.gbLogInfo.SuspendLayout();
             this.tabLogHistory.SuspendLayout();
             this.tabAllLog.SuspendLayout();
@@ -81,7 +81,7 @@
             this.lblLine.Location = new System.Drawing.Point(3, 409);
             this.lblLine.Name = "lblLine";
             this.lblLine.Size = new System.Drawing.Size(1004, 2);
-            this.lblLine.TabIndex = 15;
+            this.lblLine.TabIndex = 1;
             // 
             // gbLogInfo
             // 
@@ -89,7 +89,7 @@
             this.gbLogInfo.Location = new System.Drawing.Point(3, 414);
             this.gbLogInfo.Name = "gbLogInfo";
             this.gbLogInfo.Size = new System.Drawing.Size(1004, 274);
-            this.gbLogInfo.TabIndex = 13;
+            this.gbLogInfo.TabIndex = 2;
             this.gbLogInfo.TabStop = false;
             this.gbLogInfo.Text = "Log Information";
             // 
@@ -132,7 +132,7 @@
             this.gridHistAllLog.RowHeadersVisible = false;
             this.gridHistAllLog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridHistAllLog.Size = new System.Drawing.Size(991, 185);
-            this.gridHistAllLog.TabIndex = 1;
+            this.gridHistAllLog.TabIndex = 0;
             // 
             // clDescriptionAllLog
             // 
@@ -251,84 +251,9 @@
             this.gridDashboard.ReadOnly = true;
             this.gridDashboard.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDashboard.Size = new System.Drawing.Size(1004, 380);
-            this.gridDashboard.TabIndex = 12;
+            this.gridDashboard.TabIndex = 0;
             this.gridDashboard.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridDashboard_MouseDown);
-            this.gridDashboard.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.gridDashboard_RowsAdded);
             this.gridDashboard.SelectionChanged += new System.EventHandler(this.gridDashboard_SelectionChanged);
-            // 
-            // menuStrip
-            // 
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.startAllChannelsToolStripMenuItem,
-            this.stopAllChannelsToolStripMenuItem,
-            this.resetAllChannelsToolStripMenuItem,
-            this.pauseChannelToolStripMenuItem,
-            this.stopChannelToolStripMenuItem});
-            this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(172, 114);
-            // 
-            // startAllChannelsToolStripMenuItem
-            // 
-            this.startAllChannelsToolStripMenuItem.Image = global::WahooV2.Properties.Resources.StartAll;
-            this.startAllChannelsToolStripMenuItem.Name = "startAllChannelsToolStripMenuItem";
-            this.startAllChannelsToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.startAllChannelsToolStripMenuItem.Text = "Start All Channels";
-            this.startAllChannelsToolStripMenuItem.Click += new System.EventHandler(this.startAllChannelsToolStripMenuItem_Click);
-            // 
-            // stopAllChannelsToolStripMenuItem
-            // 
-            this.stopAllChannelsToolStripMenuItem.Image = global::WahooV2.Properties.Resources.StopAll;
-            this.stopAllChannelsToolStripMenuItem.Name = "stopAllChannelsToolStripMenuItem";
-            this.stopAllChannelsToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.stopAllChannelsToolStripMenuItem.Text = "Stop All Channels";
-            this.stopAllChannelsToolStripMenuItem.Click += new System.EventHandler(this.stopAllChannelsToolStripMenuItem_Click);
-            // 
-            // resetAllChannelsToolStripMenuItem
-            // 
-            this.resetAllChannelsToolStripMenuItem.Image = global::WahooV2.Properties.Resources.Refresh;
-            this.resetAllChannelsToolStripMenuItem.Name = "resetAllChannelsToolStripMenuItem";
-            this.resetAllChannelsToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.resetAllChannelsToolStripMenuItem.Text = "Reset All Channels";
-            // 
-            // pauseChannelToolStripMenuItem
-            // 
-            this.pauseChannelToolStripMenuItem.Image = global::WahooV2.Properties.Resources.Start;
-            this.pauseChannelToolStripMenuItem.Name = "pauseChannelToolStripMenuItem";
-            this.pauseChannelToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.pauseChannelToolStripMenuItem.Text = "Pause Channel";
-            this.pauseChannelToolStripMenuItem.Click += new System.EventHandler(this.pauseChannelToolStripMenuItem_Click);
-            // 
-            // stopChannelToolStripMenuItem
-            // 
-            this.stopChannelToolStripMenuItem.Image = global::WahooV2.Properties.Resources.Stop;
-            this.stopChannelToolStripMenuItem.Name = "stopChannelToolStripMenuItem";
-            this.stopChannelToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.stopChannelToolStripMenuItem.Text = "Stop Channel";
-            this.stopChannelToolStripMenuItem.Click += new System.EventHandler(this.stopChannelToolStripMenuItem_Click);
-            // 
-            // imageList
-            // 
-            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
-            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList.Images.SetKeyName(0, "up.png");
-            this.imageList.Images.SetKeyName(1, "down.png");
-            this.imageList.Images.SetKeyName(2, "pause.png");
-            this.imageList.Images.SetKeyName(3, "Start.png");
-            this.imageList.Images.SetKeyName(4, "delete.png");
-            this.imageList.Images.SetKeyName(5, "accept.png");
-            this.imageList.Images.SetKeyName(6, "accept1.png");
-            this.imageList.Images.SetKeyName(7, "StopAll.png");
-            this.imageList.Images.SetKeyName(8, "Reset.png");
-            this.imageList.Images.SetKeyName(9, "pause.png");
-            this.imageList.Images.SetKeyName(10, "Start.png");
-            this.imageList.Images.SetKeyName(11, "stop.png");
-            this.imageList.Images.SetKeyName(12, "connecting.gif");
-            this.imageList.Images.SetKeyName(13, "disconect.gif");
-            // 
-            // timerRefresh
-            // 
-            this.timerRefresh.Enabled = true;
-            this.timerRefresh.SynchronizingObject = this;
             // 
             // clId
             // 
@@ -387,7 +312,7 @@
             // 
             // clClientConnected
             // 
-            this.clClientConnected.DataPropertyName = "none";
+            this.clClientConnected.DataPropertyName = "Img";
             this.clClientConnected.HeaderText = "Connectivity";
             this.clClientConnected.Name = "clClientConnected";
             this.clClientConnected.ReadOnly = true;
@@ -400,6 +325,80 @@
             this.clIsConnected.Name = "clIsConnected";
             this.clIsConnected.ReadOnly = true;
             this.clIsConnected.Visible = false;
+            // 
+            // menuStrip
+            // 
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.startAllChannelsToolStripMenuItem,
+            this.stopAllChannelsToolStripMenuItem,
+            this.resetAllChannelsToolStripMenuItem,
+            this.pauseChannelToolStripMenuItem,
+            this.stopChannelToolStripMenuItem});
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(175, 114);
+            // 
+            // startAllChannelsToolStripMenuItem
+            // 
+            this.startAllChannelsToolStripMenuItem.Image = global::WahooV2.Properties.Resources.StartAll;
+            this.startAllChannelsToolStripMenuItem.Name = "startAllChannelsToolStripMenuItem";
+            this.startAllChannelsToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.startAllChannelsToolStripMenuItem.Text = "Start All Channels";
+            this.startAllChannelsToolStripMenuItem.Click += new System.EventHandler(this.startAllChannelsToolStripMenuItem_Click);
+            // 
+            // stopAllChannelsToolStripMenuItem
+            // 
+            this.stopAllChannelsToolStripMenuItem.Image = global::WahooV2.Properties.Resources.StopAll;
+            this.stopAllChannelsToolStripMenuItem.Name = "stopAllChannelsToolStripMenuItem";
+            this.stopAllChannelsToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.stopAllChannelsToolStripMenuItem.Text = "Stop All Channels";
+            this.stopAllChannelsToolStripMenuItem.Click += new System.EventHandler(this.stopAllChannelsToolStripMenuItem_Click);
+            // 
+            // resetAllChannelsToolStripMenuItem
+            // 
+            this.resetAllChannelsToolStripMenuItem.Image = global::WahooV2.Properties.Resources.Refresh;
+            this.resetAllChannelsToolStripMenuItem.Name = "resetAllChannelsToolStripMenuItem";
+            this.resetAllChannelsToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.resetAllChannelsToolStripMenuItem.Text = "Reset All Channels";
+            // 
+            // pauseChannelToolStripMenuItem
+            // 
+            this.pauseChannelToolStripMenuItem.Image = global::WahooV2.Properties.Resources.Start;
+            this.pauseChannelToolStripMenuItem.Name = "pauseChannelToolStripMenuItem";
+            this.pauseChannelToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.pauseChannelToolStripMenuItem.Text = "Pause Channel";
+            this.pauseChannelToolStripMenuItem.Click += new System.EventHandler(this.pauseChannelToolStripMenuItem_Click);
+            // 
+            // stopChannelToolStripMenuItem
+            // 
+            this.stopChannelToolStripMenuItem.Image = global::WahooV2.Properties.Resources.Stop;
+            this.stopChannelToolStripMenuItem.Name = "stopChannelToolStripMenuItem";
+            this.stopChannelToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.stopChannelToolStripMenuItem.Text = "Stop Channel";
+            this.stopChannelToolStripMenuItem.Click += new System.EventHandler(this.stopChannelToolStripMenuItem_Click);
+            // 
+            // imageList
+            // 
+            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
+            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList.Images.SetKeyName(0, "up.png");
+            this.imageList.Images.SetKeyName(1, "down.png");
+            this.imageList.Images.SetKeyName(2, "pause.png");
+            this.imageList.Images.SetKeyName(3, "Start.png");
+            this.imageList.Images.SetKeyName(4, "delete.png");
+            this.imageList.Images.SetKeyName(5, "accept.png");
+            this.imageList.Images.SetKeyName(6, "accept1.png");
+            this.imageList.Images.SetKeyName(7, "StopAll.png");
+            this.imageList.Images.SetKeyName(8, "Reset.png");
+            this.imageList.Images.SetKeyName(9, "pause.png");
+            this.imageList.Images.SetKeyName(10, "Start.png");
+            this.imageList.Images.SetKeyName(11, "stop.png");
+            this.imageList.Images.SetKeyName(12, "connecting.gif");
+            this.imageList.Images.SetKeyName(13, "disconect.gif");
+            // 
+            // timerRefresh
+            // 
+            this.timerRefresh.Enabled = true;
+            this.timerRefresh.SynchronizingObject = this;
             // 
             // ucDashboard
             // 

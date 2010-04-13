@@ -140,6 +140,7 @@ namespace WahooV2.WahooUserControl
         private void ucDashboard_Load(object sender, EventArgs e)
         {
             BindGrid();
+            //gridDashboard.DataSource = WahooBusinessHandler.Get_ListChannel(new Channel());
             ////Set timer interval for timerRefresh
             //int temp = int.Parse(configObl.ReadSetting(AliasMessage.DASHBOARD_INTERVAL_CONFIG));
             //if (temp < 20)
@@ -474,6 +475,7 @@ namespace WahooV2.WahooUserControl
             _mDashboard.Columns.Add("STATUSEXECUTE", System.Type.GetType("System.String"));
             _mDashboard.Columns.Add("SENT", System.Type.GetType("System.Decimal"));
             _mDashboard.Columns.Add("ERROR", System.Type.GetType("System.Decimal"));
+            _mDashboard.Columns.Add("Img", typeof(Image));
             _mDashboard.Columns.Add("ISCONNECTED", System.Type.GetType("System.Boolean"));
             _mDashboard.Rows.Clear();
             foreach (Channel obj in objListChannel)
@@ -486,6 +488,7 @@ namespace WahooV2.WahooUserControl
                 newRow["STATUSEXECUTE"] = obj.StatusExecute;
                 newRow["SENT"] = obj.Sent;
                 newRow["ERROR"] = obj.Error;
+                newRow["Img"] = (obj.IsConnected==true) ? global::WahooV2.Properties.Resources.connecting : global::WahooV2.Properties.Resources.disconect;
                 newRow["ISCONNECTED"] = obj.IsConnected;
                 _mDashboard.Rows.Add(newRow);
             }
@@ -509,5 +512,6 @@ namespace WahooV2.WahooUserControl
             }
         }
         #endregion function 
+
     }
 }
