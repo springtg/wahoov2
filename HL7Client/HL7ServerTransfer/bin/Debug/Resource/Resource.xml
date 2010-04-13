@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sections>
+   <section name="FORM_SETTING_INFO">
+    <item key="FORM_SETTING_INFO" id="LABEL_TEXT_0001" value="Client code:"/>
+    <item key="FORM_SETTING_INFO" id="LABEL_TEXT_0002" value="Client name:"/>
+    <item key="FORM_SETTING_INFO" id="LABEL_TEXT_0003" value="Email:"/>
+    <item key="FORM_SETTING_INFO" id="BUTTON_TEXT_001" value="Accept"/>
+    <item key="FORM_SETTING_INFO" id="BUTTON_TEXT_002" value="Close"/>
+  </section>
+  
+</sections>

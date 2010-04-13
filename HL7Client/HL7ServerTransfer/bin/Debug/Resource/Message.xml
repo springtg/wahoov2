@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<HL7CLIENT>
+  <MSG MessageId="ERR001" Value= "License key is not valid. Please try again." />
+  <MSG MessageId="ERR002" Value= "Interval invalid. Please try again." />
+  <MSG MessageId="ERR003" Value= "You must fill in web service address." />
+  <MSG MessageId="ERR004" Value= "You must fill in download folder." />
+  <MSG MessageId="ERR005" Value= "Transfer speed invalid. Please try again." />
+  <MSG MessageId="ERR006" Value= "Number of copies invalid. Please try again." />
+  <MSG MessageId="ERR007" Value= "You must fill in printed extention files. Please try again." />
+  <MSG MessageId="ERR008" Value= "Timer for schedule is invalid. Please try again." />
+  <!-- INFORM MESSAGE-->
+  <MSG MessageId="INF001" Value= "Update successed." />
+  <MSG MessageId="INF002" Value= "Update failed." />
+  <!-- LOG MESSAGE-->
+  <MSG MessageId="LOG001" Value= "Upload file {0} to server success at {1}" />
+  <MSG MessageId="LOG002" Value= "Upload file {0} have error." />
+  <MSG MessageId="LOG003" Value= "Upload file {0} have error. {1}" />
+  <MSG MessageId="LOG004" Value= "Folder contains files to upload is not exists." />
+  <MSG MessageId="LOG005" Value= "Can not encrypt files in folder." />
+  <MSG MessageId="LOG006" Value= "Download file {0} from server have error." />
+  <MSG MessageId="LOG007" Value= "Download file from server to {0}  success at {1}" />
+  <MSG MessageId="LOG008" Value= "Download file {0} from server have error. File in server is not exists." />
+  <MSG MessageId="LOG009" Value= " But can not import file. It is moved to Error folder." />
+
+  <!--Phan Client-->
+  <!--HL7 Server Tranfer-->
+  <MSG MessagId="HL7TRANFER_INFO_0001" Value="You can not run 2 program in a machine at the same time."/>
+  <!--form setting info-->
+  <MSG MessageId="MSG_TEXT_ERROR_0000" Value="You must fill in {0}."/>
+  <MSG MessageId="MSG_TEXT_ERROR_0001" Value="You must fill in client code."/>
+  <MSG MessageId="MSG_TEXT_ERROR_0002" Value="You must fill in client name."/>
+  <MSG MessageId="MSG_TEXT_ERROR_0003" Value="You must fill in email."/>
+  <MSG MessageId="MSG_TEXT_ERROR_0004" Value="Have error. Please try again"/>
+  
+</HL7CLIENT>
+
