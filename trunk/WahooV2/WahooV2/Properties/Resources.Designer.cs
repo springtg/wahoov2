@@ -81,6 +81,13 @@ namespace WahooV2.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap connecting {
+            get {
+                object obj = ResourceManager.GetObject("connecting", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Delete {
             get {
                 object obj = ResourceManager.GetObject("Delete", resourceCulture);
@@ -105,6 +112,13 @@ namespace WahooV2.Properties {
         internal static System.Drawing.Bitmap Disable {
             get {
                 object obj = ResourceManager.GetObject("Disable", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap disconect {
+            get {
+                object obj = ResourceManager.GetObject("disconect", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
