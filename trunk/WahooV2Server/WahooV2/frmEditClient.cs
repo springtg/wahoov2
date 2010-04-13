@@ -233,5 +233,10 @@ namespace WahooV2
             return licenseKey;
         }
         #endregion function          
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

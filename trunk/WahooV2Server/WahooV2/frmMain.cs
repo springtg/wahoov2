@@ -833,7 +833,7 @@ namespace WahooV2
         /// </summary>
         private void ShowEditChannel(int idChannel)
         {
-            ucChannels channels = (ucChannels)pnMain.Controls[0];
+            ucChannels channels = (ucChannels)pnMain.Controls[0];            
             clearControl();
             ucNewChannel newChannel = new ucNewChannel();
             newChannel.Left = 0;
@@ -1029,7 +1029,15 @@ namespace WahooV2
             {
                 Cursor.Current = Cursors.WaitCursor;
                 int idChannel = 0;
-                ucChannels channels = (ucChannels)pnMain.Controls[0];
+                ucChannels channels;
+                try
+                {
+                    channels = (ucChannels)pnMain.Controls[0];
+                }
+                catch
+                {
+                    return;
+                }                
                 idChannel = channels.IdChannels;
                 ShowEditChannel(idChannel);
             }
