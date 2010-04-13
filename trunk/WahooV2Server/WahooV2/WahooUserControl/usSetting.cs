@@ -182,16 +182,16 @@ namespace WahooV2.WahooUserControl
             label2.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "LABEL_NAME_EXECUTE");
             label3.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "LABEL_NAME_TRANFER");
             label4.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "LABEL_NAME_WSADDRESS");
-            tabInformation.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "TAB_NAME_INFO");
-            tbaRsa.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "TAB_NAME_RSA");
+            //tabInformation.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "TAB_NAME_INFO");
+            //tbaRsa.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "TAB_NAME_RSA");
             btnSave.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "BUTTON_NAME_SAVE");
             txtDashboardRefresh.MaxLength = WahooConfiguration.DataTypeProtect.ProtectInt32(resource.GetResourceByKey("SETTING_FORM_CONTROL", "TEXTBOX_DASHBOARD_LENGHT"), 5);
             txtExecuteInterval.MaxLength = WahooConfiguration.DataTypeProtect.ProtectInt32(resource.GetResourceByKey("SETTING_FORM_CONTROL", "TEXTBOX_EXECUTE_LENGHT"), 5);
             txtTransferSpeed.MaxLength = WahooConfiguration.DataTypeProtect.ProtectInt32(resource.GetResourceByKey("SETTING_FORM_CONTROL", "TEXTBOX_TRANSFER_LENGHT"), 5);
-            label6.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "LABEL_NAME_PRIVATE");
-            label5.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "LABEL_NAME_PUBLIC");
-            btnCreateNewFile.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "LABEL_NAME_CREATE");
-            btnBrowse.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "LABEL_NAME_BROWSE");
+            //label6.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "LABEL_NAME_PRIVATE");
+            //label5.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "LABEL_NAME_PUBLIC");
+            //btnCreateNewFile.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "LABEL_NAME_CREATE");
+            //btnBrowse.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "LABEL_NAME_BROWSE");
         }
         #endregion
         #endregion
@@ -202,10 +202,10 @@ namespace WahooV2.WahooUserControl
             resource = new Resource();
             dlgFolder.Description = resource.GetResourceByKey("SETTING_FORM_CONTROL", "TITLE_FOLDERBROWSER");
             dlgFolder.SelectedPath = Environment.SpecialFolder.MyDocuments.ToString();
-            if (dlgFolder.ShowDialog() == DialogResult.OK)
-            {
-                txtPublicKeyFile.Text = dlgFolder.SelectedPath;
-            }
+            //if (dlgFolder.ShowDialog() == DialogResult.OK)
+            //{
+            //    txtPublicKeyFile.Text = dlgFolder.SelectedPath;
+            //}
         }
 
         #endregion
@@ -214,11 +214,11 @@ namespace WahooV2.WahooUserControl
         {
             try
             {
-                if (txtPublicKeyFile.Text.Trim().Equals(string.Empty))
-                {
-                    ShowMessageBox("ERR009", MessageType.ERROR);
-                    return;
-                }
+                //if (txtPublicKeyFile.Text.Trim().Equals(string.Empty))
+                //{
+                //    ShowMessageBox("ERR009", MessageType.ERROR);
+                //    return;
+                //}
                 string privateKeyFile = Application.StartupPath + @"\Resource";
                 if (!Directory.Exists(privateKeyFile))
                 {
@@ -241,13 +241,13 @@ namespace WahooV2.WahooUserControl
                 string privateKeyXML = rsa.ToXmlString(true);
                 writer.Write(privateKeyXML);
                 writer.Close();
-                string publicKeyFile = txtPublicKeyFile.Text + @"\publicKey.xml";
-                if (File.Exists(publicKeyFile))
-                {
-                    File.Delete(publicKeyFile);
-                }
+                //string publicKeyFile = txtPublicKeyFile.Text + @"\publicKey.xml";
+                //if (File.Exists(publicKeyFile))
+                //{
+                //    File.Delete(publicKeyFile);
+                //}
                 //provide public only RSA params
-                writer = File.AppendText(publicKeyFile);
+                //writer = File.AppendText(publicKeyFile);
                 string publicKeyXML = rsa.ToXmlString(false);
                 writer.Write(publicKeyXML);
                 writer.Close();
@@ -265,7 +265,7 @@ namespace WahooV2.WahooUserControl
             if (tab.SelectedTab.Name.Equals("tbaRsa"))
             {
                 string privateKeyFile = Application.StartupPath + @"\Resource\PrivateKeyFile\privateKey.xml";
-                txtPrivateKeyFile.Text = privateKeyFile;
+                //txtPrivateKeyFile.Text = privateKeyFile;
             }
 
         }
