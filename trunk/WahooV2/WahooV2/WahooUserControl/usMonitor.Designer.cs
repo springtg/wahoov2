@@ -58,6 +58,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.gbSearchInfo = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pnlNegative = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.gridReport)).BeginInit();
             this.gbResult.SuspendLayout();
             this.gbSearchInfo.SuspendLayout();
@@ -117,7 +118,7 @@
             this.gridReport.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.gridReport.RowHeadersWidth = 60;
             this.gridReport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridReport.Size = new System.Drawing.Size(1096, 392);
+            this.gridReport.Size = new System.Drawing.Size(1096, 410);
             this.gridReport.TabIndex = 1;
             this.gridReport.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridReport_RowEnter);
             this.gridReport.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gridReport_DataBindingComplete_1);
@@ -196,7 +197,7 @@
             // 
             // txtIpAddress
             // 
-            this.txtIpAddress.Location = new System.Drawing.Point(114, 108);
+            this.txtIpAddress.Location = new System.Drawing.Point(825, 19);
             this.txtIpAddress.Name = "txtIpAddress";
             this.txtIpAddress.Size = new System.Drawing.Size(189, 20);
             this.txtIpAddress.TabIndex = 9;
@@ -204,7 +205,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(10, 111);
+            this.label8.Location = new System.Drawing.Point(721, 22);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(60, 13);
             this.label8.TabIndex = 4;
@@ -212,7 +213,7 @@
             // 
             // txtSentToPrintTime
             // 
-            this.txtSentToPrintTime.Location = new System.Drawing.Point(483, 62);
+            this.txtSentToPrintTime.Location = new System.Drawing.Point(483, 63);
             this.txtSentToPrintTime.Name = "txtSentToPrintTime";
             this.txtSentToPrintTime.Size = new System.Drawing.Size(172, 20);
             this.txtSentToPrintTime.TabIndex = 8;
@@ -220,7 +221,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(385, 69);
+            this.label5.Location = new System.Drawing.Point(385, 70);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(89, 13);
             this.label5.TabIndex = 3;
@@ -228,7 +229,7 @@
             // 
             // txtSentToPrintStatus
             // 
-            this.txtSentToPrintStatus.Location = new System.Drawing.Point(114, 66);
+            this.txtSentToPrintStatus.Location = new System.Drawing.Point(114, 67);
             this.txtSentToPrintStatus.Name = "txtSentToPrintStatus";
             this.txtSentToPrintStatus.Size = new System.Drawing.Size(189, 20);
             this.txtSentToPrintStatus.TabIndex = 7;
@@ -236,7 +237,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 69);
+            this.label4.Location = new System.Drawing.Point(10, 70);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(98, 13);
             this.label4.TabIndex = 2;
@@ -254,16 +255,17 @@
             this.gbResult.Controls.Add(this.label3);
             this.gbResult.Controls.Add(this.txtDownloadStatus);
             this.gbResult.Controls.Add(this.label2);
+            this.gbResult.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gbResult.Enabled = false;
-            this.gbResult.Location = new System.Drawing.Point(3, 502);
+            this.gbResult.Location = new System.Drawing.Point(0, 567);
             this.gbResult.Name = "gbResult";
-            this.gbResult.Size = new System.Drawing.Size(1096, 181);
+            this.gbResult.Size = new System.Drawing.Size(1102, 119);
             this.gbResult.TabIndex = 2;
             this.gbResult.TabStop = false;
             // 
             // txtDownloadTime
             // 
-            this.txtDownloadTime.Location = new System.Drawing.Point(483, 17);
+            this.txtDownloadTime.Location = new System.Drawing.Point(483, 18);
             this.txtDownloadTime.Name = "txtDownloadTime";
             this.txtDownloadTime.Size = new System.Drawing.Size(172, 20);
             this.txtDownloadTime.TabIndex = 6;
@@ -271,7 +273,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(385, 24);
+            this.label3.Location = new System.Drawing.Point(385, 25);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(92, 13);
             this.label3.TabIndex = 1;
@@ -279,7 +281,7 @@
             // 
             // txtDownloadStatus
             // 
-            this.txtDownloadStatus.Location = new System.Drawing.Point(114, 18);
+            this.txtDownloadStatus.Location = new System.Drawing.Point(114, 19);
             this.txtDownloadStatus.Name = "txtDownloadStatus";
             this.txtDownloadStatus.Size = new System.Drawing.Size(189, 20);
             this.txtDownloadStatus.TabIndex = 5;
@@ -287,7 +289,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 24);
+            this.label2.Location = new System.Drawing.Point(10, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 13);
             this.label2.TabIndex = 0;
@@ -358,10 +360,20 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "File name:";
             // 
+            // pnlNegative
+            // 
+            this.pnlNegative.AutoScroll = true;
+            this.pnlNegative.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlNegative.Location = new System.Drawing.Point(0, 524);
+            this.pnlNegative.Name = "pnlNegative";
+            this.pnlNegative.Size = new System.Drawing.Size(1102, 43);
+            this.pnlNegative.TabIndex = 3;
+            // 
             // usMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pnlNegative);
             this.Controls.Add(this.gridReport);
             this.Controls.Add(this.gbResult);
             this.Controls.Add(this.gbSearchInfo);
@@ -408,5 +420,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clFilename;
         private System.Windows.Forms.DataGridViewTextBoxColumn clSuccess;
         private System.Windows.Forms.DataGridViewTextBoxColumn clIsSentToPrint;
+        private System.Windows.Forms.FlowLayoutPanel pnlNegative;
     }
 }
