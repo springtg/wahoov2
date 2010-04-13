@@ -1305,28 +1305,28 @@ namespace WahooV2
                 {
                     bgwMain.RunWorkerAsync();
                 }
-                ////Update interval for timer execute
-                //Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
-                //int temp = 0;
-                //try
-                //{
-                //    temp = int.Parse(configObl.ReadSetting(AliasMessage.EXECUTE_INTERVAL_CONFIG));
-                //}
-                //catch
-                //{
-                //    temp = 0;
-                //}
-                //if (temp < 10)
-                //{
-                //    temp = 10;
-                //}
-                //temp = temp * 1000;
-                //if (this.tmMain.Interval != temp)
-                //{
-                //    this.tmMain.Stop();
-                //    this.tmMain.Interval = temp;
-                //    this.tmMain.Start();
-                //}
+                //Update interval for timer execute
+                Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
+                int temp = 0;
+                try
+                {
+                    temp = int.Parse(configObl.ReadSetting(AliasMessage.EXECUTE_INTERVAL_CONFIG));
+                }
+                catch
+                {
+                    temp = 0;
+                }
+                if (temp < 10)
+                {
+                    temp = 10;
+                }
+                temp = temp * 1000;
+                if (this.tmMain.Interval != temp)
+                {
+                    this.tmMain.Stop();
+                    this.tmMain.Interval = temp;
+                    this.tmMain.Start();
+                }
                 this._mExecuting = false;
             }
         }
