@@ -139,7 +139,7 @@
             this.deployAllChannelItem,
             this.undeployAllChannelItem});
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(161, 158);
+            this.menuStrip.Size = new System.Drawing.Size(161, 180);
             // 
             // editChannelItem
             // 
@@ -156,6 +156,17 @@
             this.newChannelItem.Text = "New Channel";
             this.newChannelItem.Click += new System.EventHandler(this.ClickToolStripItem);
             // 
+<<<<<<< .mine
+            // editChannelItem
+            // 
+            this.editChannelItem.Image = global::WahooV2.Properties.Resources.edit;
+            this.editChannelItem.Name = "editChannelItem";
+            this.editChannelItem.Size = new System.Drawing.Size(160, 22);
+            this.editChannelItem.Text = "Edit Channel";
+            this.editChannelItem.Click += new System.EventHandler(this.ClickToolStripItem);
+            // 
+=======
+>>>>>>> .r61
             // deleteChannelItem
             // 
             this.deleteChannelItem.Image = global::WahooV2.Properties.Resources.Delete;
