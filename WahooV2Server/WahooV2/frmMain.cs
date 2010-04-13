@@ -50,6 +50,7 @@ namespace WahooV2
             //Write log
             if (_logger.IsDebugEnabled)
                 _logger.Debug("Program started!");
+            iconList.Images[20].Save(@"c:\abc.png");
         }
 
         /// <summary>
