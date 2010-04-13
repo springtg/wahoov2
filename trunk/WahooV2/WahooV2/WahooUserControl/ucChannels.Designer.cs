@@ -32,6 +32,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gridChannel = new System.Windows.Forms.DataGridView();
+            this.clId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clChannelName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clIsDeployed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.newChannelItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editChannelItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,11 +45,6 @@
             this.deployChannelItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deployAllChannelItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undeployAllChannelItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clChannelName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clIsDeployed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridChannel)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -82,11 +82,51 @@
             this.gridChannel.Name = "gridChannel";
             this.gridChannel.ReadOnly = true;
             this.gridChannel.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridChannel.Size = new System.Drawing.Size(844, 542);
+            this.gridChannel.Size = new System.Drawing.Size(1102, 686);
             this.gridChannel.TabIndex = 1;
             this.gridChannel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridChannel_MouseDown);
             this.gridChannel.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridChannel_CellDoubleClick);
             this.gridChannel.SelectionChanged += new System.EventHandler(this.gridChannel_SelectionChanged);
+            // 
+            // clId
+            // 
+            this.clId.DataPropertyName = "Id";
+            this.clId.HeaderText = "Id";
+            this.clId.Name = "clId";
+            this.clId.ReadOnly = true;
+            this.clId.Visible = false;
+            // 
+            // clStatus
+            // 
+            this.clStatus.DataPropertyName = "Status";
+            this.clStatus.HeaderText = "Status";
+            this.clStatus.Name = "clStatus";
+            this.clStatus.ReadOnly = true;
+            this.clStatus.Width = 150;
+            // 
+            // clChannelName
+            // 
+            this.clChannelName.DataPropertyName = "ChannelName";
+            this.clChannelName.HeaderText = "Channel Name";
+            this.clChannelName.Name = "clChannelName";
+            this.clChannelName.ReadOnly = true;
+            this.clChannelName.Width = 250;
+            // 
+            // clDescription
+            // 
+            this.clDescription.DataPropertyName = "Description";
+            this.clDescription.HeaderText = "Description";
+            this.clDescription.Name = "clDescription";
+            this.clDescription.ReadOnly = true;
+            this.clDescription.Width = 400;
+            // 
+            // clIsDeployed
+            // 
+            this.clIsDeployed.DataPropertyName = "IsDeployed";
+            this.clIsDeployed.HeaderText = "IsDeployed";
+            this.clIsDeployed.Name = "clIsDeployed";
+            this.clIsDeployed.ReadOnly = true;
+            this.clIsDeployed.Visible = false;
             // 
             // menuStrip
             // 
@@ -99,7 +139,7 @@
             this.deployAllChannelItem,
             this.undeployAllChannelItem});
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(161, 180);
+            this.menuStrip.Size = new System.Drawing.Size(161, 158);
             // 
             // newChannelItem
             // 
@@ -156,53 +196,13 @@
             this.undeployAllChannelItem.Text = "Undeploy All";
             this.undeployAllChannelItem.Click += new System.EventHandler(this.ClickToolStripItem);
             // 
-            // clId
-            // 
-            this.clId.DataPropertyName = "Id";
-            this.clId.HeaderText = "Id";
-            this.clId.Name = "clId";
-            this.clId.ReadOnly = true;
-            this.clId.Visible = false;
-            // 
-            // clStatus
-            // 
-            this.clStatus.DataPropertyName = "Status";
-            this.clStatus.HeaderText = "Status";
-            this.clStatus.Name = "clStatus";
-            this.clStatus.ReadOnly = true;
-            this.clStatus.Width = 150;
-            // 
-            // clChannelName
-            // 
-            this.clChannelName.DataPropertyName = "ChannelName";
-            this.clChannelName.HeaderText = "Channel Name";
-            this.clChannelName.Name = "clChannelName";
-            this.clChannelName.ReadOnly = true;
-            this.clChannelName.Width = 250;
-            // 
-            // clDescription
-            // 
-            this.clDescription.DataPropertyName = "Description";
-            this.clDescription.HeaderText = "Description";
-            this.clDescription.Name = "clDescription";
-            this.clDescription.ReadOnly = true;
-            this.clDescription.Width = 400;
-            // 
-            // clIsDeployed
-            // 
-            this.clIsDeployed.DataPropertyName = "IsDeployed";
-            this.clIsDeployed.HeaderText = "IsDeployed";
-            this.clIsDeployed.Name = "clIsDeployed";
-            this.clIsDeployed.ReadOnly = true;
-            this.clIsDeployed.Visible = false;
-            // 
             // ucChannels
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gridChannel);
             this.Name = "ucChannels";
-            this.Size = new System.Drawing.Size(866, 558);
+            this.Size = new System.Drawing.Size(1102, 686);
             this.Load += new System.EventHandler(this.ucChannels_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridChannel)).EndInit();
             this.menuStrip.ResumeLayout(false);

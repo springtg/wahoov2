@@ -134,7 +134,7 @@
             this.xpPanelLeft.Name = "xpPanelLeft";
             this.xpPanelLeft.PanelGradient = ((UIComponents.GradientColor)(resources.GetObject("xpPanelLeft.PanelGradient")));
             this.xpPanelLeft.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.xpPanelLeft.Size = new System.Drawing.Size(169, 743);
+            this.xpPanelLeft.Size = new System.Drawing.Size(169, 731);
             this.xpPanelLeft.TabIndex = 0;
             // 
             // xpPanelOther
@@ -890,7 +890,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.pnMain.Location = new System.Drawing.Point(169, 45);
             this.pnMain.Name = "pnMain";
-            this.pnMain.Size = new System.Drawing.Size(1014, 698);
+            this.pnMain.Size = new System.Drawing.Size(1102, 686);
             this.pnMain.TabIndex = 0;
             // 
             // xpPanelGroupTop
@@ -903,7 +903,7 @@
             this.xpPanelGroupTop.Location = new System.Drawing.Point(169, 0);
             this.xpPanelGroupTop.Name = "xpPanelGroupTop";
             this.xpPanelGroupTop.PanelGradient = ((UIComponents.GradientColor)(resources.GetObject("xpPanelGroupTop.PanelGradient")));
-            this.xpPanelGroupTop.Size = new System.Drawing.Size(1014, 44);
+            this.xpPanelGroupTop.Size = new System.Drawing.Size(1102, 44);
             this.xpPanelGroupTop.TabIndex = 0;
             // 
             // lblTop
@@ -932,7 +932,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 746);
+            this.ClientSize = new System.Drawing.Size(1272, 734);
             this.Controls.Add(this.xpPanelGroupTop);
             this.Controls.Add(this.pnMain);
             this.Controls.Add(this.xpPanelLeft);

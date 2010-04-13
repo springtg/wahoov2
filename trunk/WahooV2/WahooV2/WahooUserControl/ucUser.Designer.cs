@@ -79,7 +79,8 @@
             this.clDate_Created,
             this.clDate_Updated});
             this.gridUser.ContextMenuStrip = this.menuTrip;
-            this.gridUser.Location = new System.Drawing.Point(3, 3);
+            this.gridUser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridUser.Location = new System.Drawing.Point(0, 0);
             this.gridUser.MultiSelect = false;
             this.gridUser.Name = "gridUser";
             this.gridUser.ReadOnly = true;
@@ -92,7 +93,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.gridUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridUser.Size = new System.Drawing.Size(864, 642);
+            this.gridUser.Size = new System.Drawing.Size(1102, 686);
             this.gridUser.TabIndex = 1;
             this.gridUser.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridUser_MouseDown);
             this.gridUser.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridUser_CellDoubleClick);
@@ -228,7 +229,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gridUser);
             this.Name = "ucUser";
-            this.Size = new System.Drawing.Size(870, 645);
+            this.Size = new System.Drawing.Size(1102, 686);
             this.Load += new System.EventHandler(this.ucUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridUser)).EndInit();
             this.menuTrip.ResumeLayout(false);

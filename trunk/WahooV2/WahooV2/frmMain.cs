@@ -28,7 +28,8 @@ namespace WahooV2
         private WahooConfiguration.Resource _resource;
         //Check program is uploading file or not
         private Boolean _mExecuting = false;
-
+        private const int _ucWidth = 1102;
+        private const int _ucHeight = 686;
         public frmMain()
         {
             InitializeComponent();
@@ -195,8 +196,8 @@ namespace WahooV2
             //Thiet lap cac thong so cho ucClients
             _ucClients.Left = 0;
             _ucClients.Top = 0;
-            _ucClients.Width = 858;
-            _ucClients.Height = 695;
+            _ucClients.Width = _ucWidth;
+            _ucClients.Height = _ucHeight;
             pnMain.Controls.Add(_ucClients);
             //Show control when no choose item
             if (_ucClients.IdClient == 0)
@@ -462,7 +463,7 @@ namespace WahooV2
                     xpPanelClient.Visible = false;
 
                     //View seting control                
-                    setControltoPanel(new usSetting(), 0, 0, 1010, 690);
+                    setControltoPanel(new usSetting(), 0, 0, _ucWidth, _ucHeight);
                 }
             }
         }
@@ -484,7 +485,7 @@ namespace WahooV2
                     xpPanelClient.Visible = false;
                     //View control report
                     usMonitor _monitor = new usMonitor(-1);
-                    setControltoPanel(_monitor, 0, 0, 1010, 690);
+                    setControltoPanel(_monitor, 0, 0, _ucWidth, _ucHeight);
                     _resource = new Resource();
                     setActiveLink(linkReportAll, _resource.GetResourceByKey("MONITOR_FORM_CONTROL", "HEADER_LABLE_TEXT"));
                     //set cursor to state wate
@@ -535,8 +536,8 @@ namespace WahooV2
             //Thiet lap cac thong so cho ucUser
             _ucUser.Left = 0;
             _ucUser.Top = 0;
-            _ucUser.Width = 1000;
-            _ucUser.Height = 695;
+            _ucUser.Width = _ucWidth;
+            _ucUser.Height = _ucHeight;
             pnMain.Controls.Add(_ucUser);
             //Show control when no choose item
             if (_ucUser.IdUser == 0)
@@ -687,7 +688,7 @@ namespace WahooV2
                 //View control report
                 clearControl();
                 usMonitor _monitor = new usMonitor(_mIdClient);
-                setControltoPanel(_monitor, 0, 0, 1010, 690);
+                setControltoPanel(_monitor, 0, 0, _ucWidth, _ucHeight);
             }
         }
 
@@ -724,8 +725,8 @@ namespace WahooV2
 
             channels.Left = 0;
             channels.Top = 0;
-            channels.Width = 858;
-            channels.Height = 695;
+            channels.Width = _ucWidth;
+            channels.Height = _ucHeight;
             pnMain.Controls.Add(channels);
             if (channels.IdChannels == 0)
                 ShowControlWhenNoChooseItemChannel();
@@ -796,8 +797,8 @@ namespace WahooV2
             ucNewChannel newChannel = new ucNewChannel();
             newChannel.Left = 0;
             newChannel.Top = 0;
-            newChannel.Width = 858;
-            newChannel.Height = 695;
+            newChannel.Width = _ucWidth;
+            newChannel.Height = _ucHeight;
             pnMain.Controls.Add(newChannel);
             newChannel.ShowEditChannel(idChannel);
             this._mChannelStatus = AliasMessage.UPDATE_STATUS;
@@ -958,8 +959,8 @@ namespace WahooV2
             ucNewChannel newChannel = new ucNewChannel();
             newChannel.Left = 0;
             newChannel.Top = 0;
-            newChannel.Width = 858;
-            newChannel.Height = 695;
+            newChannel.Width = _ucWidth;
+            newChannel.Height = _ucHeight;
             pnMain.Controls.Add(newChannel);
             this._mChannelStatus = AliasMessage.NEW_STATUS;
             this.EditChannelShowControl();

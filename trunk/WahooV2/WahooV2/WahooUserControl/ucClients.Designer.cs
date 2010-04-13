@@ -32,11 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gridClient = new System.Windows.Forms.DataGridView();
-            this.menuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.newClientItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editClientItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteClientItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemClientMonitor = new System.Windows.Forms.ToolStripMenuItem();
             this.clClientCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clDateCreated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clDateUpdated = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +47,11 @@
             this.clId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clContactName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clLicenseKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.newClientItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editClientItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteClientItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemClientMonitor = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridClient)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -99,52 +99,12 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.gridClient.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridClient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridClient.Size = new System.Drawing.Size(1004, 688);
+            this.gridClient.Size = new System.Drawing.Size(1102, 686);
             this.gridClient.TabIndex = 2;
             this.gridClient.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridClient_MouseDown);
             this.gridClient.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridClient_RowEnter);
             this.gridClient.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridClient_CellDoubleClick);
             this.gridClient.SelectionChanged += new System.EventHandler(this.gridClient_SelectionChanged);
-            // 
-            // menuStrip
-            // 
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newClientItem,
-            this.editClientItem,
-            this.deleteClientItem,
-            this.itemClientMonitor});
-            this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(142, 92);
-            // 
-            // newClientItem
-            // 
-            this.newClientItem.Image = global::WahooV2.Properties.Resources.AddClient;
-            this.newClientItem.Name = "newClientItem";
-            this.newClientItem.Size = new System.Drawing.Size(141, 22);
-            this.newClientItem.Text = "New Client";
-            this.newClientItem.Click += new System.EventHandler(this.newClientItem_Click);
-            // 
-            // editClientItem
-            // 
-            this.editClientItem.Image = global::WahooV2.Properties.Resources.EditClient;
-            this.editClientItem.Name = "editClientItem";
-            this.editClientItem.Size = new System.Drawing.Size(141, 22);
-            this.editClientItem.Text = "Edit Client";
-            this.editClientItem.Click += new System.EventHandler(this.editClientItem_Click);
-            // 
-            // deleteClientItem
-            // 
-            this.deleteClientItem.Image = global::WahooV2.Properties.Resources.ClientDelete;
-            this.deleteClientItem.Name = "deleteClientItem";
-            this.deleteClientItem.Size = new System.Drawing.Size(141, 22);
-            this.deleteClientItem.Text = "Delete Client";
-            this.deleteClientItem.Click += new System.EventHandler(this.deleteClientItem_Click);
-            // 
-            // itemClientMonitor
-            // 
-            this.itemClientMonitor.Name = "itemClientMonitor";
-            this.itemClientMonitor.Size = new System.Drawing.Size(141, 22);
-            this.itemClientMonitor.Text = "Monitor";
             // 
             // clClientCode
             // 
@@ -265,13 +225,53 @@
             this.clLicenseKey.ReadOnly = true;
             this.clLicenseKey.Visible = false;
             // 
+            // menuStrip
+            // 
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newClientItem,
+            this.editClientItem,
+            this.deleteClientItem,
+            this.itemClientMonitor});
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(147, 92);
+            // 
+            // newClientItem
+            // 
+            this.newClientItem.Image = global::WahooV2.Properties.Resources.AddClient;
+            this.newClientItem.Name = "newClientItem";
+            this.newClientItem.Size = new System.Drawing.Size(146, 22);
+            this.newClientItem.Text = "New Client";
+            this.newClientItem.Click += new System.EventHandler(this.newClientItem_Click);
+            // 
+            // editClientItem
+            // 
+            this.editClientItem.Image = global::WahooV2.Properties.Resources.EditClient;
+            this.editClientItem.Name = "editClientItem";
+            this.editClientItem.Size = new System.Drawing.Size(146, 22);
+            this.editClientItem.Text = "Edit Client";
+            this.editClientItem.Click += new System.EventHandler(this.editClientItem_Click);
+            // 
+            // deleteClientItem
+            // 
+            this.deleteClientItem.Image = global::WahooV2.Properties.Resources.ClientDelete;
+            this.deleteClientItem.Name = "deleteClientItem";
+            this.deleteClientItem.Size = new System.Drawing.Size(146, 22);
+            this.deleteClientItem.Text = "Delete Client";
+            this.deleteClientItem.Click += new System.EventHandler(this.deleteClientItem_Click);
+            // 
+            // itemClientMonitor
+            // 
+            this.itemClientMonitor.Name = "itemClientMonitor";
+            this.itemClientMonitor.Size = new System.Drawing.Size(146, 22);
+            this.itemClientMonitor.Text = "Monitor";
+            // 
             // ucClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gridClient);
             this.Name = "ucClients";
-            this.Size = new System.Drawing.Size(1010, 695);
+            this.Size = new System.Drawing.Size(1102, 686);
             this.Load += new System.EventHandler(this.ucClients_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridClient)).EndInit();
             this.menuStrip.ResumeLayout(false);
