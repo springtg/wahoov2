@@ -125,7 +125,7 @@ namespace WahooData.DBO.Base
                 param[i] = new SqlParameter("@startRecordIndex", startRecordIndex);
                 param[i + 1] = new SqlParameter("@amountOfRecord", amountOfRecord);
                 DataSet ds = new DataSet();
-                ds = SqlHelper.ExecuteDataset(ServiceReader._conectionString, CommandType.StoredProcedure, strTableName + "_Paging", param);
+                ds = SqlHelper.ExecuteDataset(ServiceReader._conectionString, CommandType.StoredProcedure, strTableName + "_Select_Paging", param);
                 if (ds != null && ds.Tables.Count > 0)
                 {
                     return ds.Tables[0];
