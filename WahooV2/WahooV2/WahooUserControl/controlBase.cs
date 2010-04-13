@@ -27,6 +27,7 @@ namespace WahooV2.WahooUserControl
         {
             InitializeComponent();
         }
+
         protected WahooConfiguration.Resource resource;
         /// <summary>
         /// </summary>

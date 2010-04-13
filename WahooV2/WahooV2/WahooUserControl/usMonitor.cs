@@ -9,16 +9,36 @@ using System.Windows.Forms;
 using WahooData.BusinessHandler;
 using WahooData.DBO;
 using System.Reflection;
+using System.Threading;
 
 namespace WahooV2.WahooUserControl
 {
     public partial class usMonitor : controlBase
     {
+        #region "Contructor & variable"
         private int _mIdClient = -1;
+        private List<DownloadReport> lstAll;
+        private int iRowofPage = 20;
+        private int iCurrPge = -1;
 
         public usMonitor()
         {
             InitializeComponent();
+            
+        }
+        private void iniData()
+        {
+            lstAll = new List<DownloadReport>();
+            //lay tat ca thong tin trong table download report
+            lstAll = getObjList(new DownloadReport());
+            if (IdClient != -1)
+            {
+                lstAll = getObjList(new DownloadReport(IdClient));
+            }
+            else
+            {
+                lstAll = getObjList(new DownloadReport());
+            }
         }
 
         public usMonitor(int idClient)
@@ -32,6 +52,8 @@ namespace WahooV2.WahooUserControl
             get { return _mIdClient; }
             set { _mIdClient = value; }
         }
+
+        #endregion
 
         #region "Methods"
         /// <summary>
@@ -103,41 +125,41 @@ namespace WahooV2.WahooUserControl
             }
         }
 
-        private void HeaderChange()
-        {
-            List<DownloadReport> lst = getObjList(new DownloadReport());//getCondition()); //(List<DownloadReport>)gridReport.DataSource;
-            var q = from c in lst select c;
-            if (!txtFilename.Text.Equals(string.Empty))
-            {
-                q = q.Where(c => c.Filename.ToLower().Contains(txtFilename.Text.ToLower()));
-            }
-            if (WahooConfiguration.DataTypeProtect.ProtectInt32(cbClient.SelectedValue) != -1)
-            {
-                q = q.Where(c => c.IdClient.Equals(WahooConfiguration.DataTypeProtect.ProtectInt32(cbClient.SelectedValue)));
-            }
-            switch (cbFilterSearch.SelectedValue.ToString())
-            {
-                case "1":
-                    q = q.Where(c => c.Success.Equals(true) && c.IsSentToPrint.Equals(true));
-                    break;
-                case "2":
-                    q = q.Where(c => c.Success.Equals(true));
-                    break;
-                case "3":
-                    q = q.Where(c => c.Success.Equals(false));
-                    break;
-                default:
-                    break;
-            }
-            if (chkSearchDate.Checked)
-            {
-                DateTime dateFrom = dptDateFrom.Value;
-                DateTime dateTo = dptDateTo.Value;
-                q = q.Where(c => c.TimeDownloaded >= dateFrom && c.TimeDownloaded <= dateTo);
-            }
-            var rs = q.ToList();
-            gridReport.DataSource = rs;
-        }
+        //private List<DownloadReport> headerChange( int iPageIndex, int iPageSize)
+        //{
+        //    List<DownloadReport> lst = getObjList(new DownloadReport());//getCondition()); //(List<DownloadReport>)gridReport.DataSource;
+        //    var q = from c in lst select c;
+        //    if (!txtFilename.Text.Equals(string.Empty))
+        //    {
+        //        q = q.Where(c => c.Filename.ToLower().Contains(txtFilename.Text.ToLower()));
+        //    }
+        //    if (WahooConfiguration.DataTypeProtect.ProtectInt32(cbClient.SelectedValue) != -1)
+        //    {
+        //        q = q.Where(c => c.IdClient.Equals(WahooConfiguration.DataTypeProtect.ProtectInt32(cbClient.SelectedValue)));
+        //    }
+        //    switch (cbFilterSearch.SelectedValue.ToString())
+        //    {
+        //        case "1":
+        //            q = q.Where(c => c.Success.Equals(true) && c.IsSentToPrint.Equals(true));
+        //            break;
+        //        case "2":
+        //            q = q.Where(c => c.Success.Equals(true));
+        //            break;
+        //        case "3":
+        //            q = q.Where(c => c.Success.Equals(false));
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //    if (chkSearchDate.Checked)
+        //    {
+        //        DateTime dateFrom = dptDateFrom.Value;
+        //        DateTime dateTo = dptDateTo.Value;
+        //        q = q.Where(c => c.TimeDownloaded >= dateFrom && c.TimeDownloaded <= dateTo);
+        //    }
+        //    var rs = q.ToList();
+        //    gridReport.DataSource = rs;
+        //}
 
         private List<DownloadReport> getObjList(DownloadReport condition)
         {
@@ -187,6 +209,113 @@ namespace WahooV2.WahooUserControl
             }
 
         }
+
+        private List<DownloadReport> headerChange(List<DownloadReport> downloadList, int iPageIndex, int iPageSize)
+        {
+            var q = from c in downloadList select c;
+            if (!txtFilename.Text.Equals(string.Empty))
+            {
+                q = q.Where(c => c.Filename.ToLower().Contains(txtFilename.Text.ToLower()));
+            }
+            if (WahooConfiguration.DataTypeProtect.ProtectInt32(cbClient.SelectedValue) != -1)
+            {
+                q = q.Where(c => c.IdClient.Equals(WahooConfiguration.DataTypeProtect.ProtectInt32(cbClient.SelectedValue)));
+            }
+            if (cbFilterSearch.SelectedValue != null)
+            {
+                switch (cbFilterSearch.SelectedValue.ToString())
+                {
+                    case "1":
+                        q = q.Where(c => c.Success.Equals(true) && c.IsSentToPrint.Equals(true));
+                        break;
+                    case "2":
+                        q = q.Where(c => c.Success.Equals(true));
+                        break;
+                    case "3":
+                        q = q.Where(c => c.Success.Equals(false));
+                        break;
+                    default:
+                        break;
+                }
+            }
+            if (chkSearchDate.Checked)
+            {
+                DateTime dateFrom = dptDateFrom.Value;
+                DateTime dateTo = dptDateTo.Value;
+                q = q.Where(c => c.TimeDownloaded >= dateFrom && c.TimeDownloaded <= dateTo);
+            }
+            var rs = q.Skip((iPageIndex - 1) * iPageSize)
+                .Take(iPageSize)
+                .ToList();
+
+            createPagingNegative(getPage(q.ToList()));
+
+            return rs;
+        }
+
+        private void createPagingNegative(int NumberPage)
+        {
+            //MaxNumberRowofPage
+            //TODO:chu y sua lai style cua button
+            pnlNegative.Controls.Clear();
+            Button btn;
+            for (int i = 0; i < NumberPage; i++)
+            {
+                btn = new Button();
+                btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+                btn.Size = new System.Drawing.Size(30, 24);
+                btn.UseVisualStyleBackColor = true;
+                btn.Cursor = Cursors.Hand;
+                btn.Name = "btn" + i.ToString();
+                btn.TabIndex = i;
+                btn.Text = Convert.ToString(i + 1);
+                btn.Click += new EventHandler(btn_Click);
+                if (iCurrPge.Equals(-1))
+                {
+                    btn.Enabled = false;
+                    iCurrPge = 1;
+                }
+                pnlNegative.Controls.Add(btn);
+            }
+        }
+
+        void btn_Click(object sender, EventArgs e)
+        {
+            int iPIndex = WahooConfiguration.DataTypeProtect.ProtectInt32(((Button)sender).Text);
+            gridReport.DataSource = headerChange(lstAll, iPIndex, iRowofPage);
+            iCurrPge = iPIndex;
+            setCurrentPage(iCurrPge);
+        }
+
+        private void setCurrentPage(int iCurrPage)
+        {
+            foreach (Control ctrl in pnlNegative.Controls)
+            {
+                Button bt = (Button)ctrl;
+                if (bt.Text.Equals(iCurrPage.ToString()))
+                {
+                    bt.Enabled = false;
+                }
+                else
+                {
+                    bt.Enabled = true;
+                }
+            }
+        }
+
+        private int getPage(List<DownloadReport> l)
+        {
+            int iAllRow = 0;
+            if (l != null)
+            {
+                iAllRow = l.Count;
+            }
+
+            int iPage = 0;
+            iPage = (iAllRow % iRowofPage != 0) ? iAllRow / iRowofPage + 1 : iAllRow / iRowofPage;
+            return iPage;
+        }
+
         #endregion
 
         #region "Event"
@@ -208,7 +337,7 @@ namespace WahooV2.WahooUserControl
                 dptDateFrom.Enabled = false;
                 dptDateTo.Enabled = false;
             }
-            HeaderChange();
+            gridReport.DataSource = headerChange(lstAll, iCurrPge, iRowofPage);
         }
         /// <summary>
         /// xu ly xu kien text thay doi cua textbox file name va filter du lieu theo gia tri
@@ -217,7 +346,7 @@ namespace WahooV2.WahooUserControl
         /// <param name="e"></param>
         private void txtFilename_TextChanged(object sender, EventArgs e)
         {
-             HeaderChange();
+            gridReport.DataSource = headerChange(lstAll, iCurrPge, iRowofPage);
         }
         /// <summary>
         /// xu ly xu kien value thay doi cua CBO file name va filter du lieu theo gia tri
@@ -226,7 +355,7 @@ namespace WahooV2.WahooUserControl
         /// <param name="e"></param>
         private void cbClient_SelectedIndexChanged(object sender, EventArgs e)
         {
-             HeaderChange();
+            gridReport.DataSource = headerChange(lstAll, iCurrPge, iRowofPage);
         }
         /// <summary>
         /// xu ly xu kien value thay doi cua CBO file name va filter du lieu theo gia tri
@@ -235,7 +364,7 @@ namespace WahooV2.WahooUserControl
         /// <param name="e"></param>
         private void cbFilterSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
-            HeaderChange();
+            gridReport.DataSource = headerChange(lstAll, iCurrPge, iRowofPage);
         }
         /// <summary>
         /// xu ly xu kien load cua usercontrol 
@@ -245,7 +374,17 @@ namespace WahooV2.WahooUserControl
         private void usMonitor_Load(object sender, EventArgs e)
         {
             gridReport.AutoGenerateColumns = false;
-            gridReport.DataSource = getObjList(new DownloadReport());
+            Thread th = new Thread(new ThreadStart(iniData));
+            th.Start();
+            th.Join();
+            //lstAll = new List<DownloadReport>();
+            ////lay tat ca thong tin trong table download report
+            //lstAll = getObjList(new DownloadReport());
+            //lay tong so dong tren 1 page
+            WahooConfiguration.Config cfg = new WahooConfiguration.Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
+            iRowofPage = WahooConfiguration.DataTypeProtect.ProtectInt32(cfg.ReadSetting("MaxNumberRowofPage"));
+            //dung linq truy van du lieu, chi lay page dau tien
+            gridReport.DataSource = headerChange(lstAll, 0, iRowofPage);
             if (gridReport.RowCount > 0)
             {
                 gridReport.Rows[0].Selected = true;
@@ -263,7 +402,11 @@ namespace WahooV2.WahooUserControl
             {
                 cbClient.SelectedValue = _mIdClient;
                 cbClient.Enabled = false;
-            }            
+            }          
+            
+            createPagingNegative(getPage(lstAll));
+
+
         }
         /// <summary>
         /// xu ly xu kien data duoc bind den data source cua grid
@@ -293,12 +436,12 @@ namespace WahooV2.WahooUserControl
 
         private void dptDateFrom_ValueChanged(object sender, EventArgs e)
         {
-            HeaderChange();
+            gridReport.DataSource = headerChange(lstAll, iCurrPge, iRowofPage);
         }
 
         private void dptDateTo_ValueChanged(object sender, EventArgs e)
         {
-            HeaderChange();
+            gridReport.DataSource = headerChange(lstAll, iCurrPge, iRowofPage);
         }
 
         private void gridReport_RowEnter(object sender, DataGridViewCellEventArgs e)
