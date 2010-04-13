@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Collections;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
+using WahooConfiguration;
 
 namespace WahooServiceControl
 {
@@ -187,7 +188,7 @@ namespace WahooServiceControl
                             {
                                 File.Delete(fileUpload);
                             }
-                            result.ErrorStatus = "SUCCEESS";
+                            result.ErrorStatus = AliasMessage.SUCCESSED_STATUS;
                             result.Description = "Upload file " + fileUpload + " to server success at " + DateTime.Now.ToString("HH:mm:ss") + "," + DateTime.Now.ToString("dd/MM/yyyy") + ".";
 
                         }
@@ -211,7 +212,7 @@ namespace WahooServiceControl
 
                                 if (NumRetries++ >= MAX_RETRIES) // too many retries, bail out
                                 {
-                                    result.ErrorStatus = "ERROR";
+                                    result.ErrorStatus = AliasMessage.FAILED_STATUS;
                                     result.Description = "Upload file " + fileUpload + " have error.";
                                     fs.Close();
                                     break;
@@ -227,7 +228,7 @@ namespace WahooServiceControl
 
                             if (NumRetries++ >= MAX_RETRIES) // too many retries, bail out
                             {
-                                result.ErrorStatus = "ERROR";
+                                result.ErrorStatus = AliasMessage.FAILED_STATUS;
                                 result.Description = "Upload file " + fileUpload + " have error." + ex.Message + ".";
                                 fs.Close();
                                 break;
@@ -238,7 +239,7 @@ namespace WahooServiceControl
             }
             catch (Exception ex)
             {
-                result.ErrorStatus = "ERROR";
+                result.ErrorStatus = AliasMessage.FAILED_STATUS;
                 result.Description = "Upload file " + fileUpload + " have error." + ex.Message + ".";
             }
             result.FileName = fileUpload;
@@ -401,19 +402,19 @@ namespace WahooServiceControl
                                     if (NumRetries++ >= MAX_RETRIES)	// too many retries, bail out
                                     {
                                         fs.Close();
-                                        log.ErrorStatus = "ERROR";
+                                        log.ErrorStatus = AliasMessage.FAILED_STATUS;
                                         log.Description = "Download file " + Path.GetFileName(file) + " from server have error.";
                                         break;
                                     }
                                 }
                             }
-                            log.ErrorStatus = "SUCCESS";
+                            log.ErrorStatus = AliasMessage.SUCCESSED_STATUS;
                             log.Description = "Download file from server to " + Path.GetFileName(file) + " success at " + DateTime.Now.ToString("HH:mm:ss") + "," + DateTime.Now.ToString("dd/MM/yyyy") + ".";
                         }
                     }
                     catch (Exception ex)
                     {
-                        log.ErrorStatus = "ERROR";
+                        log.ErrorStatus = AliasMessage.FAILED_STATUS;
                         log.Description = "Download file " + Path.GetFileName(file) + " from server have error. File in server is not exists.";
                     }
                     log.FileName = Path.GetFileName(file);
