@@ -644,13 +644,14 @@
             this.linkStopChannel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkStopChannel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkStopChannel.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkStopChannel.Location = new System.Drawing.Point(14, 152);
+            this.linkStopChannel.Location = new System.Drawing.Point(14, 150);
             this.linkStopChannel.Name = "linkStopChannel";
             this.linkStopChannel.Size = new System.Drawing.Size(89, 13);
             this.linkStopChannel.TabIndex = 11;
             this.linkStopChannel.TabStop = true;
             this.linkStopChannel.Text = "      Stop Channel";
             this.linkStopChannel.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
+            this.linkStopChannel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkStopChannel_LinkClicked);
             // 
             // linkPauseChannel
             // 
@@ -663,13 +664,14 @@
             this.linkPauseChannel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkPauseChannel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkPauseChannel.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkPauseChannel.Location = new System.Drawing.Point(14, 127);
+            this.linkPauseChannel.Location = new System.Drawing.Point(14, 125);
             this.linkPauseChannel.Name = "linkPauseChannel";
             this.linkPauseChannel.Size = new System.Drawing.Size(96, 13);
             this.linkPauseChannel.TabIndex = 10;
             this.linkPauseChannel.TabStop = true;
             this.linkPauseChannel.Text = "      Pause Channel";
             this.linkPauseChannel.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
+            this.linkPauseChannel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPauseChannel_LinkClicked);
             // 
             // linkStopAllChannel
             // 
@@ -682,13 +684,14 @@
             this.linkStopAllChannel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkStopAllChannel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkStopAllChannel.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkStopAllChannel.Location = new System.Drawing.Point(14, 77);
+            this.linkStopAllChannel.Location = new System.Drawing.Point(14, 75);
             this.linkStopAllChannel.Name = "linkStopAllChannel";
             this.linkStopAllChannel.Size = new System.Drawing.Size(108, 13);
             this.linkStopAllChannel.TabIndex = 8;
             this.linkStopAllChannel.TabStop = true;
             this.linkStopAllChannel.Text = "      Stop All Channels";
             this.linkStopAllChannel.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
+            this.linkStopAllChannel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkStopAllChannel_LinkClicked);
             // 
             // linkResetAllChannel
             // 
@@ -701,7 +704,7 @@
             this.linkResetAllChannel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkResetAllChannel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkResetAllChannel.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkResetAllChannel.Location = new System.Drawing.Point(14, 102);
+            this.linkResetAllChannel.Location = new System.Drawing.Point(14, 100);
             this.linkResetAllChannel.Name = "linkResetAllChannel";
             this.linkResetAllChannel.Size = new System.Drawing.Size(114, 13);
             this.linkResetAllChannel.TabIndex = 9;
@@ -720,13 +723,14 @@
             this.linkStartAllChannel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkStartAllChannel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkStartAllChannel.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkStartAllChannel.Location = new System.Drawing.Point(14, 52);
+            this.linkStartAllChannel.Location = new System.Drawing.Point(14, 50);
             this.linkStartAllChannel.Name = "linkStartAllChannel";
             this.linkStartAllChannel.Size = new System.Drawing.Size(110, 13);
             this.linkStartAllChannel.TabIndex = 7;
             this.linkStartAllChannel.TabStop = true;
             this.linkStartAllChannel.Text = "      Start All Channels";
             this.linkStartAllChannel.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
+            this.linkStartAllChannel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkStartAllChannel_LinkClicked);
             // 
             // xpPanelNWG
             // 
@@ -822,6 +826,7 @@
             this.linkDashboard.TabStop = true;
             this.linkDashboard.Text = "      Dashboard";
             this.linkDashboard.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
+            this.linkDashboard.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkDashboard_LinkClicked);
             // 
             // linkReportAll
             // 
