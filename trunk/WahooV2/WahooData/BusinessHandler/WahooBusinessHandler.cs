@@ -315,7 +315,7 @@ namespace WahooData.BusinessHandler
             List<DownloadReport> objDownloadReport = new List<DownloadReport>();
             try
             {
-                objDownloadReport = _DownloadReportController.GetItemsCollection(_DownloadReport);
+                objDownloadReport = _DownloadReportController.GetItemsCollection(_DownloadReport,startIndex,numOfRows);
             }
             catch
             {
