@@ -9,13 +9,14 @@ using System.Windows.Forms;
 using WahooData.DBO;
 using WahooConfiguration;
 using WahooData.BusinessHandler;
+using log4net;
 
 namespace WahooV2.WahooUserControl
 {
     public partial class ucDashboard : controlBase
     {
         #region variable
-
+        private static readonly ILog _logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         //DataTable _mDashboard to store list of dashboard( bind with grid)
         private DataTable _mDashboard=new DataTable();
         //List of history info( bind with history grid)
@@ -77,6 +78,9 @@ namespace WahooV2.WahooUserControl
             }
             catch (Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 this.ShowMessageBox("ERR013", string.Format(WahooConfiguration.Message.GetMessageById("ERR013")), MessageType.ERROR);
             }
         }
@@ -94,6 +98,9 @@ namespace WahooV2.WahooUserControl
             }
             catch (Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 this.ShowMessageBox("ERR013", string.Format(WahooConfiguration.Message.GetMessageById("ERR013")), MessageType.ERROR);
             }
         }
@@ -111,6 +118,9 @@ namespace WahooV2.WahooUserControl
             }
             catch (Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 this.ShowMessageBox("ERR013", string.Format(WahooConfiguration.Message.GetMessageById("ERR013")), MessageType.ERROR);
             }
         }
@@ -128,6 +138,9 @@ namespace WahooV2.WahooUserControl
             }
             catch (Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 this.ShowMessageBox("ERR013", string.Format(WahooConfiguration.Message.GetMessageById("ERR013")), MessageType.ERROR);
             }
         }
@@ -196,6 +209,9 @@ namespace WahooV2.WahooUserControl
             }
             catch (Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 throw ex;
             }
         }
@@ -324,6 +340,9 @@ namespace WahooV2.WahooUserControl
             }
             catch (Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 throw ex;
             }
 
@@ -359,6 +378,9 @@ namespace WahooV2.WahooUserControl
             }
             catch (Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 throw ex;
             }
 
@@ -382,6 +404,9 @@ namespace WahooV2.WahooUserControl
             }
             catch (Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 throw ex;
             }
         }
@@ -404,6 +429,9 @@ namespace WahooV2.WahooUserControl
             }
             catch (Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 throw ex;
             }
         }
@@ -425,6 +453,9 @@ namespace WahooV2.WahooUserControl
             }
             catch (Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 this.ShowMessageBox("ERR013", string.Format(WahooConfiguration.Message.GetMessageById("ERR013")), MessageType.ERROR);
             }
         }
@@ -462,6 +493,9 @@ namespace WahooV2.WahooUserControl
             }
             catch (Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 throw ex;
             }
         }
@@ -521,8 +555,11 @@ namespace WahooV2.WahooUserControl
                     Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
                     temp = int.Parse(configObl.ReadSetting(AliasMessage.DASHBOARD_INTERVAL_CONFIG));
                 }
-                catch
+                catch(Exception ex)
                 {
+                    //Write log
+                    if (_logger.IsErrorEnabled)
+                        _logger.Error(ex);
                     temp = 0;
                 }
                 if (temp < 10)

@@ -9,12 +9,13 @@ using System.Windows.Forms;
 using WahooConfiguration;
 using System.IO;
 using System.Security.Cryptography;
+using log4net;
 
 namespace WahooV2.WahooUserControl
 {
     public partial class usSetting : controlBase
     {
-
+        private static readonly ILog _logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public usSetting()
         {
             InitializeComponent();
@@ -95,8 +96,11 @@ namespace WahooV2.WahooUserControl
                 //}
                 return true;
             }
-            catch
+            catch(Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 this.ShowMessageBox("ERR035", string.Format(WahooConfiguration.Message.GetMessageById("ERR035")), MessageType.ERROR);
                 return false;
             }
@@ -127,8 +131,11 @@ namespace WahooV2.WahooUserControl
                 configObl.WriteSetting(AliasMessage.WSDL_URL_CONFIG, txtWsdlUrl.Text);
                 return true;
             }
-            catch
+            catch(Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 return false;
             }
         }
@@ -253,8 +260,11 @@ namespace WahooV2.WahooUserControl
                 writer.Close();
                 ShowMessageBox("CONF006", MessageType.INFORM);
             }
-            catch
+            catch(Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 ShowMessageBox("CONF007", MessageType.INFORM);
             }
         }
