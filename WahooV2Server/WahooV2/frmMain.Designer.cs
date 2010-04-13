@@ -243,6 +243,7 @@
             this.linkReport.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkReport.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkReport.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.linkReport.Image = global::WahooV2.Properties.Resources.Monitor;
             this.linkReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkReport.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkReport.LinkColor = System.Drawing.SystemColors.ControlText;

@@ -50,7 +50,6 @@ namespace WahooV2
             //Write log
             if (_logger.IsDebugEnabled)
                 _logger.Debug("Program started!");
-            iconList.Images[20].Save(@"c:\abc.png");
         }
 
         /// <summary>
@@ -195,12 +194,11 @@ namespace WahooV2
             //Khai bao cac delegate
             _ucClients.GridMouseDown += new ucClients.GridClient_MouseDown(GridClientMouseDown);
             _ucClients.GridSelectChanged += new ucClients.GridClient_SelectIndexChanged(GridClientSelectIndexChanged);
+            _ucClients.MonitorItem_Click += new ucClients.ToolStripMenuItem_Click(_ucClients_MonitorItem_Click);
             _ucClients.Disposed += new EventHandler(_ucClients_Disposed);
             //Thiet lap cac thong so cho ucClients
             _ucClients.Left = 0;
-            _ucClients.Top = 0;
-            _ucClients.Width = 1010;
-            _ucClients.Height = 695;
+            _ucClients.Top = 0;            
             _ucClients.Width = _ucWidth;
             _ucClients.Height = _ucHeight;
             pnMain.Controls.Add(_ucClients);
@@ -215,6 +213,22 @@ namespace WahooV2
                 ShowControlClientsNormal();
             }
             lblTop.Text = AliasMessage.CLIENT_HEADER_LABEL_CONTROL;
+        }
+
+        void _ucClients_MonitorItem_Click(object sender, EventArgs e)
+        {
+            _resource = new Resource();
+            setActiveLink(linkReportAll, _resource.GetResourceByKey("MONITOR_FORM_CONTROL", "HEADER_LABLE_TEXT_FOR_CLIENT"));
+
+            xpPanelDashboardTask.Visible = false;
+            xpPanelChannelTask.Visible = false;
+            xpPanelUser.Visible = false;
+            xpPanelClient.Visible = false;
+
+            //View control report
+            clearControl();
+            usMonitor _monitor = new usMonitor(_mIdClient);
+            setControltoPanel(_monitor, 0, 0, _ucWidth, _ucHeight);
         }
 
         void _ucClients_Disposed(object sender, EventArgs e)
