@@ -30,7 +30,7 @@ namespace WahooV2.WahooUserControl
         {
             lstAll = new List<DownloadReport>();
             //lay tat ca thong tin trong table download report
-            lstAll = getObjList(new DownloadReport());
+            //lstAll = getObjList(new DownloadReport());
             if (IdClient != -1)
             {
                 lstAll = getObjList(new DownloadReport(IdClient));
@@ -163,14 +163,9 @@ namespace WahooV2.WahooUserControl
 
         private List<DownloadReport> getObjList(DownloadReport condition)
         {
-            if (this._mIdClient == -1)
-            {
+         
                 return WahooBusinessHandler.Get_ListDownloadReport(new DownloadReport());
-            }
-            else
-            {
-                return WahooBusinessHandler.Get_ListDownloadReport(condition);
-            }
+          
         }
 
         private void LoadResourceInfo()
