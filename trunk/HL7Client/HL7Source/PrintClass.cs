@@ -18,6 +18,7 @@ namespace HL7Source
         public PrintClass()
         {            
         }
+
         public bool PrintDocFile(string path, string printerPath)
         {
             Boolean result = false;
