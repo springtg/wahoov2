@@ -399,6 +399,7 @@
             // 
             this.timerRefresh.Enabled = true;
             this.timerRefresh.SynchronizingObject = this;
+            this.timerRefresh.Elapsed += new System.Timers.ElapsedEventHandler(this.timerRefresh_Elapsed);
             // 
             // ucDashboard
             // 

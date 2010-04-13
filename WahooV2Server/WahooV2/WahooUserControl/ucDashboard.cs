@@ -513,5 +513,33 @@ namespace WahooV2.WahooUserControl
         }
         #endregion function 
 
+        private void timerRefresh_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+                int temp = 0;
+                try
+                {
+                    Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
+                    temp = int.Parse(configObl.ReadSetting(AliasMessage.DASHBOARD_INTERVAL_CONFIG));
+                }
+                catch
+                {
+                    temp = 0;
+                }
+                if (temp < 10)
+                {
+                    temp = 10;
+                }
+                temp = temp * 1000;
+                //Check timer interval for refresh timer( change when timer interval is changed)
+                if (this.timerRefresh.Interval != temp)
+                {
+                    this.timerRefresh.Stop();
+                    this.timerRefresh.Interval = temp;
+                    this.timerRefresh.Start();
+
+                }
+                
+        }
+
     }
 }
