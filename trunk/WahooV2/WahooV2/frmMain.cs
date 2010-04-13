@@ -110,8 +110,8 @@ namespace WahooV2
             dashboard.GridMouseDown += new ucDashboard.GridDashboard_MouseDown(GridDashboardMouseDown);
             dashboard.Left = 0;
             dashboard.Top = 0;
-            dashboard.Width = 1010;
-            dashboard.Height = 695;
+            dashboard.Width = _ucWidth;
+            dashboard.Height = _ucHeight;
             pnMain.Controls.Add(dashboard);
             if (dashboard.IdDashboard != 0)
             {
@@ -1512,7 +1512,8 @@ namespace WahooV2
             if (dashboard.DashboardStatus == AliasMessage.STARTED_STATUS)
             {
                 linkPauseChannel.Text = AliasMessage.PAUSE_CHANNEL_FORMMAIN_CONTROL;
-                linkPauseChannel.ImageIndex = 25;
+                linkPauseChannel.Image = global::WahooV2.Properties.Resources.Pause;
+                //linkPauseChannel.ImageIndex = 25;
                 linkStopChannel.Visible = true;
                 linkPauseChannel.Visible = true;
                 linkStopChannel.Top = 150;
@@ -1523,7 +1524,8 @@ namespace WahooV2
             else if (dashboard.DashboardStatus == AliasMessage.PAUSED_STATUS)
             {
                 linkPauseChannel.Text = AliasMessage.START_CHANNEL_FORMMAIN_CONTROL;
-                linkPauseChannel.ImageIndex = 13;
+                linkPauseChannel.Image = global::WahooV2.Properties.Resources.Start;
+                //linkPauseChannel.ImageIndex = 13;
                 linkStopChannel.Top = 150;
                 linkPauseChannel.Top = 125;
                 linkStopChannel.Visible = true;
@@ -1534,7 +1536,8 @@ namespace WahooV2
             else if (dashboard.DashboardStatus == AliasMessage.STOPPED_STATUS)
             {
                 linkPauseChannel.Text = AliasMessage.START_CHANNEL_FORMMAIN_CONTROL;
-                linkPauseChannel.ImageIndex = 13;
+                linkPauseChannel.Image = global::WahooV2.Properties.Resources.Start;
+                //linkPauseChannel.ImageIndex = 13;
                 linkStopChannel.Visible = false;
                 linkPauseChannel.Visible = true;
                 linkStopChannel.Top = 125;
