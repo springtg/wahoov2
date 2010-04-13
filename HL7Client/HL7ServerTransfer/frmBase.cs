@@ -21,6 +21,8 @@ namespace HL7ServerTransfer
             CONFIRM
         }
         #endregion Enumerations
+
+        protected HL7Source.Resource _Resource;
         public frmBase()
         {
             InitializeComponent();
@@ -75,6 +77,124 @@ namespace HL7ServerTransfer
                 //4.Error handling
                 //Write exception here
                 return DialogResult.None;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="messageId"></param>
+        /// <returns></returns>
+        public DialogResult ShowMessageBox(string messageId, MessageType messageType)
+        {
+            //1. Assign defaul return value
+            DialogResult result = DialogResult.None;
+            try
+            {
+                string messageText = HL7Source.Message.GetMessageById(messageId);
+                //2. Display message if found
+                if (messageText != "")
+                {
+                    //2.1. Message type parser
+                    Int32 iMessageCode = 0;
+                    //2.1. Display message
+                    switch (messageType)
+                    {
+                        case MessageType.WARNING:
+                            MessageBox.Show(messageText, "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            break;
+                        case MessageType.INFORM:
+                            MessageBox.Show(messageText, "INFORM", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            break;
+                        case MessageType.ERROR:
+                            MessageBox.Show(messageText, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
+                        case MessageType.CONFIRM:
+                            result = MessageBox.Show(messageText, "CONFIRM", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            break;
+                        default:
+                            MessageBox.Show(messageText, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
+                    }
+                }
+                else
+                {
+                    //2.2. If not found then display inform message
+                    MessageBox.Show(String.Format("Message {0} is not found in resource file.", messageId), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                //3.Return result
+                return result;
+            }
+            catch (Exception ex)
+            {
+                //4.Error handling
+                //Write exception here
+                return DialogResult.None;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="messageId"></param>
+        /// <returns></returns>
+        public DialogResult ShowMessageBox(string messageId, MessageType messageType, string para)
+        {
+            //1. Assign defaul return value
+            DialogResult result = DialogResult.None;
+            try
+            {
+                string messageText = string.Format(HL7Source.Message.GetMessageById(messageId), para);
+                //2. Display message if found
+                if (messageText != "")
+                {
+                    //2.1. Message type parser
+                    Int32 iMessageCode = 0;
+                    //2.1. Display message
+                    switch (messageType)
+                    {
+                        case MessageType.WARNING:
+                            MessageBox.Show(messageText, "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            break;
+                        case MessageType.INFORM:
+                            MessageBox.Show(messageText, "INFORM", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            break;
+                        case MessageType.ERROR:
+                            MessageBox.Show(messageText, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
+                        case MessageType.CONFIRM:
+                            result = MessageBox.Show(messageText, "CONFIRM", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            break;
+                        default:
+                            MessageBox.Show(messageText, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
+                    }
+                }
+                else
+                {
+                    //2.2. If not found then display inform message
+                    MessageBox.Show(String.Format("Message {0} is not found in resource file.", messageId), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                //3.Return result
+                return result;
+            }
+            catch (Exception ex)
+            {
+                //4.Error handling
+                //Write exception here
+                return DialogResult.None;
+            }
+        }
+
+        protected string getNameControl(Control ctrl)
+        {
+            try
+            {
+                return ctrl.Text.Replace(":", "");
+            }
+            catch
+            {
+                return string.Empty;
             }
         }
     }

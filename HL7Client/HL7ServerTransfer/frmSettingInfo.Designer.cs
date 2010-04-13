@@ -52,7 +52,7 @@ namespace HL7ServerTransfer
             this.groupBox1.Location = new System.Drawing.Point(4, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(243, 143);
-            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Client Infomation";
             // 
@@ -67,7 +67,7 @@ namespace HL7ServerTransfer
             // 
             // txtClientCode
             // 
-            this.txtClientCode.Location = new System.Drawing.Point(75, 23);
+            this.txtClientCode.Location = new System.Drawing.Point(75, 26);
             this.txtClientCode.Name = "txtClientCode";
             this.txtClientCode.Size = new System.Drawing.Size(153, 20);
             this.txtClientCode.TabIndex = 1;
@@ -78,22 +78,22 @@ namespace HL7ServerTransfer
             this.label2.Location = new System.Drawing.Point(6, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 13);
-            this.label2.TabIndex = 0;
+            this.label2.TabIndex = 2;
             this.label2.Text = "Client name:";
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(75, 110);
+            this.txtEmail.Location = new System.Drawing.Point(75, 113);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(153, 20);
-            this.txtEmail.TabIndex = 3;
+            this.txtEmail.TabIndex = 5;
             // 
             // txtClientName
             // 
-            this.txtClientName.Location = new System.Drawing.Point(75, 66);
+            this.txtClientName.Location = new System.Drawing.Point(75, 69);
             this.txtClientName.Name = "txtClientName";
             this.txtClientName.Size = new System.Drawing.Size(153, 20);
-            this.txtClientName.TabIndex = 2;
+            this.txtClientName.TabIndex = 3;
             // 
             // label3
             // 
@@ -101,15 +101,16 @@ namespace HL7ServerTransfer
             this.label3.Location = new System.Drawing.Point(6, 117);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 0;
+            this.label3.TabIndex = 4;
             this.label3.Text = "Email:";
             // 
             // tbnClose
             // 
+            this.tbnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.tbnClose.Location = new System.Drawing.Point(157, 151);
             this.tbnClose.Name = "tbnClose";
             this.tbnClose.Size = new System.Drawing.Size(75, 23);
-            this.tbnClose.TabIndex = 15;
+            this.tbnClose.TabIndex = 2;
             this.tbnClose.Text = "Close";
             this.tbnClose.UseVisualStyleBackColor = true;
             this.tbnClose.Click += new System.EventHandler(this.tbnClose_Click);
@@ -119,15 +120,17 @@ namespace HL7ServerTransfer
             this.btnAccept.Location = new System.Drawing.Point(79, 151);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(75, 23);
-            this.btnAccept.TabIndex = 14;
+            this.btnAccept.TabIndex = 1;
             this.btnAccept.Text = "Accept";
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // frmSettingInfo
             // 
+            this.AcceptButton = this.btnAccept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.tbnClose;
             this.ClientSize = new System.Drawing.Size(254, 180);
             this.Controls.Add(this.tbnClose);
             this.Controls.Add(this.btnAccept);
