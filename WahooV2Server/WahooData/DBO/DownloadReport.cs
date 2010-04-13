@@ -129,21 +129,23 @@ namespace WahooData.DBO
             }
         }
 
-        //public string Downloaded
-        //{
-        //    get { if (_Success.Equals(true)) return WahooConfiguration.Message.GetMessageById("MONITOR_Text003");
-        //    else return WahooConfiguration.Message.GetMessageById("MONITOR_Text002");
-        //    }
-        //}
+        public string Downloaded
+        {
+            get
+            {
+                if (_Success.Equals(true)) return WahooConfiguration.Message.GetMessageById("MONITOR_Text003");
+                else return WahooConfiguration.Message.GetMessageById("MONITOR_Text002");
+            }
+        }
 
-        //public string SentToPrint
-        //{
-        //    get
-        //    {
-        //        if (_IsSentToPrint.Equals(true)) return WahooConfiguration.Message.GetMessageById("MONITOR_Text003");
-        //        else return WahooConfiguration.Message.GetMessageById("MONITOR_Text002");
-        //    }
-        //}
+        public string SentToPrint
+        {
+            get
+            {
+                if (_IsSentToPrint.Equals(true)) return WahooConfiguration.Message.GetMessageById("MONITOR_Text003");
+                else return WahooConfiguration.Message.GetMessageById("MONITOR_Text002");
+            }
+        }
         /// <summary>
         /// Gets or sets DateTime? value for TimeDownloaded
         /// </summary>
