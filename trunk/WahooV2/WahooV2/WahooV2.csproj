@@ -140,6 +140,9 @@
       <DependentUpon>ucClients.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="WahooUserControl\ucDashboard.resx">
+      <DependentUpon>ucDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WahooUserControl\ucNewChannel.resx">
       <DependentUpon>ucNewChannel.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -188,6 +191,12 @@
     </Compile>
     <Compile Include="WahooUserControl\ucClients.Designer.cs">
       <DependentUpon>ucClients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WahooUserControl\ucDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WahooUserControl\ucDashboard.designer.cs">
+      <DependentUpon>ucDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="WahooUserControl\ucNewChannel.cs">
       <SubType>UserControl</SubType>
