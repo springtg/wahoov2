@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WahooConfiguration", "Wahoo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WahooCommon", "WahooCommon\WahooCommon.csproj", "{B3F04200-DF60-4300-8E3F-2E95AC8004E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfWahoo", "WpfWahoo\WpfWahoo.csproj", "{2058888C-1192-45A1-AC9D-F81988142933}"
-EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WahooWebService", "WahooWebService", "{86443B0E-9F8D-46E9-BC10-85A1A490DDB6}"
 	ProjectSection(WebsiteProperties) = preProject
 		SccProjectName = ""
@@ -60,10 +58,6 @@ Global
 		{B3F04200-DF60-4300-8E3F-2E95AC8004E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3F04200-DF60-4300-8E3F-2E95AC8004E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3F04200-DF60-4300-8E3F-2E95AC8004E0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2058888C-1192-45A1-AC9D-F81988142933}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2058888C-1192-45A1-AC9D-F81988142933}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2058888C-1192-45A1-AC9D-F81988142933}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2058888C-1192-45A1-AC9D-F81988142933}.Release|Any CPU.Build.0 = Release|Any CPU
 		{86443B0E-9F8D-46E9-BC10-85A1A490DDB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{86443B0E-9F8D-46E9-BC10-85A1A490DDB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86443B0E-9F8D-46E9-BC10-85A1A490DDB6}.Release|Any CPU.ActiveCfg = Debug|Any CPU
