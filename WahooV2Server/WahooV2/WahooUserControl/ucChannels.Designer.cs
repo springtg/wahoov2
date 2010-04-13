@@ -38,8 +38,8 @@
             this.clDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clIsDeployed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.newChannelItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editChannelItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newChannelItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteChannelItem = new System.Windows.Forms.ToolStripMenuItem();
             this.disableItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deployChannelItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -141,6 +141,13 @@
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(161, 158);
             // 
+            // editChannelItem
+            // 
+            this.editChannelItem.Name = "editChannelItem";
+            this.editChannelItem.Size = new System.Drawing.Size(160, 22);
+            this.editChannelItem.Text = "Edit Channel";
+            this.editChannelItem.Click += new System.EventHandler(this.ClickToolStripItem);
+            // 
             // newChannelItem
             // 
             this.newChannelItem.Image = global::WahooV2.Properties.Resources.New;
@@ -148,13 +155,6 @@
             this.newChannelItem.Size = new System.Drawing.Size(160, 22);
             this.newChannelItem.Text = "New Channel";
             this.newChannelItem.Click += new System.EventHandler(this.ClickToolStripItem);
-            // 
-            // editChannelItem
-            // 
-            this.editChannelItem.Name = "editChannelItem";
-            this.editChannelItem.Size = new System.Drawing.Size(160, 22);
-            this.editChannelItem.Text = "Edit Channel";
-            this.editChannelItem.Click += new System.EventHandler(this.ClickToolStripItem);
             // 
             // deleteChannelItem
             // 

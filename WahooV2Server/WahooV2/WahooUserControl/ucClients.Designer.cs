@@ -233,13 +233,13 @@
             this.deleteClientItem,
             this.itemClientMonitor});
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(147, 92);
+            this.menuStrip.Size = new System.Drawing.Size(153, 114);
             // 
             // newClientItem
             // 
             this.newClientItem.Image = global::WahooV2.Properties.Resources.AddClient;
             this.newClientItem.Name = "newClientItem";
-            this.newClientItem.Size = new System.Drawing.Size(146, 22);
+            this.newClientItem.Size = new System.Drawing.Size(152, 22);
             this.newClientItem.Text = "New Client";
             this.newClientItem.Click += new System.EventHandler(this.newClientItem_Click);
             // 
@@ -247,7 +247,7 @@
             // 
             this.editClientItem.Image = global::WahooV2.Properties.Resources.EditClient;
             this.editClientItem.Name = "editClientItem";
-            this.editClientItem.Size = new System.Drawing.Size(146, 22);
+            this.editClientItem.Size = new System.Drawing.Size(152, 22);
             this.editClientItem.Text = "Edit Client";
             this.editClientItem.Click += new System.EventHandler(this.editClientItem_Click);
             // 
@@ -255,15 +255,17 @@
             // 
             this.deleteClientItem.Image = global::WahooV2.Properties.Resources.ClientDelete;
             this.deleteClientItem.Name = "deleteClientItem";
-            this.deleteClientItem.Size = new System.Drawing.Size(146, 22);
+            this.deleteClientItem.Size = new System.Drawing.Size(152, 22);
             this.deleteClientItem.Text = "Delete Client";
             this.deleteClientItem.Click += new System.EventHandler(this.deleteClientItem_Click);
             // 
             // itemClientMonitor
             // 
+            this.itemClientMonitor.Image = global::WahooV2.Properties.Resources.Monitor;
             this.itemClientMonitor.Name = "itemClientMonitor";
-            this.itemClientMonitor.Size = new System.Drawing.Size(146, 22);
+            this.itemClientMonitor.Size = new System.Drawing.Size(152, 22);
             this.itemClientMonitor.Text = "Monitor";
+            this.itemClientMonitor.Click += new System.EventHandler(this.itemClientMonitor_Click);
             // 
             // ucClients
             // 

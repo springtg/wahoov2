@@ -43,6 +43,9 @@ namespace WahooV2.WahooUserControl
         public delegate void GridClient_SelectIndexChanged(object sender, EventArgs e);
         public event GridClient_SelectIndexChanged GridSelectChanged;
 
+        public delegate void ToolStripMenuItem_Click(object sender, EventArgs e);
+        public event ToolStripMenuItem_Click MonitorItem_Click;
+
         #endregion variable
 
         public ucClients()
@@ -271,6 +274,11 @@ namespace WahooV2.WahooUserControl
         private void gridClient_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             //DataTable dt = ((DataTable)((DataGridView)sender).DataSource);
+        }
+
+        private void itemClientMonitor_Click(object sender, EventArgs e)
+        {
+            MonitorItem_Click(sender, e);
         }
     }
 }
