@@ -131,7 +131,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.gridReport.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.gridReport.RowHeadersWidth = 30;
+            this.gridReport.RowHeadersWidth = 55;
             this.gridReport.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Silver;
             this.gridReport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridReport.Size = new System.Drawing.Size(1100, 410);
