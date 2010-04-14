@@ -57,7 +57,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Silver;
             this.gridChannel.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.gridChannel.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.gridChannel.BackgroundColor = System.Drawing.Color.White;
             this.gridChannel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
@@ -88,7 +88,7 @@
             this.gridChannel.MultiSelect = false;
             this.gridChannel.Name = "gridChannel";
             this.gridChannel.ReadOnly = true;
-            this.gridChannel.RowHeadersVisible = false;
+            this.gridChannel.RowHeadersWidth = 30;
             this.gridChannel.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Silver;
             this.gridChannel.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridChannel.Size = new System.Drawing.Size(1106, 690);
