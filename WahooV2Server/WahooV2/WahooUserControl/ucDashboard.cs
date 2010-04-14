@@ -269,21 +269,21 @@ namespace WahooV2.WahooUserControl
                             if (status == AliasMessage.STARTED_STATUS)
                             {
                                 pauseChannelToolStripMenuItem.Text = AliasMessage.PAUSE_CHANNEL_CONTROL;
-                                this.pauseChannelToolStripMenuItem.Image = global::WahooV2.Properties.Resources.Pause;
+                                this.pauseChannelToolStripMenuItem.Image = global::WahooV2.Properties.Resources.wh_pause;
                                 stopChannelToolStripMenuItem.Visible = true;
                             }
                             //When channel is paused-> show start channel button
                             else if (status == AliasMessage.PAUSED_STATUS)
                             {
                                 pauseChannelToolStripMenuItem.Text = AliasMessage.START_CHANNEL_CONTROL;
-                                this.pauseChannelToolStripMenuItem.Image = global::WahooV2.Properties.Resources.Start;
+                                this.pauseChannelToolStripMenuItem.Image = global::WahooV2.Properties.Resources.wh_start;
                                 stopChannelToolStripMenuItem.Visible = true;
                             }
                             //When channel is stoped-> show start channel button and disable stop button
                             else if (status == AliasMessage.STOPPED_STATUS)
                             {
                                 pauseChannelToolStripMenuItem.Text = AliasMessage.START_CHANNEL_CONTROL;
-                                this.pauseChannelToolStripMenuItem.Image = global::WahooV2.Properties.Resources.Start;
+                                this.pauseChannelToolStripMenuItem.Image = global::WahooV2.Properties.Resources.wh_start;
                                 stopChannelToolStripMenuItem.Visible = false;
                             }
                             else

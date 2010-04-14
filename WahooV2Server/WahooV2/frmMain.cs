@@ -109,6 +109,7 @@ namespace WahooV2
             dashboard.Top = 0;
             dashboard.Width = _ucWidth;
             dashboard.Height = _ucHeight;
+            dashboard.Dock = DockStyle.Fill;
             pnMain.Controls.Add(dashboard);
             if (dashboard.IdDashboard != 0)
             {
@@ -198,6 +199,7 @@ namespace WahooV2
             _ucClients.Top = 0;            
             _ucClients.Width = _ucWidth;
             _ucClients.Height = _ucHeight;
+            _ucClients.Dock = DockStyle.Fill;
             pnMain.Controls.Add(_ucClients);
             //Show control when no choose item
             if (_ucClients.IdClient == 0)
@@ -303,8 +305,8 @@ namespace WahooV2
             linkEditClient.Visible = false;
             linkDeleteClient.Visible = false;
             linkReport.Visible = false;
-            linkReport.Top = linkDeleteClient.Top = linkEditClient.Top = 40;
-            xpPanelClient.Height = 65;
+            linkReport.Top = linkDeleteClient.Top = linkEditClient.Top = 45;
+            xpPanelClient.Height = 70;
         }
         /// <summary>
         /// Show controls when choose client
@@ -315,9 +317,9 @@ namespace WahooV2
             linkDeleteClient.Visible = true;
             linkReport.Visible = true;
             linkEditClient.Top = 65;
-            linkDeleteClient.Top = 90;
-            linkReport.Top = 115;
-            xpPanelClient.Height = 140;
+            linkDeleteClient.Top = 85;
+            linkReport.Top = 105;
+            xpPanelClient.Height = 130;
         }
         /// <summary>
         /// Create Client
@@ -454,6 +456,7 @@ namespace WahooV2
             ctrl.Top = iRight;
             ctrl.Width = iWidth;
             ctrl.Height = iHeight;
+            ctrl.Dock = DockStyle.Fill;
             pnMain.Controls.Add(ctrl);
             Cursor.Current = Cursors.Default;
         }
@@ -566,6 +569,7 @@ namespace WahooV2
             _ucUser.Top = 0;
             _ucUser.Width = _ucWidth;
             _ucUser.Height = _ucHeight;
+            _ucUser.Dock = DockStyle.Fill;
             pnMain.Controls.Add(_ucUser);
             //Show control when no choose item
             if (_ucUser.IdUser == 0)
@@ -584,16 +588,16 @@ namespace WahooV2
             linkEditUser.Visible = true;
             linkDeleteUser.Visible = true;
             linkEditUser.Top = 65;
-            linkDeleteUser.Top = 90;
-            xpPanelUser.Height = 115;
+            linkDeleteUser.Top = 85;
+            xpPanelUser.Height = 110;
         }
 
         private void ShowControlUserWhenNoChooseItems()
         {
             linkEditUser.Visible = false;
             linkDeleteUser.Visible = false;
-            linkEditUser.Top = linkDeleteUser.Top = 40;
-            xpPanelUser.Height = 65;
+            linkEditUser.Top = linkDeleteUser.Top = 45;
+            xpPanelUser.Height = 70;
         }
 
         private void ucUser_GridSelectChanged(object sender, EventArgs e)
@@ -768,6 +772,7 @@ namespace WahooV2
             channels.Top = 0;
             channels.Width = _ucWidth;
             channels.Height = _ucHeight;
+            channels.Dock = DockStyle.Fill;
             pnMain.Controls.Add(channels);
             if (channels.IdChannels == 0)
                 ShowControlWhenNoChooseItemChannel();
@@ -800,9 +805,9 @@ namespace WahooV2
         {
             linkEditChannel.Top = linkDeleteChannel.Top = linkEnableChannel.Top = linkSaveChannel.Top = linkDeployChannel.Top = 45;
             linkEditChannel.Visible = linkDeleteChannel.Visible = linkEnableChannel.Visible = linkSaveChannel.Visible = linkDeployChannel.Visible = false;
-            linkDeployAll.Top = 70;
-            linkUndeployAll.Top = 95;
-            xpPanelChannelTask.Height = 120;
+            linkDeployAll.Top = 65;
+            linkUndeployAll.Top = 85;
+            xpPanelChannelTask.Height = 110;
         }
 
         /// <summary>
@@ -816,16 +821,16 @@ namespace WahooV2
             this.linkEnableChannel.Visible = true;
             this.linkSaveChannel.Visible = false;
             linkNewChannel.Top = 45;
-            linkEditChannel.Top = 70;
-            linkDeleteChannel.Top = 95;
-            linkEnableChannel.Top = 120;
+            linkEditChannel.Top = 65;
+            linkDeleteChannel.Top = 85;
+            linkEnableChannel.Top = 105;
             linkDeployAll.Visible = true;
             linkDeployChannel.Visible = true;
             linkUndeployAll.Visible = true;
-            linkDeployChannel.Top = 145;
-            linkDeployAll.Top = 170;
-            linkUndeployAll.Top = 195;
-            xpPanelChannelTask.Height = 220;
+            linkDeployChannel.Top = 125;
+            linkDeployAll.Top = 145;
+            linkUndeployAll.Top = 165;
+            xpPanelChannelTask.Height = 190;
         }
 
         /// <summary>
@@ -840,6 +845,7 @@ namespace WahooV2
             newChannel.Top = 0;
             newChannel.Width = _ucWidth;
             newChannel.Height = _ucHeight;
+            newChannel.Dock = DockStyle.Fill;
             pnMain.Controls.Add(newChannel);
             newChannel.ShowEditChannel(idChannel);
             this._mChannelStatus = AliasMessage.UPDATE_STATUS;
@@ -926,25 +932,25 @@ namespace WahooV2
             if (channels.EnableChannel == AliasMessage.ENABLED_STATUS)
             {
                 linkEnableChannel.Text = AliasMessage.DISABLED_CHANNEL_FORMMAIN_CONTROL;
-                this.linkEnableChannel.Image = global::WahooV2.Properties.Resources.Disable;
+                this.linkEnableChannel.Image = global::WahooV2.Properties.Resources.wh_lock;
             }
             //Otherwise,channel status is disable->show ensable button
             else
             {
                 linkEnableChannel.Text = AliasMessage.ENABLED_CHANNEL_FORMMAIN_CONTROL;
-                this.linkEnableChannel.Image = global::WahooV2.Properties.Resources.Enable;
+                this.linkEnableChannel.Image = global::WahooV2.Properties.Resources.wh_unlock;
             }
             //If channel is deployed->show undeploy button
             if (channels.IsDeployChannel)
             {
                 linkDeployChannel.Text = AliasMessage.UNDEPLOY_CHANNEL_FORMMAIN_CONTROL;
-                linkDeployChannel.Image = global::WahooV2.Properties.Resources.Stop;
+                linkDeployChannel.Image = global::WahooV2.Properties.Resources.wh_stop;
             }
             //Otherwise,channel is undeployed->show undeploy button
             else
             {
                 linkDeployChannel.Text = AliasMessage.DEPLOY_CHANNEL_FORMMAIN_CONTROL;
-                linkDeployChannel.Image = global::WahooV2.Properties.Resources.Deploy;
+                linkDeployChannel.Image = global::WahooV2.Properties.Resources.wh_go;
             }
         }
 
@@ -1005,6 +1011,7 @@ namespace WahooV2
             newChannel.Top = 0;
             newChannel.Width = _ucWidth;
             newChannel.Height = _ucHeight;
+            newChannel.Dock = DockStyle.Fill;
             pnMain.Controls.Add(newChannel);
             this._mChannelStatus = AliasMessage.NEW_STATUS;
             this.EditChannelShowControl();
@@ -1110,13 +1117,13 @@ namespace WahooV2
                 if (status == 1)
                 {
                     linkEnableChannel.Text = AliasMessage.DISABLED_CHANNEL_FORMMAIN_CONTROL;
-                    this.linkEnableChannel.Image = global::WahooV2.Properties.Resources.Disable;
+                    this.linkEnableChannel.Image = global::WahooV2.Properties.Resources.wh_lock;
                 }
                 //curren status is disable
                 else if (status == 0)
                 {
                     linkEnableChannel.Text = AliasMessage.ENABLED_CHANNEL_FORMMAIN_CONTROL;
-                    this.linkEnableChannel.Image = global::WahooV2.Properties.Resources.Enable;
+                    this.linkEnableChannel.Image = global::WahooV2.Properties.Resources.wh_unlock;
                 }
             }
             catch(Exception ex)
@@ -1158,8 +1165,9 @@ namespace WahooV2
             channels.MenuItem_Click += new ucChannels.ToolStripMenuItem_Click(Channels_MenuItem_Click);
             channels.Left = 0;
             channels.Top = 0;
-            channels.Width = 858;
-            channels.Height = 695;
+            channels.Width = _ucWidth;
+            channels.Height = _ucHeight;
+            channels.Dock = DockStyle.Fill;
             //if (channels.ChannelStatus == AliasMessage.ENABLED_STATUS)
             //{
             //    linkEnableChannel.Text = AliasMessage.DISABLED_CHANNEL_FORMMAIN_CONTROL;
@@ -1197,13 +1205,13 @@ namespace WahooV2
                 if (deploy == 1)
                 {
                     linkDeployChannel.Text = AliasMessage.UNDEPLOY_CHANNEL_FORMMAIN_CONTROL;
-                    this.linkDeployChannel.Image = global::WahooV2.Properties.Resources.Stop;
+                    this.linkDeployChannel.Image = global::WahooV2.Properties.Resources.wh_stop;
                 }
                 //curren status is Undeploy
                 else if (deploy == 0)
                 {
                     linkDeployChannel.Text = AliasMessage.DEPLOY_CHANNEL_FORMMAIN_CONTROL;
-                    this.linkDeployChannel.Image = global::WahooV2.Properties.Resources.Deploy;
+                    this.linkDeployChannel.Image = global::WahooV2.Properties.Resources.wh_go;
                 }
             }
             catch(Exception ex)
@@ -1238,7 +1246,7 @@ namespace WahooV2
                 ucChannels channels = (ucChannels)pnMain.Controls[0];
                 channels.DeployAllChannel();
                 linkDeployChannel.Text = AliasMessage.UNDEPLOY_CHANNEL_FORMMAIN_CONTROL;
-                this.linkDeployChannel.Image = global::WahooV2.Properties.Resources.Stop;
+                this.linkDeployChannel.Image = global::WahooV2.Properties.Resources.wh_stop;
             }
             catch(Exception ex)
             {
@@ -1272,7 +1280,7 @@ namespace WahooV2
                 ucChannels channels = (ucChannels)pnMain.Controls[0];
                 channels.UndeployAllChannel();
                 linkDeployChannel.Text = AliasMessage.DEPLOY_CHANNEL_FORMMAIN_CONTROL;
-                this.linkDeployChannel.Image = global::WahooV2.Properties.Resources.Deploy;
+                this.linkDeployChannel.Image = global::WahooV2.Properties.Resources.wh_go;
             }
             catch(Exception ex)
             {
@@ -1412,12 +1420,12 @@ namespace WahooV2
             ucDashboard dashboard = (ucDashboard)pnMain.Controls[0];
             dashboard.StartAllChannel();
             linkPauseChannel.Text = AliasMessage.PAUSE_CHANNEL_FORMMAIN_CONTROL;
-            linkPauseChannel.Image = global::WahooV2.Properties.Resources.Pause;
-            linkPauseChannel.Top = 125;
+            linkPauseChannel.Image = global::WahooV2.Properties.Resources.wh_pause;
+            linkPauseChannel.Top = 105;
             linkPauseChannel.Visible = true;
             linkStopChannel.Visible = true;
-            linkStopChannel.Top = 150;
-            xpPanelDashboardTask.Height = 175;
+            linkStopChannel.Top = 125;
+            xpPanelDashboardTask.Height = 150;
             Cursor.Current = Cursors.Default;
         }
 
@@ -1436,12 +1444,12 @@ namespace WahooV2
             ucDashboard dashboard = (ucDashboard)pnMain.Controls[0];
             dashboard.StopAllChannel();
             linkPauseChannel.Text = AliasMessage.START_CHANNEL_FORMMAIN_CONTROL;
-            linkPauseChannel.Image = global::WahooV2.Properties.Resources.Start;
-            linkPauseChannel.Top = 125;
+            linkPauseChannel.Image = global::WahooV2.Properties.Resources.wh_start;
+            linkPauseChannel.Top = 105;
             linkPauseChannel.Visible = true;
             linkStopChannel.Visible = false;
-            linkStopChannel.Top = 125;
-            xpPanelDashboardTask.Height = 150;
+            linkStopChannel.Top = 105;
+            xpPanelDashboardTask.Height = 130;
             Cursor.Current = Cursors.Default;
         }
 
@@ -1461,18 +1469,18 @@ namespace WahooV2
             if (dashboard.PauseChannel() == AliasMessage.PAUSE_CHANNEL_CONTROL)
             {
                 linkPauseChannel.Text = AliasMessage.PAUSE_CHANNEL_FORMMAIN_CONTROL;
-                linkPauseChannel.Image = global::WahooV2.Properties.Resources.Pause;
+                linkPauseChannel.Image = global::WahooV2.Properties.Resources.wh_pause;
             }
             else
             {
                 linkPauseChannel.Text = AliasMessage.START_CHANNEL_FORMMAIN_CONTROL;
-                linkPauseChannel.Image = global::WahooV2.Properties.Resources.Start;
+                linkPauseChannel.Image = global::WahooV2.Properties.Resources.wh_start;
             }
             if (linkStopChannel.Visible == false)
             {
                 linkStopChannel.Visible = true;
-                linkStopChannel.Top = 150;
-                xpPanelDashboardTask.Height = 125;
+                linkStopChannel.Top = 125;
+                xpPanelDashboardTask.Height = 150;
             }
             Cursor.Current = Cursors.Default;
         }
@@ -1492,8 +1500,8 @@ namespace WahooV2
             ucDashboard dashboard = (ucDashboard)pnMain.Controls[0];
             dashboard.StopChannel();
             linkStopChannel.Visible = false;
-            linkStopChannel.Top = 125;
-            xpPanelDashboardTask.Height = 150;
+            linkStopChannel.Top = 105;
+            xpPanelDashboardTask.Height = 130;
             Cursor.Current = Cursors.Default;
         }
 
@@ -1530,32 +1538,32 @@ namespace WahooV2
         {
             ucDashboard dashboard = (ucDashboard)pnMain.Controls[0];
             linkPauseChannel.Visible = true;
-            linkPauseChannel.Top = 125;
+            linkPauseChannel.Top = 105;
             //If channel status is started-> show pause channel
             if (dashboard.DashboardStatus == AliasMessage.STARTED_STATUS)
             {
                 linkPauseChannel.Text = AliasMessage.PAUSE_CHANNEL_FORMMAIN_CONTROL;
-                linkPauseChannel.Image = global::WahooV2.Properties.Resources.Pause;
+                linkPauseChannel.Image = global::WahooV2.Properties.Resources.wh_pause;
                 linkStopChannel.Visible = true;
-                xpPanelDashboardTask.Height = 175;
+                xpPanelDashboardTask.Height = 150;
             }
             //If channel status is paused-> show start channel
             else if (dashboard.DashboardStatus == AliasMessage.PAUSED_STATUS)
             {
                 linkPauseChannel.Text = AliasMessage.START_CHANNEL_FORMMAIN_CONTROL;
-                linkPauseChannel.Image = global::WahooV2.Properties.Resources.Start;
+                linkPauseChannel.Image = global::WahooV2.Properties.Resources.wh_start;
                 linkStopChannel.Visible = true;
-                linkStopChannel.Top = 150;
-                xpPanelDashboardTask.Height = 175;
+                linkStopChannel.Top = 125;
+                xpPanelDashboardTask.Height = 150;
             }
             //If channel status is stoped-> show start channel,disable stop button
             else if (dashboard.DashboardStatus == AliasMessage.STOPPED_STATUS)
             {
                 linkPauseChannel.Text = AliasMessage.START_CHANNEL_FORMMAIN_CONTROL;
-                linkPauseChannel.Image = global::WahooV2.Properties.Resources.Start;
+                linkPauseChannel.Image = global::WahooV2.Properties.Resources.wh_start;
                 linkStopChannel.Visible = false;
-                linkStopChannel.Top = 125;
-                xpPanelDashboardTask.Height = 150;
+                linkStopChannel.Top = 105;
+                xpPanelDashboardTask.Height = 130;
             }
         }
 
@@ -1564,10 +1572,10 @@ namespace WahooV2
         /// </summary>
         private void ShowControlWhenNoChooseItemDashboard()
         {
-            linkPauseChannel.Top = linkStopChannel.Top = 100;
+            linkPauseChannel.Top = linkStopChannel.Top = 105;
             linkStopChannel.Visible = false;
             linkPauseChannel.Visible = false;
-            xpPanelDashboardTask.Height = 125;
+            xpPanelDashboardTask.Height = 110;
         }
 
         /// <summary>
@@ -1590,37 +1598,37 @@ namespace WahooV2
             if (dashboard.DashboardStatus == AliasMessage.STARTED_STATUS)
             {
                 linkPauseChannel.Text = AliasMessage.PAUSE_CHANNEL_FORMMAIN_CONTROL;
-                linkPauseChannel.Image = global::WahooV2.Properties.Resources.Pause;
+                linkPauseChannel.Image = global::WahooV2.Properties.Resources.wh_pause;
                 //linkPauseChannel.ImageIndex = 25;
                 linkStopChannel.Visible = true;
                 linkPauseChannel.Visible = true;
-                linkStopChannel.Top = 150;
-                linkPauseChannel.Top = 125;
-                xpPanelDashboardTask.Height = 175;
+                linkStopChannel.Top = 125;
+                linkPauseChannel.Top = 105;
+                xpPanelDashboardTask.Height = 150;
             }
             //If channel status is paused-> show start channel
             else if (dashboard.DashboardStatus == AliasMessage.PAUSED_STATUS)
             {
                 linkPauseChannel.Text = AliasMessage.START_CHANNEL_FORMMAIN_CONTROL;
-                linkPauseChannel.Image = global::WahooV2.Properties.Resources.Start;
+                linkPauseChannel.Image = global::WahooV2.Properties.Resources.wh_start;
                 //linkPauseChannel.ImageIndex = 13;
-                linkStopChannel.Top = 150;
-                linkPauseChannel.Top = 125;
+                linkStopChannel.Top = 125;
+                linkPauseChannel.Top = 105;
                 linkStopChannel.Visible = true;
                 linkPauseChannel.Visible = true;
-                xpPanelDashboardTask.Height = 175;
+                xpPanelDashboardTask.Height = 150;
             }
             //If channel status is stoped-> show start channel,disable stop button
             else if (dashboard.DashboardStatus == AliasMessage.STOPPED_STATUS)
             {
                 linkPauseChannel.Text = AliasMessage.START_CHANNEL_FORMMAIN_CONTROL;
-                linkPauseChannel.Image = global::WahooV2.Properties.Resources.Start;
+                linkPauseChannel.Image = global::WahooV2.Properties.Resources.wh_start;
                 //linkPauseChannel.ImageIndex = 13;
                 linkStopChannel.Visible = false;
                 linkPauseChannel.Visible = true;
-                linkStopChannel.Top = 125;
-                linkPauseChannel.Top = 125;
-                xpPanelDashboardTask.Height = 150;
+                linkStopChannel.Top = 105;
+                linkPauseChannel.Top = 105;
+                xpPanelDashboardTask.Height = 130;
             }
         }
 
