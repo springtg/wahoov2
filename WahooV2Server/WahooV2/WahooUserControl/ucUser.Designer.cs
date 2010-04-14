@@ -32,6 +32,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gridUser = new System.Windows.Forms.DataGridView();
+            this.menuTrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.newUserItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editUserItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteUserItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clFirstname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,10 +48,6 @@
             this.clIs_Deleted = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clDate_Created = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clDate_Updated = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.menuTrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.newUserItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editUserItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteUserItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridUser)).BeginInit();
             this.menuTrip.SuspendLayout();
             this.SuspendLayout();
@@ -99,56 +99,101 @@
             this.gridUser.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridUser_CellDoubleClick);
             this.gridUser.SelectionChanged += new System.EventHandler(this.gridUser_SelectionChanged);
             // 
+            // menuTrip
+            // 
+            this.menuTrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newUserItem,
+            this.editUserItem,
+            this.deleteUserItem});
+            this.menuTrip.Name = "menuTrip";
+            this.menuTrip.Size = new System.Drawing.Size(142, 70);
+            // 
+            // newUserItem
+            // 
+            this.newUserItem.Image = global::WahooV2.Properties.Resources.User_Add;
+            this.newUserItem.Name = "newUserItem";
+            this.newUserItem.Size = new System.Drawing.Size(141, 22);
+            this.newUserItem.Text = "New User";
+            this.newUserItem.Click += new System.EventHandler(this.NewUserItem_Click);
+            // 
+            // editUserItem
+            // 
+            this.editUserItem.Image = global::WahooV2.Properties.Resources.UserEdit;
+            this.editUserItem.Name = "editUserItem";
+            this.editUserItem.Size = new System.Drawing.Size(141, 22);
+            this.editUserItem.Text = "Edit User";
+            this.editUserItem.Click += new System.EventHandler(this.EditUserItem_Click);
+            // 
+            // deleteUserItem
+            // 
+            this.deleteUserItem.Image = global::WahooV2.Properties.Resources.UserDelete;
+            this.deleteUserItem.Name = "deleteUserItem";
+            this.deleteUserItem.Size = new System.Drawing.Size(141, 22);
+            this.deleteUserItem.Text = "Delete User";
+            this.deleteUserItem.Click += new System.EventHandler(this.DeleteUserItem_Click);
+            // 
             // clUsername
             // 
+            this.clUsername.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.clUsername.DataPropertyName = "Username";
+            this.clUsername.FillWeight = 120F;
             this.clUsername.HeaderText = "Username";
             this.clUsername.Name = "clUsername";
             this.clUsername.ReadOnly = true;
             // 
             // clFirstname
             // 
+            this.clFirstname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.clFirstname.DataPropertyName = "Firstname";
+            this.clFirstname.FillWeight = 120F;
             this.clFirstname.HeaderText = "First Name";
             this.clFirstname.Name = "clFirstname";
             this.clFirstname.ReadOnly = true;
             // 
             // clLastName
             // 
+            this.clLastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.clLastName.DataPropertyName = "LastName";
+            this.clLastName.FillWeight = 120F;
             this.clLastName.HeaderText = "Last Name";
             this.clLastName.Name = "clLastName";
             this.clLastName.ReadOnly = true;
             // 
             // clOrganization
             // 
+            this.clOrganization.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.clOrganization.DataPropertyName = "Organization";
+            this.clOrganization.FillWeight = 120F;
             this.clOrganization.HeaderText = "Organization";
             this.clOrganization.Name = "clOrganization";
             this.clOrganization.ReadOnly = true;
             // 
             // clEmail
             // 
+            this.clEmail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.clEmail.DataPropertyName = "Email";
+            this.clEmail.FillWeight = 120F;
             this.clEmail.HeaderText = "Email";
             this.clEmail.Name = "clEmail";
             this.clEmail.ReadOnly = true;
             // 
             // clPhone
             // 
+            this.clPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.clPhone.DataPropertyName = "Phone";
+            this.clPhone.FillWeight = 120F;
             this.clPhone.HeaderText = "Phone Number";
             this.clPhone.Name = "clPhone";
             this.clPhone.ReadOnly = true;
-            this.clPhone.Width = 120;
             // 
             // clDescription
             // 
+            this.clDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.clDescription.DataPropertyName = "Description";
+            this.clDescription.FillWeight = 280F;
             this.clDescription.HeaderText = "Description";
             this.clDescription.Name = "clDescription";
             this.clDescription.ReadOnly = true;
-            this.clDescription.Width = 200;
             // 
             // clId
             // 
@@ -190,39 +235,6 @@
             this.clDate_Updated.ReadOnly = true;
             this.clDate_Updated.Visible = false;
             // 
-            // menuTrip
-            // 
-            this.menuTrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newUserItem,
-            this.editUserItem,
-            this.deleteUserItem});
-            this.menuTrip.Name = "menuTrip";
-            this.menuTrip.Size = new System.Drawing.Size(142, 70);
-            // 
-            // newUserItem
-            // 
-            this.newUserItem.Image = global::WahooV2.Properties.Resources.User_Add;
-            this.newUserItem.Name = "newUserItem";
-            this.newUserItem.Size = new System.Drawing.Size(141, 22);
-            this.newUserItem.Text = "New User";
-            this.newUserItem.Click += new System.EventHandler(this.NewUserItem_Click);
-            // 
-            // editUserItem
-            // 
-            this.editUserItem.Image = global::WahooV2.Properties.Resources.UserEdit;
-            this.editUserItem.Name = "editUserItem";
-            this.editUserItem.Size = new System.Drawing.Size(141, 22);
-            this.editUserItem.Text = "Edit User";
-            this.editUserItem.Click += new System.EventHandler(this.EditUserItem_Click);
-            // 
-            // deleteUserItem
-            // 
-            this.deleteUserItem.Image = global::WahooV2.Properties.Resources.UserDelete;
-            this.deleteUserItem.Name = "deleteUserItem";
-            this.deleteUserItem.Size = new System.Drawing.Size(141, 22);
-            this.deleteUserItem.Text = "Delete User";
-            this.deleteUserItem.Click += new System.EventHandler(this.DeleteUserItem_Click);
-            // 
             // ucUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,6 +252,10 @@
         #endregion
 
         private System.Windows.Forms.DataGridView gridUser;
+        private System.Windows.Forms.ContextMenuStrip menuTrip;
+        private System.Windows.Forms.ToolStripMenuItem newUserItem;
+        private System.Windows.Forms.ToolStripMenuItem editUserItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteUserItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn clUsername;
         private System.Windows.Forms.DataGridViewTextBoxColumn clFirstname;
         private System.Windows.Forms.DataGridViewTextBoxColumn clLastName;
@@ -252,9 +268,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clIs_Deleted;
         private System.Windows.Forms.DataGridViewTextBoxColumn clDate_Created;
         private System.Windows.Forms.DataGridViewTextBoxColumn clDate_Updated;
-        private System.Windows.Forms.ContextMenuStrip menuTrip;
-        private System.Windows.Forms.ToolStripMenuItem newUserItem;
-        private System.Windows.Forms.ToolStripMenuItem editUserItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteUserItem;
     }
 }
