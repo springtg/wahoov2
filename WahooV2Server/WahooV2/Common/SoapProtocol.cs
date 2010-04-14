@@ -124,7 +124,7 @@ namespace WahooV2.Common
                     }
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 return;
             }
@@ -311,7 +311,7 @@ namespace WahooV2.Common
                         objChannel.IsConnected = false;
                         objChannel.Update();
                     }
-                    catch (Exception ex)
+                    catch
                     {
 
                     }
@@ -325,7 +325,7 @@ namespace WahooV2.Common
                     return false;
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 if (sr != null)
                 {
