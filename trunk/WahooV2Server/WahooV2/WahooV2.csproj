@@ -307,6 +307,33 @@
     <Content Include="bin\Debug\Resource\Resource.xml" />
     <Content Include="bin\Debug\XPPanel.dll" />
     <Content Include="Resources\edit.png" />
+    <None Include="Resources\wh_save.png" />
+    <None Include="Resources\wh_user_delete.png" />
+    <None Include="Resources\wh_user_add.png" />
+    <None Include="Resources\wh_user.png" />
+    <None Include="Resources\wh_unlock.png" />
+    <None Include="Resources\wh_tick.png" />
+    <None Include="Resources\wh_stop_all.png" />
+    <None Include="Resources\wh_stop.png" />
+    <None Include="Resources\wh_start_all.png" />
+    <None Include="Resources\wh_start.png" />
+    <None Include="Resources\wh_setting.png" />
+    <None Include="Resources\wh_report.png" />
+    <None Include="Resources\wh_refresh.png" />
+    <None Include="Resources\wh_play.png" />
+    <None Include="Resources\wh_pause.png" />
+    <None Include="Resources\wh_lock.png" />
+    <None Include="Resources\wh_help.png" />
+    <None Include="Resources\wh_go.png" />
+    <None Include="Resources\wh_delete.png" />
+    <None Include="Resources\wh_dashboard.png" />
+    <None Include="Resources\wh_client.png" />
+    <None Include="Resources\wh_channels.png" />
+    <None Include="Resources\wh_channel_edit.png" />
+    <None Include="Resources\wh_channel_delete.png" />
+    <None Include="Resources\wh_channel_add.png" />
+    <None Include="Resources\wh_add.png" />
+    <None Include="Resources\wh_user_edit.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WahooCommon\WahooCommon.csproj">

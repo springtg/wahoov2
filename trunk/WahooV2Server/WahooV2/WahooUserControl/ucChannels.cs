@@ -254,27 +254,27 @@ namespace WahooV2.WahooUserControl
                             if (enableStatus==AliasMessage.ENABLED_STATUS)
                             {
                                 disableItem.Text = AliasMessage.DISABLED_CHANNEL_CONTROL;
-                                disableItem.Image = global::WahooV2.Properties.Resources.Disable;
+                                disableItem.Image = global::WahooV2.Properties.Resources.wh_lock;
                             }
                             //If channel status is disabled-> show enable channel
                             else
                             {
                                 disableItem.Text = AliasMessage.ENABLED_CHANNEL_CONTROL;
-                                disableItem.Image = global::WahooV2.Properties.Resources.Enable;
+                                disableItem.Image = global::WahooV2.Properties.Resources.wh_unlock;
                             }
                             bool deployStatus = DataTypeProtect.ProtectBoolean(gridChannel.Rows[hti.RowIndex].Cells[this.clIsDeployed.Name].Value, false);
                             //If channel status execute is not deploy
                             if (deployStatus)
                             {
                                 deployChannelItem.Text = AliasMessage.UNDEPLOY_CHANNEL_CONTROL;
-                                deployChannelItem.Image = global::WahooV2.Properties.Resources.Stop;
+                                deployChannelItem.Image = global::WahooV2.Properties.Resources.wh_stop;
                             }
                             //Otherwise, show undeploy channel
                             else
                             {
                                 //Show deploy channel button
                                 deployChannelItem.Text = AliasMessage.DEPLOY_CHANNEL_CONTROL;
-                                deployChannelItem.Image = global::WahooV2.Properties.Resources.Deploy;                                
+                                deployChannelItem.Image = global::WahooV2.Properties.Resources.wh_go;                                
                             }
                             //Show buttons when click in grid for channel
                             editChannelItem.Visible = true;

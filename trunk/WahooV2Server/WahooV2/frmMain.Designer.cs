@@ -35,7 +35,7 @@
             this.xpPanelOther = new UIComponents.XPPanel(100);
             this.linkLogout = new System.Windows.Forms.LinkLabel();
             this.linkHelp = new System.Windows.Forms.LinkLabel();
-            this.xpPanelClient = new UIComponents.XPPanel(140);
+            this.xpPanelClient = new UIComponents.XPPanel(136);
             this.linkReport = new System.Windows.Forms.LinkLabel();
             this.linkDeleteClient = new System.Windows.Forms.LinkLabel();
             this.linkEditClient = new System.Windows.Forms.LinkLabel();
@@ -44,7 +44,7 @@
             this.linkDeleteUser = new System.Windows.Forms.LinkLabel();
             this.linkEditUser = new System.Windows.Forms.LinkLabel();
             this.linkNewUser = new System.Windows.Forms.LinkLabel();
-            this.xpPanelChannelTask = new UIComponents.XPPanel(251);
+            this.xpPanelChannelTask = new UIComponents.XPPanel(216);
             this.linkUndeployAll = new System.Windows.Forms.LinkLabel();
             this.linkDeployAll = new System.Windows.Forms.LinkLabel();
             this.linkDeployChannel = new System.Windows.Forms.LinkLabel();
@@ -53,13 +53,13 @@
             this.linkEnableChannel = new System.Windows.Forms.LinkLabel();
             this.linkSaveChannel = new System.Windows.Forms.LinkLabel();
             this.linkNewChannel = new System.Windows.Forms.LinkLabel();
-            this.xpPanelDashboardTask = new UIComponents.XPPanel(175);
+            this.xpPanelDashboardTask = new UIComponents.XPPanel(155);
             this.linkStopChannel = new System.Windows.Forms.LinkLabel();
             this.linkPauseChannel = new System.Windows.Forms.LinkLabel();
             this.linkStopAllChannel = new System.Windows.Forms.LinkLabel();
             this.linkResetAllChannel = new System.Windows.Forms.LinkLabel();
             this.linkStartAllChannel = new System.Windows.Forms.LinkLabel();
-            this.xpPanelNWG = new UIComponents.XPPanel(194);
+            this.xpPanelNWG = new UIComponents.XPPanel(172);
             this.linkSetting = new System.Windows.Forms.LinkLabel();
             this.linkBridge = new System.Windows.Forms.LinkLabel();
             this.linkDashboard = new System.Windows.Forms.LinkLabel();
@@ -131,10 +131,11 @@
             this.xpPanelLeft.Controls.Add(this.xpPanelDashboardTask);
             this.xpPanelLeft.Controls.Add(this.xpPanelNWG);
             this.xpPanelLeft.Location = new System.Drawing.Point(0, 0);
+            this.xpPanelLeft.Margin = new System.Windows.Forms.Padding(0);
             this.xpPanelLeft.Name = "xpPanelLeft";
             this.xpPanelLeft.PanelGradient = ((UIComponents.GradientColor)(resources.GetObject("xpPanelLeft.PanelGradient")));
             this.xpPanelLeft.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.xpPanelLeft.Size = new System.Drawing.Size(169, 731);
+            this.xpPanelLeft.Size = new System.Drawing.Size(166, 734);
             this.xpPanelLeft.TabIndex = 0;
             // 
             // xpPanelOther
@@ -154,12 +155,12 @@
             this.xpPanelOther.ForeColor = System.Drawing.SystemColors.WindowText;
             this.xpPanelOther.HorzAlignment = System.Drawing.StringAlignment.Near;
             this.xpPanelOther.ImageItems.ImageSet = null;
-            this.xpPanelOther.Location = new System.Drawing.Point(8, 923);
+            this.xpPanelOther.Location = new System.Drawing.Point(8, 842);
             this.xpPanelOther.Name = "xpPanelOther";
             this.xpPanelOther.PanelGradient.End = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
             this.xpPanelOther.PanelGradient.Start = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
             this.xpPanelOther.PanelGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.xpPanelOther.Size = new System.Drawing.Size(136, 100);
+            this.xpPanelOther.Size = new System.Drawing.Size(133, 100);
             this.xpPanelOther.TabIndex = 5;
             this.xpPanelOther.TextColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
             this.xpPanelOther.TextHighlightColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
@@ -169,7 +170,6 @@
             // linkLogout
             // 
             this.linkLogout.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkLogout.AutoSize = true;
             this.linkLogout.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkLogout.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLogout.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -177,9 +177,9 @@
             this.linkLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkLogout.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkLogout.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkLogout.Location = new System.Drawing.Point(14, 67);
+            this.linkLogout.Location = new System.Drawing.Point(14, 65);
             this.linkLogout.Name = "linkLogout";
-            this.linkLogout.Size = new System.Drawing.Size(58, 13);
+            this.linkLogout.Size = new System.Drawing.Size(115, 16);
             this.linkLogout.TabIndex = 32;
             this.linkLogout.TabStop = true;
             this.linkLogout.Text = "      Logout";
@@ -189,7 +189,6 @@
             // linkHelp
             // 
             this.linkHelp.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkHelp.AutoSize = true;
             this.linkHelp.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkHelp.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkHelp.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -199,7 +198,7 @@
             this.linkHelp.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkHelp.Location = new System.Drawing.Point(14, 45);
             this.linkHelp.Name = "linkHelp";
-            this.linkHelp.Size = new System.Drawing.Size(46, 13);
+            this.linkHelp.Size = new System.Drawing.Size(115, 16);
             this.linkHelp.TabIndex = 31;
             this.linkHelp.TabStop = true;
             this.linkHelp.Text = "      Help";
@@ -224,12 +223,12 @@
             this.xpPanelClient.ForeColor = System.Drawing.SystemColors.WindowText;
             this.xpPanelClient.HorzAlignment = System.Drawing.StringAlignment.Near;
             this.xpPanelClient.ImageItems.ImageSet = null;
-            this.xpPanelClient.Location = new System.Drawing.Point(8, 775);
+            this.xpPanelClient.Location = new System.Drawing.Point(8, 698);
             this.xpPanelClient.Name = "xpPanelClient";
             this.xpPanelClient.PanelGradient.End = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
             this.xpPanelClient.PanelGradient.Start = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
             this.xpPanelClient.PanelGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.xpPanelClient.Size = new System.Drawing.Size(136, 140);
+            this.xpPanelClient.Size = new System.Drawing.Size(133, 136);
             this.xpPanelClient.TabIndex = 3;
             this.xpPanelClient.TextColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
             this.xpPanelClient.TextHighlightColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
@@ -239,17 +238,16 @@
             // linkReport
             // 
             this.linkReport.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkReport.AutoSize = true;
             this.linkReport.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkReport.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkReport.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.linkReport.Image = global::WahooV2.Properties.Resources.Monitor;
+            this.linkReport.Image = global::WahooV2.Properties.Resources.wh_report;
             this.linkReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkReport.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkReport.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkReport.Location = new System.Drawing.Point(14, 115);
+            this.linkReport.Location = new System.Drawing.Point(14, 105);
             this.linkReport.Name = "linkReport";
-            this.linkReport.Size = new System.Drawing.Size(61, 13);
+            this.linkReport.Size = new System.Drawing.Size(115, 16);
             this.linkReport.TabIndex = 30;
             this.linkReport.TabStop = true;
             this.linkReport.Text = "      Monitor";
@@ -259,17 +257,16 @@
             // linkDeleteClient
             // 
             this.linkDeleteClient.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkDeleteClient.AutoSize = true;
             this.linkDeleteClient.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkDeleteClient.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkDeleteClient.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.linkDeleteClient.Image = global::WahooV2.Properties.Resources.ClientDelete;
+            this.linkDeleteClient.Image = global::WahooV2.Properties.Resources.wh_user_delete;
             this.linkDeleteClient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkDeleteClient.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkDeleteClient.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkDeleteClient.Location = new System.Drawing.Point(14, 90);
+            this.linkDeleteClient.Location = new System.Drawing.Point(14, 85);
             this.linkDeleteClient.Name = "linkDeleteClient";
-            this.linkDeleteClient.Size = new System.Drawing.Size(86, 13);
+            this.linkDeleteClient.Size = new System.Drawing.Size(115, 16);
             this.linkDeleteClient.TabIndex = 29;
             this.linkDeleteClient.TabStop = true;
             this.linkDeleteClient.Text = "      Delete Client";
@@ -279,17 +276,16 @@
             // linkEditClient
             // 
             this.linkEditClient.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkEditClient.AutoSize = true;
             this.linkEditClient.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkEditClient.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkEditClient.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.linkEditClient.Image = global::WahooV2.Properties.Resources.EditClient;
+            this.linkEditClient.Image = global::WahooV2.Properties.Resources.wh_user_edit;
             this.linkEditClient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkEditClient.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkEditClient.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkEditClient.Location = new System.Drawing.Point(14, 64);
+            this.linkEditClient.Location = new System.Drawing.Point(14, 65);
             this.linkEditClient.Name = "linkEditClient";
-            this.linkEditClient.Size = new System.Drawing.Size(73, 13);
+            this.linkEditClient.Size = new System.Drawing.Size(115, 16);
             this.linkEditClient.TabIndex = 28;
             this.linkEditClient.TabStop = true;
             this.linkEditClient.Text = "      Edit Client";
@@ -299,20 +295,19 @@
             // linkNewClient
             // 
             this.linkNewClient.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkNewClient.AutoSize = true;
             this.linkNewClient.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkNewClient.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkNewClient.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.linkNewClient.Image = global::WahooV2.Properties.Resources.AddClient;
+            this.linkNewClient.Image = global::WahooV2.Properties.Resources.wh_user_add;
             this.linkNewClient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkNewClient.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkNewClient.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkNewClient.Location = new System.Drawing.Point(14, 40);
+            this.linkNewClient.Location = new System.Drawing.Point(14, 45);
             this.linkNewClient.Name = "linkNewClient";
-            this.linkNewClient.Size = new System.Drawing.Size(73, 13);
+            this.linkNewClient.Size = new System.Drawing.Size(115, 16);
             this.linkNewClient.TabIndex = 27;
             this.linkNewClient.TabStop = true;
-            this.linkNewClient.Text = "     New Client";
+            this.linkNewClient.Text = "      New Client";
             this.linkNewClient.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkNewClient.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkNewClient_LinkClicked);
             // 
@@ -334,12 +329,12 @@
             this.xpPanelUser.ForeColor = System.Drawing.SystemColors.WindowText;
             this.xpPanelUser.HorzAlignment = System.Drawing.StringAlignment.Near;
             this.xpPanelUser.ImageItems.ImageSet = null;
-            this.xpPanelUser.Location = new System.Drawing.Point(8, 652);
+            this.xpPanelUser.Location = new System.Drawing.Point(8, 575);
             this.xpPanelUser.Name = "xpPanelUser";
             this.xpPanelUser.PanelGradient.End = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
             this.xpPanelUser.PanelGradient.Start = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
             this.xpPanelUser.PanelGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.xpPanelUser.Size = new System.Drawing.Size(136, 115);
+            this.xpPanelUser.Size = new System.Drawing.Size(133, 115);
             this.xpPanelUser.TabIndex = 2;
             this.xpPanelUser.TextColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
             this.xpPanelUser.TextHighlightColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
@@ -349,17 +344,16 @@
             // linkDeleteUser
             // 
             this.linkDeleteUser.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkDeleteUser.AutoSize = true;
             this.linkDeleteUser.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkDeleteUser.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkDeleteUser.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.linkDeleteUser.Image = global::WahooV2.Properties.Resources.UserDelete;
+            this.linkDeleteUser.Image = global::WahooV2.Properties.Resources.wh_user_delete;
             this.linkDeleteUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkDeleteUser.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkDeleteUser.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkDeleteUser.Location = new System.Drawing.Point(14, 90);
+            this.linkDeleteUser.Location = new System.Drawing.Point(14, 85);
             this.linkDeleteUser.Name = "linkDeleteUser";
-            this.linkDeleteUser.Size = new System.Drawing.Size(81, 13);
+            this.linkDeleteUser.Size = new System.Drawing.Size(115, 16);
             this.linkDeleteUser.TabIndex = 26;
             this.linkDeleteUser.TabStop = true;
             this.linkDeleteUser.Text = "      Delete User";
@@ -369,17 +363,16 @@
             // linkEditUser
             // 
             this.linkEditUser.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkEditUser.AutoSize = true;
             this.linkEditUser.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkEditUser.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkEditUser.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.linkEditUser.Image = global::WahooV2.Properties.Resources.UserEdit;
+            this.linkEditUser.Image = global::WahooV2.Properties.Resources.wh_user_edit;
             this.linkEditUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkEditUser.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkEditUser.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkEditUser.Location = new System.Drawing.Point(14, 65);
             this.linkEditUser.Name = "linkEditUser";
-            this.linkEditUser.Size = new System.Drawing.Size(68, 13);
+            this.linkEditUser.Size = new System.Drawing.Size(115, 16);
             this.linkEditUser.TabIndex = 25;
             this.linkEditUser.TabStop = true;
             this.linkEditUser.Text = "      Edit User";
@@ -389,17 +382,16 @@
             // linkNewUser
             // 
             this.linkNewUser.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkNewUser.AutoSize = true;
             this.linkNewUser.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkNewUser.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkNewUser.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.linkNewUser.Image = global::WahooV2.Properties.Resources.User_Add;
+            this.linkNewUser.Image = global::WahooV2.Properties.Resources.wh_user_add;
             this.linkNewUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkNewUser.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkNewUser.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkNewUser.Location = new System.Drawing.Point(14, 40);
+            this.linkNewUser.Location = new System.Drawing.Point(14, 45);
             this.linkNewUser.Name = "linkNewUser";
-            this.linkNewUser.Size = new System.Drawing.Size(71, 13);
+            this.linkNewUser.Size = new System.Drawing.Size(115, 16);
             this.linkNewUser.TabIndex = 24;
             this.linkNewUser.TabStop = true;
             this.linkNewUser.Text = "      New User";
@@ -429,12 +421,12 @@
             this.xpPanelChannelTask.ForeColor = System.Drawing.SystemColors.WindowText;
             this.xpPanelChannelTask.HorzAlignment = System.Drawing.StringAlignment.Near;
             this.xpPanelChannelTask.ImageItems.ImageSet = null;
-            this.xpPanelChannelTask.Location = new System.Drawing.Point(8, 393);
+            this.xpPanelChannelTask.Location = new System.Drawing.Point(8, 351);
             this.xpPanelChannelTask.Name = "xpPanelChannelTask";
             this.xpPanelChannelTask.PanelGradient.End = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
             this.xpPanelChannelTask.PanelGradient.Start = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
             this.xpPanelChannelTask.PanelGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.xpPanelChannelTask.Size = new System.Drawing.Size(136, 251);
+            this.xpPanelChannelTask.Size = new System.Drawing.Size(133, 216);
             this.xpPanelChannelTask.TabIndex = 2;
             this.xpPanelChannelTask.TextColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
             this.xpPanelChannelTask.TextHighlightColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
@@ -444,17 +436,16 @@
             // linkUndeployAll
             // 
             this.linkUndeployAll.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkUndeployAll.AutoSize = true;
             this.linkUndeployAll.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkUndeployAll.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkUndeployAll.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.linkUndeployAll.Image = global::WahooV2.Properties.Resources.Undeploy_All;
+            this.linkUndeployAll.Image = global::WahooV2.Properties.Resources.wh_stop_all;
             this.linkUndeployAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkUndeployAll.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkUndeployAll.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkUndeployAll.Location = new System.Drawing.Point(14, 220);
+            this.linkUndeployAll.Location = new System.Drawing.Point(14, 185);
             this.linkUndeployAll.Name = "linkUndeployAll";
-            this.linkUndeployAll.Size = new System.Drawing.Size(84, 13);
+            this.linkUndeployAll.Size = new System.Drawing.Size(115, 16);
             this.linkUndeployAll.TabIndex = 23;
             this.linkUndeployAll.TabStop = true;
             this.linkUndeployAll.Text = "      Undeploy All";
@@ -464,17 +455,16 @@
             // linkDeployAll
             // 
             this.linkDeployAll.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkDeployAll.AutoSize = true;
             this.linkDeployAll.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkDeployAll.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkDeployAll.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.linkDeployAll.Image = global::WahooV2.Properties.Resources.Deploy_All;
+            this.linkDeployAll.Image = global::WahooV2.Properties.Resources.wh_start_all;
             this.linkDeployAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkDeployAll.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkDeployAll.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkDeployAll.Location = new System.Drawing.Point(14, 195);
+            this.linkDeployAll.Location = new System.Drawing.Point(14, 165);
             this.linkDeployAll.Name = "linkDeployAll";
-            this.linkDeployAll.Size = new System.Drawing.Size(72, 13);
+            this.linkDeployAll.Size = new System.Drawing.Size(115, 16);
             this.linkDeployAll.TabIndex = 22;
             this.linkDeployAll.TabStop = true;
             this.linkDeployAll.Text = "      Deploy All";
@@ -484,17 +474,16 @@
             // linkDeployChannel
             // 
             this.linkDeployChannel.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkDeployChannel.AutoSize = true;
             this.linkDeployChannel.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkDeployChannel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkDeployChannel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.linkDeployChannel.Image = global::WahooV2.Properties.Resources.Deploy;
+            this.linkDeployChannel.Image = global::WahooV2.Properties.Resources.wh_go;
             this.linkDeployChannel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkDeployChannel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkDeployChannel.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkDeployChannel.Location = new System.Drawing.Point(14, 170);
+            this.linkDeployChannel.Location = new System.Drawing.Point(14, 145);
             this.linkDeployChannel.Name = "linkDeployChannel";
-            this.linkDeployChannel.Size = new System.Drawing.Size(100, 13);
+            this.linkDeployChannel.Size = new System.Drawing.Size(115, 16);
             this.linkDeployChannel.TabIndex = 21;
             this.linkDeployChannel.TabStop = true;
             this.linkDeployChannel.Text = "      Deploy Channel";
@@ -504,17 +493,16 @@
             // linkDeleteChannel
             // 
             this.linkDeleteChannel.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkDeleteChannel.AutoSize = true;
             this.linkDeleteChannel.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkDeleteChannel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkDeleteChannel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.linkDeleteChannel.Image = global::WahooV2.Properties.Resources.Delete;
+            this.linkDeleteChannel.Image = global::WahooV2.Properties.Resources.wh_delete;
             this.linkDeleteChannel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkDeleteChannel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkDeleteChannel.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkDeleteChannel.Location = new System.Drawing.Point(14, 95);
+            this.linkDeleteChannel.Location = new System.Drawing.Point(14, 85);
             this.linkDeleteChannel.Name = "linkDeleteChannel";
-            this.linkDeleteChannel.Size = new System.Drawing.Size(98, 13);
+            this.linkDeleteChannel.Size = new System.Drawing.Size(115, 16);
             this.linkDeleteChannel.TabIndex = 14;
             this.linkDeleteChannel.TabStop = true;
             this.linkDeleteChannel.Text = "      Delete Channel";
@@ -524,18 +512,16 @@
             // linkEditChannel
             // 
             this.linkEditChannel.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkEditChannel.AutoSize = true;
             this.linkEditChannel.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkEditChannel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkEditChannel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.linkEditChannel.Image = global::WahooV2.Properties.Resources.wh_channel_edit;
             this.linkEditChannel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.linkEditChannel.ImageIndex = 20;
-            this.linkEditChannel.ImageList = this.iconList;
             this.linkEditChannel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkEditChannel.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkEditChannel.Location = new System.Drawing.Point(14, 70);
+            this.linkEditChannel.Location = new System.Drawing.Point(14, 65);
             this.linkEditChannel.Name = "linkEditChannel";
-            this.linkEditChannel.Size = new System.Drawing.Size(85, 13);
+            this.linkEditChannel.Size = new System.Drawing.Size(115, 16);
             this.linkEditChannel.TabIndex = 13;
             this.linkEditChannel.TabStop = true;
             this.linkEditChannel.Text = "      Edit Channel";
@@ -545,17 +531,16 @@
             // linkEnableChannel
             // 
             this.linkEnableChannel.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkEnableChannel.AutoSize = true;
             this.linkEnableChannel.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkEnableChannel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkEnableChannel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.linkEnableChannel.Image = global::WahooV2.Properties.Resources.Enable;
+            this.linkEnableChannel.Image = global::WahooV2.Properties.Resources.wh_unlock;
             this.linkEnableChannel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkEnableChannel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkEnableChannel.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkEnableChannel.Location = new System.Drawing.Point(14, 120);
+            this.linkEnableChannel.Location = new System.Drawing.Point(14, 105);
             this.linkEnableChannel.Name = "linkEnableChannel";
-            this.linkEnableChannel.Size = new System.Drawing.Size(63, 13);
+            this.linkEnableChannel.Size = new System.Drawing.Size(115, 16);
             this.linkEnableChannel.TabIndex = 15;
             this.linkEnableChannel.TabStop = true;
             this.linkEnableChannel.Text = "      Enabled";
@@ -565,17 +550,16 @@
             // linkSaveChannel
             // 
             this.linkSaveChannel.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkSaveChannel.AutoSize = true;
             this.linkSaveChannel.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkSaveChannel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkSaveChannel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.linkSaveChannel.Image = global::WahooV2.Properties.Resources.Save;
+            this.linkSaveChannel.Image = global::WahooV2.Properties.Resources.wh_save;
             this.linkSaveChannel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkSaveChannel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkSaveChannel.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkSaveChannel.Location = new System.Drawing.Point(14, 145);
+            this.linkSaveChannel.Location = new System.Drawing.Point(14, 125);
             this.linkSaveChannel.Name = "linkSaveChannel";
-            this.linkSaveChannel.Size = new System.Drawing.Size(91, 13);
+            this.linkSaveChannel.Size = new System.Drawing.Size(115, 16);
             this.linkSaveChannel.TabIndex = 20;
             this.linkSaveChannel.TabStop = true;
             this.linkSaveChannel.Text = "      Save Channel";
@@ -585,17 +569,16 @@
             // linkNewChannel
             // 
             this.linkNewChannel.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkNewChannel.AutoSize = true;
             this.linkNewChannel.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkNewChannel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkNewChannel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.linkNewChannel.Image = global::WahooV2.Properties.Resources.New;
+            this.linkNewChannel.Image = global::WahooV2.Properties.Resources.wh_channel_add;
             this.linkNewChannel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkNewChannel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkNewChannel.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkNewChannel.Location = new System.Drawing.Point(14, 45);
             this.linkNewChannel.Name = "linkNewChannel";
-            this.linkNewChannel.Size = new System.Drawing.Size(88, 13);
+            this.linkNewChannel.Size = new System.Drawing.Size(115, 16);
             this.linkNewChannel.TabIndex = 12;
             this.linkNewChannel.TabStop = true;
             this.linkNewChannel.Text = "      New Channel";
@@ -622,12 +605,12 @@
             this.xpPanelDashboardTask.ForeColor = System.Drawing.SystemColors.WindowText;
             this.xpPanelDashboardTask.HorzAlignment = System.Drawing.StringAlignment.Near;
             this.xpPanelDashboardTask.ImageItems.ImageSet = null;
-            this.xpPanelDashboardTask.Location = new System.Drawing.Point(8, 210);
+            this.xpPanelDashboardTask.Location = new System.Drawing.Point(8, 188);
             this.xpPanelDashboardTask.Name = "xpPanelDashboardTask";
             this.xpPanelDashboardTask.PanelGradient.End = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
             this.xpPanelDashboardTask.PanelGradient.Start = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
             this.xpPanelDashboardTask.PanelGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.xpPanelDashboardTask.Size = new System.Drawing.Size(136, 175);
+            this.xpPanelDashboardTask.Size = new System.Drawing.Size(133, 155);
             this.xpPanelDashboardTask.TabIndex = 4;
             this.xpPanelDashboardTask.TextColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
             this.xpPanelDashboardTask.TextHighlightColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
@@ -637,17 +620,16 @@
             // linkStopChannel
             // 
             this.linkStopChannel.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkStopChannel.AutoSize = true;
             this.linkStopChannel.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkStopChannel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkStopChannel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.linkStopChannel.Image = global::WahooV2.Properties.Resources.Stop;
+            this.linkStopChannel.Image = global::WahooV2.Properties.Resources.wh_stop;
             this.linkStopChannel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkStopChannel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkStopChannel.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkStopChannel.Location = new System.Drawing.Point(14, 150);
+            this.linkStopChannel.Location = new System.Drawing.Point(14, 125);
             this.linkStopChannel.Name = "linkStopChannel";
-            this.linkStopChannel.Size = new System.Drawing.Size(89, 13);
+            this.linkStopChannel.Size = new System.Drawing.Size(115, 16);
             this.linkStopChannel.TabIndex = 11;
             this.linkStopChannel.TabStop = true;
             this.linkStopChannel.Text = "      Stop Channel";
@@ -657,17 +639,16 @@
             // linkPauseChannel
             // 
             this.linkPauseChannel.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkPauseChannel.AutoSize = true;
             this.linkPauseChannel.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkPauseChannel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkPauseChannel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.linkPauseChannel.Image = global::WahooV2.Properties.Resources.Pause;
+            this.linkPauseChannel.Image = global::WahooV2.Properties.Resources.wh_pause;
             this.linkPauseChannel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkPauseChannel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkPauseChannel.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkPauseChannel.Location = new System.Drawing.Point(14, 125);
+            this.linkPauseChannel.Location = new System.Drawing.Point(14, 105);
             this.linkPauseChannel.Name = "linkPauseChannel";
-            this.linkPauseChannel.Size = new System.Drawing.Size(96, 13);
+            this.linkPauseChannel.Size = new System.Drawing.Size(115, 16);
             this.linkPauseChannel.TabIndex = 10;
             this.linkPauseChannel.TabStop = true;
             this.linkPauseChannel.Text = "      Pause Channel";
@@ -677,17 +658,16 @@
             // linkStopAllChannel
             // 
             this.linkStopAllChannel.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkStopAllChannel.AutoSize = true;
             this.linkStopAllChannel.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkStopAllChannel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkStopAllChannel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.linkStopAllChannel.Image = global::WahooV2.Properties.Resources.StopAll;
+            this.linkStopAllChannel.Image = global::WahooV2.Properties.Resources.wh_stop_all;
             this.linkStopAllChannel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkStopAllChannel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkStopAllChannel.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkStopAllChannel.Location = new System.Drawing.Point(14, 75);
+            this.linkStopAllChannel.Location = new System.Drawing.Point(14, 65);
             this.linkStopAllChannel.Name = "linkStopAllChannel";
-            this.linkStopAllChannel.Size = new System.Drawing.Size(108, 13);
+            this.linkStopAllChannel.Size = new System.Drawing.Size(115, 16);
             this.linkStopAllChannel.TabIndex = 8;
             this.linkStopAllChannel.TabStop = true;
             this.linkStopAllChannel.Text = "      Stop All Channels";
@@ -697,17 +677,16 @@
             // linkResetAllChannel
             // 
             this.linkResetAllChannel.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkResetAllChannel.AutoSize = true;
             this.linkResetAllChannel.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkResetAllChannel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkResetAllChannel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.linkResetAllChannel.Image = global::WahooV2.Properties.Resources.Refresh;
+            this.linkResetAllChannel.Image = global::WahooV2.Properties.Resources.wh_refresh;
             this.linkResetAllChannel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkResetAllChannel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkResetAllChannel.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkResetAllChannel.Location = new System.Drawing.Point(14, 100);
+            this.linkResetAllChannel.Location = new System.Drawing.Point(14, 85);
             this.linkResetAllChannel.Name = "linkResetAllChannel";
-            this.linkResetAllChannel.Size = new System.Drawing.Size(114, 13);
+            this.linkResetAllChannel.Size = new System.Drawing.Size(115, 16);
             this.linkResetAllChannel.TabIndex = 9;
             this.linkResetAllChannel.TabStop = true;
             this.linkResetAllChannel.Text = "      Reset All Channels";
@@ -716,17 +695,16 @@
             // linkStartAllChannel
             // 
             this.linkStartAllChannel.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkStartAllChannel.AutoSize = true;
             this.linkStartAllChannel.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkStartAllChannel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkStartAllChannel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.linkStartAllChannel.Image = global::WahooV2.Properties.Resources.StartAll;
+            this.linkStartAllChannel.Image = global::WahooV2.Properties.Resources.wh_start_all;
             this.linkStartAllChannel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkStartAllChannel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkStartAllChannel.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkStartAllChannel.Location = new System.Drawing.Point(14, 50);
+            this.linkStartAllChannel.Location = new System.Drawing.Point(14, 45);
             this.linkStartAllChannel.Name = "linkStartAllChannel";
-            this.linkStartAllChannel.Size = new System.Drawing.Size(110, 13);
+            this.linkStartAllChannel.Size = new System.Drawing.Size(115, 16);
             this.linkStartAllChannel.TabIndex = 7;
             this.linkStartAllChannel.TabStop = true;
             this.linkStartAllChannel.Text = "      Start All Channels";
@@ -759,7 +737,7 @@
             this.xpPanelNWG.PanelGradient.End = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
             this.xpPanelNWG.PanelGradient.Start = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
             this.xpPanelNWG.PanelGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.xpPanelNWG.Size = new System.Drawing.Size(136, 194);
+            this.xpPanelNWG.Size = new System.Drawing.Size(133, 172);
             this.xpPanelNWG.TabIndex = 0;
             this.xpPanelNWG.TextColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
             this.xpPanelNWG.TextHighlightColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
@@ -769,18 +747,16 @@
             // linkSetting
             // 
             this.linkSetting.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkSetting.AutoSize = true;
             this.linkSetting.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkSetting.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkSetting.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.linkSetting.Image = global::WahooV2.Properties.Resources.wh_setting;
             this.linkSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.linkSetting.ImageIndex = 12;
-            this.linkSetting.ImageList = this.iconList;
             this.linkSetting.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkSetting.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkSetting.Location = new System.Drawing.Point(14, 170);
+            this.linkSetting.Location = new System.Drawing.Point(14, 145);
             this.linkSetting.Name = "linkSetting";
-            this.linkSetting.Size = new System.Drawing.Size(64, 13);
+            this.linkSetting.Size = new System.Drawing.Size(115, 16);
             this.linkSetting.TabIndex = 6;
             this.linkSetting.TabStop = true;
             this.linkSetting.Text = "      Settings";
@@ -790,18 +766,16 @@
             // linkBridge
             // 
             this.linkBridge.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkBridge.AutoSize = true;
             this.linkBridge.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkBridge.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkBridge.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.linkBridge.Image = global::WahooV2.Properties.Resources.wh_channels;
             this.linkBridge.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.linkBridge.ImageIndex = 5;
-            this.linkBridge.ImageList = this.iconList;
             this.linkBridge.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkBridge.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkBridge.Location = new System.Drawing.Point(14, 70);
+            this.linkBridge.Location = new System.Drawing.Point(14, 65);
             this.linkBridge.Name = "linkBridge";
-            this.linkBridge.Size = new System.Drawing.Size(69, 13);
+            this.linkBridge.Size = new System.Drawing.Size(115, 16);
             this.linkBridge.TabIndex = 3;
             this.linkBridge.TabStop = true;
             this.linkBridge.Text = "      Channels";
@@ -811,18 +785,16 @@
             // linkDashboard
             // 
             this.linkDashboard.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkDashboard.AutoSize = true;
             this.linkDashboard.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkDashboard.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkDashboard.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.linkDashboard.Image = global::WahooV2.Properties.Resources.wh_dashboard;
             this.linkDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.linkDashboard.ImageIndex = 0;
-            this.linkDashboard.ImageList = this.iconList;
             this.linkDashboard.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkDashboard.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkDashboard.Location = new System.Drawing.Point(14, 45);
             this.linkDashboard.Name = "linkDashboard";
-            this.linkDashboard.Size = new System.Drawing.Size(77, 13);
+            this.linkDashboard.Size = new System.Drawing.Size(115, 16);
             this.linkDashboard.TabIndex = 2;
             this.linkDashboard.TabStop = true;
             this.linkDashboard.Text = "      Dashboard";
@@ -832,17 +804,16 @@
             // linkReportAll
             // 
             this.linkReportAll.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkReportAll.AutoSize = true;
             this.linkReportAll.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkReportAll.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkReportAll.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.linkReportAll.Image = global::WahooV2.Properties.Resources.Monitor;
+            this.linkReportAll.Image = global::WahooV2.Properties.Resources.wh_report;
             this.linkReportAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkReportAll.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkReportAll.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkReportAll.Location = new System.Drawing.Point(14, 120);
+            this.linkReportAll.Location = new System.Drawing.Point(14, 105);
             this.linkReportAll.Name = "linkReportAll";
-            this.linkReportAll.Size = new System.Drawing.Size(61, 13);
+            this.linkReportAll.Size = new System.Drawing.Size(115, 16);
             this.linkReportAll.TabIndex = 4;
             this.linkReportAll.TabStop = true;
             this.linkReportAll.Text = "      Monitor";
@@ -852,17 +823,16 @@
             // linkClient
             // 
             this.linkClient.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkClient.AutoSize = true;
             this.linkClient.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkClient.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkClient.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.linkClient.Image = global::WahooV2.Properties.Resources.Clients;
+            this.linkClient.Image = global::WahooV2.Properties.Resources.wh_client;
             this.linkClient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkClient.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkClient.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkClient.Location = new System.Drawing.Point(14, 95);
+            this.linkClient.Location = new System.Drawing.Point(14, 85);
             this.linkClient.Name = "linkClient";
-            this.linkClient.Size = new System.Drawing.Size(57, 13);
+            this.linkClient.Size = new System.Drawing.Size(115, 16);
             this.linkClient.TabIndex = 4;
             this.linkClient.TabStop = true;
             this.linkClient.Text = "      Clients";
@@ -872,17 +842,16 @@
             // linkUser
             // 
             this.linkUser.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkUser.AutoSize = true;
             this.linkUser.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkUser.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkUser.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.linkUser.Image = global::WahooV2.Properties.Resources.User;
+            this.linkUser.Image = global::WahooV2.Properties.Resources.wh_user;
             this.linkUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkUser.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkUser.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkUser.Location = new System.Drawing.Point(14, 145);
+            this.linkUser.Location = new System.Drawing.Point(14, 125);
             this.linkUser.Name = "linkUser";
-            this.linkUser.Size = new System.Drawing.Size(52, 13);
+            this.linkUser.Size = new System.Drawing.Size(115, 16);
             this.linkUser.TabIndex = 5;
             this.linkUser.TabStop = true;
             this.linkUser.Text = "      Users";
@@ -894,9 +863,10 @@
             this.pnMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnMain.Location = new System.Drawing.Point(169, 45);
+            this.pnMain.Location = new System.Drawing.Point(166, 44);
+            this.pnMain.Margin = new System.Windows.Forms.Padding(0);
             this.pnMain.Name = "pnMain";
-            this.pnMain.Size = new System.Drawing.Size(1102, 686);
+            this.pnMain.Size = new System.Drawing.Size(1106, 690);
             this.pnMain.TabIndex = 0;
             // 
             // xpPanelGroupTop
@@ -906,10 +876,11 @@
             this.xpPanelGroupTop.AutoScroll = true;
             this.xpPanelGroupTop.BackColor = System.Drawing.Color.Transparent;
             this.xpPanelGroupTop.Controls.Add(this.lblTop);
-            this.xpPanelGroupTop.Location = new System.Drawing.Point(169, 0);
+            this.xpPanelGroupTop.Location = new System.Drawing.Point(166, 0);
+            this.xpPanelGroupTop.Margin = new System.Windows.Forms.Padding(0);
             this.xpPanelGroupTop.Name = "xpPanelGroupTop";
             this.xpPanelGroupTop.PanelGradient = ((UIComponents.GradientColor)(resources.GetObject("xpPanelGroupTop.PanelGradient")));
-            this.xpPanelGroupTop.Size = new System.Drawing.Size(1102, 44);
+            this.xpPanelGroupTop.Size = new System.Drawing.Size(1106, 44);
             this.xpPanelGroupTop.TabIndex = 0;
             // 
             // lblTop
@@ -945,22 +916,16 @@
             this.Font = new System.Drawing.Font("Tahoma", 8.25F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMain";
-            this.Text = "Wahoo Application";
+            this.Text = "Wahoo";
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelLeft)).EndInit();
             this.xpPanelLeft.ResumeLayout(false);
             this.xpPanelOther.ResumeLayout(false);
-            this.xpPanelOther.PerformLayout();
             this.xpPanelClient.ResumeLayout(false);
-            this.xpPanelClient.PerformLayout();
             this.xpPanelUser.ResumeLayout(false);
-            this.xpPanelUser.PerformLayout();
             this.xpPanelChannelTask.ResumeLayout(false);
-            this.xpPanelChannelTask.PerformLayout();
             this.xpPanelDashboardTask.ResumeLayout(false);
-            this.xpPanelDashboardTask.PerformLayout();
             this.xpPanelNWG.ResumeLayout(false);
-            this.xpPanelNWG.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroupTop)).EndInit();
             this.xpPanelGroupTop.ResumeLayout(false);
             this.xpPanelGroupTop.PerformLayout();

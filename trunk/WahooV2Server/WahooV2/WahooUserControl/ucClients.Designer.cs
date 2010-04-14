@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gridClient = new System.Windows.Forms.DataGridView();
             this.clClientCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clDateCreated = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,14 +61,19 @@
             // 
             this.gridClient.AllowUserToAddRows = false;
             this.gridClient.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridClient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Silver;
+            this.gridClient.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.gridClient.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.gridClient.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridClient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clClientCode,
@@ -86,20 +92,23 @@
             this.clContactName,
             this.clLicenseKey});
             this.gridClient.ContextMenuStrip = this.menuStrip;
+            this.gridClient.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridClient.Location = new System.Drawing.Point(0, 0);
             this.gridClient.MultiSelect = false;
             this.gridClient.Name = "gridClient";
             this.gridClient.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridClient.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridClient.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.gridClient.RowHeadersVisible = false;
+            this.gridClient.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Silver;
             this.gridClient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridClient.Size = new System.Drawing.Size(1102, 686);
+            this.gridClient.Size = new System.Drawing.Size(1106, 690);
             this.gridClient.TabIndex = 2;
             this.gridClient.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridClient_MouseDown);
             this.gridClient.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridClient_RowEnter);
@@ -245,7 +254,7 @@
             // 
             // newClientItem
             // 
-            this.newClientItem.Image = global::WahooV2.Properties.Resources.AddClient;
+            this.newClientItem.Image = global::WahooV2.Properties.Resources.wh_user_add;
             this.newClientItem.Name = "newClientItem";
             this.newClientItem.Size = new System.Drawing.Size(146, 22);
             this.newClientItem.Text = "New Client";
@@ -253,7 +262,7 @@
             // 
             // editClientItem
             // 
-            this.editClientItem.Image = global::WahooV2.Properties.Resources.EditClient;
+            this.editClientItem.Image = global::WahooV2.Properties.Resources.wh_user_edit;
             this.editClientItem.Name = "editClientItem";
             this.editClientItem.Size = new System.Drawing.Size(146, 22);
             this.editClientItem.Text = "Edit Client";
@@ -261,7 +270,7 @@
             // 
             // deleteClientItem
             // 
-            this.deleteClientItem.Image = global::WahooV2.Properties.Resources.ClientDelete;
+            this.deleteClientItem.Image = global::WahooV2.Properties.Resources.wh_user_delete;
             this.deleteClientItem.Name = "deleteClientItem";
             this.deleteClientItem.Size = new System.Drawing.Size(146, 22);
             this.deleteClientItem.Text = "Delete Client";
@@ -269,7 +278,7 @@
             // 
             // itemClientMonitor
             // 
-            this.itemClientMonitor.Image = global::WahooV2.Properties.Resources.Monitor;
+            this.itemClientMonitor.Image = global::WahooV2.Properties.Resources.wh_report;
             this.itemClientMonitor.Name = "itemClientMonitor";
             this.itemClientMonitor.Size = new System.Drawing.Size(146, 22);
             this.itemClientMonitor.Text = "Monitor";
@@ -281,7 +290,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gridClient);
             this.Name = "ucClients";
-            this.Size = new System.Drawing.Size(1102, 686);
+            this.Size = new System.Drawing.Size(1106, 690);
             this.Load += new System.EventHandler(this.ucClients_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridClient)).EndInit();
             this.menuStrip.ResumeLayout(false);

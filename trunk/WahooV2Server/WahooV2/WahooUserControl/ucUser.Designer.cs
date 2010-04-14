@@ -31,11 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gridUser = new System.Windows.Forms.DataGridView();
-            this.menuTrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.newUserItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editUserItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteUserItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clFirstname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +45,10 @@
             this.clIs_Deleted = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clDate_Created = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clDate_Updated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuTrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.newUserItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editUserItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteUserItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridUser)).BeginInit();
             this.menuTrip.SuspendLayout();
             this.SuspendLayout();
@@ -56,14 +57,22 @@
             // 
             this.gridUser.AllowUserToAddRows = false;
             this.gridUser.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Silver;
+            this.gridUser.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.gridUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridUser.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.gridUser.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clUsername,
@@ -79,58 +88,26 @@
             this.clDate_Created,
             this.clDate_Updated});
             this.gridUser.ContextMenuStrip = this.menuTrip;
-            this.gridUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridUser.Location = new System.Drawing.Point(0, 0);
             this.gridUser.MultiSelect = false;
             this.gridUser.Name = "gridUser";
             this.gridUser.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.gridUser.RowHeadersVisible = false;
+            this.gridUser.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Silver;
             this.gridUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridUser.Size = new System.Drawing.Size(1102, 686);
+            this.gridUser.Size = new System.Drawing.Size(1106, 690);
             this.gridUser.TabIndex = 1;
             this.gridUser.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridUser_MouseDown);
             this.gridUser.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridUser_CellDoubleClick);
             this.gridUser.SelectionChanged += new System.EventHandler(this.gridUser_SelectionChanged);
-            // 
-            // menuTrip
-            // 
-            this.menuTrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newUserItem,
-            this.editUserItem,
-            this.deleteUserItem});
-            this.menuTrip.Name = "menuTrip";
-            this.menuTrip.Size = new System.Drawing.Size(142, 70);
-            // 
-            // newUserItem
-            // 
-            this.newUserItem.Image = global::WahooV2.Properties.Resources.User_Add;
-            this.newUserItem.Name = "newUserItem";
-            this.newUserItem.Size = new System.Drawing.Size(141, 22);
-            this.newUserItem.Text = "New User";
-            this.newUserItem.Click += new System.EventHandler(this.NewUserItem_Click);
-            // 
-            // editUserItem
-            // 
-            this.editUserItem.Image = global::WahooV2.Properties.Resources.UserEdit;
-            this.editUserItem.Name = "editUserItem";
-            this.editUserItem.Size = new System.Drawing.Size(141, 22);
-            this.editUserItem.Text = "Edit User";
-            this.editUserItem.Click += new System.EventHandler(this.EditUserItem_Click);
-            // 
-            // deleteUserItem
-            // 
-            this.deleteUserItem.Image = global::WahooV2.Properties.Resources.UserDelete;
-            this.deleteUserItem.Name = "deleteUserItem";
-            this.deleteUserItem.Size = new System.Drawing.Size(141, 22);
-            this.deleteUserItem.Text = "Delete User";
-            this.deleteUserItem.Click += new System.EventHandler(this.DeleteUserItem_Click);
             // 
             // clUsername
             // 
@@ -235,13 +212,47 @@
             this.clDate_Updated.ReadOnly = true;
             this.clDate_Updated.Visible = false;
             // 
+            // menuTrip
+            // 
+            this.menuTrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newUserItem,
+            this.editUserItem,
+            this.deleteUserItem});
+            this.menuTrip.Name = "menuTrip";
+            this.menuTrip.Size = new System.Drawing.Size(153, 92);
+            // 
+            // newUserItem
+            // 
+            this.newUserItem.Image = global::WahooV2.Properties.Resources.wh_user_add;
+            this.newUserItem.Name = "newUserItem";
+            this.newUserItem.Size = new System.Drawing.Size(152, 22);
+            this.newUserItem.Text = "New User";
+            this.newUserItem.Click += new System.EventHandler(this.NewUserItem_Click);
+            // 
+            // editUserItem
+            // 
+            this.editUserItem.Image = global::WahooV2.Properties.Resources.wh_user_edit;
+            this.editUserItem.Name = "editUserItem";
+            this.editUserItem.Size = new System.Drawing.Size(152, 22);
+            this.editUserItem.Text = "Edit User";
+            this.editUserItem.Click += new System.EventHandler(this.EditUserItem_Click);
+            // 
+            // deleteUserItem
+            // 
+            this.deleteUserItem.Image = global::WahooV2.Properties.Resources.wh_user_delete;
+            this.deleteUserItem.Name = "deleteUserItem";
+            this.deleteUserItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteUserItem.Text = "Delete User";
+            this.deleteUserItem.Click += new System.EventHandler(this.DeleteUserItem_Click);
+            // 
             // ucUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.Controls.Add(this.gridUser);
             this.Name = "ucUser";
-            this.Size = new System.Drawing.Size(1102, 686);
+            this.Size = new System.Drawing.Size(1106, 690);
             this.Load += new System.EventHandler(this.ucUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridUser)).EndInit();
             this.menuTrip.ResumeLayout(false);

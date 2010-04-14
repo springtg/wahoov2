@@ -202,4 +202,85 @@
   <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="wh_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_add.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wh_channels" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_channels.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wh_channel_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_channel_add.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wh_channel_delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_channel_delete.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wh_channel_edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_channel_edit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wh_client" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_client.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wh_dashboard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_dashboard.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wh_delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_delete.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wh_go" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_go.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wh_help" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_help.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wh_lock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_lock.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wh_pause" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_pause.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wh_play" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_play.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wh_refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_refresh.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wh_report" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_report.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wh_setting" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_setting.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wh_start" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_start.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wh_start_all" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_start_all.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wh_stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_stop.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wh_stop_all" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_stop_all.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wh_tick" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_tick.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wh_unlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_unlock.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wh_user" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_user.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wh_user_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_user_add.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wh_user_delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_user_delete.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wh_user_edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_user_edit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wh_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wh_save.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -79,10 +79,11 @@
             // 
             this.tabNewChannel.Controls.Add(this.tabSumary);
             this.tabNewChannel.Controls.Add(this.tabSource);
+            this.tabNewChannel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabNewChannel.Location = new System.Drawing.Point(0, 0);
             this.tabNewChannel.Name = "tabNewChannel";
             this.tabNewChannel.SelectedIndex = 0;
-            this.tabNewChannel.Size = new System.Drawing.Size(1102, 686);
+            this.tabNewChannel.Size = new System.Drawing.Size(1106, 690);
             this.tabNewChannel.TabIndex = 1;
             // 
             // tabSumary
@@ -92,7 +93,7 @@
             this.tabSumary.Location = new System.Drawing.Point(4, 22);
             this.tabSumary.Name = "tabSumary";
             this.tabSumary.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSumary.Size = new System.Drawing.Size(1094, 660);
+            this.tabSumary.Size = new System.Drawing.Size(1098, 664);
             this.tabSumary.TabIndex = 1;
             this.tabSumary.Text = "Sumary";
             this.tabSumary.UseVisualStyleBackColor = true;
@@ -108,7 +109,7 @@
             this.gbChannelInfomation.Controls.Add(this.lblChannelName);
             this.gbChannelInfomation.Location = new System.Drawing.Point(6, 6);
             this.gbChannelInfomation.Name = "gbChannelInfomation";
-            this.gbChannelInfomation.Size = new System.Drawing.Size(1082, 189);
+            this.gbChannelInfomation.Size = new System.Drawing.Size(1086, 189);
             this.gbChannelInfomation.TabIndex = 4;
             this.gbChannelInfomation.TabStop = false;
             this.gbChannelInfomation.Text = "Channel Information";
@@ -167,14 +168,15 @@
             this.gbClientInfomation.Controls.Add(this.lblChooseClient);
             this.gbClientInfomation.Location = new System.Drawing.Point(9, 201);
             this.gbClientInfomation.Name = "gbClientInfomation";
-            this.gbClientInfomation.Size = new System.Drawing.Size(1079, 462);
+            this.gbClientInfomation.Size = new System.Drawing.Size(1083, 462);
             this.gbClientInfomation.TabIndex = 2;
             this.gbClientInfomation.TabStop = false;
             this.gbClientInfomation.Text = "Client Information";
             // 
             // gbClientInfo
             // 
-            this.gbClientInfo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.gbClientInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.gbClientInfo.Controls.Add(this.txtClientCode);
             this.gbClientInfo.Controls.Add(this.txtClientName);
             this.gbClientInfo.Controls.Add(this.txtMail);
@@ -196,7 +198,7 @@
             this.gbClientInfo.Controls.Add(this.lblClientName);
             this.gbClientInfo.Controls.Add(this.lblAddress1);
             this.gbClientInfo.Enabled = false;
-            this.gbClientInfo.Location = new System.Drawing.Point(6, 51);
+            this.gbClientInfo.Location = new System.Drawing.Point(8, 51);
             this.gbClientInfo.Name = "gbClientInfo";
             this.gbClientInfo.Size = new System.Drawing.Size(1067, 359);
             this.gbClientInfo.TabIndex = 14;
@@ -456,7 +458,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tabNewChannel);
             this.Name = "ucNewChannel";
-            this.Size = new System.Drawing.Size(1102, 686);
+            this.Size = new System.Drawing.Size(1106, 690);
             this.Load += new System.EventHandler(this.ucNewChannel_Load);
             this.tabNewChannel.ResumeLayout(false);
             this.tabSumary.ResumeLayout(false);
