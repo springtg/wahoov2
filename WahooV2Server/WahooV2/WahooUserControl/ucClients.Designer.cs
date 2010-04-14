@@ -64,7 +64,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Silver;
             this.gridClient.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.gridClient.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.gridClient.BackgroundColor = System.Drawing.Color.White;
             this.gridClient.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
@@ -105,7 +105,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.gridClient.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.gridClient.RowHeadersVisible = false;
+            this.gridClient.RowHeadersWidth = 30;
             this.gridClient.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Silver;
             this.gridClient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridClient.Size = new System.Drawing.Size(1106, 690);

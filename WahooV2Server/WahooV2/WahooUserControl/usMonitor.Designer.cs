@@ -102,7 +102,7 @@
             this.gridReport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridReport.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.gridReport.BackgroundColor = System.Drawing.Color.White;
             this.gridReport.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridReport.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -131,8 +131,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.gridReport.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.gridReport.RowHeadersVisible = false;
-            this.gridReport.RowHeadersWidth = 60;
+            this.gridReport.RowHeadersWidth = 30;
             this.gridReport.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Silver;
             this.gridReport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridReport.Size = new System.Drawing.Size(1100, 410);

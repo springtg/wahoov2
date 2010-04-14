@@ -63,7 +63,7 @@
             this.gridUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridUser.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.gridUser.BackgroundColor = System.Drawing.Color.White;
             this.gridUser.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
@@ -219,13 +219,13 @@
             this.editUserItem,
             this.deleteUserItem});
             this.menuTrip.Name = "menuTrip";
-            this.menuTrip.Size = new System.Drawing.Size(153, 92);
+            this.menuTrip.Size = new System.Drawing.Size(142, 70);
             // 
             // newUserItem
             // 
             this.newUserItem.Image = global::WahooV2.Properties.Resources.wh_user_add;
             this.newUserItem.Name = "newUserItem";
-            this.newUserItem.Size = new System.Drawing.Size(152, 22);
+            this.newUserItem.Size = new System.Drawing.Size(141, 22);
             this.newUserItem.Text = "New User";
             this.newUserItem.Click += new System.EventHandler(this.NewUserItem_Click);
             // 
@@ -233,7 +233,7 @@
             // 
             this.editUserItem.Image = global::WahooV2.Properties.Resources.wh_user_edit;
             this.editUserItem.Name = "editUserItem";
-            this.editUserItem.Size = new System.Drawing.Size(152, 22);
+            this.editUserItem.Size = new System.Drawing.Size(141, 22);
             this.editUserItem.Text = "Edit User";
             this.editUserItem.Click += new System.EventHandler(this.EditUserItem_Click);
             // 
@@ -241,7 +241,7 @@
             // 
             this.deleteUserItem.Image = global::WahooV2.Properties.Resources.wh_user_delete;
             this.deleteUserItem.Name = "deleteUserItem";
-            this.deleteUserItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteUserItem.Size = new System.Drawing.Size(141, 22);
             this.deleteUserItem.Text = "Delete User";
             this.deleteUserItem.Click += new System.EventHandler(this.DeleteUserItem_Click);
             // 

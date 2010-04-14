@@ -250,7 +250,7 @@
             this.gridDashboard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridDashboard.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.gridDashboard.BackgroundColor = System.Drawing.Color.White;
             this.gridDashboard.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridDashboard.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridDashboard.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -268,7 +268,7 @@
             this.gridDashboard.MultiSelect = false;
             this.gridDashboard.Name = "gridDashboard";
             this.gridDashboard.ReadOnly = true;
-            this.gridDashboard.RowHeadersVisible = false;
+            this.gridDashboard.RowHeadersWidth = 30;
             this.gridDashboard.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Silver;
             this.gridDashboard.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDashboard.ShowRowErrors = false;
