@@ -46,6 +46,14 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gridDashboard = new System.Windows.Forms.DataGridView();
+            this.menuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.startAllChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopAllChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetAllChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pauseChannelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopChannelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageList = new System.Windows.Forms.ImageList(this.components);
+            this.timerRefresh = new System.Timers.Timer();
             this.clId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clIdClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clStatusExecute = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,14 +63,6 @@
             this.clError = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clClientConnected = new System.Windows.Forms.DataGridViewImageColumn();
             this.clIsConnected = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.menuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.startAllChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stopAllChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.resetAllChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pauseChannelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stopChannelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.imageList = new System.Windows.Forms.ImageList(this.components);
-            this.timerRefresh = new System.Timers.Timer();
             this.gbLogInfo.SuspendLayout();
             this.tabLogHistory.SuspendLayout();
             this.tabAllLog.SuspendLayout();
@@ -255,77 +255,6 @@
             this.gridDashboard.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridDashboard_MouseDown);
             this.gridDashboard.SelectionChanged += new System.EventHandler(this.gridDashboard_SelectionChanged);
             // 
-            // clId
-            // 
-            this.clId.DataPropertyName = "Id";
-            this.clId.HeaderText = "Id";
-            this.clId.Name = "clId";
-            this.clId.ReadOnly = true;
-            this.clId.Visible = false;
-            // 
-            // clIdClient
-            // 
-            this.clIdClient.DataPropertyName = "IdClient";
-            this.clIdClient.HeaderText = "IdClient";
-            this.clIdClient.Name = "clIdClient";
-            this.clIdClient.ReadOnly = true;
-            this.clIdClient.Visible = false;
-            // 
-            // clStatusExecute
-            // 
-            this.clStatusExecute.DataPropertyName = "StatusExecute";
-            this.clStatusExecute.HeaderText = "Status";
-            this.clStatusExecute.Name = "clStatusExecute";
-            this.clStatusExecute.ReadOnly = true;
-            this.clStatusExecute.Width = 130;
-            // 
-            // clName
-            // 
-            this.clName.DataPropertyName = "ChannelName";
-            this.clName.HeaderText = "Channel Name";
-            this.clName.Name = "clName";
-            this.clName.ReadOnly = true;
-            this.clName.Width = 150;
-            // 
-            // clDescription
-            // 
-            this.clDescription.DataPropertyName = "Description";
-            this.clDescription.HeaderText = "Channel Description";
-            this.clDescription.Name = "clDescription";
-            this.clDescription.ReadOnly = true;
-            this.clDescription.Width = 310;
-            // 
-            // clSent
-            // 
-            this.clSent.DataPropertyName = "Sent";
-            this.clSent.HeaderText = "File(s) Sent";
-            this.clSent.Name = "clSent";
-            this.clSent.ReadOnly = true;
-            // 
-            // clError
-            // 
-            this.clError.DataPropertyName = "Error";
-            this.clError.HeaderText = "File(s) Sent Error";
-            this.clError.Name = "clError";
-            this.clError.ReadOnly = true;
-            this.clError.Width = 120;
-            // 
-            // clClientConnected
-            // 
-            this.clClientConnected.DataPropertyName = "Img";
-            this.clClientConnected.HeaderText = "Connectivity";
-            this.clClientConnected.Name = "clClientConnected";
-            this.clClientConnected.ReadOnly = true;
-            this.clClientConnected.Width = 150;
-            // 
-            // clIsConnected
-            // 
-            this.clIsConnected.DataPropertyName = "IsConnected";
-            this.clIsConnected.HeaderText = "IsConnected";
-            this.clIsConnected.Name = "clIsConnected";
-            this.clIsConnected.ReadOnly = true;
-            this.clIsConnected.Visible = false;
-            // 
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -400,6 +329,82 @@
             this.timerRefresh.Enabled = true;
             this.timerRefresh.SynchronizingObject = this;
             this.timerRefresh.Elapsed += new System.Timers.ElapsedEventHandler(this.timerRefresh_Elapsed);
+            // 
+            // clId
+            // 
+            this.clId.DataPropertyName = "Id";
+            this.clId.HeaderText = "Id";
+            this.clId.Name = "clId";
+            this.clId.ReadOnly = true;
+            this.clId.Visible = false;
+            // 
+            // clIdClient
+            // 
+            this.clIdClient.DataPropertyName = "IdClient";
+            this.clIdClient.HeaderText = "IdClient";
+            this.clIdClient.Name = "clIdClient";
+            this.clIdClient.ReadOnly = true;
+            this.clIdClient.Visible = false;
+            // 
+            // clStatusExecute
+            // 
+            this.clStatusExecute.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clStatusExecute.DataPropertyName = "StatusExecute";
+            this.clStatusExecute.HeaderText = "Status";
+            this.clStatusExecute.Name = "clStatusExecute";
+            this.clStatusExecute.ReadOnly = true;
+            // 
+            // clName
+            // 
+            this.clName.DataPropertyName = "ChannelName";
+            this.clName.FillWeight = 150F;
+            this.clName.HeaderText = "Channel Name";
+            this.clName.Name = "clName";
+            this.clName.ReadOnly = true;
+            this.clName.Width = 150;
+            // 
+            // clDescription
+            // 
+            this.clDescription.DataPropertyName = "Description";
+            this.clDescription.FillWeight = 300F;
+            this.clDescription.HeaderText = "Channel Description";
+            this.clDescription.Name = "clDescription";
+            this.clDescription.ReadOnly = true;
+            this.clDescription.Width = 310;
+            // 
+            // clSent
+            // 
+            this.clSent.DataPropertyName = "Sent";
+            this.clSent.FillWeight = 120F;
+            this.clSent.HeaderText = "File(s) Sent";
+            this.clSent.Name = "clSent";
+            this.clSent.ReadOnly = true;
+            // 
+            // clError
+            // 
+            this.clError.DataPropertyName = "Error";
+            this.clError.FillWeight = 120F;
+            this.clError.HeaderText = "File(s) Sent Error";
+            this.clError.Name = "clError";
+            this.clError.ReadOnly = true;
+            this.clError.Width = 120;
+            // 
+            // clClientConnected
+            // 
+            this.clClientConnected.DataPropertyName = "Img";
+            this.clClientConnected.FillWeight = 120F;
+            this.clClientConnected.HeaderText = "Connectivity";
+            this.clClientConnected.Name = "clClientConnected";
+            this.clClientConnected.ReadOnly = true;
+            this.clClientConnected.Width = 150;
+            // 
+            // clIsConnected
+            // 
+            this.clIsConnected.DataPropertyName = "IsConnected";
+            this.clIsConnected.HeaderText = "IsConnected";
+            this.clIsConnected.Name = "clIsConnected";
+            this.clIsConnected.ReadOnly = true;
+            this.clIsConnected.Visible = false;
             // 
             // ucDashboard
             // 

@@ -32,19 +32,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gridChannel = new System.Windows.Forms.DataGridView();
-            this.clId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clChannelName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clIsDeployed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.editChannelItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newChannelItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editChannelItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteChannelItem = new System.Windows.Forms.ToolStripMenuItem();
             this.disableItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deployChannelItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deployAllChannelItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undeployAllChannelItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clChannelName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clIsDeployed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridChannel)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -88,46 +88,6 @@
             this.gridChannel.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridChannel_CellDoubleClick);
             this.gridChannel.SelectionChanged += new System.EventHandler(this.gridChannel_SelectionChanged);
             // 
-            // clId
-            // 
-            this.clId.DataPropertyName = "Id";
-            this.clId.HeaderText = "Id";
-            this.clId.Name = "clId";
-            this.clId.ReadOnly = true;
-            this.clId.Visible = false;
-            // 
-            // clStatus
-            // 
-            this.clStatus.DataPropertyName = "Status";
-            this.clStatus.HeaderText = "Status";
-            this.clStatus.Name = "clStatus";
-            this.clStatus.ReadOnly = true;
-            this.clStatus.Width = 150;
-            // 
-            // clChannelName
-            // 
-            this.clChannelName.DataPropertyName = "ChannelName";
-            this.clChannelName.HeaderText = "Channel Name";
-            this.clChannelName.Name = "clChannelName";
-            this.clChannelName.ReadOnly = true;
-            this.clChannelName.Width = 250;
-            // 
-            // clDescription
-            // 
-            this.clDescription.DataPropertyName = "Description";
-            this.clDescription.HeaderText = "Description";
-            this.clDescription.Name = "clDescription";
-            this.clDescription.ReadOnly = true;
-            this.clDescription.Width = 400;
-            // 
-            // clIsDeployed
-            // 
-            this.clIsDeployed.DataPropertyName = "IsDeployed";
-            this.clIsDeployed.HeaderText = "IsDeployed";
-            this.clIsDeployed.Name = "clIsDeployed";
-            this.clIsDeployed.ReadOnly = true;
-            this.clIsDeployed.Visible = false;
-            // 
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -139,14 +99,7 @@
             this.deployAllChannelItem,
             this.undeployAllChannelItem});
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(161, 180);
-            // 
-            // editChannelItem
-            // 
-            this.editChannelItem.Name = "editChannelItem";
-            this.editChannelItem.Size = new System.Drawing.Size(160, 22);
-            this.editChannelItem.Text = "Edit Channel";
-            this.editChannelItem.Click += new System.EventHandler(this.ClickToolStripItem);
+            this.menuStrip.Size = new System.Drawing.Size(161, 158);
             // 
             // newChannelItem
             // 
@@ -156,7 +109,6 @@
             this.newChannelItem.Text = "New Channel";
             this.newChannelItem.Click += new System.EventHandler(this.ClickToolStripItem);
             // 
-//<<<<<<< .mine
             // editChannelItem
             // 
             this.editChannelItem.Image = global::WahooV2.Properties.Resources.edit;
@@ -165,8 +117,6 @@
             this.editChannelItem.Text = "Edit Channel";
             this.editChannelItem.Click += new System.EventHandler(this.ClickToolStripItem);
             // 
-//=======
-//>>>>>>> .r61
             // deleteChannelItem
             // 
             this.deleteChannelItem.Image = global::WahooV2.Properties.Resources.Delete;
@@ -206,6 +156,51 @@
             this.undeployAllChannelItem.Size = new System.Drawing.Size(160, 22);
             this.undeployAllChannelItem.Text = "Undeploy All";
             this.undeployAllChannelItem.Click += new System.EventHandler(this.ClickToolStripItem);
+            // 
+            // clId
+            // 
+            this.clId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clId.DataPropertyName = "Id";
+            this.clId.HeaderText = "Id";
+            this.clId.Name = "clId";
+            this.clId.ReadOnly = true;
+            this.clId.Visible = false;
+            // 
+            // clStatus
+            // 
+            this.clStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clStatus.DataPropertyName = "Status";
+            this.clStatus.FillWeight = 150F;
+            this.clStatus.HeaderText = "Status";
+            this.clStatus.Name = "clStatus";
+            this.clStatus.ReadOnly = true;
+            // 
+            // clChannelName
+            // 
+            this.clChannelName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clChannelName.DataPropertyName = "ChannelName";
+            this.clChannelName.FillWeight = 300F;
+            this.clChannelName.HeaderText = "Channel Name";
+            this.clChannelName.Name = "clChannelName";
+            this.clChannelName.ReadOnly = true;
+            // 
+            // clDescription
+            // 
+            this.clDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clDescription.DataPropertyName = "Description";
+            this.clDescription.FillWeight = 550F;
+            this.clDescription.HeaderText = "Description";
+            this.clDescription.Name = "clDescription";
+            this.clDescription.ReadOnly = true;
+            // 
+            // clIsDeployed
+            // 
+            this.clIsDeployed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clIsDeployed.DataPropertyName = "IsDeployed";
+            this.clIsDeployed.HeaderText = "IsDeployed";
+            this.clIsDeployed.Name = "clIsDeployed";
+            this.clIsDeployed.ReadOnly = true;
+            this.clIsDeployed.Visible = false;
             // 
             // ucChannels
             // 

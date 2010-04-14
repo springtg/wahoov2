@@ -86,7 +86,7 @@
             this.clContactName,
             this.clLicenseKey});
             this.gridClient.ContextMenuStrip = this.menuStrip;
-            this.gridClient.Location = new System.Drawing.Point(3, 3);
+            this.gridClient.Location = new System.Drawing.Point(0, 0);
             this.gridClient.MultiSelect = false;
             this.gridClient.Name = "gridClient";
             this.gridClient.ReadOnly = true;
@@ -108,11 +108,12 @@
             // 
             // clClientCode
             // 
+            this.clClientCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.clClientCode.DataPropertyName = "ClientCode";
+            this.clClientCode.FillWeight = 70F;
             this.clClientCode.HeaderText = "Code";
             this.clClientCode.Name = "clClientCode";
             this.clClientCode.ReadOnly = true;
-            this.clClientCode.Width = 50;
             // 
             // clDateCreated
             // 
@@ -132,14 +133,16 @@
             // 
             // clName
             // 
+            this.clName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.clName.DataPropertyName = "Name";
+            this.clName.FillWeight = 130F;
             this.clName.HeaderText = "Client Name";
             this.clName.Name = "clName";
             this.clName.ReadOnly = true;
-            this.clName.Width = 130;
             // 
             // clAddress1
             // 
+            this.clAddress1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.clAddress1.DataPropertyName = "Address1";
             this.clAddress1.HeaderText = "Address 1";
             this.clAddress1.Name = "clAddress1";
@@ -147,6 +150,7 @@
             // 
             // clAddress2
             // 
+            this.clAddress2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.clAddress2.DataPropertyName = "Address2";
             this.clAddress2.HeaderText = "Address 2";
             this.clAddress2.Name = "clAddress2";
@@ -154,19 +158,20 @@
             // 
             // clCity
             // 
+            this.clCity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.clCity.DataPropertyName = "City";
             this.clCity.HeaderText = "City";
             this.clCity.Name = "clCity";
             this.clCity.ReadOnly = true;
-            this.clCity.Width = 70;
             // 
             // clState
             // 
+            this.clState.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.clState.DataPropertyName = "State";
+            this.clState.FillWeight = 70F;
             this.clState.HeaderText = "State";
             this.clState.Name = "clState";
             this.clState.ReadOnly = true;
-            this.clState.Width = 70;
             // 
             // clZip
             // 
@@ -179,27 +184,30 @@
             // 
             // clPhone
             // 
+            this.clPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.clPhone.DataPropertyName = "Phone";
+            this.clPhone.FillWeight = 90F;
             this.clPhone.HeaderText = "Phone";
             this.clPhone.Name = "clPhone";
             this.clPhone.ReadOnly = true;
-            this.clPhone.Width = 70;
             // 
             // clMail
             // 
+            this.clMail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.clMail.DataPropertyName = "Mail";
+            this.clMail.FillWeight = 90F;
             this.clMail.HeaderText = "Mail";
             this.clMail.Name = "clMail";
             this.clMail.ReadOnly = true;
-            this.clMail.Width = 70;
             // 
             // clDescription
             // 
+            this.clDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.clDescription.DataPropertyName = "Description";
+            this.clDescription.FillWeight = 250F;
             this.clDescription.HeaderText = "Description";
             this.clDescription.Name = "clDescription";
             this.clDescription.ReadOnly = true;
-            this.clDescription.Width = 300;
             // 
             // clId
             // 
@@ -233,13 +241,13 @@
             this.deleteClientItem,
             this.itemClientMonitor});
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(153, 114);
+            this.menuStrip.Size = new System.Drawing.Size(147, 92);
             // 
             // newClientItem
             // 
             this.newClientItem.Image = global::WahooV2.Properties.Resources.AddClient;
             this.newClientItem.Name = "newClientItem";
-            this.newClientItem.Size = new System.Drawing.Size(152, 22);
+            this.newClientItem.Size = new System.Drawing.Size(146, 22);
             this.newClientItem.Text = "New Client";
             this.newClientItem.Click += new System.EventHandler(this.newClientItem_Click);
             // 
@@ -247,7 +255,7 @@
             // 
             this.editClientItem.Image = global::WahooV2.Properties.Resources.EditClient;
             this.editClientItem.Name = "editClientItem";
-            this.editClientItem.Size = new System.Drawing.Size(152, 22);
+            this.editClientItem.Size = new System.Drawing.Size(146, 22);
             this.editClientItem.Text = "Edit Client";
             this.editClientItem.Click += new System.EventHandler(this.editClientItem_Click);
             // 
@@ -255,7 +263,7 @@
             // 
             this.deleteClientItem.Image = global::WahooV2.Properties.Resources.ClientDelete;
             this.deleteClientItem.Name = "deleteClientItem";
-            this.deleteClientItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteClientItem.Size = new System.Drawing.Size(146, 22);
             this.deleteClientItem.Text = "Delete Client";
             this.deleteClientItem.Click += new System.EventHandler(this.deleteClientItem_Click);
             // 
@@ -263,7 +271,7 @@
             // 
             this.itemClientMonitor.Image = global::WahooV2.Properties.Resources.Monitor;
             this.itemClientMonitor.Name = "itemClientMonitor";
-            this.itemClientMonitor.Size = new System.Drawing.Size(152, 22);
+            this.itemClientMonitor.Size = new System.Drawing.Size(146, 22);
             this.itemClientMonitor.Text = "Monitor";
             this.itemClientMonitor.Click += new System.EventHandler(this.itemClientMonitor_Click);
             // 
