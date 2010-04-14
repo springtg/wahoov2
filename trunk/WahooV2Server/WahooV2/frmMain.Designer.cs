@@ -179,10 +179,11 @@
             this.linkLogout.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkLogout.Location = new System.Drawing.Point(14, 65);
             this.linkLogout.Name = "linkLogout";
+            this.linkLogout.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkLogout.Size = new System.Drawing.Size(115, 16);
             this.linkLogout.TabIndex = 32;
             this.linkLogout.TabStop = true;
-            this.linkLogout.Text = "      Logout";
+            this.linkLogout.Text = "Logout";
             this.linkLogout.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkLogout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLogout_LinkClicked);
             // 
@@ -198,10 +199,11 @@
             this.linkHelp.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkHelp.Location = new System.Drawing.Point(14, 45);
             this.linkHelp.Name = "linkHelp";
+            this.linkHelp.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkHelp.Size = new System.Drawing.Size(115, 16);
             this.linkHelp.TabIndex = 31;
             this.linkHelp.TabStop = true;
-            this.linkHelp.Text = "      Help";
+            this.linkHelp.Text = "Help";
             this.linkHelp.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             // 
             // xpPanelClient
@@ -247,10 +249,11 @@
             this.linkReport.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkReport.Location = new System.Drawing.Point(14, 105);
             this.linkReport.Name = "linkReport";
+            this.linkReport.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkReport.Size = new System.Drawing.Size(115, 16);
             this.linkReport.TabIndex = 30;
             this.linkReport.TabStop = true;
-            this.linkReport.Text = "      Monitor";
+            this.linkReport.Text = "Monitor";
             this.linkReport.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkReport.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkReport_LinkClicked);
             // 
@@ -266,10 +269,11 @@
             this.linkDeleteClient.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkDeleteClient.Location = new System.Drawing.Point(14, 85);
             this.linkDeleteClient.Name = "linkDeleteClient";
+            this.linkDeleteClient.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkDeleteClient.Size = new System.Drawing.Size(115, 16);
             this.linkDeleteClient.TabIndex = 29;
             this.linkDeleteClient.TabStop = true;
-            this.linkDeleteClient.Text = "      Delete Client";
+            this.linkDeleteClient.Text = "Delete Client";
             this.linkDeleteClient.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkDeleteClient.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkDeleteClient_LinkClicked);
             // 
@@ -285,10 +289,11 @@
             this.linkEditClient.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkEditClient.Location = new System.Drawing.Point(14, 65);
             this.linkEditClient.Name = "linkEditClient";
+            this.linkEditClient.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkEditClient.Size = new System.Drawing.Size(115, 16);
             this.linkEditClient.TabIndex = 28;
             this.linkEditClient.TabStop = true;
-            this.linkEditClient.Text = "      Edit Client";
+            this.linkEditClient.Text = "Edit Client";
             this.linkEditClient.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkEditClient.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkEditClient_LinkClicked);
             // 
@@ -304,10 +309,11 @@
             this.linkNewClient.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkNewClient.Location = new System.Drawing.Point(14, 45);
             this.linkNewClient.Name = "linkNewClient";
+            this.linkNewClient.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkNewClient.Size = new System.Drawing.Size(115, 16);
             this.linkNewClient.TabIndex = 27;
             this.linkNewClient.TabStop = true;
-            this.linkNewClient.Text = "      New Client";
+            this.linkNewClient.Text = "New Client";
             this.linkNewClient.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkNewClient.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkNewClient_LinkClicked);
             // 
@@ -353,10 +359,11 @@
             this.linkDeleteUser.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkDeleteUser.Location = new System.Drawing.Point(14, 85);
             this.linkDeleteUser.Name = "linkDeleteUser";
+            this.linkDeleteUser.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkDeleteUser.Size = new System.Drawing.Size(115, 16);
             this.linkDeleteUser.TabIndex = 26;
             this.linkDeleteUser.TabStop = true;
-            this.linkDeleteUser.Text = "      Delete User";
+            this.linkDeleteUser.Text = "Delete User";
             this.linkDeleteUser.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkDeleteUser.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkDeleteUser_LinkClicked);
             // 
@@ -372,10 +379,11 @@
             this.linkEditUser.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkEditUser.Location = new System.Drawing.Point(14, 65);
             this.linkEditUser.Name = "linkEditUser";
+            this.linkEditUser.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkEditUser.Size = new System.Drawing.Size(115, 16);
             this.linkEditUser.TabIndex = 25;
             this.linkEditUser.TabStop = true;
-            this.linkEditUser.Text = "      Edit User";
+            this.linkEditUser.Text = "Edit User";
             this.linkEditUser.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkEditUser.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkEditUser_LinkClicked);
             // 
@@ -391,10 +399,11 @@
             this.linkNewUser.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkNewUser.Location = new System.Drawing.Point(14, 45);
             this.linkNewUser.Name = "linkNewUser";
+            this.linkNewUser.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkNewUser.Size = new System.Drawing.Size(115, 16);
             this.linkNewUser.TabIndex = 24;
             this.linkNewUser.TabStop = true;
-            this.linkNewUser.Text = "      New User";
+            this.linkNewUser.Text = "New User";
             this.linkNewUser.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkNewUser.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkNewUser_LinkClicked);
             // 
@@ -445,10 +454,11 @@
             this.linkUndeployAll.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkUndeployAll.Location = new System.Drawing.Point(14, 185);
             this.linkUndeployAll.Name = "linkUndeployAll";
+            this.linkUndeployAll.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkUndeployAll.Size = new System.Drawing.Size(115, 16);
             this.linkUndeployAll.TabIndex = 23;
             this.linkUndeployAll.TabStop = true;
-            this.linkUndeployAll.Text = "      Undeploy All";
+            this.linkUndeployAll.Text = "Undeploy All";
             this.linkUndeployAll.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkUndeployAll.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkUndeployAll_LinkClicked);
             // 
@@ -464,10 +474,11 @@
             this.linkDeployAll.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkDeployAll.Location = new System.Drawing.Point(14, 165);
             this.linkDeployAll.Name = "linkDeployAll";
+            this.linkDeployAll.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkDeployAll.Size = new System.Drawing.Size(115, 16);
             this.linkDeployAll.TabIndex = 22;
             this.linkDeployAll.TabStop = true;
-            this.linkDeployAll.Text = "      Deploy All";
+            this.linkDeployAll.Text = "Deploy All";
             this.linkDeployAll.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkDeployAll.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkDeployAll_LinkClicked);
             // 
@@ -483,10 +494,11 @@
             this.linkDeployChannel.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkDeployChannel.Location = new System.Drawing.Point(14, 145);
             this.linkDeployChannel.Name = "linkDeployChannel";
+            this.linkDeployChannel.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkDeployChannel.Size = new System.Drawing.Size(115, 16);
             this.linkDeployChannel.TabIndex = 21;
             this.linkDeployChannel.TabStop = true;
-            this.linkDeployChannel.Text = "      Deploy Channel";
+            this.linkDeployChannel.Text = "Deploy Channel";
             this.linkDeployChannel.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkDeployChannel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkDeployChannel_LinkClicked);
             // 
@@ -502,10 +514,11 @@
             this.linkDeleteChannel.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkDeleteChannel.Location = new System.Drawing.Point(14, 85);
             this.linkDeleteChannel.Name = "linkDeleteChannel";
+            this.linkDeleteChannel.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkDeleteChannel.Size = new System.Drawing.Size(115, 16);
             this.linkDeleteChannel.TabIndex = 14;
             this.linkDeleteChannel.TabStop = true;
-            this.linkDeleteChannel.Text = "      Delete Channel";
+            this.linkDeleteChannel.Text = "Delete Channel";
             this.linkDeleteChannel.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkDeleteChannel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkDeleteChannel_LinkClicked);
             // 
@@ -521,10 +534,11 @@
             this.linkEditChannel.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkEditChannel.Location = new System.Drawing.Point(14, 65);
             this.linkEditChannel.Name = "linkEditChannel";
+            this.linkEditChannel.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkEditChannel.Size = new System.Drawing.Size(115, 16);
             this.linkEditChannel.TabIndex = 13;
             this.linkEditChannel.TabStop = true;
-            this.linkEditChannel.Text = "      Edit Channel";
+            this.linkEditChannel.Text = "Edit Channel";
             this.linkEditChannel.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkEditChannel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkEditChannel_LinkClicked);
             // 
@@ -540,10 +554,11 @@
             this.linkEnableChannel.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkEnableChannel.Location = new System.Drawing.Point(14, 105);
             this.linkEnableChannel.Name = "linkEnableChannel";
+            this.linkEnableChannel.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkEnableChannel.Size = new System.Drawing.Size(115, 16);
             this.linkEnableChannel.TabIndex = 15;
             this.linkEnableChannel.TabStop = true;
-            this.linkEnableChannel.Text = "      Enabled";
+            this.linkEnableChannel.Text = "Enabled";
             this.linkEnableChannel.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkEnableChannel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkEnableChannel_LinkClicked);
             // 
@@ -559,10 +574,11 @@
             this.linkSaveChannel.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkSaveChannel.Location = new System.Drawing.Point(14, 125);
             this.linkSaveChannel.Name = "linkSaveChannel";
+            this.linkSaveChannel.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkSaveChannel.Size = new System.Drawing.Size(115, 16);
             this.linkSaveChannel.TabIndex = 20;
             this.linkSaveChannel.TabStop = true;
-            this.linkSaveChannel.Text = "      Save Channel";
+            this.linkSaveChannel.Text = "Save Channel";
             this.linkSaveChannel.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkSaveChannel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSaveChannel_LinkClicked);
             // 
@@ -578,10 +594,11 @@
             this.linkNewChannel.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkNewChannel.Location = new System.Drawing.Point(14, 45);
             this.linkNewChannel.Name = "linkNewChannel";
+            this.linkNewChannel.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkNewChannel.Size = new System.Drawing.Size(115, 16);
             this.linkNewChannel.TabIndex = 12;
             this.linkNewChannel.TabStop = true;
-            this.linkNewChannel.Text = "      New Channel";
+            this.linkNewChannel.Text = "New Channel";
             this.linkNewChannel.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkNewChannel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkNewChannel_LinkClicked);
             // 
@@ -629,10 +646,11 @@
             this.linkStopChannel.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkStopChannel.Location = new System.Drawing.Point(14, 125);
             this.linkStopChannel.Name = "linkStopChannel";
+            this.linkStopChannel.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkStopChannel.Size = new System.Drawing.Size(115, 16);
             this.linkStopChannel.TabIndex = 11;
             this.linkStopChannel.TabStop = true;
-            this.linkStopChannel.Text = "      Stop Channel";
+            this.linkStopChannel.Text = "Stop Channel";
             this.linkStopChannel.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkStopChannel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkStopChannel_LinkClicked);
             // 
@@ -648,10 +666,11 @@
             this.linkPauseChannel.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkPauseChannel.Location = new System.Drawing.Point(14, 105);
             this.linkPauseChannel.Name = "linkPauseChannel";
+            this.linkPauseChannel.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkPauseChannel.Size = new System.Drawing.Size(115, 16);
             this.linkPauseChannel.TabIndex = 10;
             this.linkPauseChannel.TabStop = true;
-            this.linkPauseChannel.Text = "      Pause Channel";
+            this.linkPauseChannel.Text = "Pause Channel";
             this.linkPauseChannel.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkPauseChannel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPauseChannel_LinkClicked);
             // 
@@ -667,10 +686,11 @@
             this.linkStopAllChannel.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkStopAllChannel.Location = new System.Drawing.Point(14, 65);
             this.linkStopAllChannel.Name = "linkStopAllChannel";
+            this.linkStopAllChannel.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkStopAllChannel.Size = new System.Drawing.Size(115, 16);
             this.linkStopAllChannel.TabIndex = 8;
             this.linkStopAllChannel.TabStop = true;
-            this.linkStopAllChannel.Text = "      Stop All Channels";
+            this.linkStopAllChannel.Text = "Stop All Channels";
             this.linkStopAllChannel.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkStopAllChannel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkStopAllChannel_LinkClicked);
             // 
@@ -686,10 +706,11 @@
             this.linkResetAllChannel.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkResetAllChannel.Location = new System.Drawing.Point(14, 85);
             this.linkResetAllChannel.Name = "linkResetAllChannel";
+            this.linkResetAllChannel.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkResetAllChannel.Size = new System.Drawing.Size(115, 16);
             this.linkResetAllChannel.TabIndex = 9;
             this.linkResetAllChannel.TabStop = true;
-            this.linkResetAllChannel.Text = "      Reset All Channels";
+            this.linkResetAllChannel.Text = "Reset All Channels";
             this.linkResetAllChannel.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             // 
             // linkStartAllChannel
@@ -704,10 +725,11 @@
             this.linkStartAllChannel.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkStartAllChannel.Location = new System.Drawing.Point(14, 45);
             this.linkStartAllChannel.Name = "linkStartAllChannel";
+            this.linkStartAllChannel.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkStartAllChannel.Size = new System.Drawing.Size(115, 16);
             this.linkStartAllChannel.TabIndex = 7;
             this.linkStartAllChannel.TabStop = true;
-            this.linkStartAllChannel.Text = "      Start All Channels";
+            this.linkStartAllChannel.Text = "Start All Channels";
             this.linkStartAllChannel.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkStartAllChannel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkStartAllChannel_LinkClicked);
             // 
@@ -756,10 +778,11 @@
             this.linkSetting.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkSetting.Location = new System.Drawing.Point(14, 145);
             this.linkSetting.Name = "linkSetting";
+            this.linkSetting.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkSetting.Size = new System.Drawing.Size(115, 16);
             this.linkSetting.TabIndex = 6;
             this.linkSetting.TabStop = true;
-            this.linkSetting.Text = "      Settings";
+            this.linkSetting.Text = "Settings";
             this.linkSetting.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkSetting.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSetting_LinkClicked);
             // 
@@ -775,10 +798,11 @@
             this.linkBridge.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkBridge.Location = new System.Drawing.Point(14, 65);
             this.linkBridge.Name = "linkBridge";
+            this.linkBridge.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkBridge.Size = new System.Drawing.Size(115, 16);
             this.linkBridge.TabIndex = 3;
             this.linkBridge.TabStop = true;
-            this.linkBridge.Text = "      Channels";
+            this.linkBridge.Text = "Channels";
             this.linkBridge.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkBridge.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkBridge_LinkClicked);
             // 
@@ -794,10 +818,11 @@
             this.linkDashboard.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkDashboard.Location = new System.Drawing.Point(14, 45);
             this.linkDashboard.Name = "linkDashboard";
+            this.linkDashboard.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkDashboard.Size = new System.Drawing.Size(115, 16);
             this.linkDashboard.TabIndex = 2;
             this.linkDashboard.TabStop = true;
-            this.linkDashboard.Text = "      Dashboard";
+            this.linkDashboard.Text = "Dashboard";
             this.linkDashboard.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkDashboard.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkDashboard_LinkClicked);
             // 
@@ -813,10 +838,11 @@
             this.linkReportAll.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkReportAll.Location = new System.Drawing.Point(14, 105);
             this.linkReportAll.Name = "linkReportAll";
+            this.linkReportAll.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkReportAll.Size = new System.Drawing.Size(115, 16);
             this.linkReportAll.TabIndex = 4;
             this.linkReportAll.TabStop = true;
-            this.linkReportAll.Text = "      Monitor";
+            this.linkReportAll.Text = "Monitor";
             this.linkReportAll.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkReportAll.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkReportAll_LinkClicked);
             // 
@@ -832,10 +858,11 @@
             this.linkClient.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkClient.Location = new System.Drawing.Point(14, 85);
             this.linkClient.Name = "linkClient";
+            this.linkClient.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkClient.Size = new System.Drawing.Size(115, 16);
             this.linkClient.TabIndex = 4;
             this.linkClient.TabStop = true;
-            this.linkClient.Text = "      Clients";
+            this.linkClient.Text = "Clients";
             this.linkClient.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkClient.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkClient_LinkClicked);
             // 
@@ -851,10 +878,11 @@
             this.linkUser.LinkColor = System.Drawing.SystemColors.ControlText;
             this.linkUser.Location = new System.Drawing.Point(14, 125);
             this.linkUser.Name = "linkUser";
+            this.linkUser.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkUser.Size = new System.Drawing.Size(115, 16);
             this.linkUser.TabIndex = 5;
             this.linkUser.TabStop = true;
-            this.linkUser.Text = "      Users";
+            this.linkUser.Text = "Users";
             this.linkUser.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             this.linkUser.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkUser_LinkClicked);
             // 
