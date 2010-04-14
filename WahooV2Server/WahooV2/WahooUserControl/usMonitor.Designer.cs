@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtTotalFiles = new System.Windows.Forms.TextBox();
             this.cbFilterSearch = new System.Windows.Forms.ComboBox();
             this.gridReport = new System.Windows.Forms.DataGridView();
@@ -58,10 +58,16 @@
             this.label6 = new System.Windows.Forms.Label();
             this.gbSearchInfo = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pnlNegative = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnlNavigative = new System.Windows.Forms.Panel();
+            this.txtPage = new WahooV2.ExControl.TextBoxForNum();
+            this.btnPrevious = new System.Windows.Forms.Button();
+            this.btnFisrt = new System.Windows.Forms.Button();
+            this.btnEnd = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridReport)).BeginInit();
             this.gbResult.SuspendLayout();
             this.gbSearchInfo.SuspendLayout();
+            this.pnlNavigative.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtTotalFiles
@@ -90,14 +96,14 @@
             this.gridReport.AllowUserToDeleteRows = false;
             this.gridReport.AllowUserToResizeRows = false;
             this.gridReport.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridReport.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridReport.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gridReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clIpAddress,
@@ -108,14 +114,14 @@
             this.gridReport.MultiSelect = false;
             this.gridReport.Name = "gridReport";
             this.gridReport.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridReport.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridReport.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridReport.RowHeadersWidth = 60;
             this.gridReport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridReport.Size = new System.Drawing.Size(1096, 410);
@@ -360,20 +366,86 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "File name:";
             // 
-            // pnlNegative
+            // pnlNavigative
             // 
-            this.pnlNegative.AutoScroll = true;
-            this.pnlNegative.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlNegative.Location = new System.Drawing.Point(0, 524);
-            this.pnlNegative.Name = "pnlNegative";
-            this.pnlNegative.Size = new System.Drawing.Size(1102, 43);
-            this.pnlNegative.TabIndex = 3;
+            this.pnlNavigative.Controls.Add(this.txtPage);
+            this.pnlNavigative.Controls.Add(this.btnPrevious);
+            this.pnlNavigative.Controls.Add(this.btnFisrt);
+            this.pnlNavigative.Controls.Add(this.btnEnd);
+            this.pnlNavigative.Controls.Add(this.btnNext);
+            this.pnlNavigative.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlNavigative.Location = new System.Drawing.Point(0, 524);
+            this.pnlNavigative.Name = "pnlNavigative";
+            this.pnlNavigative.Size = new System.Drawing.Size(1102, 43);
+            this.pnlNavigative.TabIndex = 3;
+            // 
+            // txtPage
+            // 
+            this.txtPage.Location = new System.Drawing.Point(527, 12);
+            this.txtPage.MaxLength = 3;
+            this.txtPage.Name = "txtPage";
+            this.txtPage.Size = new System.Drawing.Size(39, 20);
+            this.txtPage.StrFormat = "";
+            this.txtPage.TabIndex = 1;
+            this.txtPage.Text = "0";
+            this.txtPage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPage.Value = null;
+            this.txtPage.TextChanged += new System.EventHandler(this.txtPage_TextChanged);
+            this.txtPage.Validated += new System.EventHandler(this.txtPage_Validated);
+            // 
+            // btnPrevious
+            // 
+            this.btnPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPrevious.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrevious.Location = new System.Drawing.Point(486, 12);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(30, 20);
+            this.btnPrevious.TabIndex = 0;
+            this.btnPrevious.Text = "<";
+            this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
+            // 
+            // btnFisrt
+            // 
+            this.btnFisrt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFisrt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFisrt.Location = new System.Drawing.Point(454, 12);
+            this.btnFisrt.Name = "btnFisrt";
+            this.btnFisrt.Size = new System.Drawing.Size(30, 20);
+            this.btnFisrt.TabIndex = 0;
+            this.btnFisrt.Text = "<<";
+            this.btnFisrt.UseVisualStyleBackColor = true;
+            this.btnFisrt.Click += new System.EventHandler(this.btnFisrt_Click);
+            // 
+            // btnEnd
+            // 
+            this.btnEnd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnd.Location = new System.Drawing.Point(607, 12);
+            this.btnEnd.Name = "btnEnd";
+            this.btnEnd.Size = new System.Drawing.Size(30, 20);
+            this.btnEnd.TabIndex = 0;
+            this.btnEnd.Text = ">>";
+            this.btnEnd.UseVisualStyleBackColor = true;
+            this.btnEnd.Click += new System.EventHandler(this.btnEnd_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNext.Location = new System.Drawing.Point(575, 12);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(30, 20);
+            this.btnNext.TabIndex = 0;
+            this.btnNext.Text = ">";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // usMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.pnlNegative);
+            this.Controls.Add(this.pnlNavigative);
             this.Controls.Add(this.gridReport);
             this.Controls.Add(this.gbResult);
             this.Controls.Add(this.gbSearchInfo);
@@ -386,6 +458,8 @@
             this.gbResult.PerformLayout();
             this.gbSearchInfo.ResumeLayout(false);
             this.gbSearchInfo.PerformLayout();
+            this.pnlNavigative.ResumeLayout(false);
+            this.pnlNavigative.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -420,6 +494,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clFilename;
         private System.Windows.Forms.DataGridViewTextBoxColumn clSuccess;
         private System.Windows.Forms.DataGridViewTextBoxColumn clIsSentToPrint;
-        private System.Windows.Forms.FlowLayoutPanel pnlNegative;
+        private System.Windows.Forms.Panel pnlNavigative;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnFisrt;
+        private System.Windows.Forms.Button btnPrevious;
+        private System.Windows.Forms.Button btnEnd;
+        private WahooV2.ExControl.TextBoxForNum txtPage;
     }
 }

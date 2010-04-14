@@ -19,12 +19,13 @@ namespace WahooV2.WahooUserControl
         private int _mIdClient = -1;
         private List<DownloadReport> lstAll;
         private int iRowofPage = 20;
-        private int iCurrPge = -1;
+        private int iAllPage = 0;
+        private int iCurrPge = 0;
 
         public usMonitor()
         {
             InitializeComponent();
-            
+
         }
         private void iniData()
         {
@@ -163,9 +164,9 @@ namespace WahooV2.WahooUserControl
 
         private List<DownloadReport> getObjList(DownloadReport condition)
         {
-         
-                return WahooBusinessHandler.Get_ListDownloadReport(new DownloadReport());
-          
+
+            return WahooBusinessHandler.Get_ListDownloadReport(new DownloadReport());
+
         }
 
         private void LoadResourceInfo()
@@ -246,8 +247,13 @@ namespace WahooV2.WahooUserControl
             var rs = q.Skip((iPageIndex - 1) * iPageSize)
                 .Take(iPageSize)
                 .ToList();
-
-            createPagingNegative(getPage(q.ToList()));
+            iAllPage = getPage(q.ToList());
+            // createPagingNegative(getPage(q.ToList()));
+            //set thong tin cho control page
+            // btnEnd.Tag = getPage(lstAll);
+            // btnFisrt.Tag = 0;
+            // btnNext.Tag = iCurrPge + 1;
+            // btnPrevious.Tag = iCurrPge - 1;
 
             return rs;
         }
@@ -256,7 +262,7 @@ namespace WahooV2.WahooUserControl
         {
             //MaxNumberRowofPage
             //TODO:chu y sua lai style cua button
-            pnlNegative.Controls.Clear();
+            //pnlNegative.Controls.Clear();
             Button btn;
             for (int i = 0; i < NumberPage; i++)
             {
@@ -274,7 +280,6 @@ namespace WahooV2.WahooUserControl
                     btn.Enabled = false;
                     iCurrPge = 1;
                 }
-                pnlNegative.Controls.Add(btn);
             }
         }
 
@@ -283,24 +288,24 @@ namespace WahooV2.WahooUserControl
             int iPIndex = WahooConfiguration.DataTypeProtect.ProtectInt32(((Button)sender).Text);
             gridReport.DataSource = headerChange(lstAll, iPIndex, iRowofPage);
             iCurrPge = iPIndex;
-            setCurrentPage(iCurrPge);
+            //setCurrentPage(iCurrPge);
         }
 
-        private void setCurrentPage(int iCurrPage)
-        {
-            foreach (Control ctrl in pnlNegative.Controls)
-            {
-                Button bt = (Button)ctrl;
-                if (bt.Text.Equals(iCurrPage.ToString()))
-                {
-                    bt.Enabled = false;
-                }
-                else
-                {
-                    bt.Enabled = true;
-                }
-            }
-        }
+        //private void setCurrentPage(int iCurrPage)
+        //{
+        //    foreach (Control ctrl in pnlNegative.Controls)
+        //    {
+        //        Button bt = (Button)ctrl;
+        //        if (bt.Text.Equals(iCurrPage.ToString()))
+        //        {
+        //            bt.Enabled = false;
+        //        }
+        //        else
+        //        {
+        //            bt.Enabled = true;
+        //        }
+        //    }
+        //}
 
         private int getPage(List<DownloadReport> l)
         {
@@ -388,17 +393,18 @@ namespace WahooV2.WahooUserControl
             iRowofPage = WahooConfiguration.DataTypeProtect.ProtectInt32(cfg.ReadSetting("MaxNumberRowofPage"));
             //dung linq truy van du lieu, chi lay page dau tien
             gridReport.DataSource = headerChange(lstAll, 0, iRowofPage);
+            //set thong tin cho Control page
             if (gridReport.RowCount > 0)
             {
                 gridReport.Rows[0].Selected = true;
             }
-            ShowResult(0);            
+            ShowResult(0);
             chkSearchDate.Focus();
             cbClient.SelectedIndexChanged += new EventHandler(cbClient_SelectedIndexChanged);
             cbFilterSearch.SelectedIndexChanged += new EventHandler(cbFilterSearch_SelectedIndexChanged);
             txtFilename.TextChanged += new EventHandler(txtFilename_TextChanged);
             this.Disposed += new EventHandler(usMonitor_Disposed);
-            gridReport.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(gridReport_DataBindingComplete);           
+            gridReport.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(gridReport_DataBindingComplete);
         }
         /// <summary>
         /// xu ly xu kien data duoc bind den data source cua grid
@@ -410,6 +416,7 @@ namespace WahooV2.WahooUserControl
             if (gridReport.DataSource != null)
             {
                 txtTotalFiles.Text = gridReport.Rows.Count.ToString() + " " + WahooConfiguration.Message.GetMessageById("MONITOR_TEXT001");
+                //                setcontrolBar(getPage((List<DownloadReport>)gridReport.DataSource), ref iCurrPge);
             }
         }
         /// <summary>
@@ -452,6 +459,103 @@ namespace WahooV2.WahooUserControl
         }
 
         #endregion
+
+        private void btnFisrt_Click(object sender, EventArgs e)
+        {
+            gridReport.DataSource = headerChange(lstAll, iCurrPge, iRowofPage);
+            setcontrolBar(iAllPage, ref iCurrPge, 0);
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            gridReport.DataSource = headerChange(lstAll, iCurrPge, iRowofPage);
+            setcontrolBar(iAllPage, ref iCurrPge, -1);
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            gridReport.DataSource = headerChange(lstAll, iCurrPge, iRowofPage);
+            setcontrolBar(iAllPage, ref iCurrPge, 1);
+        }
+
+        private void btnEnd_Click(object sender, EventArgs e)
+        {
+            gridReport.DataSource = headerChange(lstAll,iCurrPge, iRowofPage);
+            setcontrolBar(iAllPage, ref iCurrPge, iAllPage);
+        }
+
+        private void txtPage_TextChanged(object sender, EventArgs e)
+        {
+            int temp = WahooConfiguration.DataTypeProtect.ProtectInt32(txtPage.Text);
+            if (temp < 0 || temp > iAllPage)
+            {
+               
+            }
+            else
+            {
+                gridReport.DataSource = headerChange(lstAll, temp, iRowofPage);
+            }
+        }
+
+
+        private void setcontrolBar(int allPage, ref int curPage, int pageMove)
+        {
+            btnFisrt.Enabled = true;
+            btnNext.Enabled = true;
+            btnEnd.Enabled = true;
+            btnPrevious.Enabled = true;
+            int tmp = curPage + pageMove;
+            if (pageMove == 0)
+            {
+                tmp = 0;
+            }
+            if (pageMove == allPage)
+            {
+                tmp = allPage;
+            }
+            if (pageMove > 0)
+            {
+                if (tmp <= allPage) curPage = tmp;
+
+            }
+            else
+            {
+                if (tmp >= 0) curPage = tmp;
+            }
+            //neu page hient tai la page dau tien
+            if (tmp.Equals(0))
+            {
+                btnFisrt.Enabled = false;
+            }
+            //neu page hien tai la page cuoi cung
+            if (tmp.Equals(allPage))
+            {
+                btnEnd.Enabled = false;
+            }
+            //tinh page next
+            int pageNext = curPage + pageMove;
+
+            if (tmp == allPage)
+            {
+                btnEnd.Enabled = false;
+                btnNext.Enabled = false;
+            }
+            //tinh page previous
+
+
+            if (tmp == 0)
+            {
+                btnPrevious.Enabled = false;
+                btnFisrt.Enabled = false;
+            }
+
+            txtPage.Text = curPage.ToString();
+        }
+
+        private void txtPage_Validated(object sender, EventArgs e)
+        {
+           
+        }
 
     }
 }
