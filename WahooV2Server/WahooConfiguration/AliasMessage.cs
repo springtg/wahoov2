@@ -30,12 +30,12 @@ namespace WahooConfiguration
         public static string USER_HEADER_LABEL_CONTROL = "User";
         public static string CLIENT_HEADER_LABEL_CONTROL = "Manage Clients";
         //public static string MONITOR_HEADER_LABEL_CONTROL = "Monitor";
-        public static string PAUSE_CHANNEL_FORMMAIN_CONTROL = "      Pause Channel";
-        public static string START_CHANNEL_FORMMAIN_CONTROL = "      Start Channel";
-        public static string ENABLED_CHANNEL_FORMMAIN_CONTROL = "      Enabled";
-        public static string DISABLED_CHANNEL_FORMMAIN_CONTROL = "      Disabled";
-        public static string DEPLOY_CHANNEL_FORMMAIN_CONTROL = "      Deploy Channel";
-        public static string UNDEPLOY_CHANNEL_FORMMAIN_CONTROL = "      Undeploy Channel";
+        public static string PAUSE_CHANNEL_FORMMAIN_CONTROL = "Pause Channel";
+        public static string START_CHANNEL_FORMMAIN_CONTROL = "Start Channel";
+        public static string ENABLED_CHANNEL_FORMMAIN_CONTROL = "Enabled";
+        public static string DISABLED_CHANNEL_FORMMAIN_CONTROL = "Disabled";
+        public static string DEPLOY_CHANNEL_FORMMAIN_CONTROL = "Deploy Channel";
+        public static string UNDEPLOY_CHANNEL_FORMMAIN_CONTROL = "Undeploy Channel";
         ////Status option
         public static string ENABLED_STATUS = "Enabled";
         public static string DISABLED_STATUS = "Disabled";
