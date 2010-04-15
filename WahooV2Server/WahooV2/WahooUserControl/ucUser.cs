@@ -231,7 +231,7 @@ namespace WahooV2.WahooUserControl
             {
                 return;
             }
-            if (MessageBox.Show(WahooConfiguration.Message.GetMessageById("USER_QUEST001"), "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(string.Format(WahooConfiguration.Message.GetMessageById("USER_QUEST001"), gridUser.SelectedRows[0].Cells[this.clUsername.Name].Value.ToString()), "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
                 {
