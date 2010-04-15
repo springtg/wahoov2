@@ -566,7 +566,6 @@ namespace WahooData.DBO.Base
             SqlCommand cmd = new SqlCommand();
             bool mustCloseConnection = false;
             PrepareCommand(cmd, connection, (SqlTransaction)null, commandType, commandText, commandParameters, out mustCloseConnection);
-
             // Create the DataAdapter & DataSet
             using (SqlDataAdapter da = new SqlDataAdapter(cmd))
             {

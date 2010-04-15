@@ -76,6 +76,22 @@ namespace WahooData.DBO.Base
             }
         }
 
+        protected List<object> GetItemsCollection(object condition,ref int allrows)
+        {
+            try
+            {
+                List<object> items = DataAccessLayer.GetListObject(condition,ref allrows);
+
+                if (items == null || items.Count == 0)
+                    return null;
+                return items;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         /// <summary>
         /// Find all items match condition contain in obj.
         /// </summary>

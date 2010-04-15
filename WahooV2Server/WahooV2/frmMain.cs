@@ -179,13 +179,13 @@ namespace WahooV2
 
             //View client control
             clearControl();
-            this.checkClearControl = true;
-            foreach (Control preControl in pnMain.Controls)
-            {
-                preControl.Dispose();
-            }
-            pnMain.Controls.Clear();
-            this.checkClearControl = false;
+            //this.checkClearControl = true;
+            //foreach (Control preControl in pnMain.Controls)
+            //{
+            //    preControl.Dispose();
+            //}
+            //pnMain.Controls.Clear();
+            //this.checkClearControl = false;
             //Khoi tao ucClient
             ucClients _ucClients = new ucClients();
 
@@ -193,7 +193,7 @@ namespace WahooV2
             _ucClients.GridMouseDown += new ucClients.GridClient_MouseDown(GridClientMouseDown);
             _ucClients.GridSelectChanged += new ucClients.GridClient_SelectIndexChanged(GridClientSelectIndexChanged);
             _ucClients.MonitorItem_Click += new ucClients.ToolStripMenuItem_Click(_ucClients_MonitorItem_Click);
-            _ucClients.Disposed += new EventHandler(_ucClients_Disposed);
+            //_ucClients.Disposed += new EventHandler(_ucClients_Disposed);
             //Thiet lap cac thong so cho ucClients
             _ucClients.Left = 0;
             _ucClients.Top = 0;            
@@ -219,6 +219,12 @@ namespace WahooV2
             _resource = new Resource();
             setActiveLink(linkReportAll, _resource.GetResourceByKey("MONITOR_FORM_CONTROL", "HEADER_LABLE_TEXT_FOR_CLIENT"));
 
+            _mIdClient = ((ucClients)sender).IdClient;
+            //MessageBox.Show(_mIdClient.ToString());
+            _resource = new Resource();
+            lblTop.Text = _resource.GetResourceByKey("MONITOR_FORM_CONTROL", "HEADER_LABLE_TEXT_FOR_CLIENT") +
+                " " + WahooData.BusinessHandler.WahooBusinessHandler.Get_Client(new WahooData.DBO.Client(_mIdClient)).Name;
+
             xpPanelDashboardTask.Visible = false;
             xpPanelChannelTask.Visible = false;
             xpPanelUser.Visible = false;
@@ -230,17 +236,17 @@ namespace WahooV2
             setControltoPanel(_monitor, 0, 0, _ucWidth, _ucHeight);
         }
 
-        void _ucClients_Disposed(object sender, EventArgs e)
-        {
-            //SRTAR: NTXUAN - 05/04/2101: thong code, lay thong tin ID client
-            _mIdClient = ((ucClients)sender).IdClient;
-            _resource = new Resource();
-            lblTop.Text = _resource.GetResourceByKey("MONITOR_FORM_CONTROL", "HEADER_LABLE_TEXT_FOR_CLIENT") +
-                " " + WahooData.BusinessHandler.WahooBusinessHandler.Get_Client(new WahooData.DBO.Client(_mIdClient)).Name;
+        //void _ucClients_Disposed(object sender, EventArgs e)
+        //{
+        //    //SRTAR: NTXUAN - 05/04/2101: thong code, lay thong tin ID client
+        //    _mIdClient = ((ucClients)sender).IdClient;
+        //    _resource = new Resource();
+        //    lblTop.Text = _resource.GetResourceByKey("MONITOR_FORM_CONTROL", "HEADER_LABLE_TEXT_FOR_CLIENT") +
+        //        " " + WahooData.BusinessHandler.WahooBusinessHandler.Get_Client(new WahooData.DBO.Client(_mIdClient)).Name;
 
 
-            //END: NTXUAN - 05/04/2101:
-        }
+        //    //END: NTXUAN - 05/04/2101:
+        //}
         /// <summary>
         /// Click right mouse or left mouse in(out) client grid
         /// </summary>

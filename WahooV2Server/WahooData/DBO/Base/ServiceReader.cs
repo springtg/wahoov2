@@ -139,6 +139,78 @@ namespace WahooData.DBO.Base
         }
 
         /// <summary>
+        /// Lay du lieu theo ten bang va so record can lay, lay tu so record nao
+        /// </summary>
+        /// <param name="strTableName">Ten table</param>
+        /// <param name="index">Bat dau tu record nao </param>
+        /// <param name="numofRow">So record can lay</param>
+        /// <returns></returns>
+        public static DataTable GetData(object objCondition, ref int AllRows)
+        {
+            string strTableName = ((TableAttribute)(objCondition.GetType().GetCustomAttributes(true)[0])).TableName.ToString();
+            try
+            {
+                int count = (objCondition.GetType()).GetProperties().Count();
+                count += 2;
+                SqlParameter[] param = new SqlParameter[count+2];
+                int i = 0;
+                foreach (PropertyInfo property in (objCondition.GetType()).GetProperties())
+                {
+                    if (property.GetCustomAttributes(true).Length > 0)
+                    {
+                        ColumnAttribute attribute = ((ColumnAttribute)(property.GetCustomAttributes(true)[0]));
+                        if (attribute.ColumnType == SqlDbType.DateTime)
+                        {
+                            string currentLang = string.Empty;
+                            //CommonFunction.IsLocalLang(out currentLang);
+                            //System.IFormatProvider cul = new System.Globalization.CultureInfo(currentLang, true);
+                            string datetimeData = null;
+                            if (property.GetValue(objCondition, null) != null)
+                            {
+                                //datetimeData = DateTime.Parse(property.GetValue(objCondition, null).ToString(), cul).ToString("MM/dd/yyyy");
+                                datetimeData = DateTime.Parse(property.GetValue(objCondition, null).ToString()).ToString("MM/dd/yyyy");
+                            }
+                            param[i] = new SqlParameter("@" + attribute.ColumnName, datetimeData);
+                        }
+                        else
+                        {
+                            if (property.GetValue(objCondition, null) != string.Empty)
+                            {
+                                param[i] = new SqlParameter("@" + attribute.ColumnName, property.GetValue(objCondition, null));
+                            }
+                            else
+                            {
+                                param[i] = new SqlParameter("@" + attribute.ColumnName, null);
+                            }
+                        }
+                        i++;
+                    }
+                }
+                //param[i] = new SqlParameter("@PageNum", SqlDbType.Int);
+                //param[i].Value =1;
+                //i++;
+                //param[i] = new SqlParameter("@PageSize", SqlDbType.Int);
+                //param[i].Value =500;
+                //i++;
+                param[i] = new SqlParameter("@TotalRowsNum", SqlDbType.Int);
+                param[i].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SqlHelper.ExecuteDataset(ServiceReader._conectionString, CommandType.StoredProcedure, "DownloadReport_Select_Paging2", param);
+                if (ds != null && ds.Tables.Count > 0)
+                {
+                    AllRows = WahooConfiguration.DataTypeProtect.ProtectInt32(param[i].Value);
+                    return ds.Tables[0];
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return new DataTable();
+        }
+
+
+        /// <summary>
         /// Insert Data
         /// </summary>
         /// <param name="obj"></param>

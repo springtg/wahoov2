@@ -327,6 +327,32 @@ namespace WahooData.BusinessHandler
             }
             return objDownloadReport;
         }
+
+        /// <summary>
+        /// Lay ra danh sach cac DownloadReport co phan trang
+        /// </summary>
+        /// <param name="_DownloadReport">Thong tin ve DownloadReport</param>
+        /// <param name="startIndex">lay tu vi tri nao</param>
+        /// <param name="numOfRows">So record can lay</param>
+        /// <returns></returns>
+        public static List<DownloadReport> Get_ListDownloadReport(WahooData.DBO.ConditionDR condition,ref int allrows)
+        {
+            DownloadReportController _DownloadReportController = new DownloadReportController();
+            List<DownloadReport> objDownloadReport = new List<DownloadReport>();
+            try
+            {
+                objDownloadReport = _DownloadReportController.GetItemsCollection(condition,ref allrows);
+            }
+            catch
+            {
+                objDownloadReport = new List<DownloadReport>();
+            }
+            if (objDownloadReport == null)
+            {
+                objDownloadReport = new List<DownloadReport>();
+            }
+            return objDownloadReport;
+        }
         /// <summary>
         /// Lay ra danh sach cac DownloadReport
         /// </summary>
