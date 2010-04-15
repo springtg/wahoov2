@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtTotalFiles = new System.Windows.Forms.TextBox();
             this.cbFilterSearch = new System.Windows.Forms.ComboBox();
             this.gridReport = new System.Windows.Forms.DataGridView();
@@ -56,6 +56,7 @@
             this.txtDownloadStatus = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlNavigative = new System.Windows.Forms.Panel();
+            this.lbPage = new System.Windows.Forms.Label();
             this.usPagingBar1 = new WahooV2.WahooUserControl.usPagingBar();
             this.txtFilename = new System.Windows.Forms.TextBox();
             this.dptDateFrom = new System.Windows.Forms.DateTimePicker();
@@ -63,7 +64,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.gbSearchInfo = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbPage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridReport)).BeginInit();
             this.gbResult.SuspendLayout();
             this.pnlNavigative.SuspendLayout();
@@ -95,23 +95,23 @@
             this.gridReport.AllowUserToAddRows = false;
             this.gridReport.AllowUserToDeleteRows = false;
             this.gridReport.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Silver;
-            this.gridReport.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Silver;
+            this.gridReport.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.gridReport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.gridReport.BackgroundColor = System.Drawing.Color.White;
             this.gridReport.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridReport.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridReport.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridReport.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clFilename,
@@ -124,14 +124,14 @@
             this.gridReport.MultiSelect = false;
             this.gridReport.Name = "gridReport";
             this.gridReport.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridReport.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridReport.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.gridReport.RowHeadersWidth = 20;
             this.gridReport.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Silver;
             this.gridReport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -345,6 +345,17 @@
             this.pnlNavigative.Size = new System.Drawing.Size(1106, 41);
             this.pnlNavigative.TabIndex = 3;
             // 
+            // lbPage
+            // 
+            this.lbPage.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbPage.AutoSize = true;
+            this.lbPage.Location = new System.Drawing.Point(1065, 14);
+            this.lbPage.Name = "lbPage";
+            this.lbPage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lbPage.Size = new System.Drawing.Size(0, 13);
+            this.lbPage.TabIndex = 3;
+            this.lbPage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // usPagingBar1
             // 
             this.usPagingBar1.Location = new System.Drawing.Point(368, 8);
@@ -418,16 +429,6 @@
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "File name:";
-            // 
-            // lbPage
-            // 
-            this.lbPage.AutoSize = true;
-            this.lbPage.Location = new System.Drawing.Point(1083, 14);
-            this.lbPage.Name = "lbPage";
-            this.lbPage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lbPage.Size = new System.Drawing.Size(0, 13);
-            this.lbPage.TabIndex = 3;
-            this.lbPage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // usMonitor
             // 
