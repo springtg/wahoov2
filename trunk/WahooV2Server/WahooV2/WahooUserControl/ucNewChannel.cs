@@ -69,6 +69,8 @@ namespace WahooV2.WahooUserControl
                 //Fill in channel infomation
 
                 txtChannelName.Text = DataTypeProtect.ProtectString(channelEdit.ChannelName);
+                txtChannelName.Enabled = false;
+                txtChannelName.BackColor = Color.White;
                 if (channelEdit.Active.Value)
                 {
                     chkEnable.Checked = true;

@@ -434,20 +434,12 @@ namespace WahooV2.WahooUserControl
         public void DeployAllChannel()
         {
             try
-            {
-                List<Channel> objListChannel = WahooBusinessHandler.Get_ListChannel(new Channel());
-                foreach (Channel objChanel in objListChannel)
+            {                
+                WahooBusinessHandler.UpdateAllChannelDeployed(true);
+                foreach (DataGridViewRow dgrow in gridChannel.Rows)
                 {
-                    if (objChanel.IsDeployed != true)
-                    {
-                        objChanel.IsDeployed = true;
-                        objChanel.Update();
-                        foreach (DataGridViewRow dgrow in gridChannel.Rows)
-                        {
-                            dgrow.Cells[clIsDeployed.Name].Value = true;
-                        }
-                    }
-                }                
+                    dgrow.Cells[clIsDeployed.Name].Value = true;
+                }
             }
             catch (Exception ex)
             {
@@ -464,20 +456,12 @@ namespace WahooV2.WahooUserControl
         public void UndeployAllChannel()
         {
             try
-            {
-                List<Channel> objListChannel = WahooBusinessHandler.Get_ListChannel(new Channel());
-                foreach (Channel objChanel in objListChannel)
+            {                
+                WahooBusinessHandler.UpdateAllChannelDeployed(false);
+                foreach (DataGridViewRow dgrow in gridChannel.Rows)
                 {
-                    if (objChanel.IsDeployed != false)
-                    {
-                        objChanel.IsDeployed = false;
-                        objChanel.Update();
-                        foreach (DataGridViewRow dgrow in gridChannel.Rows)
-                        {
-                            dgrow.Cells[clIsDeployed.Name].Value = false;
-                        }
-                    }
-                }                
+                    dgrow.Cells[clIsDeployed.Name].Value = false;
+                }               
             }
             catch (Exception ex)
             {

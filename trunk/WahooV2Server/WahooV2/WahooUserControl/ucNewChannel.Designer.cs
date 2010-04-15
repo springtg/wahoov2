@@ -177,6 +177,7 @@
             // 
             this.gbClientInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbClientInfo.BackColor = System.Drawing.Color.Transparent;
             this.gbClientInfo.Controls.Add(this.txtClientCode);
             this.gbClientInfo.Controls.Add(this.txtClientName);
             this.gbClientInfo.Controls.Add(this.txtMail);
@@ -394,14 +395,14 @@
             this.tabSource.Controls.Add(this.chkStoreFile);
             this.tabSource.Location = new System.Drawing.Point(4, 22);
             this.tabSource.Name = "tabSource";
-            this.tabSource.Size = new System.Drawing.Size(1094, 660);
+            this.tabSource.Size = new System.Drawing.Size(1098, 664);
             this.tabSource.TabIndex = 2;
             this.tabSource.Text = "Source";
             this.tabSource.UseVisualStyleBackColor = true;
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(362, 67);
+            this.btnBrowse.Location = new System.Drawing.Point(635, 67);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(33, 23);
             this.btnBrowse.TabIndex = 22;
@@ -411,10 +412,11 @@
             // 
             // txtFilePath
             // 
+            this.txtFilePath.BackColor = System.Drawing.Color.White;
             this.txtFilePath.Location = new System.Drawing.Point(114, 69);
             this.txtFilePath.Name = "txtFilePath";
             this.txtFilePath.ReadOnly = true;
-            this.txtFilePath.Size = new System.Drawing.Size(242, 20);
+            this.txtFilePath.Size = new System.Drawing.Size(515, 20);
             this.txtFilePath.TabIndex = 21;
             // 
             // txtURL
