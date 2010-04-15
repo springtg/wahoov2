@@ -136,8 +136,6 @@ namespace WahooV2.WahooUserControl
             clFilename.HeaderText = resource.GetResourceByKey("MONITOR_FORM_CONTROL", "GRID_COLUMN_FILENAME");
             clSuccess.HeaderText = resource.GetResourceByKey("MONITOR_FORM_CONTROL", "GRID_COLUMN_DOWNLOADED");
             clIsSentToPrint.HeaderText = resource.GetResourceByKey("MONITOR_FORM_CONTROL", "GRID_COLUMN_SENTTOPRINTER");
-
-
         }
 
         private List<DownloadReport> headerChange(int iPageIndex)
@@ -184,6 +182,7 @@ namespace WahooV2.WahooUserControl
             List<DownloadReport> lstTemp = null;
             lstTemp = WahooBusinessHandler.Get_ListDownloadReport(condition, ref allRow);
             iAllPage = getPage(allRow);
+            txtTotalFiles.Text = Convert.ToString(allRow) + " " + WahooConfiguration.Message.GetMessageById("MONITOR_TEXT001");
             return lstTemp;
         }
 
@@ -277,7 +276,7 @@ namespace WahooV2.WahooUserControl
             cbFilterSearch.SelectedIndexChanged += new EventHandler(cbFilterSearch_SelectedIndexChanged);
             txtFilename.TextChanged += new EventHandler(txtFilename_TextChanged);
             this.Disposed += new EventHandler(usMonitor_Disposed);
-            gridReport.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(gridReport_DataBindingComplete);
+            //gridReport.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(gridReport_DataBindingComplete);
             usPagingBar1.setActiveControl(iAllPage, iCurrPge);
             usPagingBar1.selectedPagebyUser += new usPagingBar.getSelectPagebyUser(usPagingBar1_selectedPagebyUser);
             lbPage.Text = "1/" + iAllPage.ToString();
@@ -290,19 +289,6 @@ namespace WahooV2.WahooUserControl
             lbPage.Text = select.ToString() + "/" + iAllPage.ToString();
         }
         /// <summary>
-        /// xu ly xu kien data duoc bind den data source cua grid
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridReport_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            if (gridReport.DataSource != null)
-            {
-                txtTotalFiles.Text = gridReport.Rows.Count.ToString() + " " + WahooConfiguration.Message.GetMessageById("MONITOR_TEXT001");
-                //                setcontrolBar(getPage((List<DownloadReport>)gridReport.DataSource), ref iCurrPge);
-            }
-        }
-        /// <summary>
         /// xu ly xu kien value thay doi cua CBO file name va filter du lieu theo gia tri
         /// </summary>
         /// <param name="sender"></param>
@@ -312,7 +298,6 @@ namespace WahooV2.WahooUserControl
             cbClient.SelectedIndexChanged -= new EventHandler(cbClient_SelectedIndexChanged);
             cbFilterSearch.SelectedIndexChanged -= new EventHandler(cbFilterSearch_SelectedIndexChanged);
             txtFilename.TextChanged -= new EventHandler(txtFilename_TextChanged);
-            gridReport.DataBindingComplete -= new DataGridViewBindingCompleteEventHandler(gridReport_DataBindingComplete);
             chkSearchDate.CheckedChanged -= new EventHandler(chkSearchDate_CheckedChanged);
         }
 
