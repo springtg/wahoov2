@@ -77,7 +77,7 @@ namespace WahooV2
                         objUserUpdate.Phone = txtPhone.Text;
                         objUserUpdate.Description = txtDescription.Text;
                         objUserUpdate.Date_Updated = DateTime.Now;
-
+                        objUserUpdate.Role = rdoAdmin.Checked ? (byte)frmMain.UserRole.Admin : (byte)frmMain.UserRole.Standar;
                         if (objUserUpdate.Update())
                         {
                             this.ShowMessageBox("USER_CONF001", MessageType.INFORM);
@@ -112,6 +112,7 @@ namespace WahooV2
                         objUserCreate.Description = txtDescription.Text;
                         objUserCreate.Date_Created = DateTime.Now;
                         objUserCreate.Date_Updated = DateTime.Now;
+                        objUserCreate.Role = rdoAdmin.Checked ? (byte)frmMain.UserRole.Admin : (byte)frmMain.UserRole.Standar;
                         
                         if (WahooBusinessHandler.Add_User(objUserCreate)>0)
                         {
@@ -155,6 +156,8 @@ namespace WahooV2
                 txtDescription.Text = DataTypeProtect.ProtectString(objUser.Description);
                 txtpassword.Text = DataTypeProtect.ProtectString(objUser.Password);
                 txtConfirmPass.Text = DataTypeProtect.ProtectString(objUser.Password);
+                rdoStandar.Checked = (byte)frmMain.UserRole.Standar == DataTypeProtect.ProtectByte(objUser.Role, 1);
+                rdoAdmin.Checked = !rdoStandar.Checked;
             }
             //If create new user
             else if (this._mStatus == AliasMessage.CREATE_STATUS)

@@ -47,6 +47,8 @@ namespace WahooV2
             //if (msg.DialogResult == DialogResult.OK)
             //    th.Abort();
             //objMain.InitData();
+            objMain.IdUser = objListUser[0].Id.Value;
+            objMain.RoleUser = objListUser[0].Role.Value;
             objMain.ShowDialog();
             this.Close();
             Cursor.Current = Cursors.Default;
