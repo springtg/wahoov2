@@ -100,7 +100,7 @@
     <item key="NEWCHANNEL_FORM_CONTROL" id="LABLE_NAME_CHANNELNAME" value="Channel Name:"/>
     <item key="NEWCHANNEL_FORM_CONTROL" id="LABLE_NAME_CHOOSECLIENT" value="Choose Client:"/>
     <item key="NEWCHANNEL_FORM_CONTROL" id="LABLE_NAME_CITY" value="City:"/>
-    <item key="NEWCHANNEL_FORM_CONTROL" id="LABLE_NAME_CLIENTCODE" value=""/>
+    <item key="NEWCHANNEL_FORM_CONTROL" id="LABLE_NAME_CLIENTCODE" value="Client code:"/>
     <item key="NEWCHANNEL_FORM_CONTROL" id="LABLE_NAME_CLIENTDESCRIPTION" value="Description:"/>
     <item key="NEWCHANNEL_FORM_CONTROL" id="LABLE_NAME_CLIENTNAME" value="Client Name:"/>
     <item key="NEWCHANNEL_FORM_CONTROL" id="LABLE_NAME_MAIL" value="Mail:"/>
