@@ -341,7 +341,10 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label7);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmEditClient";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Client";
             this.Load += new System.EventHandler(this.frmEditClient_Load);

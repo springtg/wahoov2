@@ -414,6 +414,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmEditUser";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User";
             this.Load += new System.EventHandler(this.frmEditUser_Load);

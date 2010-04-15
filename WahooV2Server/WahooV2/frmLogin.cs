@@ -49,6 +49,7 @@ namespace WahooV2
             //objMain.InitData();
             objMain.IdUser = objListUser[0].Id.Value;
             objMain.RoleUser = objListUser[0].Role.Value;
+            objMain.WindowState = FormWindowState.Maximized;
             objMain.ShowDialog();
             this.Close();
             Cursor.Current = Cursors.Default;

@@ -137,6 +137,7 @@ namespace WahooV2
 
         private void frmEditUser_Load(object sender, EventArgs e)
         {
+            this.ShowInTaskbar = false;
             LoadTextOfCotrolFromResource();
             //If update user
             if (this._mStatus == AliasMessage.UPDATE_STATUS)
@@ -166,7 +167,7 @@ namespace WahooV2
                 //gbUser.Text = AliasMessage.CREATE_USER_GROUP_CONTROL;
             }
 
-            AssigeTag(this);
+            AssigeTag(this);            
         }
 
         #endregion
