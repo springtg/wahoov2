@@ -43,7 +43,7 @@ namespace WahooV2
         }
 
         private void frmEditClient_Load(object sender, EventArgs e)
-        {
+        {            
             Resource objResource = new Resource();            
             //If update client
             if (this._mStatus == AliasMessage.UPDATE_STATUS)
@@ -77,7 +77,7 @@ namespace WahooV2
             }
             else
             {
-            }
+            }            
         }
 
         private void btnFinish_Click(object sender, EventArgs e)
