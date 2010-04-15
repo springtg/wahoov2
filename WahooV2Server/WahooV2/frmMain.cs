@@ -18,6 +18,12 @@ namespace WahooV2
 {
     public partial class frmMain : frmBase
     {
+        public enum UserRole : byte
+        {
+            Admin=0,
+            Standar,
+        };
+
         private static readonly ILog _logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         //_mChannelStatus is update or create new channel
         private string _mChannelStatus = "";
@@ -32,6 +38,23 @@ namespace WahooV2
         private Boolean checkClearControl = false;
         private const int _ucWidth = 1102;
         private const int _ucHeight = 686;
+
+        private int _IdUser = 0;
+
+        public int IdUser
+        {
+            get { return _IdUser; }
+            set { _IdUser = value; }
+        }
+
+        private byte _RoleUser = 1;
+
+        public byte RoleUser
+        {
+            get { return _RoleUser; }
+            set { _RoleUser = value; }
+        }
+
         public frmMain()
         {
             InitializeComponent();
@@ -55,6 +78,24 @@ namespace WahooV2
         public void InitData()
         {
             Cursor.Current = Cursors.WaitCursor;
+            //check role user
+            if (RoleUser == (byte)UserRole.Admin)
+            {
+                linkUser.Visible = true;
+                linkSetting.Visible = true;
+                linkUser.Top = 125;
+                linkSetting.Top = 145;
+                xpPanelNWG.Height = 170;
+            }
+            else
+            {
+                linkUser.Visible = false;
+                linkSetting.Visible = false;
+                linkUser.Top = 105;
+                linkSetting.Top = 105;
+                xpPanelNWG.Height = 130;
+            }
+
             //Choose Dashboard click
             linkDashboardClick();
             //Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
