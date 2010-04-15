@@ -341,6 +341,7 @@
             this.clClientConnected.DataPropertyName = "Img";
             this.clClientConnected.FillWeight = 120F;
             this.clClientConnected.HeaderText = "Connectivity";
+            this.clClientConnected.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
             this.clClientConnected.Name = "clClientConnected";
             this.clClientConnected.ReadOnly = true;
             this.clClientConnected.Width = 150;

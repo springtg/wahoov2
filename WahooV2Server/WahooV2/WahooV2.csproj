@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{14E0B415-79D8-4A3E-8B4F-F791E0B0E089}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -156,6 +156,9 @@
       <DependentUpon>usMonitor.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="WahooUserControl\usPagingBar.resx">
+      <DependentUpon>usPagingBar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WahooUserControl\usSetting.resx">
       <DependentUpon>usSetting.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -216,6 +219,12 @@
     </Compile>
     <Compile Include="WahooUserControl\usMonitor.Designer.cs">
       <DependentUpon>usMonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WahooUserControl\usPagingBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WahooUserControl\usPagingBar.Designer.cs">
+      <DependentUpon>usPagingBar.cs</DependentUpon>
     </Compile>
     <Compile Include="WahooUserControl\usSetting.cs">
       <SubType>UserControl</SubType>
@@ -307,33 +316,6 @@
     <Content Include="bin\Debug\Resource\Resource.xml" />
     <Content Include="bin\Debug\XPPanel.dll" />
     <Content Include="Resources\edit.png" />
-    <None Include="Resources\wh_save.png" />
-    <None Include="Resources\wh_user_delete.png" />
-    <None Include="Resources\wh_user_add.png" />
-    <None Include="Resources\wh_user.png" />
-    <None Include="Resources\wh_unlock.png" />
-    <None Include="Resources\wh_tick.png" />
-    <None Include="Resources\wh_stop_all.png" />
-    <None Include="Resources\wh_stop.png" />
-    <None Include="Resources\wh_start_all.png" />
-    <None Include="Resources\wh_start.png" />
-    <None Include="Resources\wh_setting.png" />
-    <None Include="Resources\wh_report.png" />
-    <None Include="Resources\wh_refresh.png" />
-    <None Include="Resources\wh_play.png" />
-    <None Include="Resources\wh_pause.png" />
-    <None Include="Resources\wh_lock.png" />
-    <None Include="Resources\wh_help.png" />
-    <None Include="Resources\wh_go.png" />
-    <None Include="Resources\wh_delete.png" />
-    <None Include="Resources\wh_dashboard.png" />
-    <None Include="Resources\wh_client.png" />
-    <None Include="Resources\wh_channels.png" />
-    <None Include="Resources\wh_channel_edit.png" />
-    <None Include="Resources\wh_channel_delete.png" />
-    <None Include="Resources\wh_channel_add.png" />
-    <None Include="Resources\wh_add.png" />
-    <None Include="Resources\wh_user_edit.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WahooCommon\WahooCommon.csproj">
