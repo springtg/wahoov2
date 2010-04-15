@@ -33,7 +33,7 @@
 
   <section  name="MONITOR_FORM_CONTROL">
     <item key="MONITOR_FORM_CONTROL" id="HEADER_LABLE_TEXT" value="Report(s)"/>
-    <item key="MONITOR_FORM_CONTROL" id="HEADER_LABLE_TEXT_FOR_CLIENT" value="Resport for"/>
+    <item key="MONITOR_FORM_CONTROL" id="HEADER_LABLE_TEXT_FOR_CLIENT" value="Report for"/>
     <item key="MONITOR_FORM_CONTROL" id="GROUP_NAME" value="Search Information"/>
     <item key="MONITOR_FORM_CONTROL" id="CHECKBOX_NAME" value="Date"/>
     <item key="MONITOR_FORM_CONTROL" id="LABEL_NAME_FILENAME" value="File name:"/>
