@@ -39,29 +39,31 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtBlowfishKey
             // 
-            this.txtBlowfishKey.Location = new System.Drawing.Point(450, 169);
+            this.txtBlowfishKey.Location = new System.Drawing.Point(202, 121);
             this.txtBlowfishKey.Name = "txtBlowfishKey";
             this.txtBlowfishKey.Size = new System.Drawing.Size(100, 20);
             this.txtBlowfishKey.TabIndex = 10;
-            this.txtBlowfishKey.Visible = false;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(254, 173);
+            this.label7.Location = new System.Drawing.Point(6, 128);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 13);
             this.label7.TabIndex = 9;
+            this.label7.Tag = "?";
             this.label7.Text = "Encrypt Key:";
-            this.label7.Visible = false;
             // 
             // txtTransferSpeed
             // 
-            this.txtTransferSpeed.Location = new System.Drawing.Point(450, 96);
+            this.txtTransferSpeed.Location = new System.Drawing.Point(202, 84);
             this.txtTransferSpeed.MaxLength = 13;
             this.txtTransferSpeed.Name = "txtTransferSpeed";
             this.txtTransferSpeed.Size = new System.Drawing.Size(100, 20);
@@ -73,7 +75,7 @@
             // 
             // txtExecuteInterval
             // 
-            this.txtExecuteInterval.Location = new System.Drawing.Point(450, 60);
+            this.txtExecuteInterval.Location = new System.Drawing.Point(202, 48);
             this.txtExecuteInterval.MaxLength = 13;
             this.txtExecuteInterval.Name = "txtExecuteInterval";
             this.txtExecuteInterval.Size = new System.Drawing.Size(100, 20);
@@ -85,7 +87,7 @@
             // 
             // txtDashboardRefresh
             // 
-            this.txtDashboardRefresh.Location = new System.Drawing.Point(450, 24);
+            this.txtDashboardRefresh.Location = new System.Drawing.Point(202, 12);
             this.txtDashboardRefresh.MaxLength = 13;
             this.txtDashboardRefresh.Name = "txtDashboardRefresh";
             this.txtDashboardRefresh.Size = new System.Drawing.Size(100, 20);
@@ -97,14 +99,14 @@
             // 
             // txtWsdlUrl
             // 
-            this.txtWsdlUrl.Location = new System.Drawing.Point(450, 132);
+            this.txtWsdlUrl.Location = new System.Drawing.Point(202, 156);
             this.txtWsdlUrl.Name = "txtWsdlUrl";
             this.txtWsdlUrl.Size = new System.Drawing.Size(307, 20);
             this.txtWsdlUrl.TabIndex = 7;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(450, 206);
+            this.btnSave.Location = new System.Drawing.Point(452, 193);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(79, 23);
             this.btnSave.TabIndex = 8;
@@ -115,7 +117,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(254, 136);
+            this.label4.Location = new System.Drawing.Point(6, 163);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 13);
             this.label4.TabIndex = 3;
@@ -124,7 +126,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(254, 100);
+            this.label3.Location = new System.Drawing.Point(6, 88);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 13);
             this.label3.TabIndex = 2;
@@ -133,7 +135,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(254, 64);
+            this.label2.Location = new System.Drawing.Point(6, 52);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(137, 13);
             this.label2.TabIndex = 1;
@@ -142,32 +144,52 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(254, 28);
+            this.label1.Location = new System.Drawing.Point(6, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(185, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Dashboard refresh interval (Seconds):";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtWsdlUrl);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txtBlowfishKey);
+            this.groupBox1.Controls.Add(this.txtExecuteInterval);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtTransferSpeed);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.txtDashboardRefresh);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Location = new System.Drawing.Point(13, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(541, 182);
+            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label5.Location = new System.Drawing.Point(13, 188);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(541, 2);
+            this.label5.TabIndex = 12;
+            // 
             // usSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.txtWsdlUrl);
-            this.Controls.Add(this.txtBlowfishKey);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtDashboardRefresh);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtTransferSpeed);
-            this.Controls.Add(this.txtExecuteInterval);
-            this.Controls.Add(this.label3);
             this.Name = "usSetting";
             this.Size = new System.Drawing.Size(1010, 690);
             this.Load += new System.EventHandler(this.usSetting_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -184,5 +206,7 @@
         private WahooV2.ExControl.TextBoxForNum txtExecuteInterval;
         private System.Windows.Forms.TextBox txtBlowfishKey;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label5;
     }
 }
