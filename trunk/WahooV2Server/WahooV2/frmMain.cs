@@ -217,64 +217,81 @@ namespace WahooV2
             xpPanelChannelTask.Visible = false;
             xpPanelUser.Visible = false;
             xpPanelClient.Visible = true;
-
-            //View client control
-            clearControl();
-            //this.checkClearControl = true;
-            //foreach (Control preControl in pnMain.Controls)
-            //{
-            //    preControl.Dispose();
-            //}
-            //pnMain.Controls.Clear();
-            //this.checkClearControl = false;
-            //Khoi tao ucClient
-            ucClients _ucClients = new ucClients();
-
-            //Khai bao cac delegate
-            _ucClients.GridMouseDown += new ucClients.GridClient_MouseDown(GridClientMouseDown);
-            _ucClients.GridSelectChanged += new ucClients.GridClient_SelectIndexChanged(GridClientSelectIndexChanged);
-            _ucClients.MonitorItem_Click += new ucClients.ToolStripMenuItem_Click(_ucClients_MonitorItem_Click);
-            //_ucClients.Disposed += new EventHandler(_ucClients_Disposed);
-            //Thiet lap cac thong so cho ucClients
-            _ucClients.Left = 0;
-            _ucClients.Top = 0;            
-            _ucClients.Width = _ucWidth;
-            _ucClients.Height = _ucHeight;
-            _ucClients.Dock = DockStyle.Fill;
-            pnMain.Controls.Add(_ucClients);
-            //Show control when no choose item
-            if (_ucClients.IdClient == 0)
+            try
             {
-                ShowControlWhenNoChooseItemsClient();
+                //View client control
+                clearControl();
+                //this.checkClearControl = true;
+                //foreach (Control preControl in pnMain.Controls)
+                //{
+                //    preControl.Dispose();
+                //}
+                //pnMain.Controls.Clear();
+                //this.checkClearControl = false;
+                //Khoi tao ucClient
+                ucClients _ucClients = new ucClients();
+
+                //Khai bao cac delegate
+                _ucClients.GridMouseDown += new ucClients.GridClient_MouseDown(GridClientMouseDown);
+                _ucClients.GridSelectChanged += new ucClients.GridClient_SelectIndexChanged(GridClientSelectIndexChanged);
+                _ucClients.MonitorItem_Click += new ucClients.ToolStripMenuItem_Click(_ucClients_MonitorItem_Click);
+                //_ucClients.Disposed += new EventHandler(_ucClients_Disposed);
+                //Thiet lap cac thong so cho ucClients
+                _ucClients.Left = 0;
+                _ucClients.Top = 0;
+                _ucClients.Width = _ucWidth;
+                _ucClients.Height = _ucHeight;
+                _ucClients.Dock = DockStyle.Fill;
+                pnMain.Controls.Add(_ucClients);
+                //Show control when no choose item
+                if (_ucClients.IdClient == 0)
+                {
+                    ShowControlWhenNoChooseItemsClient();
+                }
+                //Show control when choose item
+                else
+                {
+                    ShowControlClientsNormal();
+                }
+                lblTop.Text = AliasMessage.CLIENT_HEADER_LABEL_CONTROL;
             }
-            //Show control when choose item
-            else
+            catch(Exception ex)
             {
-                ShowControlClientsNormal();
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
             }
-            lblTop.Text = AliasMessage.CLIENT_HEADER_LABEL_CONTROL;
         }
 
         void _ucClients_MonitorItem_Click(object sender, EventArgs e)
         {
-            _resource = new Resource();
-            setActiveLink(linkReportAll, _resource.GetResourceByKey("MONITOR_FORM_CONTROL", "HEADER_LABLE_TEXT_FOR_CLIENT"));
+            try
+            {
+                _resource = new Resource();
+                setActiveLink(linkReportAll, _resource.GetResourceByKey("MONITOR_FORM_CONTROL", "HEADER_LABLE_TEXT_FOR_CLIENT"));
 
-            _mIdClient = ((ucClients)sender).IdClient;
-            //MessageBox.Show(_mIdClient.ToString());
-            _resource = new Resource();
-            lblTop.Text = _resource.GetResourceByKey("MONITOR_FORM_CONTROL", "HEADER_LABLE_TEXT_FOR_CLIENT") +
-                " " + WahooData.BusinessHandler.WahooBusinessHandler.Get_Client(new WahooData.DBO.Client(_mIdClient)).Name;
+                _mIdClient = ((ucClients)sender).IdClient;
+                //MessageBox.Show(_mIdClient.ToString());
+                _resource = new Resource();
+                lblTop.Text = _resource.GetResourceByKey("MONITOR_FORM_CONTROL", "HEADER_LABLE_TEXT_FOR_CLIENT") +
+                    " " + WahooData.BusinessHandler.WahooBusinessHandler.Get_Client(new WahooData.DBO.Client(_mIdClient)).Name;
 
-            xpPanelDashboardTask.Visible = false;
-            xpPanelChannelTask.Visible = false;
-            xpPanelUser.Visible = false;
-            xpPanelClient.Visible = false;
+                xpPanelDashboardTask.Visible = false;
+                xpPanelChannelTask.Visible = false;
+                xpPanelUser.Visible = false;
+                xpPanelClient.Visible = false;
 
-            //View control report
-            clearControl();
-            usMonitor _monitor = new usMonitor(_mIdClient);
-            setControltoPanel(_monitor, 0, 0, _ucWidth, _ucHeight);
+                //View control report
+                clearControl();
+                usMonitor _monitor = new usMonitor(_mIdClient);
+                setControltoPanel(_monitor, 0, 0, _ucWidth, _ucHeight);
+            }
+            catch (Exception ex)
+            {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
+            }
         }
 
         //void _ucClients_Disposed(object sender, EventArgs e)
@@ -383,6 +400,8 @@ namespace WahooV2
             try
             {
                 _ucClients = (ucClients)pnMain.Controls[0];
+                //Create new client
+                _ucClients.CreateClient();
             }
             catch(Exception ex)
             {
@@ -391,8 +410,7 @@ namespace WahooV2
                     _logger.Error(ex);
                 return;
             }
-            //Create new client
-            _ucClients.CreateClient();
+            
         }
         /// <summary>
         /// Edit Client
@@ -409,6 +427,8 @@ namespace WahooV2
             try
             {
                 _ucClients = (ucClients)pnMain.Controls[0];
+                //Edit new client
+                _ucClients.EditClient();
             }
             catch(Exception ex)
             {
@@ -416,9 +436,7 @@ namespace WahooV2
                 if (_logger.IsErrorEnabled)
                     _logger.Error(ex);
                 return;
-            }
-            //Edit new client
-            _ucClients.EditClient();
+            }            
         }
         /// <summary>
         /// Delete Client
@@ -435,6 +453,8 @@ namespace WahooV2
             try
             {
                 _ucClients = (ucClients)pnMain.Controls[0];
+                //Delete new client
+                _ucClients.DeleteClient();
             }
             catch(Exception ex)
             {
@@ -442,9 +462,7 @@ namespace WahooV2
                 if (_logger.IsErrorEnabled)
                     _logger.Error(ex);
                 return;
-            }
-            //Delete new client
-            _ucClients.DeleteClient();
+            }            
         }
 
         #endregion Client
