@@ -19,27 +19,13 @@ namespace WahooV2.WahooUserControl
         private int _mIdClient = -1;
         private List<DownloadReport> lstAll;
         private int iRowofPage = 20;
-        private int iAllPage = 0;
-        private int iCurrPge = 0;
+        private int iAllPage = 1;
+        private int iCurrPge = 1;
 
         public usMonitor()
         {
             InitializeComponent();
 
-        }
-        private void iniData()
-        {
-            lstAll = new List<DownloadReport>();
-            //lay tat ca thong tin trong table download report
-            //lstAll = getObjList(new DownloadReport());
-            if (IdClient != -1)
-            {
-                lstAll = getObjList(new DownloadReport(IdClient));
-            }
-            else
-            {
-                lstAll = getObjList(new DownloadReport());
-            }
         }
 
         public usMonitor(int idClient)
@@ -247,7 +233,7 @@ namespace WahooV2.WahooUserControl
             var rs = q.Skip((iPageIndex - 1) * iPageSize)
                 .Take(iPageSize)
                 .ToList();
-            iAllPage = getPage(q.ToList());
+            // iAllPage = getPage(q.ToList());
             // createPagingNegative(getPage(q.ToList()));
             //set thong tin cho control page
             // btnEnd.Tag = getPage(lstAll);
@@ -256,6 +242,53 @@ namespace WahooV2.WahooUserControl
             // btnPrevious.Tag = iCurrPge - 1;
 
             return rs;
+        }
+
+        private List<DownloadReport> headerChange(int iPageIndex)
+        {
+            WahooData.DBO.ConditionDR condition = new ConditionDR();
+
+            if (!txtFilename.Text.Equals(string.Empty))
+            {
+                condition.Filename = txtFilename.Text.ToLower();
+            }
+            if (WahooConfiguration.DataTypeProtect.ProtectInt32(cbClient.SelectedValue) != -1)
+            {
+                condition.IdClient = WahooConfiguration.DataTypeProtect.ProtectInt32(cbClient.SelectedValue);
+            }
+            if (IdClient != -1)
+            {
+                condition.IdClient = _mIdClient;
+            }
+            if (cbFilterSearch.SelectedValue != null)
+            {
+                switch (cbFilterSearch.SelectedValue.ToString())
+                {
+                    case "1":
+                        condition.FileStatus = true;
+                        break;
+                    case "2":
+                        condition.FileStatus = true;
+                        break;
+                    case "3":
+                        condition.FileStatus = false;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            if (chkSearchDate.Checked)
+            {
+                condition.DateFrom = dptDateFrom.Value;
+                condition.DateTo = dptDateTo.Value;
+            }
+            condition.PageNum = iPageIndex;
+            condition.PageSize = iRowofPage;
+            int allRow = 0;
+            List<DownloadReport> lstTemp = null;
+            lstTemp = WahooBusinessHandler.Get_ListDownloadReport(condition, ref allRow);
+            iAllPage = getPage(allRow);
+            return lstTemp;
         }
 
         private void createPagingNegative(int NumberPage)
@@ -307,14 +340,8 @@ namespace WahooV2.WahooUserControl
         //    }
         //}
 
-        private int getPage(List<DownloadReport> l)
+        private int getPage(int iAllRow)
         {
-            int iAllRow = 0;
-            if (l != null)
-            {
-                iAllRow = l.Count;
-            }
-
             int iPage = 0;
             iPage = (iAllRow % iRowofPage != 0) ? iAllRow / iRowofPage + 1 : iAllRow / iRowofPage;
             return iPage;
@@ -378,9 +405,6 @@ namespace WahooV2.WahooUserControl
         private void usMonitor_Load(object sender, EventArgs e)
         {
             gridReport.AutoGenerateColumns = false;
-            Thread th = new Thread(new ThreadStart(iniData));
-            th.Start();
-            th.Join();
             BindClientCombo();
             BindFilterCombo();
             if (_mIdClient != -1)
@@ -392,7 +416,7 @@ namespace WahooV2.WahooUserControl
             WahooConfiguration.Config cfg = new WahooConfiguration.Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
             iRowofPage = WahooConfiguration.DataTypeProtect.ProtectInt32(cfg.ReadSetting("MaxNumberRowofPage"));
             //dung linq truy van du lieu, chi lay page dau tien
-            gridReport.DataSource = headerChange(lstAll, 0, iRowofPage);
+            gridReport.DataSource = headerChange(1);
             //set thong tin cho Control page
             if (gridReport.RowCount > 0)
             {
@@ -480,7 +504,7 @@ namespace WahooV2.WahooUserControl
 
         private void btnEnd_Click(object sender, EventArgs e)
         {
-            gridReport.DataSource = headerChange(lstAll,iCurrPge, iRowofPage);
+            gridReport.DataSource = headerChange(lstAll, iCurrPge, iRowofPage);
             setcontrolBar(iAllPage, ref iCurrPge, iAllPage);
         }
 
@@ -489,7 +513,7 @@ namespace WahooV2.WahooUserControl
             int temp = WahooConfiguration.DataTypeProtect.ProtectInt32(txtPage.Text);
             if (temp < 0 || temp > iAllPage)
             {
-               
+
             }
             else
             {
@@ -554,7 +578,7 @@ namespace WahooV2.WahooUserControl
 
         private void txtPage_Validated(object sender, EventArgs e)
         {
-           
+
         }
 
     }

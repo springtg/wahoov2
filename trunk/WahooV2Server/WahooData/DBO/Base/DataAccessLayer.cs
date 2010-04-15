@@ -174,6 +174,31 @@ namespace WahooData.DBO.Base
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="objCondition"></param>
+        /// <returns></returns>
+        public static List<object> GetListObject(object objCondition,ref int allrows)
+        {
+            if (objCondition == null)
+                return null;
+            try
+            {
+                Type type = objCondition.GetType();
+                List<PropertyInfo> properties = GetProperties(type);
+                DataTable dataTable = new DataTable();
+                dataTable = ServiceReader.GetData(objCondition,ref allrows);
+                List<object> objCollection = GetListResult(typeof(DownloadReport), dataTable, GetProperties(typeof(DownloadReport)));
+                return objCollection;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         /// <summary>
         /// Find all obj match objcondition
         /// </summary>

@@ -228,4 +228,142 @@ namespace WahooData.DBO
 
         #endregion
     }
+
+    [TableAttribute("ConditionDR")]
+    public class ConditionDR : BaseDBO
+    {
+        #region Fields
+        private int? _PageNum;
+        [ColumnAttribute("PageNum", SqlDbType.Int, 4, false)]
+        public int? PageNum
+        {
+            get { return _PageNum; }
+            set { _PageNum = value; }
+        }
+        private int? _PageSize;
+        [ColumnAttribute("PageSize", SqlDbType.Int, 4, false)]
+        public int? PageSize
+        {
+            get { return _PageSize; }
+            set { _PageSize = value; }
+        }
+        private int? _IdClient;
+        private string _Filename;
+        private bool? _FileStatus;
+        private DateTime? _DateFrom;
+        private DateTime? _DateTo;
+        //private string _IpAddress;
+
+        #endregion
+
+        #region Constructors
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public ConditionDR()
+        {
+        }
+
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// Gets or sets int? value for IdClient
+        /// </summary>
+        [ColumnAttribute("ClientID", SqlDbType.Int, 4, false)]
+        public int? IdClient
+        {
+            set
+            {
+                this._IdClient = value;
+            }
+            get
+            {
+                return this._IdClient;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets string value for Filename
+        /// </summary>
+        [ColumnAttribute("Filename", SqlDbType.NVarChar, 100, false)]
+        public string Filename
+        {
+            set
+            {
+                this._Filename = value;
+            }
+            get
+            {
+                return this._Filename;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets bool? value for Success
+        /// </summary>
+        [ColumnAttribute("FileStatus", SqlDbType.Bit, 1, false)]
+        public bool? FileStatus
+        {
+            set
+            {
+                this._FileStatus = value;
+            }
+            get
+            {
+                return this._FileStatus;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets DateTime? value for TimeDownloaded
+        /// </summary>
+        [ColumnAttribute("FromDate", SqlDbType.DateTime, 8, false)]
+        public DateTime? DateFrom
+        {
+            set
+            {
+                this._DateFrom = value;
+            }
+            get
+            {
+                return this._DateFrom;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets bool? value for IsSentToPrint
+        /// </summary>
+        [ColumnAttribute("ToDate", SqlDbType.DateTime, 8, false)]
+        public DateTime? DateTo
+        {
+            set
+            {
+                this._DateTo = value;
+            }
+            get
+            {
+                return this._DateTo;
+            }
+        }
+
+        ///// <summary>
+        ///// Gets or sets string value for IpAddress
+        ///// </summary>
+        //[ColumnAttribute("IpAddress", SqlDbType.NVarChar, 20, false)]
+        //public string IpAddress
+        //{
+        //    set
+        //    {
+        //        this._IpAddress = value;
+        //    }
+        //    get
+        //    {
+        //        return this._IpAddress;
+        //    }
+        //}
+
+        #endregion
+    }
 }

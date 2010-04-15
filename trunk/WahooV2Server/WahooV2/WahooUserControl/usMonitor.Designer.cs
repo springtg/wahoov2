@@ -34,10 +34,6 @@
             this.txtTotalFiles = new System.Windows.Forms.TextBox();
             this.cbFilterSearch = new System.Windows.Forms.ComboBox();
             this.gridReport = new System.Windows.Forms.DataGridView();
-            this.clIpAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clFilename = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clSuccess = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clIsSentToPrint = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbClient = new System.Windows.Forms.ComboBox();
             this.chkSearchDate = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -65,6 +61,11 @@
             this.btnFisrt = new System.Windows.Forms.Button();
             this.btnEnd = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
+            this.clFilename = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clIpAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDateDown = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clSuccess = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clIsSentToPrint = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridReport)).BeginInit();
             this.gbResult.SuspendLayout();
             this.gbSearchInfo.SuspendLayout();
@@ -115,8 +116,9 @@
             this.gridReport.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clIpAddress,
             this.clFilename,
+            this.clIpAddress,
+            this.colDateDown,
             this.clSuccess,
             this.clIsSentToPrint});
             this.gridReport.Location = new System.Drawing.Point(3, 108);
@@ -138,42 +140,6 @@
             this.gridReport.TabIndex = 1;
             this.gridReport.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridReport_RowEnter);
             this.gridReport.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gridReport_DataBindingComplete_1);
-            // 
-            // clIpAddress
-            // 
-            this.clIpAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clIpAddress.DataPropertyName = "IpAddress";
-            this.clIpAddress.FillWeight = 200F;
-            this.clIpAddress.HeaderText = "Ip address";
-            this.clIpAddress.Name = "clIpAddress";
-            this.clIpAddress.ReadOnly = true;
-            // 
-            // clFilename
-            // 
-            this.clFilename.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clFilename.DataPropertyName = "filename";
-            this.clFilename.FillWeight = 450F;
-            this.clFilename.HeaderText = "File name";
-            this.clFilename.Name = "clFilename";
-            this.clFilename.ReadOnly = true;
-            // 
-            // clSuccess
-            // 
-            this.clSuccess.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clSuccess.DataPropertyName = "Downloaded";
-            this.clSuccess.FillWeight = 120F;
-            this.clSuccess.HeaderText = "Downloaded";
-            this.clSuccess.Name = "clSuccess";
-            this.clSuccess.ReadOnly = true;
-            // 
-            // clIsSentToPrint
-            // 
-            this.clIsSentToPrint.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clIsSentToPrint.DataPropertyName = "SentToPrint";
-            this.clIsSentToPrint.FillWeight = 120F;
-            this.clIsSentToPrint.HeaderText = "Sent to print";
-            this.clIsSentToPrint.Name = "clIsSentToPrint";
-            this.clIsSentToPrint.ReadOnly = true;
             // 
             // cbClient
             // 
@@ -459,6 +425,49 @@
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
+            // clFilename
+            // 
+            this.clFilename.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clFilename.DataPropertyName = "filename";
+            this.clFilename.FillWeight = 400F;
+            this.clFilename.HeaderText = "File name";
+            this.clFilename.Name = "clFilename";
+            this.clFilename.ReadOnly = true;
+            // 
+            // clIpAddress
+            // 
+            this.clIpAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clIpAddress.DataPropertyName = "IpAddress";
+            this.clIpAddress.HeaderText = "Ip address";
+            this.clIpAddress.Name = "clIpAddress";
+            this.clIpAddress.ReadOnly = true;
+            // 
+            // colDateDown
+            // 
+            this.colDateDown.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDateDown.DataPropertyName = "TimeDownloaded";
+            this.colDateDown.HeaderText = "Date";
+            this.colDateDown.Name = "colDateDown";
+            this.colDateDown.ReadOnly = true;
+            // 
+            // clSuccess
+            // 
+            this.clSuccess.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clSuccess.DataPropertyName = "Downloaded";
+            this.clSuccess.FillWeight = 120F;
+            this.clSuccess.HeaderText = "Downloaded";
+            this.clSuccess.Name = "clSuccess";
+            this.clSuccess.ReadOnly = true;
+            // 
+            // clIsSentToPrint
+            // 
+            this.clIsSentToPrint.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clIsSentToPrint.DataPropertyName = "SentToPrint";
+            this.clIsSentToPrint.FillWeight = 120F;
+            this.clIsSentToPrint.HeaderText = "Sent to print";
+            this.clIsSentToPrint.Name = "clIsSentToPrint";
+            this.clIsSentToPrint.ReadOnly = true;
+            // 
             // usMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -514,8 +523,9 @@
         private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.Button btnEnd;
         private WahooV2.ExControl.TextBoxForNum txtPage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clIpAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn clFilename;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clIpAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDateDown;
         private System.Windows.Forms.DataGridViewTextBoxColumn clSuccess;
         private System.Windows.Forms.DataGridViewTextBoxColumn clIsSentToPrint;
     }
