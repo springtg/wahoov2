@@ -28,12 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtTotalFiles = new System.Windows.Forms.TextBox();
             this.cbFilterSearch = new System.Windows.Forms.ComboBox();
             this.gridReport = new System.Windows.Forms.DataGridView();
+            this.clFilename = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clIpAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDateDown = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDataSendPrinter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clSuccess = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clIsSentToPrint = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbClient = new System.Windows.Forms.ComboBox();
             this.chkSearchDate = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -49,27 +55,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtDownloadStatus = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.pnlNavigative = new System.Windows.Forms.Panel();
+            this.usPagingBar1 = new WahooV2.WahooUserControl.usPagingBar();
             this.txtFilename = new System.Windows.Forms.TextBox();
             this.dptDateFrom = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.gbSearchInfo = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pnlNavigative = new System.Windows.Forms.Panel();
-            this.txtPage = new WahooV2.ExControl.TextBoxForNum();
-            this.btnPrevious = new System.Windows.Forms.Button();
-            this.btnFisrt = new System.Windows.Forms.Button();
-            this.btnEnd = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.clFilename = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clIpAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDateDown = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clSuccess = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clIsSentToPrint = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbPage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridReport)).BeginInit();
             this.gbResult.SuspendLayout();
-            this.gbSearchInfo.SuspendLayout();
             this.pnlNavigative.SuspendLayout();
+            this.gbSearchInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtTotalFiles
@@ -97,49 +95,103 @@
             this.gridReport.AllowUserToAddRows = false;
             this.gridReport.AllowUserToDeleteRows = false;
             this.gridReport.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Silver;
-            this.gridReport.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Silver;
+            this.gridReport.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.gridReport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.gridReport.BackgroundColor = System.Drawing.Color.White;
             this.gridReport.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridReport.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridReport.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridReport.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.gridReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clFilename,
             this.clIpAddress,
             this.colDateDown,
+            this.colDataSendPrinter,
             this.clSuccess,
             this.clIsSentToPrint});
             this.gridReport.Location = new System.Drawing.Point(3, 108);
             this.gridReport.MultiSelect = false;
             this.gridReport.Name = "gridReport";
             this.gridReport.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridReport.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.gridReport.RowHeadersWidth = 55;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridReport.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.gridReport.RowHeadersWidth = 20;
             this.gridReport.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Silver;
             this.gridReport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridReport.Size = new System.Drawing.Size(1100, 410);
+            this.gridReport.Size = new System.Drawing.Size(1100, 535);
             this.gridReport.TabIndex = 1;
             this.gridReport.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridReport_RowEnter);
-            this.gridReport.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gridReport_DataBindingComplete_1);
+            // 
+            // clFilename
+            // 
+            this.clFilename.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clFilename.DataPropertyName = "filename";
+            this.clFilename.FillWeight = 150F;
+            this.clFilename.HeaderText = "File name";
+            this.clFilename.Name = "clFilename";
+            this.clFilename.ReadOnly = true;
+            // 
+            // clIpAddress
+            // 
+            this.clIpAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clIpAddress.DataPropertyName = "IpAddress";
+            this.clIpAddress.FillWeight = 51F;
+            this.clIpAddress.HeaderText = "Ip address";
+            this.clIpAddress.Name = "clIpAddress";
+            this.clIpAddress.ReadOnly = true;
+            // 
+            // colDateDown
+            // 
+            this.colDateDown.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDateDown.DataPropertyName = "TimeDownloaded";
+            this.colDateDown.FillWeight = 51.11018F;
+            this.colDateDown.HeaderText = "Dowload Date";
+            this.colDateDown.Name = "colDateDown";
+            this.colDateDown.ReadOnly = true;
+            // 
+            // colDataSendPrinter
+            // 
+            this.colDataSendPrinter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDataSendPrinter.DataPropertyName = "TimeSentToPrint";
+            this.colDataSendPrinter.FillWeight = 50F;
+            this.colDataSendPrinter.HeaderText = "Time send to Printer";
+            this.colDataSendPrinter.Name = "colDataSendPrinter";
+            this.colDataSendPrinter.ReadOnly = true;
+            // 
+            // clSuccess
+            // 
+            this.clSuccess.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clSuccess.DataPropertyName = "Downloaded";
+            this.clSuccess.FillWeight = 25.55509F;
+            this.clSuccess.HeaderText = "Downloaded";
+            this.clSuccess.Name = "clSuccess";
+            this.clSuccess.ReadOnly = true;
+            // 
+            // clIsSentToPrint
+            // 
+            this.clIsSentToPrint.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clIsSentToPrint.DataPropertyName = "SentToPrint";
+            this.clIsSentToPrint.FillWeight = 30.66611F;
+            this.clIsSentToPrint.HeaderText = "Sent to print";
+            this.clIsSentToPrint.Name = "clIsSentToPrint";
+            this.clIsSentToPrint.ReadOnly = true;
             // 
             // cbClient
             // 
@@ -244,11 +296,12 @@
             this.gbResult.Controls.Add(this.txtDownloadStatus);
             this.gbResult.Controls.Add(this.label2);
             this.gbResult.Enabled = false;
-            this.gbResult.Location = new System.Drawing.Point(3, 571);
+            this.gbResult.Location = new System.Drawing.Point(16, 329);
             this.gbResult.Name = "gbResult";
             this.gbResult.Size = new System.Drawing.Size(1100, 116);
             this.gbResult.TabIndex = 2;
             this.gbResult.TabStop = false;
+            this.gbResult.Visible = false;
             // 
             // txtDownloadTime
             // 
@@ -281,6 +334,23 @@
             this.label2.Size = new System.Drawing.Size(89, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Download status:";
+            // 
+            // pnlNavigative
+            // 
+            this.pnlNavigative.Controls.Add(this.lbPage);
+            this.pnlNavigative.Controls.Add(this.usPagingBar1);
+            this.pnlNavigative.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlNavigative.Location = new System.Drawing.Point(0, 649);
+            this.pnlNavigative.Name = "pnlNavigative";
+            this.pnlNavigative.Size = new System.Drawing.Size(1106, 41);
+            this.pnlNavigative.TabIndex = 3;
+            // 
+            // usPagingBar1
+            // 
+            this.usPagingBar1.Location = new System.Drawing.Point(368, 8);
+            this.usPagingBar1.Name = "usPagingBar1";
+            this.usPagingBar1.Size = new System.Drawing.Size(364, 25);
+            this.usPagingBar1.TabIndex = 2;
             // 
             // txtFilename
             // 
@@ -349,124 +419,15 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "File name:";
             // 
-            // pnlNavigative
+            // lbPage
             // 
-            this.pnlNavigative.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlNavigative.Controls.Add(this.txtPage);
-            this.pnlNavigative.Controls.Add(this.btnPrevious);
-            this.pnlNavigative.Controls.Add(this.btnFisrt);
-            this.pnlNavigative.Controls.Add(this.btnEnd);
-            this.pnlNavigative.Controls.Add(this.btnNext);
-            this.pnlNavigative.Location = new System.Drawing.Point(3, 524);
-            this.pnlNavigative.Name = "pnlNavigative";
-            this.pnlNavigative.Size = new System.Drawing.Size(1100, 43);
-            this.pnlNavigative.TabIndex = 3;
-            // 
-            // txtPage
-            // 
-            this.txtPage.Location = new System.Drawing.Point(527, 12);
-            this.txtPage.MaxLength = 3;
-            this.txtPage.Name = "txtPage";
-            this.txtPage.Size = new System.Drawing.Size(39, 20);
-            this.txtPage.StrFormat = "";
-            this.txtPage.TabIndex = 1;
-            this.txtPage.Text = "0";
-            this.txtPage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtPage.Value = null;
-            this.txtPage.TextChanged += new System.EventHandler(this.txtPage_TextChanged);
-            this.txtPage.Validated += new System.EventHandler(this.txtPage_Validated);
-            // 
-            // btnPrevious
-            // 
-            this.btnPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPrevious.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrevious.Location = new System.Drawing.Point(486, 12);
-            this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(30, 20);
-            this.btnPrevious.TabIndex = 0;
-            this.btnPrevious.Text = "<";
-            this.btnPrevious.UseVisualStyleBackColor = true;
-            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
-            // 
-            // btnFisrt
-            // 
-            this.btnFisrt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnFisrt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFisrt.Location = new System.Drawing.Point(454, 12);
-            this.btnFisrt.Name = "btnFisrt";
-            this.btnFisrt.Size = new System.Drawing.Size(30, 20);
-            this.btnFisrt.TabIndex = 0;
-            this.btnFisrt.Text = "<<";
-            this.btnFisrt.UseVisualStyleBackColor = true;
-            this.btnFisrt.Click += new System.EventHandler(this.btnFisrt_Click);
-            // 
-            // btnEnd
-            // 
-            this.btnEnd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnd.Location = new System.Drawing.Point(607, 12);
-            this.btnEnd.Name = "btnEnd";
-            this.btnEnd.Size = new System.Drawing.Size(30, 20);
-            this.btnEnd.TabIndex = 0;
-            this.btnEnd.Text = ">>";
-            this.btnEnd.UseVisualStyleBackColor = true;
-            this.btnEnd.Click += new System.EventHandler(this.btnEnd_Click);
-            // 
-            // btnNext
-            // 
-            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext.Location = new System.Drawing.Point(575, 12);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(30, 20);
-            this.btnNext.TabIndex = 0;
-            this.btnNext.Text = ">";
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // clFilename
-            // 
-            this.clFilename.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clFilename.DataPropertyName = "filename";
-            this.clFilename.FillWeight = 400F;
-            this.clFilename.HeaderText = "File name";
-            this.clFilename.Name = "clFilename";
-            this.clFilename.ReadOnly = true;
-            // 
-            // clIpAddress
-            // 
-            this.clIpAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clIpAddress.DataPropertyName = "IpAddress";
-            this.clIpAddress.HeaderText = "Ip address";
-            this.clIpAddress.Name = "clIpAddress";
-            this.clIpAddress.ReadOnly = true;
-            // 
-            // colDateDown
-            // 
-            this.colDateDown.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colDateDown.DataPropertyName = "TimeDownloaded";
-            this.colDateDown.HeaderText = "Date";
-            this.colDateDown.Name = "colDateDown";
-            this.colDateDown.ReadOnly = true;
-            // 
-            // clSuccess
-            // 
-            this.clSuccess.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clSuccess.DataPropertyName = "Downloaded";
-            this.clSuccess.FillWeight = 120F;
-            this.clSuccess.HeaderText = "Downloaded";
-            this.clSuccess.Name = "clSuccess";
-            this.clSuccess.ReadOnly = true;
-            // 
-            // clIsSentToPrint
-            // 
-            this.clIsSentToPrint.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clIsSentToPrint.DataPropertyName = "SentToPrint";
-            this.clIsSentToPrint.FillWeight = 120F;
-            this.clIsSentToPrint.HeaderText = "Sent to print";
-            this.clIsSentToPrint.Name = "clIsSentToPrint";
-            this.clIsSentToPrint.ReadOnly = true;
+            this.lbPage.AutoSize = true;
+            this.lbPage.Location = new System.Drawing.Point(1083, 14);
+            this.lbPage.Name = "lbPage";
+            this.lbPage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lbPage.Size = new System.Drawing.Size(0, 13);
+            this.lbPage.TabIndex = 3;
+            this.lbPage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // usMonitor
             // 
@@ -474,8 +435,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnlNavigative);
             this.Controls.Add(this.gridReport);
-            this.Controls.Add(this.gbResult);
             this.Controls.Add(this.gbSearchInfo);
+            this.Controls.Add(this.gbResult);
             this.Name = "usMonitor";
             this.Size = new System.Drawing.Size(1106, 690);
             this.Load += new System.EventHandler(this.usMonitor_Load);
@@ -483,10 +444,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridReport)).EndInit();
             this.gbResult.ResumeLayout(false);
             this.gbResult.PerformLayout();
-            this.gbSearchInfo.ResumeLayout(false);
-            this.gbSearchInfo.PerformLayout();
             this.pnlNavigative.ResumeLayout(false);
             this.pnlNavigative.PerformLayout();
+            this.gbSearchInfo.ResumeLayout(false);
+            this.gbSearchInfo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -518,15 +479,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView gridReport;
         private System.Windows.Forms.Panel pnlNavigative;
-        private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.Button btnFisrt;
-        private System.Windows.Forms.Button btnPrevious;
-        private System.Windows.Forms.Button btnEnd;
-        private WahooV2.ExControl.TextBoxForNum txtPage;
+        private usPagingBar usPagingBar1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clFilename;
         private System.Windows.Forms.DataGridViewTextBoxColumn clIpAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDateDown;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDataSendPrinter;
         private System.Windows.Forms.DataGridViewTextBoxColumn clSuccess;
         private System.Windows.Forms.DataGridViewTextBoxColumn clIsSentToPrint;
+        private System.Windows.Forms.Label lbPage;
     }
 }
