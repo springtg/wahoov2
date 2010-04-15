@@ -72,9 +72,7 @@ namespace WahooV2.WahooUserControl
             }
             catch (Exception ex)
             {
-                //Write log
-                if (_logger.IsErrorEnabled)
-                    _logger.Error(ex);
+                //Write log                
                 throw ex;
             }
         }
@@ -202,10 +200,7 @@ namespace WahooV2.WahooUserControl
                 BindGrid();
             }
             catch (Exception ex)
-            {
-                //Write log
-                if (_logger.IsErrorEnabled)
-                    _logger.Error(ex);
+            {                
                 throw ex;
             }
         }
@@ -214,11 +209,18 @@ namespace WahooV2.WahooUserControl
         /// </summary>
         public void CreateUser()
         {
-            //Show form create client
-            frmEditUser _frmEditUser = new frmEditUser();
-            _frmEditUser.Status = AliasMessage.CREATE_STATUS;
-            _frmEditUser.ShowDialog();
-            BindGrid();
+            try
+            {
+                //Show form create client
+                frmEditUser _frmEditUser = new frmEditUser();
+                _frmEditUser.Status = AliasMessage.CREATE_STATUS;
+                _frmEditUser.ShowDialog();
+                BindGrid();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         /// <summary>
         /// Delete client
@@ -231,17 +233,24 @@ namespace WahooV2.WahooUserControl
             }
             if (MessageBox.Show(WahooConfiguration.Message.GetMessageById("USER_QUEST001"), "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                int id = DataTypeProtect.ProtectInt32(gridUser.SelectedRows[0].Cells[this.clId.Name].Value.ToString(), 0);
-                //Delete Client
-                User objDelete = new User();
-                objDelete.Id = id;
-                if (objDelete.Delete())
+                try
                 {
-                    BindGrid();
+                    int id = DataTypeProtect.ProtectInt32(gridUser.SelectedRows[0].Cells[this.clId.Name].Value.ToString(), 0);
+                    //Delete Client
+                    User objDelete = new User();
+                    objDelete.Id = id;
+                    if (objDelete.Delete())
+                    {
+                        BindGrid();
+                    }
+                    else
+                    {
+                        this.ShowMessageBox("USER_ERR013", string.Format(WahooConfiguration.Message.GetMessageById("USER_ERR013")), MessageType.ERROR);
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    this.ShowMessageBox("USER_ERR013", string.Format(WahooConfiguration.Message.GetMessageById("USER_ERR013")), MessageType.ERROR);
+                    throw ex;
                 }
             }
         }

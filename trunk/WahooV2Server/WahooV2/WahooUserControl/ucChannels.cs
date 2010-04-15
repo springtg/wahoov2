@@ -134,10 +134,7 @@ namespace WahooV2.WahooUserControl
                 gridChannel.DataSource = dtChannel;                
             }
             catch (Exception ex)
-            {
-                //Write log
-                if (_logger.IsErrorEnabled)
-                    _logger.Error(ex);
+            {                
                 throw ex;
             }
         }
@@ -350,10 +347,7 @@ namespace WahooV2.WahooUserControl
                 return vReturn;
             }
             catch (Exception ex)
-            {
-                //Write log
-                if (_logger.IsErrorEnabled)
-                    _logger.Error(ex);
+            {                
                 throw ex;
             }
         }
@@ -376,10 +370,7 @@ namespace WahooV2.WahooUserControl
                     BindGrid();
                 }
                 catch (Exception ex)
-                {
-                    //Write log
-                    if (_logger.IsErrorEnabled)
-                        _logger.Error(ex);
+                {                    
                     throw ex;
                 }
             }
@@ -420,9 +411,6 @@ namespace WahooV2.WahooUserControl
             }
             catch (Exception ex)
             {
-                //Write log
-                if (_logger.IsErrorEnabled)
-                    _logger.Error(ex);
                 throw ex;
             }
 
@@ -442,10 +430,7 @@ namespace WahooV2.WahooUserControl
                 }
             }
             catch (Exception ex)
-            {
-                //Write log
-                if (_logger.IsErrorEnabled)
-                    _logger.Error(ex);
+            {                
                 throw ex;
             }
         }
@@ -465,9 +450,6 @@ namespace WahooV2.WahooUserControl
             }
             catch (Exception ex)
             {
-                //Write log
-                if (_logger.IsErrorEnabled)
-                    _logger.Error(ex);
                 throw ex;
             }
         }

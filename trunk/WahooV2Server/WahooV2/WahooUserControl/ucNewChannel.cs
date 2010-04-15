@@ -109,10 +109,7 @@ namespace WahooV2.WahooUserControl
                 AssigeTag(this);
             }
             catch (Exception ex)
-            {
-                //Write log
-                if (_logger.IsErrorEnabled)
-                    _logger.Error(ex);
+            {                
                 throw ex;
             }
         }
@@ -239,10 +236,7 @@ namespace WahooV2.WahooUserControl
                 return false;
             }
             catch (Exception ex)
-            {
-                //Write log
-                if (_logger.IsErrorEnabled)
-                    _logger.Error(ex);
+            { 
                 throw ex;
             }
         }
@@ -304,10 +298,7 @@ namespace WahooV2.WahooUserControl
                 AssigeTag(this);
             }
             catch (Exception ex)
-            {
-                //Write log
-                if (_logger.IsErrorEnabled)
-                    _logger.Error(ex);
+            {                
                 throw ex;
             }
         }

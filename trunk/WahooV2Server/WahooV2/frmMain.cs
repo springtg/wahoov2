@@ -844,18 +844,27 @@ namespace WahooV2
         /// </summary>
         private void ShowEditChannel(int idChannel)
         {
-            ucChannels channels = (ucChannels)pnMain.Controls[0];            
-            clearControl();
-            ucNewChannel newChannel = new ucNewChannel();
-            newChannel.Left = 0;
-            newChannel.Top = 0;
-            newChannel.Width = _ucWidth;
-            newChannel.Height = _ucHeight;
-            newChannel.Dock = DockStyle.Fill;
-            pnMain.Controls.Add(newChannel);
-            newChannel.ShowEditChannel(idChannel);
-            this._mChannelStatus = AliasMessage.UPDATE_STATUS;
-            this.EditChannelShowControl();
+            try
+            {
+                ucChannels channels = (ucChannels)pnMain.Controls[0];
+                clearControl();
+                ucNewChannel newChannel = new ucNewChannel();
+                newChannel.Left = 0;
+                newChannel.Top = 0;
+                newChannel.Width = _ucWidth;
+                newChannel.Height = _ucHeight;
+                newChannel.Dock = DockStyle.Fill;
+                pnMain.Controls.Add(newChannel);
+                newChannel.ShowEditChannel(idChannel);
+                this._mChannelStatus = AliasMessage.UPDATE_STATUS;
+                this.EditChannelShowControl();
+            }
+            catch (Exception ex)
+            {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
+            }
         }
 
         /// <summary>
@@ -1010,18 +1019,30 @@ namespace WahooV2
                 this.ShowMessageBox("ERR036", string.Format(WahooConfiguration.Message.GetMessageById("ERR036"), AliasMessage.NUMBER_CHANNEL), MessageType.ERROR);
                 return;
             }
-            Cursor.Current = Cursors.WaitCursor;
-            clearControl();
-            ucNewChannel newChannel = new ucNewChannel();
-            newChannel.Left = 0;
-            newChannel.Top = 0;
-            newChannel.Width = _ucWidth;
-            newChannel.Height = _ucHeight;
-            newChannel.Dock = DockStyle.Fill;
-            pnMain.Controls.Add(newChannel);
-            this._mChannelStatus = AliasMessage.NEW_STATUS;
-            this.EditChannelShowControl();
-            Cursor.Current = Cursors.Default;
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                clearControl();
+                ucNewChannel newChannel = new ucNewChannel();
+                newChannel.Left = 0;
+                newChannel.Top = 0;
+                newChannel.Width = _ucWidth;
+                newChannel.Height = _ucHeight;
+                newChannel.Dock = DockStyle.Fill;
+                pnMain.Controls.Add(newChannel);
+                this._mChannelStatus = AliasMessage.NEW_STATUS;
+                this.EditChannelShowControl();                
+            }
+            catch (Exception ex)
+            {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+            }
         }
 
         private void linkEditChannel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -1158,35 +1179,47 @@ namespace WahooV2
             {
                 _mRightMouse = false;
             }
-            Cursor.Current = Cursors.WaitCursor;
-            if (!SaveChannel())
-                return;
-            //Clear control panel main
-            clearControl();
-            //Add channel to pnMain
-            ucChannels channels = new ucChannels();
-            channels.GridDoubleClick += new ucChannels.GridChannel_CellDoubleClick(Channels_GridDoubleClick);
-            channels.GridSelectionChanged += new ucChannels.GridChannel_SelectionChanged(Channels_GridSelectionChanged);
-            channels.GridMouseDown += new ucChannels.GridChannel_MouseDown(Channels_GridMouseDown);
-            channels.MenuItem_Click += new ucChannels.ToolStripMenuItem_Click(Channels_MenuItem_Click);
-            channels.Left = 0;
-            channels.Top = 0;
-            channels.Width = _ucWidth;
-            channels.Height = _ucHeight;
-            channels.Dock = DockStyle.Fill;
-            //if (channels.ChannelStatus == AliasMessage.ENABLED_STATUS)
-            //{
-            //    linkEnableChannel.Text = AliasMessage.DISABLED_CHANNEL_FORMMAIN_CONTROL;
-            //    this.linkEnableChannel.ImageIndex = 19;
-            //}
-            //else
-            //{
-            //    linkEnableChannel.Text = AliasMessage.ENABLED_CHANNEL_FORMMAIN_CONTROL;
-            //    this.linkEnableChannel.ImageIndex = 21;
-            //}
-            pnMain.Controls.Add(channels);
-            ShowNormalControlChannel();
-            Cursor.Current = Cursors.Default;
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                if (!SaveChannel())
+                    return;
+                //Clear control panel main
+                clearControl();
+                //Add channel to pnMain
+                ucChannels channels = new ucChannels();
+                channels.GridDoubleClick += new ucChannels.GridChannel_CellDoubleClick(Channels_GridDoubleClick);
+                channels.GridSelectionChanged += new ucChannels.GridChannel_SelectionChanged(Channels_GridSelectionChanged);
+                channels.GridMouseDown += new ucChannels.GridChannel_MouseDown(Channels_GridMouseDown);
+                channels.MenuItem_Click += new ucChannels.ToolStripMenuItem_Click(Channels_MenuItem_Click);
+                channels.Left = 0;
+                channels.Top = 0;
+                channels.Width = _ucWidth;
+                channels.Height = _ucHeight;
+                channels.Dock = DockStyle.Fill;
+                //if (channels.ChannelStatus == AliasMessage.ENABLED_STATUS)
+                //{
+                //    linkEnableChannel.Text = AliasMessage.DISABLED_CHANNEL_FORMMAIN_CONTROL;
+                //    this.linkEnableChannel.ImageIndex = 19;
+                //}
+                //else
+                //{
+                //    linkEnableChannel.Text = AliasMessage.ENABLED_CHANNEL_FORMMAIN_CONTROL;
+                //    this.linkEnableChannel.ImageIndex = 21;
+                //}
+                pnMain.Controls.Add(channels);
+                ShowNormalControlChannel();
+            }
+            catch (Exception ex)
+            {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+            }            
         }
 
         private void linkDeployChannel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
