@@ -50,7 +50,7 @@ namespace WahooV2
             {
                 this.txtClientCode.ReadOnly = true;
                 this.Text = objResource.GetResourceByKey("CLIENT_FORM_CONTROL", "UPDATE_NAME_COLUMN");
-                gbClient.Text = objResource.GetResourceByKey("CLIENT_FORM_CONTROL", "UPDATE_NAME_COLUMN");
+                lblTop.Text = objResource.GetResourceByKey("CLIENT_FORM_CONTROL", "UPDATE_NAME_COLUMN");
                 Client objClient = new Client();
                 objClient.Id=DataTypeProtect.ProtectInt32(this._mClientId,0);
                 //Lay ra Client
@@ -72,7 +72,7 @@ namespace WahooV2
             else if (this._mStatus == AliasMessage.CREATE_STATUS)
             {
                 this.txtClientCode.ReadOnly = false;
-                gbClient.Text = objResource.GetResourceByKey("CLIENT_FORM_CONTROL", "CREATE_NAME_COLUMN");
+                lblTop.Text = objResource.GetResourceByKey("CLIENT_FORM_CONTROL", "CREATE_NAME_COLUMN");
                 this.Text = objResource.GetResourceByKey("CLIENT_FORM_CONTROL", "CREATE_NAME_COLUMN");
             }
             else

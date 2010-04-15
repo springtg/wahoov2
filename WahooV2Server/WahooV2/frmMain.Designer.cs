@@ -738,7 +738,7 @@
             this.xpPanelNWG.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.xpPanelNWG.BackColor = System.Drawing.Color.Transparent;
-            this.xpPanelNWG.Caption = "NWG";
+            this.xpPanelNWG.Caption = "NWCG";
             this.xpPanelNWG.CaptionCornerType = ((UIComponents.CornerType)((UIComponents.CornerType.TopLeft | UIComponents.CornerType.TopRight)));
             this.xpPanelNWG.CaptionGradient.End = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(213)))), ((int)(((byte)(247)))));
             this.xpPanelNWG.CaptionGradient.Start = System.Drawing.Color.White;

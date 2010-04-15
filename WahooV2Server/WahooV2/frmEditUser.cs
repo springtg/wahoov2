@@ -179,12 +179,12 @@ namespace WahooV2
             if (this._mStatus == AliasMessage.CREATE_STATUS)
             {
                 this.Text = objResource.GetResourceByKey("USER_FORM_CONTROL", "FORM_NAME_CREATE");
-                gbUser.Text = objResource.GetResourceByKey("USER_FORM_CONTROL", "FORM_NAME_CREATE");
+                lblTop.Text = objResource.GetResourceByKey("USER_FORM_CONTROL", "FORM_NAME_CREATE");
             }
             else if (this._mStatus == AliasMessage.UPDATE_STATUS)
             {
                 this.Text = objResource.GetResourceByKey("USER_FORM_CONTROL", "FORM_NAME_UPDATE");
-                gbUser.Text = objResource.GetResourceByKey("USER_FORM_CONTROL", "FORM_NAME_UPDATE");
+                lblTop.Text = objResource.GetResourceByKey("USER_FORM_CONTROL", "FORM_NAME_UPDATE");
             }
             lblConfPass.Text = objResource.GetResourceByKey("USER_FORM_CONTROL", "LABEL_NAME_CONFIGPASSWORD");
             lblDesCription.Text = objResource.GetResourceByKey("USER_FORM_CONTROL", "LABEL_NAME_DESCRIPTION");
