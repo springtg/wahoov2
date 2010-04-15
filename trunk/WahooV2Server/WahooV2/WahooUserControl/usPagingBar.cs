@@ -317,7 +317,7 @@ namespace WahooV2.WahooUserControl
             if (_allPage > 10)
             {
                 int iSectionPage = iPageSelect;//= (_allPage % 10) - (_allPage / 10); 
-                iPageSelect = getselectPage(sender, e, ctrl);
+                iPageSelect = getselectPage(sender, e, ctrl);                
                 if (WahooConfiguration.DataTypeProtect.ProtectInt32(btn10.Tag) + 1 <= _allPage)
                 {
                     setValuetoControl(btnPrevious.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btnPrevious.Tag) - 1);
