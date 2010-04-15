@@ -21,6 +21,7 @@ namespace WahooData.DBO
         private string _Description;
         private DateTime? _Date_Created;
         private DateTime? _Date_Updated;
+        private byte? _Role;
 
         #endregion
 
@@ -55,7 +56,7 @@ namespace WahooData.DBO
         /// <param name="Description">Sets string value for Description</param>
         /// <param name="Date_Created">Sets DateTime? value for Date_Created</param>
         /// <param name="Date_Updated">Sets DateTime? value for Date_Updated</param>
-        public User(int? id, string username, string password, string firstName, string lastName, string organization, string email, string phone, string description, DateTime? date_Created, DateTime? date_Updated)
+        public User(int? id, string username, string password, string firstName, string lastName, string organization, string email, string phone, string description, DateTime? date_Created, DateTime? date_Updated, byte? role)
         {
             this.Id = id;
             this.Username = username;
@@ -68,6 +69,7 @@ namespace WahooData.DBO
             this.Description = description;
             this.Date_Created = date_Created;
             this.Date_Updated = date_Updated;
+            this.Role = role;
         }
 
         #endregion
@@ -250,6 +252,21 @@ namespace WahooData.DBO
             }
         }
 
+        /// <summary>
+        /// Gets or sets byte? value for Role
+        /// </summary>
+        [ColumnAttribute("Role", SqlDbType.TinyInt, 1, false)]
+        public byte? Role
+        {
+            set
+            {
+                this._Role = value;
+            }
+            get
+            {
+                return this._Role;
+            }
+        }
 
         #endregion
     }
