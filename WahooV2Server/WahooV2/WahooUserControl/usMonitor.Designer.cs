@@ -164,7 +164,7 @@ namespace WahooV2.WahooUserControl
             this.colDateDown.DataPropertyName = "TimeDownloaded";
             this.colDateDown.FillWeight = 51.11018F;
             this.colDateDown.ValueType = typeof(DateTime);
-            this.colDateDown.DefaultCellStyle.Format = "MM//dd/yyyy hh:mm:ss tt";
+            this.colDateDown.DefaultCellStyle.Format = "MM/dd/yyyy hh:mm:ss tt";
             this.colDateDown.HeaderText = "Dowload Date";
             this.colDateDown.Name = "colDateDown";
             this.colDateDown.ReadOnly = true;
@@ -176,7 +176,7 @@ namespace WahooV2.WahooUserControl
             this.colDataSendPrinter.FillWeight = 50F;
             this.colDataSendPrinter.HeaderText = "Time send to Printer";
             this.colDataSendPrinter.ValueType = typeof(DateTime);
-            this.colDataSendPrinter.DefaultCellStyle.Format = "MM//dd/yyyy hh:mm:ss tt";
+            this.colDataSendPrinter.DefaultCellStyle.Format = "MM/dd/yyyy hh:mm:ss tt";
             this.colDataSendPrinter.Name = "colDataSendPrinter";
             this.colDataSendPrinter.ReadOnly = true;
             // 
