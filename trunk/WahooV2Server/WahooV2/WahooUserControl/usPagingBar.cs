@@ -64,22 +64,42 @@ namespace WahooV2.WahooUserControl
                 btnLast.Enabled = false;
                 btnNext.Enabled = false;
                 btnPrevious.Enabled = false;
+                for (int i = 10; i > iAllPageNum; i--)
+                {
+                    setDisableBTN("btn" + i.ToString());
+                }
+                if (iAllPageNum.Equals(0) || iAllPageNum.Equals(1))
+                {
+                    btn1.Enabled = false;
+                    return;
+                }
             }
             //set page hien tai
             setCurrentpage(btn1, iCurrPage, iAllPageNum);
             //set value cho control
             for (int i = 0; i < iAllPageNum; i++)
             {
-                setValuetoControl("btn" + i.ToString(), i);
+                setValuetoControl("btn" + Convert.ToString(i + 1), i + 1);
             }
             btnFirst.Tag = 1;
             btnLast.Tag = iAllPageNum;
             btnNext.Tag = iCurrPage + 1;
-            btnPrevious.Tag = iCurrPage - 1;
+            btnPrevious.Tag = (iCurrPage - 1 == 0) ? 1 : iCurrPage - 1;
             btnFirst.ToolTipText = Convert.ToString(1);
             btnNext.ToolTipText = Convert.ToString(iCurrPage + 1);
             btnLast.ToolTipText = Convert.ToString(iAllPageNum);
             btnPrevious.ToolTipText = (iCurrPage == 0) ? Convert.ToString(iCurrPage - 1) : Convert.ToString(iCurrPage);
+        }
+
+        private void setDisableBTN(string btnName)
+        {
+            foreach (ToolStripButton item in toolStrip1.Items)
+            {
+                if (item.Name.Equals(btnName))
+                {
+                    item.Visible = false;
+                }
+            }
         }
 
         private void setUnCurrentPage()
@@ -148,31 +168,39 @@ namespace WahooV2.WahooUserControl
 
         private void setCurrentpage(int value)
         {
-            ResetAllControl();
-            setUnCurrentPage();
-            foreach (ToolStripButton item in toolStrip1.Items)
+            try
             {
-                if (!item.Name.Equals(strNameFist) && !item.Name.Equals(strNameLast) && !item.Name.Equals(strNameNext) && !item.Name.Equals(strNamePrevious))
+                ResetAllControl();
+                setUnCurrentPage();
+                foreach (ToolStripButton item in toolStrip1.Items)
                 {
-                    if (item.Tag.Equals(value))
+                    if (item.Visible.Equals(false)) continue;
+                    if (!item.Name.Equals(strNameFist) && !item.Name.Equals(strNameLast) && !item.Name.Equals(strNameNext) && !item.Name.Equals(strNamePrevious))
                     {
-                        item.Checked = true;
+
+                        if (item.Tag.Equals(value))
+                        {
+                            item.Checked = true;
+                        }
                     }
                 }
+                if (value.Equals(1))
+                {
+                    btnFirst.Enabled = false;
+                    btnPrevious.Enabled = false;
+                }
+                //page hien tai la all page thi hai nut ben phai disable
+                if (value.Equals(_allPage))
+                {
+                    btnLast.Enabled = false;
+                    btnNext.Enabled = false;
+                }
+                setValuetoControl(btnNext.Name, value + 1);
+                setValuetoControl(btnPrevious.Name, value - 1);
             }
-            if (value.Equals(1))
+            catch
             {
-                btnFirst.Enabled = false;
-                btnPrevious.Enabled = false;
             }
-            //page hien tai la all page thi hai nut ben phai disable
-            if (value.Equals(_allPage))
-            {
-                btnLast.Enabled = false;
-                btnNext.Enabled = false;
-            }
-            setValuetoControl(btnNext.Name, value + 1);
-            setValuetoControl(btnPrevious.Name, value - 1);
         }
 
         private void setValuetoControl(string ctrlname, int iPageValue)
@@ -311,7 +339,12 @@ namespace WahooV2.WahooUserControl
                     setCurrentpage(iPageSelect);
                 }
             }
-            //setCurrentpage(btnNext, iPageSelect , _allPage);
+            else
+            {
+                int iSectionPage = iPageSelect;//= (_allPage % 10) - (_allPage / 10); 
+                iPageSelect = getselectPage(sender, e, ctrl);
+                setCurrentpage(iPageSelect);
+            }
         }
 
         private void movePrevious(object sender, EventArgs e, ToolStripButton ctrl)
@@ -341,6 +374,12 @@ namespace WahooV2.WahooUserControl
                     setCurrentpage(iPageSelect);
                 }
             }
+            else
+            {
+                int iSectionPage = iPageSelect;
+                iPageSelect = getselectPage(sender, e, ctrl);
+                setCurrentpage(iPageSelect);
+            }
 
         }
 
@@ -353,20 +392,58 @@ namespace WahooV2.WahooUserControl
 
         private void moveLast(object sender, EventArgs e, ToolStripButton ctrl)
         {
-            getselectPage(sender, e, ctrl);
-            setValuetoControl(btnPrevious.Name, _allPage - 10);
-            setValuetoControl(btn1.Name, _allPage - 9);
-            setValuetoControl(btn2.Name, _allPage - 8);
-            setValuetoControl(btn3.Name, _allPage - 7);
-            setValuetoControl(btn4.Name, _allPage - 6);
-            setValuetoControl(btn5.Name, _allPage - 5);
-            setValuetoControl(btn6.Name, _allPage - 4);
-            setValuetoControl(btn7.Name, _allPage - 3);
-            setValuetoControl(btn8.Name, _allPage - 2);
-            setValuetoControl(btn9.Name, _allPage - 1);
-            setValuetoControl(btn10.Name, _allPage);
-            setValuetoControl(btnNext.Name, _allPage);
-            setCurrentpage(_allPage);
+            int iSectionPage = iPageSelect;
+            iPageSelect = getselectPage(sender, e, ctrl);
+            if (_allPage > 10)
+            {
+                if (_allPage > 10)
+                {
+                    setValuetoControl(btnPrevious.Name, _allPage - 10);
+                }
+                if (_allPage > 9)
+                {
+                    setValuetoControl(btn1.Name, _allPage - 9);
+                }
+                if (_allPage > 8)
+                {
+                    setValuetoControl(btn2.Name, _allPage - 8);
+                }
+                if (_allPage > 7)
+                {
+                    setValuetoControl(btn3.Name, _allPage - 7);
+                }
+                if (_allPage > 6)
+                {
+                    setValuetoControl(btn4.Name, _allPage - 6);
+                }
+                if (_allPage > 5)
+                {
+                    setValuetoControl(btn5.Name, _allPage - 5);
+                }
+                if (_allPage > 4)
+                {
+                    setValuetoControl(btn6.Name, _allPage - 4);
+                }
+                if (_allPage > 3)
+                {
+                    setValuetoControl(btn7.Name, _allPage - 3);
+                }
+                if (_allPage > 2)
+                {
+                    setValuetoControl(btn8.Name, _allPage - 2);
+                }
+                if (_allPage > 1)
+                {
+                    setValuetoControl(btn9.Name, _allPage - 1);
+                }
+                setValuetoControl(btn10.Name, _allPage);
+                setValuetoControl(btnNext.Name, _allPage);
+                setCurrentpage(_allPage);
+            }
+            else
+            {
+                setCurrentpage(_allPage);
+            }
         }
 
         private void MoveSelected(object sender, EventArgs e, ToolStripButton ctrl)

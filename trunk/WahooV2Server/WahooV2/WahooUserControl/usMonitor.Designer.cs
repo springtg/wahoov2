@@ -1,4 +1,5 @@
-﻿namespace WahooV2.WahooUserControl
+﻿using System;
+namespace WahooV2.WahooUserControl
 {
     partial class usMonitor
     {
@@ -162,6 +163,8 @@
             this.colDateDown.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colDateDown.DataPropertyName = "TimeDownloaded";
             this.colDateDown.FillWeight = 51.11018F;
+            this.colDateDown.ValueType = typeof(DateTime);
+            this.colDateDown.DefaultCellStyle.Format = "MM//dd/yyyy hh:mm:ss ";
             this.colDateDown.HeaderText = "Dowload Date";
             this.colDateDown.Name = "colDateDown";
             this.colDateDown.ReadOnly = true;
@@ -172,6 +175,8 @@
             this.colDataSendPrinter.DataPropertyName = "TimeSentToPrint";
             this.colDataSendPrinter.FillWeight = 50F;
             this.colDataSendPrinter.HeaderText = "Time send to Printer";
+            this.colDataSendPrinter.ValueType = typeof(DateTime);
+            this.colDataSendPrinter.DefaultCellStyle.Format = "MM//dd/yyyy hh:mm:ss";
             this.colDataSendPrinter.Name = "colDataSendPrinter";
             this.colDataSendPrinter.ReadOnly = true;
             // 
