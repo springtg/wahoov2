@@ -43,19 +43,27 @@ namespace WahooV2.WahooUserControl
         /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (isValidate())
+            try
             {
-                if (saveData())
+                if (isValidate())
                 {
-                    ShowMessageBox("CONF019", MessageType.INFORM);
-                    AssigeTag(this);
-                }
-                else
-                {
-                    ShowMessageBox("CONF020", MessageType.INFORM);
+                    if (saveData())
+                    {
+                        ShowMessageBox("CONF019", MessageType.INFORM);
+                        AssigeTag(this);
+                    }
+                    else
+                    {
+                        ShowMessageBox("CONF020", MessageType.INFORM);
+                    }
                 }
             }
-
+            catch(Exception ex)
+            {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
+            }
         }
         #endregion
         #region "Methods"
@@ -96,11 +104,9 @@ namespace WahooV2.WahooUserControl
                 //}
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                //Write log
-                if (_logger.IsErrorEnabled)
-                    _logger.Error(ex);
+                throw ex;
                 this.ShowMessageBox("ERR035", string.Format(WahooConfiguration.Message.GetMessageById("ERR035")), MessageType.ERROR);
                 return false;
             }
@@ -133,9 +139,7 @@ namespace WahooV2.WahooUserControl
             }
             catch(Exception ex)
             {
-                //Write log
-                if (_logger.IsErrorEnabled)
-                    _logger.Error(ex);
+                throw ex;
                 return false;
             }
         }
@@ -261,10 +265,7 @@ namespace WahooV2.WahooUserControl
                 ShowMessageBox("CONF006", MessageType.INFORM);
             }
             catch(Exception ex)
-            {
-                //Write log
-                if (_logger.IsErrorEnabled)
-                    _logger.Error(ex);
+            {                
                 ShowMessageBox("CONF007", MessageType.INFORM);
             }
         }

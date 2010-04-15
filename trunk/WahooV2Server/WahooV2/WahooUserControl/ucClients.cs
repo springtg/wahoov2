@@ -93,10 +93,7 @@ namespace WahooV2.WahooUserControl
                 //this._mCheckLoad = 1;
             }
             catch (Exception ex)
-            {
-                //Write log
-                if (_logger.IsErrorEnabled)
-                    _logger.Error(ex);
+            {                
                 throw ex;
             }
         }
@@ -233,10 +230,7 @@ namespace WahooV2.WahooUserControl
                 BindGrid();
             }
             catch (Exception ex)
-            {
-                //Write log
-                if (_logger.IsErrorEnabled)
-                    _logger.Error(ex);
+            {                
                 throw ex;
             }
         }
