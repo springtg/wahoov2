@@ -68,6 +68,7 @@ namespace WahooConfiguration
         //public static string MAIL_FROM_CONFIG = "MailFrom";
         public static string BLOWFISH_KEY_CONFIG = "BlowfishKey";
         public static string WSDL_URL_CONFIG = "WsdlUrl";
+        public static string Log_Size = "LogSize";
         ////Number of channel
         public static int NUMBER_CHANNEL = 10;
     }
