@@ -212,7 +212,7 @@ namespace WahooV2.WahooUserControl
                         gridHistAllLog.DataSource = GetTopDataViewRows((DataView)gridHistAllLog.DataSource, DataTypeProtect.ProtectInt32(configObl.ReadSetting(AliasMessage.Log_Size),0));
 
                         gridErrorLog.DataSource = new DataView(this._mHistoryData);
-                        ((DataView)gridErrorLog.DataSource).RowFilter = "IDCHANNEL=" + this._mIdDashboard.ToString() + " AND STATUS='ERROR'";
+                        ((DataView)gridErrorLog.DataSource).RowFilter = "IDCHANNEL=" + this._mIdDashboard.ToString() + " AND STATUS='" + AliasMessage.FAILED_STATUS + "'";
                         //Bind so dong vao GridView theo Log_Size.
                         gridErrorLog.DataSource = GetTopDataViewRows((DataView)gridErrorLog.DataSource, DataTypeProtect.ProtectInt32(configObl.ReadSetting(AliasMessage.Log_Size), 0));
                     }
@@ -520,7 +520,7 @@ namespace WahooV2.WahooUserControl
                     gridHistAllLog.DataSource = GetTopDataViewRows((DataView)gridHistAllLog.DataSource, DataTypeProtect.ProtectInt32(configObl.ReadSetting(AliasMessage.Log_Size), 0));
 
                     gridErrorLog.DataSource = new DataView(this._mHistoryData);
-                    ((DataView)gridErrorLog.DataSource).RowFilter = "IDCHANNEL=" + this._mIdDashboard.ToString() + " AND STATUS='ERROR'";
+                    ((DataView)gridErrorLog.DataSource).RowFilter = "IDCHANNEL=" + this._mIdDashboard.ToString() + " AND STATUS='" + AliasMessage.FAILED_STATUS + "'";
                     //Bind so dong vao GridView theo Log_Size.
                     gridErrorLog.DataSource = GetTopDataViewRows((DataView)gridErrorLog.DataSource, DataTypeProtect.ProtectInt32(configObl.ReadSetting(AliasMessage.Log_Size), 0));
 
@@ -745,7 +745,7 @@ namespace WahooV2.WahooUserControl
             gridHistAllLog.DataSource = GetTopDataViewRows((DataView)gridHistAllLog.DataSource, DataTypeProtect.ProtectInt32(configObl.ReadSetting(AliasMessage.Log_Size), 0));
 
             gridErrorLog.DataSource = new DataView(this._mHistoryData);
-            ((DataView)gridErrorLog.DataSource).RowFilter = "IDCHANNEL=" + this._mIdDashboard.ToString() + " AND STATUS='ERROR'";
+            ((DataView)gridErrorLog.DataSource).RowFilter = "IDCHANNEL=" + this._mIdDashboard.ToString() + " AND STATUS='" + AliasMessage.FAILED_STATUS +"'";
             //Bind so dong vao GridView theo Log_Size.
             gridErrorLog.DataSource = GetTopDataViewRows((DataView)gridErrorLog.DataSource, DataTypeProtect.ProtectInt32(configObl.ReadSetting(AliasMessage.Log_Size), 0));
         }                       

@@ -195,7 +195,7 @@ namespace WahooV2.WahooUserControl
 
                         if (WahooBusinessHandler.Add_Channel(channelNew) > 0)
                         {
-                            //this.ShowMessageBox("CHANNEL_CONF001", MessageType.INFORM);
+                            this.ShowMessageBox("CHANNEL_CONF001", MessageType.INFORM);
                             return true;
                         }
                         else
@@ -220,7 +220,7 @@ namespace WahooV2.WahooUserControl
 
                         if (channelEdit.Update())
                         {
-                            //this.ShowMessageBox("CHANNEL_CONF002", MessageType.INFORM);
+                            this.ShowMessageBox("CHANNEL_CONF002", MessageType.INFORM);
                             return true;
                         }
                         else
