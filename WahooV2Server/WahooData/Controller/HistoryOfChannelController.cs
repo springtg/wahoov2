@@ -89,5 +89,16 @@ namespace WahooData.Controller
                 throw ex;
             }
         }
+
+
+        /// <summary>
+        /// Delete HistoryChannel of Channel
+        /// </summary>
+        /// <param name="isDeployed"></param>
+        /// <returns></returns>
+        public Boolean DeleteHistoryOfChannel(int idChannel)
+        {
+            return DataAccessLayer.DeleteHistoryOfChannel(idChannel);
+        }
     }
 }

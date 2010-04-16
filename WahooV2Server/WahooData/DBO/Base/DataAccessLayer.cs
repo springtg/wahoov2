@@ -246,6 +246,17 @@ namespace WahooData.DBO.Base
         {
             return ServiceReader.UpdateAllChannelDeployed(isDeployed);
         }
+
+        /// <summary>
+        /// Delete HistoryChannel of Channel
+        /// </summary>
+        /// <param name="isDeployed"></param>
+        /// <returns></returns>
+        public static bool DeleteHistoryOfChannel(int idChannel)
+        {
+            return ServiceReader.DeleteHistoryOfChannel(idChannel);
+        }
+
         #endregion
     }
 }
