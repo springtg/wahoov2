@@ -25,6 +25,7 @@ namespace WahooV2.WahooUserControl
         #endregion
 
         #region variable        
+        Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
         private static readonly ILog _logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         //DataTable _mDashboard to store list of dashboard( bind with grid)
         private DataTable _mDashboard=new DataTable();
@@ -161,6 +162,7 @@ namespace WahooV2.WahooUserControl
         /// <param name="e"></param>
         private void ucDashboard_Load(object sender, EventArgs e)
         {
+            LoadValueControl();
             BindGrid();
             //gridDashboard.DataSource = WahooBusinessHandler.Get_ListChannel(new Channel());
             ////Set timer interval for timerRefresh
@@ -206,8 +208,13 @@ namespace WahooV2.WahooUserControl
                         this._mDashboardStatus = gridDashboard.SelectedRows[0].Cells[this.clStatusExecute.Name].Value.ToString();
                         gridHistAllLog.DataSource = new DataView(this._mHistoryData);
                         ((DataView)gridHistAllLog.DataSource).RowFilter = "IDCHANNEL=" + this._mIdDashboard.ToString();
+                        //Bind so dong vao GridView theo Log_Size.
+                        gridHistAllLog.DataSource = GetTopDataViewRows((DataView)gridHistAllLog.DataSource, DataTypeProtect.ProtectInt32(configObl.ReadSetting(AliasMessage.Log_Size),0));
+
                         gridErrorLog.DataSource = new DataView(this._mHistoryData);
                         ((DataView)gridErrorLog.DataSource).RowFilter = "IDCHANNEL=" + this._mIdDashboard.ToString() + " AND STATUS='ERROR'";
+                        //Bind so dong vao GridView theo Log_Size.
+                        gridErrorLog.DataSource = GetTopDataViewRows((DataView)gridErrorLog.DataSource, DataTypeProtect.ProtectInt32(configObl.ReadSetting(AliasMessage.Log_Size), 0));
                     }
                     else
                     {
@@ -312,6 +319,21 @@ namespace WahooV2.WahooUserControl
         #endregion event
 
         #region function
+
+        private DataView GetTopDataViewRows(DataView dv, int n)
+        {
+            DataTable dt = dv.Table.Clone();
+
+            for (int i = 0; i < n ; i++)
+            {
+                if (i >= dv.Count)
+                {
+                    break;
+                }
+                dt.ImportRow(dv[i].Row);
+            }
+            return new DataView(dt, dv.RowFilter, dv.Sort, dv.RowStateFilter);
+        } 
 
         /// <summary>
         /// Pause channel
@@ -490,12 +512,18 @@ namespace WahooV2.WahooUserControl
                 CreateHistoryOfChannel(objListHistoryOfChannel);
                 //When have data
                 if (gridDashboard.SelectedRows.Count > 0)
-                {
+                {                    
                     this._mIdDashboard = DataTypeProtect.ProtectInt32(gridDashboard.SelectedRows[0].Cells[this.clId.Name].Value.ToString(), 0);
                     gridHistAllLog.DataSource = new DataView(this._mHistoryData);
                     ((DataView)gridHistAllLog.DataSource).RowFilter = "IDCHANNEL=" + this._mIdDashboard.ToString();
+                    //Bind so dong vao GridView theo Log_Size.
+                    gridHistAllLog.DataSource = GetTopDataViewRows((DataView)gridHistAllLog.DataSource, DataTypeProtect.ProtectInt32(configObl.ReadSetting(AliasMessage.Log_Size), 0));
+
                     gridErrorLog.DataSource = new DataView(this._mHistoryData);
                     ((DataView)gridErrorLog.DataSource).RowFilter = "IDCHANNEL=" + this._mIdDashboard.ToString() + " AND STATUS='ERROR'";
+                    //Bind so dong vao GridView theo Log_Size.
+                    gridErrorLog.DataSource = GetTopDataViewRows((DataView)gridErrorLog.DataSource, DataTypeProtect.ProtectInt32(configObl.ReadSetting(AliasMessage.Log_Size), 0));
+
                     //Get DashboardStatus
                     this._mDashboardStatus = gridDashboard.SelectedRows[0].Cells[this.clStatusExecute.Name].Value.ToString();
                 }
@@ -505,6 +533,21 @@ namespace WahooV2.WahooUserControl
             {
                 throw ex;
             }
+        }
+
+        private void LoadValueControl()
+        {
+            if (DataTypeProtect.ProtectString(configObl.ReadSetting(AliasMessage.PAUSE_LOG_CONFIG)) == "0")
+            {
+                btnPause.Tag = "0";
+                btnPause.Image = global::WahooV2.Properties.Resources.wh_pause;                
+            }
+            else
+            {
+                btnPause.Tag = "1";
+                btnPause.Image = global::WahooV2.Properties.Resources.wh_start;                
+            }
+            txtLogSize.Text = DataTypeProtect.ProtectString(configObl.ReadSetting(AliasMessage.Log_Size));            
         }
 
         private void CreateDatabaseDashboard(List<Channel> objListChannel)
@@ -544,9 +587,9 @@ namespace WahooV2.WahooUserControl
             _mHistoryData.Columns.Add("IDCHANNEL", System.Type.GetType("System.Int32"));
             _mHistoryData.Columns.Add("DESCRIPTION", System.Type.GetType("System.String"));
             _mHistoryData.Columns.Add("STATUS", System.Type.GetType("System.String"));
-            _mHistoryData.Rows.Clear();
+            _mHistoryData.Rows.Clear();            
             foreach (HistoryOfChannel obj in objListHistoryOfChannel)
-            {
+            {     
                 DataRow newRow = _mHistoryData.NewRow();
                 newRow["ID"] = obj.Id;
                 newRow["IDCHANNEL"] = obj.IdChannel;
@@ -661,5 +704,50 @@ namespace WahooV2.WahooUserControl
                 }
             }
         }
+
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            if (DataTypeProtect.ProtectString(btnPause.Tag) == "0")
+            {
+                configObl.WriteSetting(AliasMessage.PAUSE_LOG_CONFIG, "1");
+                btnPause.Tag = "1";
+                btnPause.Image = global::WahooV2.Properties.Resources.wh_start;
+            }
+            else
+            {
+                configObl.WriteSetting(AliasMessage.PAUSE_LOG_CONFIG, "0");
+                btnPause.Tag = "0";
+                btnPause.Image = global::WahooV2.Properties.Resources.wh_pause;
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            //Clear data historyofchannel of selected channel
+            if (gridDashboard.SelectedRows.Count > 0)
+            {
+                WahooBusinessHandler.DeleteHistoryOfChannel(DataTypeProtect.ProtectInt32(gridDashboard.SelectedRows[0].Cells[this.clId.Name].Value.ToString(), 0));
+                ClearLog();
+                //Lay lai objListHistoryOfChannel sau khi da xoa HistoryOfChannel
+                List<HistoryOfChannel> objListHistoryOfChannel = WahooBusinessHandler.Get_ListHistoryOfChannel(new HistoryOfChannel());
+                //Get list history data info
+                CreateHistoryOfChannel(objListHistoryOfChannel);
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            configObl.WriteSetting(AliasMessage.Log_Size, txtLogSize.Text);
+
+            gridHistAllLog.DataSource = new DataView(this._mHistoryData);
+            ((DataView)gridHistAllLog.DataSource).RowFilter = "IDCHANNEL=" + this._mIdDashboard.ToString();
+            //Bind so dong vao GridView theo Log_Size.
+            gridHistAllLog.DataSource = GetTopDataViewRows((DataView)gridHistAllLog.DataSource, DataTypeProtect.ProtectInt32(configObl.ReadSetting(AliasMessage.Log_Size), 0));
+
+            gridErrorLog.DataSource = new DataView(this._mHistoryData);
+            ((DataView)gridErrorLog.DataSource).RowFilter = "IDCHANNEL=" + this._mIdDashboard.ToString() + " AND STATUS='ERROR'";
+            //Bind so dong vao GridView theo Log_Size.
+            gridErrorLog.DataSource = GetTopDataViewRows((DataView)gridErrorLog.DataSource, DataTypeProtect.ProtectInt32(configObl.ReadSetting(AliasMessage.Log_Size), 0));
+        }        
     }
 }
