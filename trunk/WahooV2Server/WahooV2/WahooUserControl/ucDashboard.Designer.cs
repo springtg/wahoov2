@@ -266,6 +266,8 @@
             // 
             this.gridErrorLog.AllowUserToAddRows = false;
             this.gridErrorLog.AllowUserToDeleteRows = false;
+            this.gridErrorLog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.gridErrorLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridErrorLog.ColumnHeadersVisible = false;
             this.gridErrorLog.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
