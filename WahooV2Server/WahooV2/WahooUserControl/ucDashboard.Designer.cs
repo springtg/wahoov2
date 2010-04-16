@@ -36,16 +36,8 @@
             this.tabLogHistory = new System.Windows.Forms.TabControl();
             this.tabAllLog = new System.Windows.Forms.TabPage();
             this.gridHistAllLog = new System.Windows.Forms.DataGridView();
-            this.clDescriptionAllLog = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clIdChannelAllLog = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clIdHistAllLog = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabErrorLog = new System.Windows.Forms.TabPage();
             this.gridErrorLog = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gridDashboard = new System.Windows.Forms.DataGridView();
             this.clId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clIdClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +58,14 @@
             this.timerRefresh = new System.Timers.Timer();
             this.tmPicture = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.clDescriptionAllLog = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clIdChannelAllLog = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clIdHistAllLog = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbLogInfo.SuspendLayout();
             this.tabLogHistory.SuspendLayout();
             this.tabAllLog.SuspendLayout();
@@ -96,7 +96,7 @@
             this.gbLogInfo.Controls.Add(this.tabLogHistory);
             this.gbLogInfo.Location = new System.Drawing.Point(3, 418);
             this.gbLogInfo.Name = "gbLogInfo";
-            this.gbLogInfo.Size = new System.Drawing.Size(1103, 269);
+            this.gbLogInfo.Size = new System.Drawing.Size(1100, 269);
             this.gbLogInfo.TabIndex = 2;
             this.gbLogInfo.TabStop = false;
             this.gbLogInfo.Text = "Log Information";
@@ -111,7 +111,7 @@
             this.tabLogHistory.Location = new System.Drawing.Point(6, 19);
             this.tabLogHistory.Name = "tabLogHistory";
             this.tabLogHistory.SelectedIndex = 0;
-            this.tabLogHistory.Size = new System.Drawing.Size(1095, 216);
+            this.tabLogHistory.Size = new System.Drawing.Size(1092, 216);
             this.tabLogHistory.TabIndex = 0;
             // 
             // tabAllLog
@@ -120,7 +120,7 @@
             this.tabAllLog.Location = new System.Drawing.Point(4, 22);
             this.tabAllLog.Name = "tabAllLog";
             this.tabAllLog.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAllLog.Size = new System.Drawing.Size(1087, 190);
+            this.tabAllLog.Size = new System.Drawing.Size(1084, 190);
             this.tabAllLog.TabIndex = 0;
             this.tabAllLog.Text = "All Log";
             this.tabAllLog.UseVisualStyleBackColor = true;
@@ -138,46 +138,14 @@
             this.clIdChannelAllLog,
             this.dataGridViewTextBoxColumn1,
             this.clIdHistAllLog});
-            this.gridHistAllLog.Location = new System.Drawing.Point(3, 3);
+            this.gridHistAllLog.Location = new System.Drawing.Point(-4, 3);
             this.gridHistAllLog.MultiSelect = false;
             this.gridHistAllLog.Name = "gridHistAllLog";
             this.gridHistAllLog.ReadOnly = true;
             this.gridHistAllLog.RowHeadersVisible = false;
             this.gridHistAllLog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridHistAllLog.Size = new System.Drawing.Size(1085, 185);
+            this.gridHistAllLog.Size = new System.Drawing.Size(1089, 185);
             this.gridHistAllLog.TabIndex = 0;
-            // 
-            // clDescriptionAllLog
-            // 
-            this.clDescriptionAllLog.DataPropertyName = "Description";
-            this.clDescriptionAllLog.HeaderText = "Description";
-            this.clDescriptionAllLog.Name = "clDescriptionAllLog";
-            this.clDescriptionAllLog.ReadOnly = true;
-            this.clDescriptionAllLog.Width = 750;
-            // 
-            // clIdChannelAllLog
-            // 
-            this.clIdChannelAllLog.DataPropertyName = "IdChannel";
-            this.clIdChannelAllLog.HeaderText = "IdChannel";
-            this.clIdChannelAllLog.Name = "clIdChannelAllLog";
-            this.clIdChannelAllLog.ReadOnly = true;
-            this.clIdChannelAllLog.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Status";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Status";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // clIdHistAllLog
-            // 
-            this.clIdHistAllLog.DataPropertyName = "Id";
-            this.clIdHistAllLog.HeaderText = "Id";
-            this.clIdHistAllLog.Name = "clIdHistAllLog";
-            this.clIdHistAllLog.ReadOnly = true;
-            this.clIdHistAllLog.Visible = false;
             // 
             // tabErrorLog
             // 
@@ -185,7 +153,7 @@
             this.tabErrorLog.Location = new System.Drawing.Point(4, 22);
             this.tabErrorLog.Name = "tabErrorLog";
             this.tabErrorLog.Padding = new System.Windows.Forms.Padding(3);
-            this.tabErrorLog.Size = new System.Drawing.Size(1087, 190);
+            this.tabErrorLog.Size = new System.Drawing.Size(1084, 190);
             this.tabErrorLog.TabIndex = 1;
             this.tabErrorLog.Text = "Error Log";
             this.tabErrorLog.UseVisualStyleBackColor = true;
@@ -209,38 +177,6 @@
             this.gridErrorLog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridErrorLog.Size = new System.Drawing.Size(1080, 185);
             this.gridErrorLog.TabIndex = 2;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Description";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Description";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 750;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "IdChannel";
-            this.dataGridViewTextBoxColumn3.HeaderText = "IdChannel";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Status";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Status";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Visible = false;
             // 
             // gridDashboard
             // 
@@ -446,6 +382,70 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // clDescriptionAllLog
+            // 
+            this.clDescriptionAllLog.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clDescriptionAllLog.DataPropertyName = "Description";
+            this.clDescriptionAllLog.HeaderText = "Description";
+            this.clDescriptionAllLog.Name = "clDescriptionAllLog";
+            this.clDescriptionAllLog.ReadOnly = true;
+            // 
+            // clIdChannelAllLog
+            // 
+            this.clIdChannelAllLog.DataPropertyName = "IdChannel";
+            this.clIdChannelAllLog.HeaderText = "IdChannel";
+            this.clIdChannelAllLog.Name = "clIdChannelAllLog";
+            this.clIdChannelAllLog.ReadOnly = true;
+            this.clIdChannelAllLog.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Status";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Status";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // clIdHistAllLog
+            // 
+            this.clIdHistAllLog.DataPropertyName = "Id";
+            this.clIdHistAllLog.HeaderText = "Id";
+            this.clIdHistAllLog.Name = "clIdHistAllLog";
+            this.clIdHistAllLog.ReadOnly = true;
+            this.clIdHistAllLog.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Description";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Description";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "IdChannel";
+            this.dataGridViewTextBoxColumn3.HeaderText = "IdChannel";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Status";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Status";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Visible = false;
+            // 
             // ucDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -478,16 +478,8 @@
         private System.Windows.Forms.TabControl tabLogHistory;
         private System.Windows.Forms.TabPage tabAllLog;
         private System.Windows.Forms.DataGridView gridHistAllLog;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clDescriptionAllLog;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clIdChannelAllLog;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clIdHistAllLog;
         private System.Windows.Forms.TabPage tabErrorLog;
         private System.Windows.Forms.DataGridView gridErrorLog;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridView gridDashboard;
         private System.Windows.Forms.ContextMenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem startAllChannelsToolStripMenuItem;
@@ -508,5 +500,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clIsConnected;
         private System.Windows.Forms.Timer tmPicture;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clDescriptionAllLog;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clIdChannelAllLog;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clIdHistAllLog;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }
