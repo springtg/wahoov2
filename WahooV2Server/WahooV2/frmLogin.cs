@@ -15,6 +15,7 @@ namespace WahooV2
     public partial class frmLogin : Form
     {
         private frmMain objMain;
+        frmProgress msg;
         public frmLogin()
         {
             InitializeComponent();
@@ -40,19 +41,37 @@ namespace WahooV2
             }
             this.Hide();
             objMain = new frmMain();
-            //Thread th = new Thread(new ThreadStart(InitData));
-            //th.Start();
-            //msg = new frmProgress("Loading data...");
-            //msg.ShowDialog();
-            //if (msg.DialogResult == DialogResult.OK)
-            //    th.Abort();
-            //objMain.InitData();
+
+            Thread th = new Thread(new ThreadStart(CheckConnecting));            
+            
+            th.Start();
+            msg = new frmProgress("Connecting to webservice ...");
+            msg.ShowDialog();
+            
+            if (msg.DialogResult == DialogResult.OK)
+            {                
+                th.Abort();
+            }
+
             objMain.IdUser = objListUser[0].Id.Value;
             objMain.RoleUser = objListUser[0].Role.Value;
             objMain.WindowState = FormWindowState.Maximized;
             objMain.ShowDialog();
             this.Close();
             Cursor.Current = Cursors.Default;
+        }        
+
+        private void CheckConnecting()
+        {
+            try
+            {
+                //goi ham kien tra xem co ket noi toi webservice ko.
+                msg.DialogResult = DialogResult.OK;
+            }
+            catch (Exception ex)
+            {
+                
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
