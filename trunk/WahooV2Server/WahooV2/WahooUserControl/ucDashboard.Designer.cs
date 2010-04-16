@@ -115,7 +115,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(970, 244);
+            this.label1.Location = new System.Drawing.Point(970, 245);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 5;
@@ -141,9 +141,9 @@
             this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnSave.Image = global::WahooV2.Properties.Resources.wh_save;
-            this.btnSave.Location = new System.Drawing.Point(1060, 237);
+            this.btnSave.Location = new System.Drawing.Point(1060, 239);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(28, 28);
+            this.btnSave.Size = new System.Drawing.Size(24, 24);
             this.btnSave.TabIndex = 3;
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -154,9 +154,9 @@
             this.btnClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnClear.Image = global::WahooV2.Properties.Resources.wh_delete;
-            this.btnClear.Location = new System.Drawing.Point(43, 237);
+            this.btnClear.Location = new System.Drawing.Point(39, 239);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(28, 28);
+            this.btnClear.Size = new System.Drawing.Size(24, 24);
             this.btnClear.TabIndex = 2;
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -164,12 +164,10 @@
             // btnPause
             // 
             this.btnPause.BackColor = System.Drawing.SystemColors.Control;
-            this.btnPause.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnPause.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnPause.Image = global::WahooV2.Properties.Resources.wh_pause;
-            this.btnPause.Location = new System.Drawing.Point(9, 237);
+            this.btnPause.Location = new System.Drawing.Point(9, 239);
             this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(28, 28);
+            this.btnPause.Size = new System.Drawing.Size(24, 24);
             this.btnPause.TabIndex = 1;
             this.btnPause.Tag = "0";
             this.btnPause.UseVisualStyleBackColor = false;
@@ -219,7 +217,7 @@
             this.gridHistAllLog.RowHeadersVisible = false;
             this.gridHistAllLog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridHistAllLog.Size = new System.Drawing.Size(1089, 185);
-            this.gridHistAllLog.TabIndex = 0;            
+            this.gridHistAllLog.TabIndex = 0;
             // 
             // clDescriptionAllLog
             // 
