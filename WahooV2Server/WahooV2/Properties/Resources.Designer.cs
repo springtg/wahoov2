@@ -319,6 +319,13 @@ namespace WahooV2.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap wh_folder_explore {
+            get {
+                object obj = ResourceManager.GetObject("wh_folder_explore", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap wh_go {
             get {
                 object obj = ResourceManager.GetObject("wh_go", resourceCulture);
