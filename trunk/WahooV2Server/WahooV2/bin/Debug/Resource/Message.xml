@@ -51,10 +51,13 @@
   <MSG MessageId="CHANNEL_ERR008" Value="Edit channel failed." />
   <MSG MessageId="CHANNEL_ERR009" Value="Error. Please try again." />
   <MSG MessageId="CHANNEL_ERR010" Value="You only create {0} channels." />
-  <MSG MessageId="CHANNEL_ERR011" Value="You must choose channel to edit." />
-  <MSG MessageId="CHANNEL_ERR012" Value="" />
-  <MSG MessageId="CHANNEL_ERR013" Value="" />
+  <MSG MessageId="CHANNEL_ERR011" Value="You must choose channel to edit." />  
   <!-- END ERROR MESSAGE FOR CHANNEL-->
+  
+  <!-- START INFORM MESSAGE FOR CLIENT-->
+  <MSG MessageId="CHANNEL_CONF001" Value="Successfully create client." />
+  <MSG MessageId="CHANNEL_CONF002" Value="Complete update client." />
+  <!-- END INFORM MESSAGE FOR CLIENT-->
   
   <!-- START INFORM MESSAGE FOR USER-->
   <MSG MessageId="USER_CONF001" Value="Complete update user." />
