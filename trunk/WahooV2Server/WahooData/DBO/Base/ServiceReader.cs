@@ -451,5 +451,31 @@ namespace WahooData.DBO.Base
                 throw;
             }
         }
+
+        /// <summary>
+        /// Delete HistoryChannel of Channel
+        /// </summary>
+        /// <param name="isDeployed"></param>
+        /// <returns></returns>
+        public static bool DeleteHistoryOfChannel(int idChannel)
+        {
+            try
+            {
+                SqlParameter param = new SqlParameter("@IdChannel", idChannel);
+                int i = SqlHelper.ExecuteNonQuery(ServiceReader._conectionString, CommandType.StoredProcedure, "DELETE_HISTORYOFCHANNEL_IDCHANNEL", param);
+                if (i > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

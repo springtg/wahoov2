@@ -199,6 +199,7 @@ namespace WahooData.BusinessHandler
             }
             return result;
         }
+        
         #endregion Channel
 
         #region Client
@@ -500,6 +501,26 @@ namespace WahooData.BusinessHandler
             if (result < 0)
             {
                 result = 0;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Delete HistoryChannel of Channel
+        /// </summary>
+        /// <param name="isDeployed"></param>
+        /// <returns></returns>
+        public static bool DeleteHistoryOfChannel(int idChannel)
+        {
+            Boolean result = false;
+            HistoryOfChannelController _ChannelController = new HistoryOfChannelController();
+            try
+            {
+                result = _ChannelController.DeleteHistoryOfChannel(idChannel);
+            }
+            catch
+            {
+                result = false;
             }
             return result;
         }
