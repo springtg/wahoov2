@@ -180,7 +180,7 @@ namespace WahooV2.WahooUserControl
             //{
             //    lblPause.ImageIndex = 3;
             //}
-            
+            this.pictureBox1.Image = global::WahooV2.Properties.Resources.disconect;
             this._mCheckLoad = 1;            
         }
 
