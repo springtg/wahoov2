@@ -17,6 +17,9 @@
     <item key="USER_FORM_CONTROL" id="LABEL_NAME_PASSWORD" value="Password:"/>
     <item key="USER_FORM_CONTROL" id="LABEL_NAME_PHONE" value="Phone:"/>
     <item key="USER_FORM_CONTROL" id="LABEL_NAME_USERNAME" value="Username:"/>
+    <item key="USER_FORM_CONTROL" id="LABEL_NAME_ROLE" value="Role:"/>
+    <item key="USER_FORM_CONTROL" id="RADIO_NAME_ADMIN" value="Administrator"/>
+    <item key="USER_FORM_CONTROL" id="RADIO_NAME_STANDARD" value="Standard"/>
     <item key="USER_FORM_CONTROL" id="BUTTON_NAME_CANCEL" value="Cancel"/>
     <item key="USER_FORM_CONTROL" id="BUTTON_NAME_FINISH" value="Finish"/>
     <item key="USER_FORM_CONTROL" id="HEADER_NAME_USERNAME" value="Username"/>
@@ -63,6 +66,7 @@
     <item key="SETTING_FORM_CONTROL" id="TEXTBOX_EXECUTE_LENGHT" value="5"/>
     <item key="SETTING_FORM_CONTROL" id="TEXTBOX_TRANSFER_LENGHT" value="5"/>        
     <item key="SETTING_FORM_CONTROL" id="BUTTON_NAME_SAVE" value="Save"/>
+    <item key="SETTING_FORM_CONTROL" id="BUTTON_NAME_RESET" value="Reset"/>
     <item key="SETTING_FORM_CONTROL" id="TAB_NAME_INFO" value="Information"/>
     <item key="SETTING_FORM_CONTROL" id="TAB_NAME_RSA" value="RSA"/>
     <item key="SETTING_FORM_CONTROL" id="LABEL_NAME_PRIVATE" value="Private key file:"/>
