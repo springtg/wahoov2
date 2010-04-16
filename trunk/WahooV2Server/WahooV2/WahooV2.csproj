@@ -328,6 +328,7 @@
     <Content Include="bin\Debug\XPPanel.dll" />
     <None Include="Resources\disconect1.gif" />
     <Content Include="Resources\edit.png" />
+    <None Include="Resources\wh_folder_explore.png" />
     <None Include="Resources\loading.gif" />
   </ItemGroup>
   <ItemGroup>
