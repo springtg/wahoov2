@@ -15,7 +15,16 @@ namespace WahooV2.WahooUserControl
 {
     public partial class ucDashboard : controlBase
     {
-        #region variable
+        #region "Xu ly vailidate Image"
+        //dieu khien su thay doi image tren grid
+        private int _CurrentStep = 0;
+        private int _StepCount = 5;
+        private int _CurRow = -1;
+        //delegate of process() function for the purpose of multithreading
+        delegate void ProcessDelegate();
+        #endregion
+
+        #region variable        
         private static readonly ILog _logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         //DataTable _mDashboard to store list of dashboard( bind with grid)
         private DataTable _mDashboard=new DataTable();
@@ -171,7 +180,8 @@ namespace WahooV2.WahooUserControl
             //{
             //    lblPause.ImageIndex = 3;
             //}
-            this._mCheckLoad = 1;
+            
+            this._mCheckLoad = 1;            
         }
 
         /// <summary>
@@ -493,9 +503,6 @@ namespace WahooV2.WahooUserControl
             }
             catch (Exception ex)
             {
-                //Write log
-                if (_logger.IsErrorEnabled)
-                    _logger.Error(ex);
                 throw ex;
             }
         }
@@ -522,10 +529,11 @@ namespace WahooV2.WahooUserControl
                 newRow["STATUSEXECUTE"] = obj.StatusExecute;
                 newRow["SENT"] = obj.Sent;
                 newRow["ERROR"] = obj.Error;
-                newRow["Img"] = (obj.IsConnected==true) ? global::WahooV2.Properties.Resources.connecting : global::WahooV2.Properties.Resources.disconect;
+                newRow["Img"] = (obj.IsConnected==true) ? global::WahooV2.Properties.Resources.connecting : global::WahooV2.Properties.Resources.disconect;                
                 newRow["ISCONNECTED"] = obj.IsConnected;
                 _mDashboard.Rows.Add(newRow);
             }
+            pictureBox1.Image = global::WahooV2.Properties.Resources.disconect;       
         }
 
         private void CreateHistoryOfChannel(List<HistoryOfChannel> objListHistoryOfChannel)
@@ -557,10 +565,8 @@ namespace WahooV2.WahooUserControl
                 }
                 catch(Exception ex)
                 {
-                    //Write log
-                    if (_logger.IsErrorEnabled)
-                        _logger.Error(ex);
                     temp = 0;
+                    throw ex;                    
                 }
                 if (temp < 10)
                 {
@@ -575,8 +581,81 @@ namespace WahooV2.WahooUserControl
                     this.timerRefresh.Start();
 
                 }
+               // BindGrid();
                 
         }
 
+        private void tmPicture_Tick(object sender, EventArgs e)
+        {
+            
+            if (this.gridDashboard.Rows.Count > 0)
+            {
+                ReplayImage(true, this.pictureBox1.Image, this.pictureBox1.Image, gridDashboard, clClientConnected.Index);
+            }
+            
+        }
+        /// <summary>
+        /// chang image theo thoi gian, va validate cell hien hanh
+        /// </summary>
+        /// <param name="bImage1"></param>
+        /// <param name="img1"></param>
+        /// <param name="img2"></param>
+        /// <param name="dgv"></param>
+        /// <param name="iRow"></param>
+        /// <param name="iColumn"></param>
+        private void ReplayImage(bool bImage1,Image img1,Image img2, DataGridView dgv, int iColumn)
+        {
+            for (int i = 0; i < dgv.RowCount; i++)
+            {
+                if (bImage1)
+                {
+                    dgv.Rows[i].Cells[7].Value = img1;
+                    dgv.InvalidateCell(7, i);
+                }
+                else
+                {
+                    dgv.Rows[i].Cells[iColumn].Value = img2;
+                    dgv.InvalidateCell(iColumn, i);
+                }
+                
+
+            }
+        }
+
+        private void Process()
+        {
+            do
+            {
+              //record the time when current step begins to process
+                this._CurrentStep++;
+                Random rndIntValue = new Random();
+                //let current process sleep for several seconds
+                //it is only for the purpose of a demo
+                //in a real scenario, it is not necessary for current step itself may take several seconds or more to finish processing
+                System.Threading.Thread.Sleep(rndIntValue.Next(8) * 1000);
+                if (this._CurrentStep >= this._StepCount)
+                {
+                    _CurrentStep = 0;
+                    rndIntValue = new Random();
+                }
+            }
+            while (this._CurrentStep < this._StepCount);
+
+        }
+
+        ProcessDelegate pdSteps = null;
+        private void gridDashboard_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            if (gridDashboard.RowCount > 0)
+            {
+                _CurrentStep = 0;
+                if (pdSteps == null)
+                {
+                    tmPicture.Start();
+                    pdSteps = new ProcessDelegate(Process);
+                    pdSteps.BeginInvoke(null, null);
+                }
+            }
+        }
     }
 }
