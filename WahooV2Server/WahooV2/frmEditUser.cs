@@ -199,6 +199,9 @@ namespace WahooV2
             lblPass.Text = objResource.GetResourceByKey("USER_FORM_CONTROL", "LABEL_NAME_PASSWORD");
             lblPhone.Text = objResource.GetResourceByKey("USER_FORM_CONTROL", "LABEL_NAME_PHONE");
             lblUserName.Text = objResource.GetResourceByKey("USER_FORM_CONTROL", "LABEL_NAME_USERNAME");
+            lblRole.Text = objResource.GetResourceByKey("USER_FORM_CONTROL", "LABEL_NAME_ROLE");
+            rdoAdmin.Text = objResource.GetResourceByKey("USER_FORM_CONTROL", "RADIO_NAME_ADMIN");
+            rdoStandar.Text = objResource.GetResourceByKey("USER_FORM_CONTROL", "RADIO_NAME_STANDARD");
             btnCancel.Text = objResource.GetResourceByKey("USER_FORM_CONTROL", "BUTTON_NAME_CANCEL");
             btnFinish.Text = objResource.GetResourceByKey("USER_FORM_CONTROL", "BUTTON_NAME_FINISH");
         }

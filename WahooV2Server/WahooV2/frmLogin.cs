@@ -42,16 +42,16 @@ namespace WahooV2
             this.Hide();
             objMain = new frmMain();
 
-            Thread th = new Thread(new ThreadStart(CheckConnecting));            
+            //Thread th = new Thread(new ThreadStart(CheckConnecting));            
             
-            th.Start();
-            msg = new frmProgress("Connecting to webservice ...");
-            msg.ShowDialog();
+            //th.Start();
+            //msg = new frmProgress("Connecting to webservice ...");
+            //msg.ShowDialog();
             
-            if (msg.DialogResult == DialogResult.OK)
-            {                
-                th.Abort();
-            }
+            //if (msg.DialogResult == DialogResult.OK)
+            //{                
+            //    th.Abort();
+            //}
 
             objMain.IdUser = objListUser[0].Id.Value;
             objMain.RoleUser = objListUser[0].Role.Value;
