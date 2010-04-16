@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucDashboard));
             this.lblLine = new System.Windows.Forms.Label();
             this.gbLogInfo = new System.Windows.Forms.GroupBox();
@@ -246,10 +246,10 @@
             // 
             this.gridDashboard.AllowUserToAddRows = false;
             this.gridDashboard.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Silver;
-            this.gridDashboard.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Silver;
+            this.gridDashboard.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.gridDashboard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -441,9 +441,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::WahooV2.Properties.Resources.disconect;
-            this.pictureBox1.Location = new System.Drawing.Point(221, 384);
+            this.pictureBox1.Location = new System.Drawing.Point(73, 391);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(10, 10);
+            this.pictureBox1.Size = new System.Drawing.Size(117, 21);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
@@ -452,9 +452,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblLine);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.gbLogInfo);
             this.Controls.Add(this.gridDashboard);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "ucDashboard";
             this.Size = new System.Drawing.Size(1106, 690);
             this.Load += new System.EventHandler(this.ucDashboard_Load);
