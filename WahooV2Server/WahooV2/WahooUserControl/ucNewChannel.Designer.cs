@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabNewChannel = new System.Windows.Forms.TabControl();
-            this.tabSumary = new System.Windows.Forms.TabPage();
             this.gbChannelInfomation = new System.Windows.Forms.GroupBox();
+            this.btnBrowse = new System.Windows.Forms.Button();
+            this.txtFilePath = new System.Windows.Forms.TextBox();
+            this.lblPath = new System.Windows.Forms.Label();
+            this.chkStoreFile = new System.Windows.Forms.CheckBox();
             this.txtChannelDescription = new System.Windows.Forms.TextBox();
             this.lblChannelDescription = new System.Windows.Forms.Label();
             this.txtChannelName = new System.Windows.Forms.TextBox();
@@ -60,72 +62,79 @@
             this.lblAddress1 = new System.Windows.Forms.Label();
             this.cbClientList = new System.Windows.Forms.ComboBox();
             this.lblChooseClient = new System.Windows.Forms.Label();
-            this.tabSource = new System.Windows.Forms.TabPage();
-            this.btnBrowse = new System.Windows.Forms.Button();
-            this.txtFilePath = new System.Windows.Forms.TextBox();
-            this.txtURL = new System.Windows.Forms.TextBox();
-            this.lblPath = new System.Windows.Forms.Label();
-            this.lblURL = new System.Windows.Forms.Label();
-            this.chkStoreFile = new System.Windows.Forms.CheckBox();
-            this.tabNewChannel.SuspendLayout();
-            this.tabSumary.SuspendLayout();
             this.gbChannelInfomation.SuspendLayout();
             this.gbClientInfomation.SuspendLayout();
             this.gbClientInfo.SuspendLayout();
-            this.tabSource.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tabNewChannel
-            // 
-            this.tabNewChannel.Controls.Add(this.tabSumary);
-            this.tabNewChannel.Controls.Add(this.tabSource);
-            this.tabNewChannel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabNewChannel.Location = new System.Drawing.Point(0, 0);
-            this.tabNewChannel.Name = "tabNewChannel";
-            this.tabNewChannel.SelectedIndex = 0;
-            this.tabNewChannel.Size = new System.Drawing.Size(1106, 690);
-            this.tabNewChannel.TabIndex = 1;
-            // 
-            // tabSumary
-            // 
-            this.tabSumary.Controls.Add(this.gbChannelInfomation);
-            this.tabSumary.Controls.Add(this.gbClientInfomation);
-            this.tabSumary.Location = new System.Drawing.Point(4, 22);
-            this.tabSumary.Name = "tabSumary";
-            this.tabSumary.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSumary.Size = new System.Drawing.Size(1098, 664);
-            this.tabSumary.TabIndex = 1;
-            this.tabSumary.Text = "Sumary";
-            this.tabSumary.UseVisualStyleBackColor = true;
             // 
             // gbChannelInfomation
             // 
-            this.gbChannelInfomation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbChannelInfomation.Controls.Add(this.btnBrowse);
+            this.gbChannelInfomation.Controls.Add(this.txtFilePath);
+            this.gbChannelInfomation.Controls.Add(this.lblPath);
+            this.gbChannelInfomation.Controls.Add(this.chkStoreFile);
             this.gbChannelInfomation.Controls.Add(this.txtChannelDescription);
             this.gbChannelInfomation.Controls.Add(this.lblChannelDescription);
             this.gbChannelInfomation.Controls.Add(this.txtChannelName);
             this.gbChannelInfomation.Controls.Add(this.chkEnable);
             this.gbChannelInfomation.Controls.Add(this.lblChannelName);
-            this.gbChannelInfomation.Location = new System.Drawing.Point(6, 6);
+            this.gbChannelInfomation.Location = new System.Drawing.Point(10, 8);
             this.gbChannelInfomation.Name = "gbChannelInfomation";
-            this.gbChannelInfomation.Size = new System.Drawing.Size(1086, 189);
-            this.gbChannelInfomation.TabIndex = 4;
+            this.gbChannelInfomation.Size = new System.Drawing.Size(836, 247);
+            this.gbChannelInfomation.TabIndex = 6;
             this.gbChannelInfomation.TabStop = false;
             this.gbChannelInfomation.Text = "Channel Information";
             // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Image = global::WahooV2.Properties.Resources.wh_folder_explore;
+            this.btnBrowse.Location = new System.Drawing.Point(568, 53);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(33, 23);
+            this.btnBrowse.TabIndex = 26;
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            // 
+            // txtFilePath
+            // 
+            this.txtFilePath.BackColor = System.Drawing.Color.White;
+            this.txtFilePath.Location = new System.Drawing.Point(98, 55);
+            this.txtFilePath.Name = "txtFilePath";
+            this.txtFilePath.ReadOnly = true;
+            this.txtFilePath.Size = new System.Drawing.Size(464, 20);
+            this.txtFilePath.TabIndex = 25;
+            // 
+            // lblPath
+            // 
+            this.lblPath.AutoSize = true;
+            this.lblPath.Location = new System.Drawing.Point(6, 63);
+            this.lblPath.Name = "lblPath";
+            this.lblPath.Size = new System.Drawing.Size(86, 13);
+            this.lblPath.TabIndex = 24;
+            this.lblPath.Text = "Outbound folder:";
+            // 
+            // chkStoreFile
+            // 
+            this.chkStoreFile.AutoSize = true;
+            this.chkStoreFile.Location = new System.Drawing.Point(98, 89);
+            this.chkStoreFile.Name = "chkStoreFile";
+            this.chkStoreFile.Size = new System.Drawing.Size(90, 17);
+            this.chkStoreFile.TabIndex = 23;
+            this.chkStoreFile.Text = "Backup file(s)";
+            this.chkStoreFile.UseVisualStyleBackColor = true;
+            // 
             // txtChannelDescription
             // 
-            this.txtChannelDescription.Location = new System.Drawing.Point(98, 53);
+            this.txtChannelDescription.Location = new System.Drawing.Point(98, 114);
             this.txtChannelDescription.Multiline = true;
             this.txtChannelDescription.Name = "txtChannelDescription";
-            this.txtChannelDescription.Size = new System.Drawing.Size(468, 127);
+            this.txtChannelDescription.Size = new System.Drawing.Size(503, 127);
             this.txtChannelDescription.TabIndex = 3;
             // 
             // lblChannelDescription
             // 
             this.lblChannelDescription.AutoSize = true;
-            this.lblChannelDescription.Location = new System.Drawing.Point(12, 105);
+            this.lblChannelDescription.Location = new System.Drawing.Point(25, 166);
             this.lblChannelDescription.Name = "lblChannelDescription";
             this.lblChannelDescription.Size = new System.Drawing.Size(63, 13);
             this.lblChannelDescription.TabIndex = 4;
@@ -161,15 +170,13 @@
             // 
             // gbClientInfomation
             // 
-            this.gbClientInfomation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
             this.gbClientInfomation.Controls.Add(this.gbClientInfo);
             this.gbClientInfomation.Controls.Add(this.cbClientList);
             this.gbClientInfomation.Controls.Add(this.lblChooseClient);
-            this.gbClientInfomation.Location = new System.Drawing.Point(9, 201);
+            this.gbClientInfomation.Location = new System.Drawing.Point(13, 261);
             this.gbClientInfomation.Name = "gbClientInfomation";
-            this.gbClientInfomation.Size = new System.Drawing.Size(1083, 462);
-            this.gbClientInfomation.TabIndex = 2;
+            this.gbClientInfomation.Size = new System.Drawing.Size(833, 417);
+            this.gbClientInfomation.TabIndex = 5;
             this.gbClientInfomation.TabStop = false;
             this.gbClientInfomation.Text = "Client Information";
             // 
@@ -201,7 +208,7 @@
             this.gbClientInfo.Enabled = false;
             this.gbClientInfo.Location = new System.Drawing.Point(8, 51);
             this.gbClientInfo.Name = "gbClientInfo";
-            this.gbClientInfo.Size = new System.Drawing.Size(1067, 359);
+            this.gbClientInfo.Size = new System.Drawing.Size(819, 359);
             this.gbClientInfo.TabIndex = 14;
             this.gbClientInfo.TabStop = false;
             // 
@@ -385,102 +392,33 @@
             this.lblChooseClient.TabIndex = 0;
             this.lblChooseClient.Text = "Choose client:";
             // 
-            // tabSource
-            // 
-            this.tabSource.Controls.Add(this.btnBrowse);
-            this.tabSource.Controls.Add(this.txtFilePath);
-            this.tabSource.Controls.Add(this.txtURL);
-            this.tabSource.Controls.Add(this.lblPath);
-            this.tabSource.Controls.Add(this.lblURL);
-            this.tabSource.Controls.Add(this.chkStoreFile);
-            this.tabSource.Location = new System.Drawing.Point(4, 22);
-            this.tabSource.Name = "tabSource";
-            this.tabSource.Size = new System.Drawing.Size(1098, 664);
-            this.tabSource.TabIndex = 2;
-            this.tabSource.Text = "Source";
-            this.tabSource.UseVisualStyleBackColor = true;
-            // 
-            // btnBrowse
-            // 
-            this.btnBrowse.Location = new System.Drawing.Point(635, 67);
-            this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(33, 23);
-            this.btnBrowse.TabIndex = 22;
-            this.btnBrowse.Text = "...";
-            this.btnBrowse.UseVisualStyleBackColor = true;
-            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
-            // 
-            // txtFilePath
-            // 
-            this.txtFilePath.BackColor = System.Drawing.Color.White;
-            this.txtFilePath.Location = new System.Drawing.Point(114, 69);
-            this.txtFilePath.Name = "txtFilePath";
-            this.txtFilePath.ReadOnly = true;
-            this.txtFilePath.Size = new System.Drawing.Size(515, 20);
-            this.txtFilePath.TabIndex = 21;
-            // 
-            // txtURL
-            // 
-            this.txtURL.Location = new System.Drawing.Point(114, 25);
-            this.txtURL.Name = "txtURL";
-            this.txtURL.Size = new System.Drawing.Size(515, 20);
-            this.txtURL.TabIndex = 20;
-            // 
-            // lblPath
-            // 
-            this.lblPath.AutoSize = true;
-            this.lblPath.Location = new System.Drawing.Point(14, 77);
-            this.lblPath.Name = "lblPath";
-            this.lblPath.Size = new System.Drawing.Size(86, 13);
-            this.lblPath.TabIndex = 18;
-            this.lblPath.Text = "Outbound folder:";
-            // 
-            // lblURL
-            // 
-            this.lblURL.AutoSize = true;
-            this.lblURL.Location = new System.Drawing.Point(14, 32);
-            this.lblURL.Name = "lblURL";
-            this.lblURL.Size = new System.Drawing.Size(67, 13);
-            this.lblURL.TabIndex = 19;
-            this.lblURL.Text = "WSDL URL:";
-            // 
-            // chkStoreFile
-            // 
-            this.chkStoreFile.AutoSize = true;
-            this.chkStoreFile.Location = new System.Drawing.Point(114, 117);
-            this.chkStoreFile.Name = "chkStoreFile";
-            this.chkStoreFile.Size = new System.Drawing.Size(90, 17);
-            this.chkStoreFile.TabIndex = 14;
-            this.chkStoreFile.Text = "Backup file(s)";
-            this.chkStoreFile.UseVisualStyleBackColor = true;
-            // 
             // ucNewChannel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tabNewChannel);
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.gbChannelInfomation);
+            this.Controls.Add(this.gbClientInfomation);
             this.Name = "ucNewChannel";
             this.Size = new System.Drawing.Size(1106, 690);
             this.Load += new System.EventHandler(this.ucNewChannel_Load);
-            this.tabNewChannel.ResumeLayout(false);
-            this.tabSumary.ResumeLayout(false);
             this.gbChannelInfomation.ResumeLayout(false);
             this.gbChannelInfomation.PerformLayout();
             this.gbClientInfomation.ResumeLayout(false);
             this.gbClientInfomation.PerformLayout();
             this.gbClientInfo.ResumeLayout(false);
             this.gbClientInfo.PerformLayout();
-            this.tabSource.ResumeLayout(false);
-            this.tabSource.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabNewChannel;
-        private System.Windows.Forms.TabPage tabSumary;
         private System.Windows.Forms.GroupBox gbChannelInfomation;
+        private System.Windows.Forms.Button btnBrowse;
+        private System.Windows.Forms.TextBox txtFilePath;
+        private System.Windows.Forms.Label lblPath;
+        private System.Windows.Forms.CheckBox chkStoreFile;
         private System.Windows.Forms.TextBox txtChannelDescription;
         private System.Windows.Forms.Label lblChannelDescription;
         private System.Windows.Forms.TextBox txtChannelName;
@@ -510,12 +448,6 @@
         private System.Windows.Forms.Label lblAddress1;
         private System.Windows.Forms.ComboBox cbClientList;
         private System.Windows.Forms.Label lblChooseClient;
-        private System.Windows.Forms.TabPage tabSource;
-        private System.Windows.Forms.Button btnBrowse;
-        private System.Windows.Forms.TextBox txtFilePath;
-        private System.Windows.Forms.TextBox txtURL;
-        private System.Windows.Forms.Label lblPath;
-        private System.Windows.Forms.Label lblURL;
-        private System.Windows.Forms.CheckBox chkStoreFile;
+
     }
 }
