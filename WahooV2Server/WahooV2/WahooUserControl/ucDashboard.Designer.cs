@@ -33,11 +33,24 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucDashboard));
             this.lblLine = new System.Windows.Forms.Label();
             this.gbLogInfo = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtLogSize = new WahooV2.ExControl.TextBoxForNum();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnPause = new System.Windows.Forms.Button();
             this.tabLogHistory = new System.Windows.Forms.TabControl();
             this.tabAllLog = new System.Windows.Forms.TabPage();
             this.gridHistAllLog = new System.Windows.Forms.DataGridView();
+            this.clDescriptionAllLog = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clIdChannelAllLog = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clIdHistAllLog = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabErrorLog = new System.Windows.Forms.TabPage();
             this.gridErrorLog = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gridDashboard = new System.Windows.Forms.DataGridView();
             this.clId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clIdClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,14 +71,6 @@
             this.timerRefresh = new System.Timers.Timer();
             this.tmPicture = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.clDescriptionAllLog = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clIdChannelAllLog = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clIdHistAllLog = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbLogInfo.SuspendLayout();
             this.tabLogHistory.SuspendLayout();
             this.tabAllLog.SuspendLayout();
@@ -93,6 +98,11 @@
             // 
             this.gbLogInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbLogInfo.Controls.Add(this.label1);
+            this.gbLogInfo.Controls.Add(this.txtLogSize);
+            this.gbLogInfo.Controls.Add(this.btnSave);
+            this.gbLogInfo.Controls.Add(this.btnClear);
+            this.gbLogInfo.Controls.Add(this.btnPause);
             this.gbLogInfo.Controls.Add(this.tabLogHistory);
             this.gbLogInfo.Location = new System.Drawing.Point(3, 418);
             this.gbLogInfo.Name = "gbLogInfo";
@@ -100,6 +110,70 @@
             this.gbLogInfo.TabIndex = 2;
             this.gbLogInfo.TabStop = false;
             this.gbLogInfo.Text = "Log Information";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(970, 244);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Log size:";
+            // 
+            // txtLogSize
+            // 
+            this.txtLogSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtLogSize.Location = new System.Drawing.Point(1021, 241);
+            this.txtLogSize.MaxLength = 2;
+            this.txtLogSize.Name = "txtLogSize";
+            this.txtLogSize.Size = new System.Drawing.Size(35, 20);
+            this.txtLogSize.StrFormat = "";
+            this.txtLogSize.TabIndex = 4;
+            this.txtLogSize.Text = "0";
+            this.txtLogSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtLogSize.Value = null;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.BackColor = System.Drawing.SystemColors.Control;
+            this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnSave.Image = global::WahooV2.Properties.Resources.wh_save;
+            this.btnSave.Location = new System.Drawing.Point(1060, 237);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(28, 28);
+            this.btnSave.TabIndex = 3;
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.SystemColors.Control;
+            this.btnClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnClear.Image = global::WahooV2.Properties.Resources.wh_delete;
+            this.btnClear.Location = new System.Drawing.Point(43, 237);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(28, 28);
+            this.btnClear.TabIndex = 2;
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnPause
+            // 
+            this.btnPause.BackColor = System.Drawing.SystemColors.Control;
+            this.btnPause.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnPause.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnPause.Image = global::WahooV2.Properties.Resources.wh_pause;
+            this.btnPause.Location = new System.Drawing.Point(9, 237);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new System.Drawing.Size(28, 28);
+            this.btnPause.TabIndex = 1;
+            this.btnPause.Tag = "0";
+            this.btnPause.UseVisualStyleBackColor = false;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
             // tabLogHistory
             // 
@@ -145,7 +219,39 @@
             this.gridHistAllLog.RowHeadersVisible = false;
             this.gridHistAllLog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridHistAllLog.Size = new System.Drawing.Size(1089, 185);
-            this.gridHistAllLog.TabIndex = 0;
+            this.gridHistAllLog.TabIndex = 0;            
+            // 
+            // clDescriptionAllLog
+            // 
+            this.clDescriptionAllLog.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clDescriptionAllLog.DataPropertyName = "Description";
+            this.clDescriptionAllLog.HeaderText = "Description";
+            this.clDescriptionAllLog.Name = "clDescriptionAllLog";
+            this.clDescriptionAllLog.ReadOnly = true;
+            // 
+            // clIdChannelAllLog
+            // 
+            this.clIdChannelAllLog.DataPropertyName = "IdChannel";
+            this.clIdChannelAllLog.HeaderText = "IdChannel";
+            this.clIdChannelAllLog.Name = "clIdChannelAllLog";
+            this.clIdChannelAllLog.ReadOnly = true;
+            this.clIdChannelAllLog.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Status";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Status";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // clIdHistAllLog
+            // 
+            this.clIdHistAllLog.DataPropertyName = "Id";
+            this.clIdHistAllLog.HeaderText = "Id";
+            this.clIdHistAllLog.Name = "clIdHistAllLog";
+            this.clIdHistAllLog.ReadOnly = true;
+            this.clIdHistAllLog.Visible = false;
             // 
             // tabErrorLog
             // 
@@ -177,6 +283,38 @@
             this.gridErrorLog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridErrorLog.Size = new System.Drawing.Size(1080, 185);
             this.gridErrorLog.TabIndex = 2;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Description";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Description";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "IdChannel";
+            this.dataGridViewTextBoxColumn3.HeaderText = "IdChannel";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Status";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Status";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Visible = false;
             // 
             // gridDashboard
             // 
@@ -382,70 +520,6 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // clDescriptionAllLog
-            // 
-            this.clDescriptionAllLog.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clDescriptionAllLog.DataPropertyName = "Description";
-            this.clDescriptionAllLog.HeaderText = "Description";
-            this.clDescriptionAllLog.Name = "clDescriptionAllLog";
-            this.clDescriptionAllLog.ReadOnly = true;
-            // 
-            // clIdChannelAllLog
-            // 
-            this.clIdChannelAllLog.DataPropertyName = "IdChannel";
-            this.clIdChannelAllLog.HeaderText = "IdChannel";
-            this.clIdChannelAllLog.Name = "clIdChannelAllLog";
-            this.clIdChannelAllLog.ReadOnly = true;
-            this.clIdChannelAllLog.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Status";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Status";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // clIdHistAllLog
-            // 
-            this.clIdHistAllLog.DataPropertyName = "Id";
-            this.clIdHistAllLog.HeaderText = "Id";
-            this.clIdHistAllLog.Name = "clIdHistAllLog";
-            this.clIdHistAllLog.ReadOnly = true;
-            this.clIdHistAllLog.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Description";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Description";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "IdChannel";
-            this.dataGridViewTextBoxColumn3.HeaderText = "IdChannel";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Status";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Status";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Visible = false;
-            // 
             // ucDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -458,6 +532,7 @@
             this.Size = new System.Drawing.Size(1106, 690);
             this.Load += new System.EventHandler(this.ucDashboard_Load);
             this.gbLogInfo.ResumeLayout(false);
+            this.gbLogInfo.PerformLayout();
             this.tabLogHistory.ResumeLayout(false);
             this.tabAllLog.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridHistAllLog)).EndInit();
@@ -508,5 +583,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.Button btnPause;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Label label1;
+        private WahooV2.ExControl.TextBoxForNum txtLogSize;
+        private System.Windows.Forms.Button btnSave;
     }
 }
