@@ -196,6 +196,7 @@ namespace WahooV2.WahooUserControl
             //tabInformation.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "TAB_NAME_INFO");
             //tbaRsa.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "TAB_NAME_RSA");
             btnSave.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "BUTTON_NAME_SAVE");
+            btnReset.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "BUTTON_NAME_RESET");
             txtDashboardRefresh.MaxLength = WahooConfiguration.DataTypeProtect.ProtectInt32(resource.GetResourceByKey("SETTING_FORM_CONTROL", "TEXTBOX_DASHBOARD_LENGHT"), 5);
             txtExecuteInterval.MaxLength = WahooConfiguration.DataTypeProtect.ProtectInt32(resource.GetResourceByKey("SETTING_FORM_CONTROL", "TEXTBOX_EXECUTE_LENGHT"), 5);
             txtTransferSpeed.MaxLength = WahooConfiguration.DataTypeProtect.ProtectInt32(resource.GetResourceByKey("SETTING_FORM_CONTROL", "TEXTBOX_TRANSFER_LENGHT"), 5);
@@ -279,6 +280,15 @@ namespace WahooV2.WahooUserControl
                 //txtPrivateKeyFile.Text = privateKeyFile;
             }
 
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            txtBlowfishKey.Text = DataTypeProtect.ProtectString(txtBlowfishKey.Tag);
+            txtDashboardRefresh.Text = DataTypeProtect.ProtectString(txtDashboardRefresh.Tag);
+            txtExecuteInterval.Text = DataTypeProtect.ProtectString(txtExecuteInterval.Tag);
+            txtTransferSpeed.Text = DataTypeProtect.ProtectString(txtTransferSpeed.Tag);
+            txtWsdlUrl.Text = DataTypeProtect.ProtectString(txtWsdlUrl.Tag);
         }
     }
 }

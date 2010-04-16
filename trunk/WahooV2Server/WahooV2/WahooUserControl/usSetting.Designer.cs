@@ -41,12 +41,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnReset = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtBlowfishKey
             // 
-            this.txtBlowfishKey.Location = new System.Drawing.Point(202, 121);
+            this.txtBlowfishKey.Location = new System.Drawing.Point(205, 133);
             this.txtBlowfishKey.Name = "txtBlowfishKey";
             this.txtBlowfishKey.Size = new System.Drawing.Size(100, 20);
             this.txtBlowfishKey.TabIndex = 10;
@@ -54,7 +55,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 128);
+            this.label7.Location = new System.Drawing.Point(9, 140);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 13);
             this.label7.TabIndex = 9;
@@ -63,7 +64,7 @@
             // 
             // txtTransferSpeed
             // 
-            this.txtTransferSpeed.Location = new System.Drawing.Point(202, 84);
+            this.txtTransferSpeed.Location = new System.Drawing.Point(205, 96);
             this.txtTransferSpeed.MaxLength = 13;
             this.txtTransferSpeed.Name = "txtTransferSpeed";
             this.txtTransferSpeed.Size = new System.Drawing.Size(100, 20);
@@ -75,7 +76,7 @@
             // 
             // txtExecuteInterval
             // 
-            this.txtExecuteInterval.Location = new System.Drawing.Point(202, 48);
+            this.txtExecuteInterval.Location = new System.Drawing.Point(205, 60);
             this.txtExecuteInterval.MaxLength = 13;
             this.txtExecuteInterval.Name = "txtExecuteInterval";
             this.txtExecuteInterval.Size = new System.Drawing.Size(100, 20);
@@ -87,7 +88,7 @@
             // 
             // txtDashboardRefresh
             // 
-            this.txtDashboardRefresh.Location = new System.Drawing.Point(202, 12);
+            this.txtDashboardRefresh.Location = new System.Drawing.Point(205, 24);
             this.txtDashboardRefresh.MaxLength = 13;
             this.txtDashboardRefresh.Name = "txtDashboardRefresh";
             this.txtDashboardRefresh.Size = new System.Drawing.Size(100, 20);
@@ -99,14 +100,14 @@
             // 
             // txtWsdlUrl
             // 
-            this.txtWsdlUrl.Location = new System.Drawing.Point(202, 156);
+            this.txtWsdlUrl.Location = new System.Drawing.Point(205, 168);
             this.txtWsdlUrl.Name = "txtWsdlUrl";
             this.txtWsdlUrl.Size = new System.Drawing.Size(307, 20);
             this.txtWsdlUrl.TabIndex = 7;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(452, 193);
+            this.btnSave.Location = new System.Drawing.Point(368, 223);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(79, 23);
             this.btnSave.TabIndex = 8;
@@ -117,7 +118,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 163);
+            this.label4.Location = new System.Drawing.Point(9, 175);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 13);
             this.label4.TabIndex = 3;
@@ -126,7 +127,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 88);
+            this.label3.Location = new System.Drawing.Point(9, 100);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 13);
             this.label3.TabIndex = 2;
@@ -135,7 +136,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 52);
+            this.label2.Location = new System.Drawing.Point(9, 64);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(137, 13);
             this.label2.TabIndex = 1;
@@ -144,7 +145,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Location = new System.Drawing.Point(9, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(185, 13);
             this.label1.TabIndex = 0;
@@ -164,23 +165,34 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Location = new System.Drawing.Point(13, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(541, 182);
+            this.groupBox1.Size = new System.Drawing.Size(541, 204);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             // 
             // label5
             // 
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label5.Location = new System.Drawing.Point(13, 188);
+            this.label5.Location = new System.Drawing.Point(13, 218);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(541, 2);
             this.label5.TabIndex = 12;
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(462, 223);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 13;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // usSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnSave);
@@ -208,5 +220,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnReset;
     }
 }

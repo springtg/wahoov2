@@ -19,6 +19,7 @@ namespace WahooV2.WahooUserControl
     public partial class ucNewChannel : controlBase
     {        
         #region variable
+        Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
         private static readonly ILog _logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         private int loadControl = 0;
@@ -87,8 +88,7 @@ namespace WahooV2.WahooUserControl
                 else
                 {
                     chkStoreFile.Checked = false;
-                }
-                txtURL.Text = DataTypeProtect.ProtectString(channelEdit.WsdlUrl);
+                }                
                 txtFilePath.Text = DataTypeProtect.ProtectString(channelEdit.FilePath);
 
                 Client clientEdit = channelEdit.Client;
@@ -137,12 +137,6 @@ namespace WahooV2.WahooUserControl
                 return false;
             }            
 
-            if (txtURL.Text.Trim() == "")
-            {
-                this.ShowMessageBox("CHANNEL_ERR003", MessageType.ERROR);
-                txtURL.Focus();
-                return false;
-            }
             if (txtFilePath.Text.Trim() == "")
             {
                 this.ShowMessageBox("CHANNEL_ERR004", MessageType.ERROR);                
@@ -196,7 +190,7 @@ namespace WahooV2.WahooUserControl
                         channelNew.ServerFolder = @"\" + AliasMessage.OUTGOING_STATUS + @"\" + txtClientCode.Text;
                         channelNew.StatusExecute = AliasMessage.STOPPED_STATUS;
                         channelNew.StoreFile = chkStoreFile.Checked;
-                        channelNew.WsdlUrl = txtURL.Text;
+                        channelNew.WsdlUrl = DataTypeProtect.ProtectString(configObl.ReadSetting(AliasMessage.WSDL_URL_CONFIG));
                         AssigeTag(this);
 
                         if (WahooBusinessHandler.Add_Channel(channelNew) > 0)
@@ -221,7 +215,7 @@ namespace WahooV2.WahooUserControl
                         channelEdit.IdClient = IdClient;                        
                         channelEdit.ServerFolder = @"\" + AliasMessage.OUTGOING_STATUS + @"\" + txtClientCode.Text;
                         channelEdit.StoreFile = chkStoreFile.Checked;
-                        channelEdit.WsdlUrl = txtURL.Text;
+                        channelEdit.WsdlUrl = DataTypeProtect.ProtectString(configObl.ReadSetting(AliasMessage.WSDL_URL_CONFIG));
                         AssigeTag(this);
 
                         if (channelEdit.Update())
@@ -246,10 +240,7 @@ namespace WahooV2.WahooUserControl
         /// </summary>
         private void LoadTextOfCotrolFromResource()
         {
-            Resource objResource = new Resource();
-
-            tabSumary.Text = objResource.GetResourceByKey("NEWCHANNEL_FORM_CONTROL", "TAP_NAME_SUMARY");
-            tabSource.Text = objResource.GetResourceByKey("NEWCHANNEL_FORM_CONTROL", "TAP_NAME_SOURCE");
+            Resource objResource = new Resource();            
 
             gbChannelInfomation.Text = objResource.GetResourceByKey("NEWCHANNEL_FORM_CONTROL", "GROUPBOX_NAME_CHANNEL");
             gbClientInfomation.Text = objResource.GetResourceByKey("NEWCHANNEL_FORM_CONTROL", "GROUPBOX_NAME_CLIENT");
@@ -269,11 +260,8 @@ namespace WahooV2.WahooUserControl
             lblMail.Text = objResource.GetResourceByKey("NEWCHANNEL_FORM_CONTROL", "LABLE_NAME_MAIL");
             lblPath.Text = objResource.GetResourceByKey("NEWCHANNEL_FORM_CONTROL", "LABLE_NAME_PATH");
             lblPhone.Text = objResource.GetResourceByKey("NEWCHANNEL_FORM_CONTROL", "LABLE_NAME_PHONE");
-            lblState.Text = objResource.GetResourceByKey("NEWCHANNEL_FORM_CONTROL", "LABLE_NAME_STATE");
-            lblURL.Text = objResource.GetResourceByKey("NEWCHANNEL_FORM_CONTROL", "LABLE_NAME_URL");
-            lblZipCode.Text = objResource.GetResourceByKey("NEWCHANNEL_FORM_CONTROL", "LABLE_NAME_ZIPCODE");
-
-            btnBrowse.Text =  objResource.GetResourceByKey("NEWCHANNEL_FORM_CONTROL", "BUTTON_NAME_BROWSE");
+            lblState.Text = objResource.GetResourceByKey("NEWCHANNEL_FORM_CONTROL", "LABLE_NAME_STATE");            
+            lblZipCode.Text = objResource.GetResourceByKey("NEWCHANNEL_FORM_CONTROL", "LABLE_NAME_ZIPCODE");            
         }
 
         #endregion function        
@@ -350,6 +338,6 @@ namespace WahooV2.WahooUserControl
             }
         }
 
-        #endregion
+        #endregion        
     }
 }
