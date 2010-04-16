@@ -509,6 +509,7 @@ namespace WahooV2.WahooUserControl
 
         private void CreateDatabaseDashboard(List<Channel> objListChannel)
         {
+            _mDashboard = new DataTable();
             _mDashboard.Columns.Add("ID", System.Type.GetType("System.Int32"));
             _mDashboard.Columns.Add("IDCLIENT", System.Type.GetType("System.Int32"));
             _mDashboard.Columns.Add("CHANNELNAME", System.Type.GetType("System.String"));
@@ -538,6 +539,7 @@ namespace WahooV2.WahooUserControl
 
         private void CreateHistoryOfChannel(List<HistoryOfChannel> objListHistoryOfChannel)
         {
+            _mHistoryData = new DataTable();
             _mHistoryData.Columns.Add("ID", System.Type.GetType("System.Int32"));
             _mHistoryData.Columns.Add("IDCHANNEL", System.Type.GetType("System.Int32"));
             _mHistoryData.Columns.Add("DESCRIPTION", System.Type.GetType("System.String"));
@@ -560,8 +562,10 @@ namespace WahooV2.WahooUserControl
                 int temp = 0;
                 try
                 {
+
                     Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
                     temp = int.Parse(configObl.ReadSetting(AliasMessage.DASHBOARD_INTERVAL_CONFIG));
+                    BindGrid();
                 }
                 catch(Exception ex)
                 {
@@ -581,7 +585,7 @@ namespace WahooV2.WahooUserControl
                     this.timerRefresh.Start();
 
                 }
-               // BindGrid();
+               // 
                 
         }
 
