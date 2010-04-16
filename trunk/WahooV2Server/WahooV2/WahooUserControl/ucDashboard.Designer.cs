@@ -440,10 +440,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::WahooV2.Properties.Resources.disconect;
-            this.pictureBox1.Location = new System.Drawing.Point(73, 391);
+            this.pictureBox1.Location = new System.Drawing.Point(7, 391);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(117, 21);
+            this.pictureBox1.Size = new System.Drawing.Size(1, 1);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
