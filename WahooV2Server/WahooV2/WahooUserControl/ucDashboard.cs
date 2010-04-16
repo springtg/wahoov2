@@ -180,7 +180,7 @@ namespace WahooV2.WahooUserControl
             //{
             //    lblPause.ImageIndex = 3;
             //}
-            this.pictureBox1.Image = global::WahooV2.Properties.Resources.disconect;
+            this.pictureBox1.Image = global::WahooV2.Properties.Resources.Disconnet;
             this._mCheckLoad = 1;            
         }
 
@@ -530,11 +530,11 @@ namespace WahooV2.WahooUserControl
                 newRow["STATUSEXECUTE"] = obj.StatusExecute;
                 newRow["SENT"] = obj.Sent;
                 newRow["ERROR"] = obj.Error;
-                newRow["Img"] = (obj.IsConnected==true) ? global::WahooV2.Properties.Resources.connecting : global::WahooV2.Properties.Resources.disconect;                
+                newRow["Img"] = (obj.IsConnected==true) ? global::WahooV2.Properties.Resources.Connecting : global::WahooV2.Properties.Resources.Disconnet;                
                 newRow["ISCONNECTED"] = obj.IsConnected;
                 _mDashboard.Rows.Add(newRow);
             }
-            pictureBox1.Image = global::WahooV2.Properties.Resources.disconect;       
+            //pictureBox1.Image = global::WahooV2.Properties.Resources.disconect;       
         }
 
         private void CreateHistoryOfChannel(List<HistoryOfChannel> objListHistoryOfChannel)
