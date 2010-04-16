@@ -547,7 +547,7 @@ namespace WahooV2.WahooUserControl
                 btnPause.Tag = "1";
                 btnPause.Image = global::WahooV2.Properties.Resources.wh_start;                
             }
-            txtLogSize.Text = DataTypeProtect.ProtectString(configObl.ReadSetting(AliasMessage.Log_Size));            
+            txtLogSize.Text = DataTypeProtect.ProtectString(configObl.ReadSetting(AliasMessage.Log_Size));
         }
 
         private void CreateDatabaseDashboard(List<Channel> objListChannel)
@@ -748,6 +748,6 @@ namespace WahooV2.WahooUserControl
             ((DataView)gridErrorLog.DataSource).RowFilter = "IDCHANNEL=" + this._mIdDashboard.ToString() + " AND STATUS='ERROR'";
             //Bind so dong vao GridView theo Log_Size.
             gridErrorLog.DataSource = GetTopDataViewRows((DataView)gridErrorLog.DataSource, DataTypeProtect.ProtectInt32(configObl.ReadSetting(AliasMessage.Log_Size), 0));
-        }        
+        }                       
     }
 }
