@@ -98,22 +98,22 @@ namespace WahooV2
 
             //Choose Dashboard click
             linkDashboardClick();
-            //Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
-            //int temp = 0;
-            //try
-            //{
-            //    temp = int.Parse(configObl.ReadSetting(AliasMessage.EXECUTE_INTERVAL_CONFIG));
-            //}
-            //catch
-            //{
-            //    temp = 0;
-            //}
-            //if (temp < 10)
-            //{
-            //    temp = 10;
-            //}
-            ////Load interval for timer execute
-            //this.tmExecute.Interval = temp * 1000;
+            Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
+            int temp = 0;
+            try
+            {
+                temp = int.Parse(configObl.ReadSetting(AliasMessage.EXECUTE_INTERVAL_CONFIG));
+            }
+            catch
+            {
+                temp = 0;
+            }
+            if (temp < 10)
+            {
+                temp = 10;
+            }
+            //Load interval for timer execute
+            this.tmMain.Interval = temp * 1000;
             Cursor.Current = Cursors.Default;
         }
 
