@@ -174,6 +174,16 @@ namespace WahooV2.WahooUserControl
                             return false;
                         }
 
+                        //Channel folder is exists
+                        channelValid = new Channel();
+                        channelValid.FilePath = txtFilePath.Text;
+                        listChannel = WahooBusinessHandler.Get_ListChannel(channelValid); ;
+                        if (listChannel.Count > 0)
+                        {
+                            this.ShowMessageBox("CHANNEL_ERR012", string.Format(WahooConfiguration.Message.GetMessageById("CHANNEL_ERR012"), listChannel[0].ChannelName), MessageType.ERROR);
+                            return false;
+                        }
+
                         Channel channelNew = new Channel();
 
                         channelNew.Active = chkEnable.Checked;
@@ -203,6 +213,17 @@ namespace WahooV2.WahooUserControl
                     }
                     else if (status == AliasMessage.UPDATE_STATUS)
                     {
+                        //Channel folder is exists
+                        Channel channelValid = new Channel();
+                        channelValid.FilePath = txtFilePath.Text;
+                        List<Channel> listChannel = WahooBusinessHandler.Get_ListChannel(channelValid);
+
+                        if (listChannel.Count > 0 && listChannel[0].Id.Value != IdChannel)
+                        {
+                            this.ShowMessageBox("CHANNEL_ERR012", string.Format(WahooConfiguration.Message.GetMessageById("CHANNEL_ERR012"), listChannel[0].ChannelName), MessageType.ERROR);
+                            return false;
+                        }
+
                         Channel channelEdit = new Channel();
                         channelEdit.Id = IdChannel;
                         channelEdit = WahooBusinessHandler.Get_Channel(channelEdit);
