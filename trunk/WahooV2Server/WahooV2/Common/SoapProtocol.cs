@@ -236,7 +236,7 @@ namespace WahooV2.Common
                     string connectFilePath = fileName;
                     sr = new StreamReader(connectFilePath);
                     string contentConnect = sr.ReadLine();
-                    if (contentConnect.ToUpper() != AliasMessage.CONNECTED_STATUS)
+                    if (contentConnect.ToUpper() == AliasMessage.CONNECTED_STATUS)
                     {
                         try
                         {
