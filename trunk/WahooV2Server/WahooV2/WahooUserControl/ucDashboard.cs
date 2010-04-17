@@ -645,7 +645,7 @@ namespace WahooV2.WahooUserControl
             if (this.gridDashboard.Rows.Count > 0)
             {
 
-                ReplayImage(true, this.pictureBox1.Image, this.pictureBox2.Image, gridDashboard, clClientConnected.Index);
+                ReplayImage(true, this.pictureBox1.Image, this.pictureBox2.Image, gridDashboard, 5);
             }
             
         }
@@ -670,8 +670,8 @@ namespace WahooV2.WahooUserControl
                 }
                 else
                 {
-                    dgv.Rows[i].Cells[iColumn].Value = img2;
-                    dgv.InvalidateCell(iColumn, i);
+                    dgv.Rows[i].Cells[7].Value = img2;
+                    dgv.InvalidateCell(7, i);
                 }
                 
 
