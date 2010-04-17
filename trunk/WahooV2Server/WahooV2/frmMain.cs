@@ -177,7 +177,7 @@ namespace WahooV2
         #endregion frmMain
 
         #region Client
-
+        
         private void linkClient_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
