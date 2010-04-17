@@ -51,7 +51,8 @@
   <MSG MessageId="CHANNEL_ERR008" Value="Edit channel failed." />
   <MSG MessageId="CHANNEL_ERR009" Value="Error. Please try again." />
   <MSG MessageId="CHANNEL_ERR010" Value="You only create {0} channels." />
-  <MSG MessageId="CHANNEL_ERR011" Value="You must choose channel to edit." />  
+  <MSG MessageId="CHANNEL_ERR011" Value="You must choose channel to edit." />
+  <MSG MessageId="CHANNEL_ERR012" Value="Select another folder. This folder is being used by channel {0}."/>
   <!-- END ERROR MESSAGE FOR CHANNEL-->
   
   <!-- START INFORM MESSAGE FOR CLIENT-->
@@ -139,6 +140,5 @@
   <MSG MessageId="MONITOR_CBO003" Value="--Have been delivered--"/>
   <MSG MessageId="MONITOR_CBO004" Value="------Error------"/>
   
- 
 
 </HL7MESSAGE>
