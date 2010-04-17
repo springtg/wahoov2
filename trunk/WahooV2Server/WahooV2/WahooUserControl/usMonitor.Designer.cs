@@ -29,11 +29,11 @@ namespace WahooV2.WahooUserControl
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtTotalFiles = new System.Windows.Forms.TextBox();
             this.cbFilterSearch = new System.Windows.Forms.ComboBox();
             this.gridReport = new System.Windows.Forms.DataGridView();
@@ -59,13 +59,13 @@ namespace WahooV2.WahooUserControl
             this.txtDownloadStatus = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlNavigative = new System.Windows.Forms.Panel();
+            this.usPagingBar21 = new WahooV2.WahooUserControl.usPagingBar2();
             this.lbPage = new System.Windows.Forms.Label();
             this.txtFilename = new System.Windows.Forms.TextBox();
             this.dptDateFrom = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.gbSearchInfo = new System.Windows.Forms.GroupBox();
-            this.usPagingBar21 = new WahooV2.WahooUserControl.usPagingBar2();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridReport)).BeginInit();
             this.gbResult.SuspendLayout();
@@ -98,23 +98,23 @@ namespace WahooV2.WahooUserControl
             this.gridReport.AllowUserToAddRows = false;
             this.gridReport.AllowUserToDeleteRows = false;
             this.gridReport.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Silver;
-            this.gridReport.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Silver;
+            this.gridReport.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.gridReport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.gridReport.BackgroundColor = System.Drawing.Color.White;
             this.gridReport.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridReport.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridReport.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridReport.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clFilename,
@@ -127,14 +127,14 @@ namespace WahooV2.WahooUserControl
             this.gridReport.MultiSelect = false;
             this.gridReport.Name = "gridReport";
             this.gridReport.ReadOnly = true;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridReport.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridReport.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.gridReport.RowHeadersWidth = 20;
             this.gridReport.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Silver;
             this.gridReport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -164,8 +164,8 @@ namespace WahooV2.WahooUserControl
             // 
             this.colDateDown.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colDateDown.DataPropertyName = "TimeDownloaded";
-            dataGridViewCellStyle8.Format = "MM/dd/yyyy hh:mm:ss tt";
-            this.colDateDown.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Format = "MM/dd/yyyy hh:mm:ss tt";
+            this.colDateDown.DefaultCellStyle = dataGridViewCellStyle3;
             this.colDateDown.FillWeight = 51.11018F;
             this.colDateDown.HeaderText = "Dowload Date";
             this.colDateDown.Name = "colDateDown";
@@ -175,8 +175,8 @@ namespace WahooV2.WahooUserControl
             // 
             this.colDataSendPrinter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colDataSendPrinter.DataPropertyName = "TimeSentToPrint";
-            dataGridViewCellStyle9.Format = "MM/dd/yyyy hh:mm:ss tt";
-            this.colDataSendPrinter.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Format = "MM/dd/yyyy hh:mm:ss tt";
+            this.colDataSendPrinter.DefaultCellStyle = dataGridViewCellStyle4;
             this.colDataSendPrinter.FillWeight = 50F;
             this.colDataSendPrinter.HeaderText = "Time send to Printer";
             this.colDataSendPrinter.Name = "colDataSendPrinter";
@@ -352,6 +352,13 @@ namespace WahooV2.WahooUserControl
             this.pnlNavigative.Size = new System.Drawing.Size(1106, 41);
             this.pnlNavigative.TabIndex = 3;
             // 
+            // usPagingBar21
+            // 
+            this.usPagingBar21.Location = new System.Drawing.Point(371, 8);
+            this.usPagingBar21.Name = "usPagingBar21";
+            this.usPagingBar21.Size = new System.Drawing.Size(413, 25);
+            this.usPagingBar21.TabIndex = 11;
+            // 
             // lbPage
             // 
             this.lbPage.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -420,13 +427,6 @@ namespace WahooV2.WahooUserControl
             this.gbSearchInfo.TabIndex = 0;
             this.gbSearchInfo.TabStop = false;
             this.gbSearchInfo.Text = "Search Information";
-            // 
-            // usPagingBar21
-            // 
-            this.usPagingBar21.Location = new System.Drawing.Point(371, 8);
-            this.usPagingBar21.Name = "usPagingBar21";
-            this.usPagingBar21.Size = new System.Drawing.Size(413, 25);
-            this.usPagingBar21.TabIndex = 11;
             // 
             // label1
             // 
