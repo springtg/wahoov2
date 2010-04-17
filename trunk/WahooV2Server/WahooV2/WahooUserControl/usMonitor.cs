@@ -277,17 +277,19 @@ namespace WahooV2.WahooUserControl
             txtFilename.TextChanged += new EventHandler(txtFilename_TextChanged);
             this.Disposed += new EventHandler(usMonitor_Disposed);
             //gridReport.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(gridReport_DataBindingComplete);
-            usPagingBar1.setActiveControl(iAllPage, iCurrPge);
-            usPagingBar1.selectedPagebyUser += new usPagingBar.getSelectPagebyUser(usPagingBar1_selectedPagebyUser);
+            usPagingBar21.setActiveControl(iAllPage, iCurrPge);
+            usPagingBar21.selectedPagebyUser += new usPagingBar2.getSelectPagebyUser(usPagingBar21_selectedPagebyUser);
             lbPage.Text = "1/" + iAllPage.ToString();
         }
 
-        void usPagingBar1_selectedPagebyUser(object sender, EventArgs e)
+        void usPagingBar21_selectedPagebyUser(object sender, EventArgs e)
         {
             int select = WahooConfiguration.DataTypeProtect.ProtectInt32(((ToolStripButton)sender).ToolTipText);
             gridReport.DataSource = headerChange(select);
             lbPage.Text = select.ToString() + "/" + iAllPage.ToString();
         }
+
+        
         /// <summary>
         /// xu ly xu kien value thay doi cua CBO file name va filter du lieu theo gia tri
         /// </summary>
