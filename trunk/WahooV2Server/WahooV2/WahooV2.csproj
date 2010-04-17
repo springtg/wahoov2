@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{14E0B415-79D8-4A3E-8B4F-F791E0B0E089}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -142,6 +142,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="WahooUserControl\usPagingBar3.resx">
+      <DependentUpon>usPagingBar3.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WahooUserControl\ucChannels.resx">
       <DependentUpon>ucChannels.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -170,6 +173,9 @@
       <DependentUpon>usPagingBar.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="WahooUserControl\usPagingBar2.resx">
+      <DependentUpon>usPagingBar2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WahooUserControl\usSetting.resx">
       <DependentUpon>usSetting.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -194,6 +200,12 @@
     </Compile>
     <Compile Include="WahooUserControl\controlBase.Designer.cs">
       <DependentUpon>controlBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WahooUserControl\usPagingBar3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WahooUserControl\usPagingBar3.Designer.cs">
+      <DependentUpon>usPagingBar3.cs</DependentUpon>
     </Compile>
     <Compile Include="WahooUserControl\ucChannels.cs">
       <SubType>UserControl</SubType>
@@ -236,6 +248,12 @@
     </Compile>
     <Compile Include="WahooUserControl\usPagingBar.Designer.cs">
       <DependentUpon>usPagingBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WahooUserControl\usPagingBar2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WahooUserControl\usPagingBar2.Designer.cs">
+      <DependentUpon>usPagingBar2.cs</DependentUpon>
     </Compile>
     <Compile Include="WahooUserControl\usSetting.cs">
       <SubType>UserControl</SubType>
