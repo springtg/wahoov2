@@ -182,7 +182,8 @@ namespace WahooV2.WahooUserControl
             //{
             //    lblPause.ImageIndex = 3;
             //}
-            this.pictureBox1.Image = global::WahooV2.Properties.Resources.Disconnet;
+            this.pictureBox1.Image = global::WahooV2.Properties.Resources.Connecting;
+            this.pictureBox2.Image = global::WahooV2.Properties.Resources.Disconnet;
             this._mCheckLoad = 1;            
         }
 
@@ -643,7 +644,8 @@ namespace WahooV2.WahooUserControl
             
             if (this.gridDashboard.Rows.Count > 0)
             {
-                ReplayImage(true, this.pictureBox1.Image, this.pictureBox1.Image, gridDashboard, clClientConnected.Index);
+
+                ReplayImage(true, this.pictureBox1.Image, this.pictureBox2.Image, gridDashboard, clClientConnected.Index);
             }
             
         }
@@ -660,6 +662,7 @@ namespace WahooV2.WahooUserControl
         {
             for (int i = 0; i < dgv.RowCount; i++)
             {
+                bImage1 = WahooConfiguration.DataTypeProtect.ProtectBoolean(dgv.Rows[i].Cells[clIsConnected.Name].Value, false);
                 if (bImage1)
                 {
                     dgv.Rows[i].Cells[7].Value = img1;

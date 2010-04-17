@@ -661,6 +661,7 @@ namespace WahooV2.WahooUserControl
             }
             else
             {
+                //di chuyen den
                 int iSectionPage = iPageSelect;
                 iPageSelect = getselectPage(sender, e, ctrl);
                 setCurrentpage(iPageSelect);
