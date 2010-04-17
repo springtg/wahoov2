@@ -391,7 +391,7 @@ namespace WahooV2.WahooUserControl
         {
             int topCurr = WahooConfiguration.DataTypeProtect.ProtectInt32(btn10.Tag);
             int _last = WahooConfiguration.DataTypeProtect.ProtectInt32(btnNext.Tag);
-            if (iPageSelect.Equals(topCurr) && iPageSelect.Equals(_last-1))
+            if (iPageSelect.Equals(topCurr) && iPageSelect.Equals(_last - 1))
             {
                 moveTop(sender, e, btn10);
             }
@@ -417,17 +417,20 @@ namespace WahooV2.WahooUserControl
         private void btnPrevious_Click(object sender, EventArgs e)
         {
             int bottomCurr = WahooConfiguration.DataTypeProtect.ProtectInt32(btn1.Tag);
-            int _first = WahooConfiguration.DataTypeProtect.ProtectInt32(btnPrevious.Tag);
-            if (iPageSelect.Equals(bottomCurr-1) && iPageSelect.Equals(_first))
+            int _first = WahooConfiguration.DataTypeProtect.ProtectInt32(btnFirst.Tag);
+            iPageSelect = getselectPage(sender, e, btnPrevious);
+            if (iPageSelect.Equals(bottomCurr - 1))//&& iPageSelect.Equals(_first))
             {
                 moveBottom(sender, e, btn1);
             }
             else
             {
+                bPrev = true;
                 MoveSelected(sender, e, btnNext);
+                //movePrevious(sender, e, btnPrevious);
                 //moveNext(sender, e, btnNext);
             }
-           // movePrevious(sender, e, btnPrevious);
+            // movePrevious(sender, e, btnPrevious);
         }
 
         private void moveNext(object sender, EventArgs e, ToolStripButton ctrl)
@@ -563,11 +566,19 @@ namespace WahooV2.WahooUserControl
                 setCurrentpage(_allPage);
             }
         }
-
+        bool bPrev = false;
         private void MoveSelected(object sender, EventArgs e, ToolStripButton ctrl)
         {
-            iPageSelect = getselectPage(sender, e, ctrl);
+            if (!bPrev)
+            {
+                iPageSelect = getselectPage(sender, e, ctrl);
+            }
+            else
+            {
+                  iPageSelect = getselectPage(sender, e, ctrl)-2;
+            }
             setCurrentpage(iPageSelect);
+            bPrev = false;
         }
 
         private void moveTop(object sender, EventArgs e, ToolStripButton ctrl)
@@ -591,7 +602,7 @@ namespace WahooV2.WahooUserControl
                     setValuetoControl(btn9.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn9.Tag) + 10);
                     setValuetoControl(btn10.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn10.Tag) + 10);
                     setValuetoControl(btnNext.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btnNext.Tag) + 10);
-                    setCurrentpage(iPageSelect+1);
+                    setCurrentpage(iPageSelect + 1);
                 }
                 else
                 {
@@ -600,7 +611,7 @@ namespace WahooV2.WahooUserControl
             }
             else
             {
-                
+
                 setValuetoControl(btn1.Name, _allPage - 9);
                 setValuetoControl(btnPrevious.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn1.Tag) - 1);
                 setValuetoControl(btn2.Name, _allPage - 8);
@@ -608,9 +619,9 @@ namespace WahooV2.WahooUserControl
                 setValuetoControl(btn4.Name, _allPage - 6);
                 setValuetoControl(btn5.Name, _allPage - 5);
                 setValuetoControl(btn6.Name, _allPage - 4);
-                setValuetoControl(btn7.Name, _allPage-3);
-                setValuetoControl(btn8.Name, _allPage-2);
-                setValuetoControl(btn9.Name, _allPage-1);
+                setValuetoControl(btn7.Name, _allPage - 3);
+                setValuetoControl(btn8.Name, _allPage - 2);
+                setValuetoControl(btn9.Name, _allPage - 1);
                 setValuetoControl(btn10.Name, _allPage);
                 setValuetoControl(btnNext.Name, _allPage);
                 setCurrentpage(iPageSelect + 1);
@@ -625,11 +636,11 @@ namespace WahooV2.WahooUserControl
             int topCurr = WahooConfiguration.DataTypeProtect.ProtectInt32(btn1.Tag);
             if (topCurr - iMax >= 1)
             {
-                int iSectionPage = iPageSelect;
-                iPageSelect = getselectPage(sender, e, ctrl)-1;
-                if (topCurr - 1 >= 1)
+                //int iSectionPage = iPageSelect;
+                //iPageSelect = getselectPage(sender, e, ctrl)-1;
+                if (topCurr - iMax >= 1)
                 {
-                    setValuetoControl(btnPrevious.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btnPrevious.Tag) - 10);
+                    setValuetoControl(btnPrevious.Name, (WahooConfiguration.DataTypeProtect.ProtectInt32(btnPrevious.Tag) - 10 == 0) ? 1 : (WahooConfiguration.DataTypeProtect.ProtectInt32(btnPrevious.Tag) - 10));
                     setValuetoControl(btn1.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn1.Tag) - 10);
                     setValuetoControl(btn2.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn2.Tag) - 10);
                     setValuetoControl(btn3.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn3.Tag) - 10);
