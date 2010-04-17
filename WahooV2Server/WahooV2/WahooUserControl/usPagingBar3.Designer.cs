@@ -1,6 +1,6 @@
 ﻿namespace WahooV2.WahooUserControl
 {
-    partial class usPagingBar2
+    partial class usPagingBar3
     {
         /// <summary> 
         /// Required designer variable.
