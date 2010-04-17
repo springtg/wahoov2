@@ -208,11 +208,15 @@ namespace WahooV2.WahooUserControl
                         this._mDashboardStatus = gridDashboard.SelectedRows[0].Cells[this.clStatusExecute.Name].Value.ToString();
                         gridHistAllLog.DataSource = new DataView(this._mHistoryData);
                         ((DataView)gridHistAllLog.DataSource).RowFilter = "IDCHANNEL=" + this._mIdDashboard.ToString();
+                        ((DataView)gridHistAllLog.DataSource).Sort = "ID DESC";
+                        
                         //Bind so dong vao GridView theo Log_Size.
                         gridHistAllLog.DataSource = GetTopDataViewRows((DataView)gridHistAllLog.DataSource, DataTypeProtect.ProtectInt32(configObl.ReadSetting(AliasMessage.Log_Size),0));
 
                         gridErrorLog.DataSource = new DataView(this._mHistoryData);
                         ((DataView)gridErrorLog.DataSource).RowFilter = "IDCHANNEL=" + this._mIdDashboard.ToString() + " AND STATUS='" + AliasMessage.FAILED_STATUS + "'";
+                        ((DataView)gridErrorLog.DataSource).Sort = "ID DESC";
+
                         //Bind so dong vao GridView theo Log_Size.
                         gridErrorLog.DataSource = GetTopDataViewRows((DataView)gridErrorLog.DataSource, DataTypeProtect.ProtectInt32(configObl.ReadSetting(AliasMessage.Log_Size), 0));
                     }
@@ -516,11 +520,13 @@ namespace WahooV2.WahooUserControl
                     this._mIdDashboard = DataTypeProtect.ProtectInt32(gridDashboard.SelectedRows[0].Cells[this.clId.Name].Value.ToString(), 0);
                     gridHistAllLog.DataSource = new DataView(this._mHistoryData);
                     ((DataView)gridHistAllLog.DataSource).RowFilter = "IDCHANNEL=" + this._mIdDashboard.ToString();
+                    ((DataView)gridHistAllLog.DataSource).Sort = "ID DESC";
                     //Bind so dong vao GridView theo Log_Size.
                     gridHistAllLog.DataSource = GetTopDataViewRows((DataView)gridHistAllLog.DataSource, DataTypeProtect.ProtectInt32(configObl.ReadSetting(AliasMessage.Log_Size), 0));
 
                     gridErrorLog.DataSource = new DataView(this._mHistoryData);
                     ((DataView)gridErrorLog.DataSource).RowFilter = "IDCHANNEL=" + this._mIdDashboard.ToString() + " AND STATUS='" + AliasMessage.FAILED_STATUS + "'";
+                    ((DataView)gridErrorLog.DataSource).Sort = "ID DESC";
                     //Bind so dong vao GridView theo Log_Size.
                     gridErrorLog.DataSource = GetTopDataViewRows((DataView)gridErrorLog.DataSource, DataTypeProtect.ProtectInt32(configObl.ReadSetting(AliasMessage.Log_Size), 0));
 
@@ -741,11 +747,13 @@ namespace WahooV2.WahooUserControl
 
             gridHistAllLog.DataSource = new DataView(this._mHistoryData);
             ((DataView)gridHistAllLog.DataSource).RowFilter = "IDCHANNEL=" + this._mIdDashboard.ToString();
+            ((DataView)gridHistAllLog.DataSource).Sort = "ID DESC";
             //Bind so dong vao GridView theo Log_Size.
             gridHistAllLog.DataSource = GetTopDataViewRows((DataView)gridHistAllLog.DataSource, DataTypeProtect.ProtectInt32(configObl.ReadSetting(AliasMessage.Log_Size), 0));
 
             gridErrorLog.DataSource = new DataView(this._mHistoryData);
             ((DataView)gridErrorLog.DataSource).RowFilter = "IDCHANNEL=" + this._mIdDashboard.ToString() + " AND STATUS='" + AliasMessage.FAILED_STATUS +"'";
+            ((DataView)gridErrorLog.DataSource).Sort = "ID DESC";
             //Bind so dong vao GridView theo Log_Size.
             gridErrorLog.DataSource = GetTopDataViewRows((DataView)gridErrorLog.DataSource, DataTypeProtect.ProtectInt32(configObl.ReadSetting(AliasMessage.Log_Size), 0));
         }                       
