@@ -279,7 +279,10 @@ namespace WahooV2.WahooUserControl
             //gridReport.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(gridReport_DataBindingComplete);
             usPagingBar21.setActiveControl(iAllPage, iCurrPge);
             usPagingBar21.selectedPagebyUser += new usPagingBar2.getSelectPagebyUser(usPagingBar21_selectedPagebyUser);
-            lbPage.Text = "1/" + iAllPage.ToString();
+            if (iAllPage != 0)
+            {
+                lbPage.Text = "1/" + iAllPage.ToString();
+            }
         }
 
         void usPagingBar21_selectedPagebyUser(object sender, EventArgs e)

@@ -588,7 +588,7 @@ namespace WahooV2.WahooUserControl
             {
                 int iSectionPage = iPageSelect;//= (_allPage % 10) - (_allPage / 10); 
                 iPageSelect = getselectPage(sender, e, ctrl);
-                if (WahooConfiguration.DataTypeProtect.ProtectInt32(btn10.Tag) + 1 <= _allPage)
+                if (topCurr + 1 <= _allPage)
                 {
                     setValuetoControl(btnPrevious.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btnPrevious.Tag) - 10);
                     setValuetoControl(btn1.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn1.Tag) + 10);
@@ -600,7 +600,14 @@ namespace WahooV2.WahooUserControl
                     setValuetoControl(btn7.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn7.Tag) + 10);
                     setValuetoControl(btn8.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn8.Tag) + 10);
                     setValuetoControl(btn9.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn9.Tag) + 10);
-                    setValuetoControl(btn10.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn10.Tag) + 10);
+                    if (topCurr > 10)
+                    {
+                        setValuetoControl(btn10.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn10.Tag) + 10);
+                    }
+                    else
+                    {
+                        btn10.Visible = false;
+                    }
                     setValuetoControl(btnNext.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btnNext.Tag) + 10);
                     setCurrentpage(iPageSelect + 1);
                 }
@@ -638,7 +645,7 @@ namespace WahooV2.WahooUserControl
             {
                 //int iSectionPage = iPageSelect;
                 //iPageSelect = getselectPage(sender, e, ctrl)-1;
-                if (topCurr - iMax >= 1)
+                if (topCurr - 1 >= 1)
                 {
                     setValuetoControl(btnPrevious.Name, (WahooConfiguration.DataTypeProtect.ProtectInt32(btnPrevious.Tag) - 10 == 0) ? 1 : (WahooConfiguration.DataTypeProtect.ProtectInt32(btnPrevious.Tag) - 10));
                     setValuetoControl(btn1.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn1.Tag) - 10);

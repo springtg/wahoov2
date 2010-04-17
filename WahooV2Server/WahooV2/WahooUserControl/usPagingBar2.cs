@@ -638,7 +638,7 @@ namespace WahooV2.WahooUserControl
             {
                 //int iSectionPage = iPageSelect;
                 //iPageSelect = getselectPage(sender, e, ctrl)-1;
-                if (topCurr - iMax >= 1)
+                if (topCurr - 1 >= 1)
                 {
                     setValuetoControl(btnPrevious.Name, (WahooConfiguration.DataTypeProtect.ProtectInt32(btnPrevious.Tag) - 10 == 0) ? 1 : (WahooConfiguration.DataTypeProtect.ProtectInt32(btnPrevious.Tag) - 10));
                     setValuetoControl(btn1.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn1.Tag) - 10);
