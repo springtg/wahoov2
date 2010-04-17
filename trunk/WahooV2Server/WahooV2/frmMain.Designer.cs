@@ -938,8 +938,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1272, 734);
-            this.Controls.Add(this.xpPanelGroupTop);
             this.Controls.Add(this.pnMain);
+            this.Controls.Add(this.xpPanelGroupTop);
             this.Controls.Add(this.xpPanelLeft);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

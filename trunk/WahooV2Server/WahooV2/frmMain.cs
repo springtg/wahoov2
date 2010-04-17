@@ -189,10 +189,13 @@ namespace WahooV2
             //{
             //    return;
             //}
-            Cursor.Current = Cursors.WaitCursor;
-            //Show control when click link client
-            linkClientClick();
-            Cursor.Current = Cursors.Default;
+            if (clearControl())
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                //Show control when click link client
+                linkClientClick();
+                Cursor.Current = Cursors.Default;
+            }
         }
         /// <summary>
         /// Show control when click link client
@@ -213,8 +216,7 @@ namespace WahooV2
             xpPanelClient.Visible = true;
             try
             {
-                //View client control
-                clearControl();
+                //View client control                
                 //this.checkClearControl = true;
                 //foreach (Control preControl in pnMain.Controls)
                 //{
