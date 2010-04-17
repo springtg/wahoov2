@@ -13,11 +13,13 @@ using WahooServiceControl;
 using System.Xml;
 using System.Globalization;
 using WahooData.BusinessHandler;
+using log4net;
 
 namespace WahooV2.Common
 {
-    class SoapProtocol
+    public class SoapProtocol
     {
+        private static readonly ILog _logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         /// <summary>
         /// Execute Upload data for channel
         /// </summary>
@@ -411,8 +413,9 @@ namespace WahooV2.Common
                         arrParameter.Add(transferSpeed.ToString());
                         arrParameter.Add(pauseLog);
                         arrParameter.Add(objChannel.Id.ToString());
+                        UploadFile(arrParameter);
                         //Create thread to download file
-                        ThreadPool.QueueUserWorkItem(new WaitCallback(this.UploadFile), arrParameter);
+                        //ThreadPool.QueueUserWorkItem(new WaitCallback(this.UploadFile), arrParameter);
                     }
                 }
             }
@@ -485,7 +488,8 @@ namespace WahooV2.Common
             }
             catch (Exception ex)
             {
-                throw ex;
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);                
             }
         }
     }
