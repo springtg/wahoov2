@@ -136,13 +136,7 @@ namespace WahooV2
             xpPanelClient.Visible = false;
 
             //View grid dashboard
-            this.checkClearControl = true;
-            foreach (Control preControl in pnMain.Controls)
-            {
-                preControl.Dispose();
-            }
-            pnMain.Controls.Clear();
-            this.checkClearControl = false;
+            
             ucDashboard dashboard = new ucDashboard();
             dashboard.GridSelectionChanged += new ucDashboard.GridDashboard_SelectionChanged(GridDashboardSelectionChanged);
             dashboard.GridMouseDown += new ucDashboard.GridDashboard_MouseDown(GridDashboardMouseDown);
@@ -1612,10 +1606,13 @@ namespace WahooV2
             //{
             //    return;
             //}
-            Cursor.Current = Cursors.WaitCursor;
-            //Click dashboard link
-            linkDashboardClick();
-            Cursor.Current = Cursors.Default;
+
+            if (clearControl())
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                linkDashboardClick();
+                Cursor.Current = Cursors.Default;
+            }
         }
 
         #endregion event

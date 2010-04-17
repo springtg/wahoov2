@@ -110,7 +110,7 @@ namespace WahooV2
                         objUpdate.DateUpdated = DateTime.Now;
                         if (objUpdate.Update())
                         {
-                            MessageBox.Show("License key: " + txtLicenseKey.Text);
+                            //MessageBox.Show("License key: " + txtLicenseKey.Text);
                             this.ShowMessageBox("CLIENT_CONF001", string.Format(WahooConfiguration.Message.GetMessageById("CLIENT_CONF001")), MessageType.INFORM);
                             this.Close();
                         }
