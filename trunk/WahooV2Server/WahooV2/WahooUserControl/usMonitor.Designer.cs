@@ -67,6 +67,7 @@ namespace WahooV2.WahooUserControl
             this.label6 = new System.Windows.Forms.Label();
             this.gbSearchInfo = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.usPagingBar31 = new WahooV2.WahooUserControl.usPagingBar3();
             ((System.ComponentModel.ISupportInitialize)(this.gridReport)).BeginInit();
             this.gbResult.SuspendLayout();
             this.pnlNavigative.SuspendLayout();
@@ -410,6 +411,7 @@ namespace WahooV2.WahooUserControl
             // 
             this.gbSearchInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbSearchInfo.Controls.Add(this.usPagingBar31);
             this.gbSearchInfo.Controls.Add(this.txtTotalFiles);
             this.gbSearchInfo.Controls.Add(this.cbFilterSearch);
             this.gbSearchInfo.Controls.Add(this.cbClient);
@@ -436,6 +438,13 @@ namespace WahooV2.WahooUserControl
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "File name:";
+            // 
+            // usPagingBar31
+            // 
+            this.usPagingBar31.Location = new System.Drawing.Point(709, 69);
+            this.usPagingBar31.Name = "usPagingBar31";
+            this.usPagingBar31.Size = new System.Drawing.Size(365, 24);
+            this.usPagingBar31.TabIndex = 11;
             // 
             // usMonitor
             // 
@@ -495,5 +504,6 @@ namespace WahooV2.WahooUserControl
         private System.Windows.Forms.DataGridViewTextBoxColumn clIsSentToPrint;
         private System.Windows.Forms.Label lbPage;
         private usPagingBar2 usPagingBar21;
+        private usPagingBar3 usPagingBar31;
     }
 }
