@@ -94,7 +94,7 @@ namespace WahooV2
                 WahooWebServiceControl _WahooWebServiceControl = new WahooWebServiceControl(strWSDL);
                 if (_WahooWebServiceControl.CheckConnect())
                 {
-                    msg.Inform_msg = WahooConfiguration.Message.GetMessageById("LOGIN_MESS005");
+                    msg.Inform_msg = "Check connect to web service.....";
                     while (dt.AddSeconds(2) > DateTime.Now)
                     {
                     }
