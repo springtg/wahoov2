@@ -30,7 +30,7 @@ namespace WahooV2
             Cursor.Current = Cursors.WaitCursor;
             if (txtUsername.Text.Trim() == "")
             {
-                MessageBox.Show("Username is empty.", "Login fail!", MessageBoxButtons.OK);
+                MessageBox.Show(WahooConfiguration.Message.GetMessageById("LOGIN_MESS001"), WahooConfiguration.Message.GetMessageById("LOGIN_CAPT001"), MessageBoxButtons.OK);
                 return;
             }
             User objUser = new User();
@@ -40,15 +40,17 @@ namespace WahooV2
             List<User> objListUser = WahooBusinessHandler.Get_ListUser(objUser);
             if (objListUser.Count == 0)
             {
-                MessageBox.Show("Invalid usename, password", "Login fail!", MessageBoxButtons.OK);
+                MessageBox.Show(WahooConfiguration.Message.GetMessageById("LOGIN_MESS002"), WahooConfiguration.Message.GetMessageById("LOGIN_CAPT002"), MessageBoxButtons.OK);
                 return;
             }
             this.Hide();
-            objMain = new frmMain();            
-            Thread th = new Thread(new ThreadStart(InitData));
-            
+            objMain = new frmMain();
+            objMain.IdUser = objListUser[0].Id.Value;
+            objMain.RoleUser = objListUser[0].Role.Value;
+            objMain.WindowState = FormWindowState.Maximized;
+            Thread th = new Thread(new ThreadStart(InitData));            
             th.Start();
-            msg = new frmProgress("Loading ...");
+            msg = new frmProgress("");
             msg.ShowDialog();
             if (msg.DialogResult == DialogResult.OK)
             {                          
@@ -57,14 +59,10 @@ namespace WahooV2
             if (error)
             {
                 //Show message have error
-                MessageBox.Show("Can not connect to web service.", "Login fail!", MessageBoxButtons.OK);
+                MessageBox.Show(WahooConfiguration.Message.GetMessageById("LOGIN_MESS004"), WahooConfiguration.Message.GetMessageById("LOGIN_CAPT004"), MessageBoxButtons.OK);
             }
             else
-            {
-                //Thread.CurrentThread.Join();
-                objMain.IdUser = objListUser[0].Id.Value;
-                objMain.RoleUser = objListUser[0].Role.Value;
-                objMain.WindowState = FormWindowState.Maximized;
+            {                            
                 objMain.ShowDialog();
             }
             //objMain.ShowDialog();
@@ -79,7 +77,7 @@ namespace WahooV2
                 //Check connect
                 //msg.Inform_msg = "Check connect to web service.....";
                 DateTime dt = DateTime.Now;
-                msg.Inform_msg = "Check connect to web service.....";
+                msg.Inform_msg = WahooConfiguration.Message.GetMessageById("LOGIN_MESS005");
                 Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
                 string strWSDL = configObl.ReadSetting(AliasMessage.WSDL_URL_CONFIG);
                 WahooWebServiceControl _WahooWebServiceControl = new WahooWebServiceControl(strWSDL);
@@ -90,7 +88,7 @@ namespace WahooV2
                     while (dt.AddSeconds(2) > DateTime.Now)
                     {
                     }
-                    msg.Inform_msg = "Loading data ...";
+                    msg.Inform_msg = WahooConfiguration.Message.GetMessageById("LOGIN_MESS006");
                     //kiem tra connect to web service trong 1 giay
                     objMain.InitData();
                     while (dt.AddSeconds(3) > DateTime.Now)
