@@ -15,9 +15,10 @@ namespace WahooV2.WahooUserControl
         private const string strNameFist = "btnFirst";
         private const string strNameLast = "btnLast";
         private const string strNameNext = "btnNext";
-        private const string strNamePrevious = "btnPrevious";
+        private const string strNamePrev = "btnPrev";
         private const int _iMaxPage = 10;
         private const int _iMinPage = 1;
+        private int _iBlock = 0;
         private int _iAllPage = 0;
         private int _iCurrPage = 0;
         public delegate void getSelectPagebyUser(object sender, EventArgs e);
@@ -45,25 +46,28 @@ namespace WahooV2.WahooUserControl
         {
             _iAllPage = iAllPage;
             _iCurrPage = iCurPage;
-            createButtonBar((_iAllPage >= _iMaxPage) ? _iMaxPage : _iAllPage, iCurPage,true);
+            createButtonBar((_iAllPage >= _iMaxPage) ? _iMaxPage : _iAllPage, iCurPage, true, 0);
         }
 
-        private void createButtonBar(int iNumberPage, int iCurPage, bool isStart)
+        private void createButtonBar(int iNumberPage, int iCurPage, bool isStart, int iBlock)
         {
             toolStrip1.Items.Clear();
             int iBlockBottom = (iCurPage / _iMaxPage) + _iMaxPage;//gioi han duoi
             int iBlockTop = (iCurPage % _iMaxPage) + _iMaxPage;//gioi han tren
             //tao 4 button dieu khien
-            ToolStripButton btnFist = createButtonToolTip("btnFirst", "<<", _iMinPage);
+            ToolStripButton btnFist = createButtonToolTip(strNameFist, "<<", _iMinPage);
             btnFist.Click += new EventHandler(btnFist_Click);
-            ToolStripButton btnPrev = createButtonToolTip("btnPrev", "<", (_iCurrPage - 1 < _iMinPage) ? _iMinPage : _iCurrPage - 1);
-            ToolStripButton btnLast = createButtonToolTip("btnLast", ">>", _iAllPage);
-            ToolStripButton btnNext = createButtonToolTip("btnNext", ">", (_iCurrPage + 1 > _iMaxPage) ? _iMaxPage : _iCurrPage + 1);
+            ToolStripButton btnPrev = createButtonToolTip(strNamePrev, "<", (isStart == true) ? ((_iCurrPage - 1 == 0) ? _iMinPage : _iCurrPage - 1) : ((_iCurrPage - _iMaxPage == 0) ? _iMinPage : _iCurrPage - _iMaxPage));
+            btnPrev.Click += new EventHandler(btnPrev_Click);
+            ToolStripButton btnLast = createButtonToolTip(strNameLast, ">>", _iAllPage);
+            btnLast.Click += new EventHandler(btnLast_Click);
+            ToolStripButton btnNext = createButtonToolTip(strNameNext, ">", (isStart == true) ? ((_iCurrPage + _iMaxPage <= _iAllPage) ? _iCurrPage + _iMaxPage : _iAllPage) : ((_iCurrPage - _iMaxPage > 0) ? _iCurrPage - _iMaxPage : _iMaxPage));
+            btnNext.Click += new EventHandler(btnNext_Click);
             toolStrip1.Items.Add(btnFist);
             toolStrip1.Items.Add(btnPrev);
-            for (int i = 0; i < iNumberPage; i++)
+            for (int i = 1; i <= iNumberPage; i++)
             {
-                ToolStripButton tmp = createButtonToolTip("btn" + Convert.ToString(i + 1), Convert.ToString(i + 1), iCurPage + i);
+                ToolStripButton tmp = (isStart == true) ? createButtonToolTip("btn" + Convert.ToString(i), Convert.ToString((_iCurrPage - 1) + i), ((_iCurrPage - 1) + i)) : createButtonToolTip("btn" + Convert.ToString(i), Convert.ToString((_iCurrPage - 10) + i), ((_iCurrPage - 10) + i));
                 tmp.Click += new EventHandler(tmp_Click);
                 toolStrip1.Items.Add(tmp);
             }
@@ -77,24 +81,124 @@ namespace WahooV2.WahooUserControl
             {
                 setCurrPage("btn" + Convert.ToString(iNumberPage));
             }
-            toolStrip1.ResumeLayout(false);
-            toolStrip1.PerformLayout();
+            if (_iCurrPage.Equals("1"))
+            {
+                btnFist.Enabled = false;
+            }
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            //if (_iCurrPage.Equals(WahooConfiguration.DataTypeProtect.ProtectInt32(((ToolStripButton)sender).Tag) - 1) && _iCurrPage < _iAllPage)
+            if (_iCurrPage.Equals((_iBlock + 1) * _iMaxPage) && _iCurrPage < _iAllPage)
+            {
+                _iCurrPage = _iCurrPage + 1;
+                int iBlockBottom = (_iCurrPage / _iMaxPage) + _iMaxPage;//gioi han duoi
+                int iBlockTop = (_iCurrPage % _iMaxPage) + _iMaxPage;//gioi han tren
+                _iBlock = _iCurrPage / _iMaxPage;// = iBlockBottom;
+                int numPage = ((_iMaxPage * _iBlock) + _iMaxPage > _iAllPage) ? _iAllPage - (_iMaxPage * _iBlock) : _iMaxPage;
+                createButtonBar(numPage, _iCurrPage, true, _iBlock);
+            }
+            else
+            {
+                ToolStripButton btnTmp = getSender();
+                if (btnTmp != null)
+                {
+                    moveSelected((object)btnTmp, e, 1);
+                }
+            }
+        }
+        private ToolStripButton getSender()
+        {
+            foreach (ToolStripButton item in toolStrip1.Items)
+            {
+                if (item.Checked)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+        private ToolStripButton getSender(int iValue)
+        {
+            foreach (ToolStripButton item in toolStrip1.Items)
+            {
+                if (item.Tag.Equals(iValue))
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+        void btnLast_Click(object sender, EventArgs e)
+        {
+
+            _iBlock = (_iAllPage % _iMaxPage == 0) ? (_iAllPage / _iMaxPage) : ((_iAllPage / _iMaxPage) + 1);
+            _iBlock = _iBlock - 1;
+            _iCurrPage = _iBlock * _iMaxPage + 1;
+            int numPage = ((_iMaxPage * _iBlock) + _iMaxPage > _iAllPage) ? _iAllPage -(_iMaxPage * _iBlock) : _iMaxPage;
+            createButtonBar(numPage, _iCurrPage, true, _iBlock);
+        }
+
+        void btnPrev_Click(object sender, EventArgs e)
+        {
+            //if ( _iCurrPage > _iMaxPage)
+            if (_iCurrPage.Equals((_iBlock * _iMaxPage) + 1) && _iCurrPage < _iAllPage)
+            {
+                _iCurrPage = _iCurrPage - 1;
+                int iBlockBottom = (_iCurrPage / _iMaxPage) + _iMaxPage;//gioi han duoi
+                int iBlockTop = (_iCurrPage % _iMaxPage) + _iMaxPage;//gioi han tren
+                _iBlock = _iCurrPage / _iMaxPage;// = iBlockBottom;
+                int numPage = ((_iMaxPage * _iBlock) + _iMaxPage > _iAllPage) ? _iAllPage - (_iMaxPage * _iBlock) : _iMaxPage;
+                createButtonBar(numPage, _iCurrPage, false, _iBlock);
+            }
+            else
+            {
+                ToolStripButton btnTmp = getSender();
+                if (btnTmp != null)
+                {
+                    moveSelected((object)btnTmp, e, -1);
+                }
+            }
         }
 
         void btnFist_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            _iCurrPage = 1;
+            _iBlock = 0;
+            int numPage = ((_iMaxPage * _iBlock) + _iMaxPage > _iAllPage) ? _iAllPage - (_iMaxPage * _iBlock) : _iMaxPage;
+            createButtonBar(numPage, _iCurrPage, true, _iBlock);
         }
 
         void tmp_Click(object sender, EventArgs e)
         {
             //TODO: xu ly cho tung nut
-            moveSelected(sender, e);
+            moveSelected(sender, e, 0);
         }
 
         private void setCurrPage(ToolStripButton ctrl)
         {
             ctrl.Checked = true;
+            if (_iCurrPage.Equals(1))
+            {
+                setEnableControl(strNameFist, false);
+                setEnableControl(strNamePrev, false);
+            }
+            else
+            {
+                setEnableControl(strNameFist, true);
+                setEnableControl(strNamePrev, true);
+            }
+            if (_iCurrPage.Equals(_iAllPage))
+            {
+                setEnableControl(strNameLast, false);
+                setEnableControl(strNameNext, false);
+            }
+            else
+            {
+                setEnableControl(strNameLast, true);
+                setEnableControl(strNameNext, true);
+            }
         }
         private void setUnCurrPage(ToolStripButton ctrl)
         {
@@ -104,118 +208,104 @@ namespace WahooV2.WahooUserControl
         {
             foreach (ToolStripButton item in toolStrip1.Items)
             {
-                if (item.Name.Equals(strName))
+                if (!item.Name.Equals(strNameFist) && !item.Name.Equals(strNameLast) && !item.Name.Equals(strNameNext) && !item.Name.Equals(strNamePrev))
                 {
-                    setCurrPage(item);
-                }
-                else
-                {
-                    setUnCurrPage(item);
-                }
-            }
-        }
-
-
-
-
-
-        private int getCurrBlock(int iCurPage)
-        {
-
-
-            int iAllBlock = (_iAllPage % _iMaxPage == 0) ? _iAllPage / _iMaxPage : ((_iAllPage / _iMaxPage) + (_iAllPage % _iMaxPage));
-
-            return iCurPage / _iMaxPage;
-        }
-
-        
-
-        private void usPagingBar_Load(object sender, EventArgs e)
-        {
-
-        }
-        
-        
-
-
-        public void setActiveControl(int iAllPageNum, int iCurrPage)
-        {
-            //_allPage = iAllPageNum;
-            //enableAllControl(toolStrip1, "btn");
-            //setUnCurrentPage();
-            ////neu la la it hon 10 page thi hien thi tat cac cac nut la disable 1 nut hai ben
-            //if (iAllPageNum <= 10)
-            //{
-            //    //diable 4 nut hai ben
-            //    btnFirst.Enabled = false;
-            //    btnLast.Enabled = false;
-            //    btnNext.Enabled = false;
-            //    btnPrevious.Enabled = false;
-            //    for (int i = 10; i > iAllPageNum; i--)
-            //    {
-            //        setDisableBTN("btn" + i.ToString());
-            //    }
-            //    if (iAllPageNum.Equals(0) || iAllPageNum.Equals(1))
-            //    {
-            //        btn1.Enabled = false;
-            //        return;
-            //    }
-            //}
-            ////set page hien tai
-            //setCurrentpage(btn1, iCurrPage, iAllPageNum);
-            ////set value cho control
-            //for (int i = 0; i < iAllPageNum; i++)
-            //{
-            //    setValuetoControl("btn" + Convert.ToString(i + 1), i + 1);
-            //}
-            //btnFirst.Tag = 1;
-            //btnLast.Tag = iAllPageNum;
-            //btnNext.Tag = iCurrPage + 1;
-            //btnPrevious.Tag = (iCurrPage - 1 == 0) ? 1 : iCurrPage - 1;
-            //btnFirst.ToolTipText = Convert.ToString(1);
-            //btnNext.ToolTipText = Convert.ToString(iCurrPage + 1);
-            //btnLast.ToolTipText = Convert.ToString(iAllPageNum);
-            //btnPrevious.ToolTipText = (iCurrPage == 0) ? Convert.ToString(iCurrPage - 1) : Convert.ToString(iCurrPage);
-        }
-
-        private void setDisableBTN(string btnName)
-        {
-            foreach (ToolStripButton item in toolStrip1.Items)
-            {
-                if (item.Name.Equals(btnName))
-                {
-                    item.Visible = false;
-                }
-            }
-        }
-
-        
-
-        
-
-       
-
-        private void setValuetoControl(string ctrlname, int iPageValue)
-        {
-            //if (iPageValue > _allPage)
-            //{
-            //    return;
-            //}
-            foreach (ToolStripButton item in toolStrip1.Items)
-            {
-                if (item.Name.Equals(ctrlname))
-                {
-                    item.Tag = iPageValue;
-                    item.ToolTipText = iPageValue.ToString();
-                    if (!item.Name.Equals(strNameFist) && !item.Name.Equals(strNameLast) && !item.Name.Equals(strNameNext) && !item.Name.Equals(strNamePrevious))
+                    if (item.Name.Equals(strName))
                     {
-                        item.Text = iPageValue.ToString();
+                        setCurrPage(item);
+                    }
+                    else
+                    {
+                        setUnCurrPage(item);
+                    }
+                }
+            }
+        }
+        private void setCurrPage(int iValue)
+        {
+            foreach (ToolStripButton item in toolStrip1.Items)
+            {
+                if (!item.Name.Equals(strNameFist) && !item.Name.Equals(strNameLast) && !item.Name.Equals(strNameNext) && !item.Name.Equals(strNamePrev))
+                {
+                    if (item.Tag.Equals(iValue))
+                    {
+                        setCurrPage(item);
+                    }
+                    else
+                    {
+                        setUnCurrPage(item);
                     }
                 }
             }
         }
 
-       
+        /// <summary>
+        /// set gia tri page cho
+        /// </summary>
+        /// <param name="ctrl"></param>
+        /// <param name="iValue"></param>
+        private void setValuetoControl(ToolStripButton ctrl, int iValue)
+        {
+            ctrl.Tag = iValue;
+            ctrl.ToolTipText = iValue.ToString();
+            if (!ctrl.Name.Equals(strNameFist) && !ctrl.Name.Equals(strNameLast) && !ctrl.Name.Equals(strNameNext) && !ctrl.Name.Equals(strNamePrev))
+            {
+                ctrl.Text = iValue.ToString();
+            }
+        }
+
+        private void setValuetoControl(bool isNext)
+        {
+            int iBlockBottom = (_iCurrPage / _iMaxPage) + _iMaxPage;//gioi han duoi
+            int iBlockTop = (_iCurrPage % _iMaxPage) + _iMaxPage;//gioi han tren
+            int iValue = iBlockBottom;
+            foreach (ToolStripButton item in toolStrip1.Items)
+            {
+                if (!item.Name.Equals(strNameFist) && !item.Name.Equals(strNameLast) && !item.Name.Equals(strNameNext) && !item.Name.Equals(strNamePrev))
+                {
+                    if (isNext)
+                    {
+                        setValuetoControl(item, ((WahooConfiguration.DataTypeProtect.ProtectInt32(item.Tag) + 1) * _iBlock) + 1);
+                    }
+                    else
+                    {
+                        setValuetoControl(item, WahooConfiguration.DataTypeProtect.ProtectInt32(item.Tag) - 1);
+                    }
+                }
+                else
+                {
+
+                    //tao 4 button dieu khien
+                    setValuetoControl(item, _iMinPage);
+                    setValuetoControl(item, (_iCurrPage - 1 < _iMinPage) ? _iMinPage : _iCurrPage - 1);
+                    setValuetoControl(item, _iAllPage);
+                    setValuetoControl(item, (_iCurrPage + 1 > _iMaxPage) ? _iMaxPage : _iCurrPage + 1);
+
+                }
+            }
+        }
+        private void setEnableControl(string strName, bool enable)
+        {
+            foreach (ToolStripButton item in toolStrip1.Items)
+            {
+                if (item.Name.Equals(strName))
+                {
+                    item.Enabled = enable;
+                }
+            }
+        }
+
+        private int getCurrBlock(int iCurPage)
+        {
+
+            int iAllBlock = (_iAllPage % _iMaxPage == 0) ? _iAllPage / _iMaxPage : ((_iAllPage / _iMaxPage) + (_iAllPage % _iMaxPage));
+            return iCurPage / _iMaxPage;
+        }
+
+        private void usPagingBar_Load(object sender, EventArgs e)
+        {
+
+        }
 
         private int getselectPage(object sender, EventArgs e)
         {
@@ -224,298 +314,50 @@ namespace WahooV2.WahooUserControl
             return temp;
         }
 
-       
-        private void btnNext_Click(object sender, EventArgs e)
+        private void moveSelected(object sender, EventArgs e, int IsNext)
         {
-            //int topCurr = WahooConfiguration.DataTypeProtect.ProtectInt32(btn10.Tag);
-            //int _last = WahooConfiguration.DataTypeProtect.ProtectInt32(btnNext.Tag);
-            //if (iPageSelect.Equals(topCurr) && iPageSelect.Equals(_last - 1))
-            //{
-            //    moveTop(sender, e, btn10);
-            //}
-            //else
-            //{
-            //    MoveSelected(sender, e, btnNext);
-            //    //moveNext(sender, e, btnNext);
-            //}
+            switch (IsNext)
+            {
+                case 1:
+                    _iCurrPage = getselectPage(sender, e) + 1;
+                    break;
+                case -1:
+                    _iCurrPage = getselectPage(sender, e) - 1;
+                    setCurrPage(_iCurrPage);
+                    break;
+                case 0:
+                    _iCurrPage = getselectPage(sender, e);
+                    break;
+            }
+            if (IsNext != -1)
+            {
+                if (((ToolStripButton)sender).Name.Equals(strNameNext) || ((ToolStripButton)sender).Name.Equals(strNamePrev))
+                {
+                    setCurrPage(_iCurrPage);//((ToolStripButton)sender).Name);
+                }
+                else
+                {
+                    ToolStripButton Tmp = getSender(_iCurrPage);
+                    if (Tmp != null)
+                    {
+                        setCurrPage(Tmp.Name);
+                    }
+                }
+            }
+            foreach (ToolStripButton item in toolStrip1.Items)
+            {
+                if (item.Name.Equals(strNameNext))
+                {
+                    setValuetoControl(item, _iCurrPage + 1);
+                }
+                if (item.Name.Equals(strNamePrev))
+                {
+                    setValuetoControl(item, _iCurrPage - 1);
+                }
+            }
         }
 
-        private void btnLast_Click(object sender, EventArgs e)
-        {
-            //iPageSelect = getselectPage(sender, e, btnLast);
-            // moveLast(sender, e, btnLast);
-        }
 
-        private void btnFirst_Click(object sender, EventArgs e)
-        {
-            //iPageSelect = getselectPage(sender, e, btnFirst);
-            //  moveFirst(sender, e, btnFirst);
-        }
-
-        private void btnPrevious_Click(object sender, EventArgs e)
-        {
-            //int bottomCurr = WahooConfiguration.DataTypeProtect.ProtectInt32(btn1.Tag);
-            //int _first = WahooConfiguration.DataTypeProtect.ProtectInt32(btnFirst.Tag);
-            //iPageSelect = getselectPage(sender, e, btnPrevious);
-            //if (iPageSelect.Equals(bottomCurr - 1))//&& iPageSelect.Equals(_first))
-            //{
-            //    moveBottom(sender, e, btn1);
-            //}
-            //else
-            //{
-            //    bPrev = true;
-            //    MoveSelected(sender, e, btnNext);
-            //movePrevious(sender, e, btnPrevious);
-            //moveNext(sender, e, btnNext);
-            // }
-            // movePrevious(sender, e, btnPrevious);
-        }
-
-        private void moveNext(object sender, EventArgs e, ToolStripButton ctrl)
-        {
-            //if (_allPage > 10)
-            //{
-            //    int iSectionPage = iPageSelect;//= (_allPage % 10) - (_allPage / 10); 
-            //    iPageSelect = getselectPage(sender, e, ctrl);
-            //    if (WahooConfiguration.DataTypeProtect.ProtectInt32(btn10.Tag) + 1 <= _allPage)
-            //    {
-            //        setValuetoControl(btnPrevious.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btnPrevious.Tag) - 1);
-            //        setValuetoControl(btn1.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn1.Tag) + 1);
-            //        setValuetoControl(btn2.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn2.Tag) + 1);
-            //        setValuetoControl(btn3.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn3.Tag) + 1);
-            //        setValuetoControl(btn4.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn4.Tag) + 1);
-            //        setValuetoControl(btn5.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn5.Tag) + 1);
-            //        setValuetoControl(btn6.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn6.Tag) + 1);
-            //        setValuetoControl(btn7.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn7.Tag) + 1);
-            //        setValuetoControl(btn8.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn8.Tag) + 1);
-            //        setValuetoControl(btn9.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn9.Tag) + 1);
-            //        setValuetoControl(btn10.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn10.Tag) + 1);
-            //        setValuetoControl(btnNext.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btnNext.Tag) + 1);
-            //        setCurrentpage(iPageSelect);
-            //    }
-            //    else
-            //    {
-            //        setCurrentpage(iPageSelect);
-            //    }
-            //}
-            //else
-            //{
-            //    int iSectionPage = iPageSelect;//= (_allPage % 10) - (_allPage / 10); 
-            //    iPageSelect = getselectPage(sender, e, ctrl);
-            //    setCurrentpage(iPageSelect);
-            //}
-        }
-
-        private void movePrevious(object sender, EventArgs e, ToolStripButton ctrl)
-        {
-            //if (_allPage > 10)
-            //{
-            //    int iSectionPage = iPageSelect;
-            //    iPageSelect = getselectPage(sender, e, ctrl);
-            //    if (WahooConfiguration.DataTypeProtect.ProtectInt32(btn1.Tag) - 1 >= 1)
-            //    {
-            //        setValuetoControl(btnPrevious.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btnPrevious.Tag) - 1);
-            //        setValuetoControl(btn1.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn1.Tag) - 1);
-            //        setValuetoControl(btn2.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn2.Tag) - 1);
-            //        setValuetoControl(btn3.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn3.Tag) - 1);
-            //        setValuetoControl(btn4.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn4.Tag) - 1);
-            //        setValuetoControl(btn5.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn5.Tag) - 1);
-            //        setValuetoControl(btn6.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn6.Tag) - 1);
-            //        setValuetoControl(btn7.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn7.Tag) - 1);
-            //        setValuetoControl(btn8.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn8.Tag) - 1);
-            //        setValuetoControl(btn9.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn9.Tag) - 1);
-            //        setValuetoControl(btn10.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn10.Tag) - 1);
-            //        setValuetoControl(btnNext.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btnNext.Tag) - 1);
-            //        setCurrentpage(iPageSelect);
-            //    }
-            //    else
-            //    {
-            //        setCurrentpage(iPageSelect);
-            //    }
-            //}
-            //else
-            //{
-            //    int iSectionPage = iPageSelect;
-            //    iPageSelect = getselectPage(sender, e, ctrl);
-            //    setCurrentpage(iPageSelect);
-            //}
-
-        }
-
-        private void moveFirst(object sender, EventArgs e, ToolStripButton ctrl)
-        {
-            getselectPage(sender, e);
-            // setActiveControl(_allPage, 1);
-
-        }
-
-        private void moveLast(object sender, EventArgs e, ToolStripButton ctrl)
-        {
-            //int iSectionPage = iPageSelect;
-            //iPageSelect = getselectPage(sender, e, ctrl);
-            //if (_allPage > 10)
-            //{
-            //    if (_allPage > 10)
-            //    {
-            //        setValuetoControl(btnPrevious.Name, _allPage - 10);
-            //    }
-            //    if (_allPage > 9)
-            //    {
-            //        setValuetoControl(btn1.Name, _allPage - 9);
-            //    }
-            //    if (_allPage > 8)
-            //    {
-            //        setValuetoControl(btn2.Name, _allPage - 8);
-            //    }
-            //    if (_allPage > 7)
-            //    {
-            //        setValuetoControl(btn3.Name, _allPage - 7);
-            //    }
-            //    if (_allPage > 6)
-            //    {
-            //        setValuetoControl(btn4.Name, _allPage - 6);
-            //    }
-            //    if (_allPage > 5)
-            //    {
-            //        setValuetoControl(btn5.Name, _allPage - 5);
-            //    }
-            //    if (_allPage > 4)
-            //    {
-            //        setValuetoControl(btn6.Name, _allPage - 4);
-            //    }
-            //    if (_allPage > 3)
-            //    {
-            //        setValuetoControl(btn7.Name, _allPage - 3);
-            //    }
-            //    if (_allPage > 2)
-            //    {
-            //        setValuetoControl(btn8.Name, _allPage - 2);
-            //    }
-            //    if (_allPage > 1)
-            //    {
-            //        setValuetoControl(btn9.Name, _allPage - 1);
-            //    }
-            //    setValuetoControl(btn10.Name, _allPage);
-            //    setValuetoControl(btnNext.Name, _allPage);
-            //    setCurrentpage(_allPage);
-            //}
-            //else
-            //{
-            //    setCurrentpage(_allPage);
-            //}
-        }
-        bool bPrev = false;
-        private void moveSelected(object sender, EventArgs e)
-        {
-            _iCurrPage = getselectPage(sender, e);
-            setCurrPage(((ToolStripButton)sender).Name);
-            //if (!bPrev)
-            //{
-            //    iPageSelect = getselectPage(sender, e, ctrl);
-            //}
-            //else
-            //{
-            //      iPageSelect = getselectPage(sender, e, ctrl)-2;
-            //}
-            //setCurrentpage(iPageSelect);
-            //bPrev = false;
-        }
-
-        private void moveTop(object sender, EventArgs e, ToolStripButton ctrl)
-        {
-            //int topCurr = WahooConfiguration.DataTypeProtect.ProtectInt32(btn10.Tag);
-            //if (topCurr + iMax <= _allPage)
-            //{
-            //    int iSectionPage = iPageSelect;//= (_allPage % 10) - (_allPage / 10); 
-            //    iPageSelect = getselectPage(sender, e, ctrl);
-            //    if (topCurr + 1 <= _allPage)
-            //    {
-            //        setValuetoControl(btnPrevious.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btnPrevious.Tag) - 10);
-            //        setValuetoControl(btn1.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn1.Tag) + 10);
-            //        setValuetoControl(btn2.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn2.Tag) + 10);
-            //        setValuetoControl(btn3.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn3.Tag) + 10);
-            //        setValuetoControl(btn4.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn4.Tag) + 10);
-            //        setValuetoControl(btn5.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn5.Tag) + 10);
-            //        setValuetoControl(btn6.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn6.Tag) + 10);
-            //        setValuetoControl(btn7.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn7.Tag) + 10);
-            //        setValuetoControl(btn8.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn8.Tag) + 10);
-            //        setValuetoControl(btn9.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn9.Tag) + 10);
-            //        if (topCurr > 10)
-            //        {
-            //            setValuetoControl(btn10.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn10.Tag) + 10);
-            //        }
-            //        else
-            //        {
-            //            btn10.Visible = false;
-            //        }
-            //        setValuetoControl(btnNext.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btnNext.Tag) + 10);
-            //        setCurrentpage(iPageSelect + 1);
-            //    }
-            //    else
-            //    {
-            //        setCurrentpage(iPageSelect);
-            //    }
-            //}
-            //else
-            //{
-
-            //    setValuetoControl(btn1.Name, _allPage - 9);
-            //    setValuetoControl(btnPrevious.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn1.Tag) - 1);
-            //    setValuetoControl(btn2.Name, _allPage - 8);
-            //    setValuetoControl(btn3.Name, _allPage - 7);
-            //    setValuetoControl(btn4.Name, _allPage - 6);
-            //    setValuetoControl(btn5.Name, _allPage - 5);
-            //    setValuetoControl(btn6.Name, _allPage - 4);
-            //    setValuetoControl(btn7.Name, _allPage - 3);
-            //    setValuetoControl(btn8.Name, _allPage - 2);
-            //    setValuetoControl(btn9.Name, _allPage - 1);
-            //    setValuetoControl(btn10.Name, _allPage);
-            //    setValuetoControl(btnNext.Name, _allPage);
-            //    setCurrentpage(iPageSelect + 1);
-            //    //int iSectionPage = iPageSelect;//= (_allPage % 10) - (_allPage / 10); 
-            //    //iPageSelect = getselectPage(sender, e, ctrl);
-            //    //setCurrentpage(iPageSelect);
-            //}
-        }
-
-        private void moveBottom(object sender, EventArgs e, ToolStripButton ctrl)
-        {
-            //int topCurr = WahooConfiguration.DataTypeProtect.ProtectInt32(btn1.Tag);
-            //if (topCurr - iMax >= 1)
-            //{
-            //    //int iSectionPage = iPageSelect;
-            //    //iPageSelect = getselectPage(sender, e, ctrl)-1;
-            //    if (topCurr - 1 >= 1)
-            //    {
-            //        setValuetoControl(btnPrevious.Name, (WahooConfiguration.DataTypeProtect.ProtectInt32(btnPrevious.Tag) - 10 == 0) ? 1 : (WahooConfiguration.DataTypeProtect.ProtectInt32(btnPrevious.Tag) - 10));
-            //        setValuetoControl(btn1.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn1.Tag) - 10);
-            //        setValuetoControl(btn2.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn2.Tag) - 10);
-            //        setValuetoControl(btn3.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn3.Tag) - 10);
-            //        setValuetoControl(btn4.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn4.Tag) - 10);
-            //        setValuetoControl(btn5.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn5.Tag) - 10);
-            //        setValuetoControl(btn6.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn6.Tag) - 10);
-            //        setValuetoControl(btn7.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn7.Tag) - 10);
-            //        setValuetoControl(btn8.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn8.Tag) - 10);
-            //        setValuetoControl(btn9.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn9.Tag) - 10);
-            //        setValuetoControl(btn10.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btn10.Tag) - 10);
-            //        setValuetoControl(btnNext.Name, WahooConfiguration.DataTypeProtect.ProtectInt32(btnNext.Tag) - 10);
-            //        setCurrentpage(iPageSelect);
-            //    }
-            //    else
-            //    {
-            //        setCurrentpage(iPageSelect);
-            //    }
-            //}
-            //else
-            //{
-            //    int iSectionPage = iPageSelect;
-            //    iPageSelect = getselectPage(sender, e, ctrl);
-            //    setCurrentpage(iPageSelect);
-            //}
-
-
-
-        }
     }
 }
 
