@@ -59,15 +59,14 @@ namespace WahooV2.WahooUserControl
             this.txtDownloadStatus = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlNavigative = new System.Windows.Forms.Panel();
-            this.usPagingBar21 = new WahooV2.WahooUserControl.usPagingBar2();
             this.lbPage = new System.Windows.Forms.Label();
             this.txtFilename = new System.Windows.Forms.TextBox();
             this.dptDateFrom = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.gbSearchInfo = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.usPagingBar31 = new WahooV2.WahooUserControl.usPagingBar3();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridReport)).BeginInit();
             this.gbResult.SuspendLayout();
             this.pnlNavigative.SuspendLayout();
@@ -345,20 +344,13 @@ namespace WahooV2.WahooUserControl
             // 
             // pnlNavigative
             // 
-            this.pnlNavigative.Controls.Add(this.usPagingBar21);
+            this.pnlNavigative.Controls.Add(this.usPagingBar31);
             this.pnlNavigative.Controls.Add(this.lbPage);
             this.pnlNavigative.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlNavigative.Location = new System.Drawing.Point(0, 649);
             this.pnlNavigative.Name = "pnlNavigative";
             this.pnlNavigative.Size = new System.Drawing.Size(1106, 41);
             this.pnlNavigative.TabIndex = 3;
-            // 
-            // usPagingBar21
-            // 
-            this.usPagingBar21.Location = new System.Drawing.Point(371, 8);
-            this.usPagingBar21.Name = "usPagingBar21";
-            this.usPagingBar21.Size = new System.Drawing.Size(413, 25);
-            this.usPagingBar21.TabIndex = 11;
             // 
             // lbPage
             // 
@@ -411,7 +403,6 @@ namespace WahooV2.WahooUserControl
             // 
             this.gbSearchInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbSearchInfo.Controls.Add(this.usPagingBar31);
             this.gbSearchInfo.Controls.Add(this.txtTotalFiles);
             this.gbSearchInfo.Controls.Add(this.cbFilterSearch);
             this.gbSearchInfo.Controls.Add(this.cbClient);
@@ -430,6 +421,13 @@ namespace WahooV2.WahooUserControl
             this.gbSearchInfo.TabStop = false;
             this.gbSearchInfo.Text = "Search Information";
             // 
+            // usPagingBar31
+            // 
+            this.usPagingBar31.Location = new System.Drawing.Point(371, 8);
+            this.usPagingBar31.Name = "usPagingBar31";
+            this.usPagingBar31.Size = new System.Drawing.Size(365, 24);
+            this.usPagingBar31.TabIndex = 11;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -438,13 +436,6 @@ namespace WahooV2.WahooUserControl
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "File name:";
-            // 
-            // usPagingBar31
-            // 
-            this.usPagingBar31.Location = new System.Drawing.Point(709, 69);
-            this.usPagingBar31.Name = "usPagingBar31";
-            this.usPagingBar31.Size = new System.Drawing.Size(365, 24);
-            this.usPagingBar31.TabIndex = 11;
             // 
             // usMonitor
             // 
@@ -503,7 +494,6 @@ namespace WahooV2.WahooUserControl
         private System.Windows.Forms.DataGridViewTextBoxColumn clSuccess;
         private System.Windows.Forms.DataGridViewTextBoxColumn clIsSentToPrint;
         private System.Windows.Forms.Label lbPage;
-        private usPagingBar2 usPagingBar21;
         private usPagingBar3 usPagingBar31;
     }
 }
