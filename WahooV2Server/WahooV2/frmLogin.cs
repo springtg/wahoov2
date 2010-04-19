@@ -9,13 +9,17 @@ using System.Windows.Forms;
 using WahooData.DBO;
 using WahooData.BusinessHandler;
 using System.Threading;
+using WahooData.DBO.Base;
+using WahooConfiguration;
+using WahooServiceControl;
 
 namespace WahooV2
 {
-    public partial class frmLogin : Form
+    public partial class frmLogin : frmBase
     {
         private frmMain objMain;
         frmProgress msg;
+        Boolean error = false;
         public frmLogin()
         {
             InitializeComponent();
@@ -30,64 +34,67 @@ namespace WahooV2
                 return;
             }
             User objUser = new User();
-            objUser.Username=txtUsername.Text;
-            objUser.Password=txtPassword.Text;
+            objUser.Username = txtUsername.Text;
+            objUser.Password = txtPassword.Text;
             //Lay ra User
-            List<User> objListUser=WahooBusinessHandler.Get_ListUser(objUser);
-            if (objListUser.Count==0)
+            List<User> objListUser = WahooBusinessHandler.Get_ListUser(objUser);
+            if (objListUser.Count == 0)
             {
                 MessageBox.Show("Invalid usename, password", "Login fail!", MessageBoxButtons.OK);
                 return;
             }
             this.Hide();
             objMain = new frmMain();
-            //Thread th = new Thread(new ThreadStart(CheckConnecting));
-            //th.Start();
-            //msg = new frmProgress("Connecting to webservice ...");
-            //msg.ShowDialog();
-            //if (msg.DialogResult == DialogResult.OK)
-            //{
-            //    th.Abort();
-            //}
             objMain.IdUser = objListUser[0].Id.Value;
             objMain.RoleUser = objListUser[0].Role.Value;
             objMain.WindowState = FormWindowState.Maximized;
-            objMain.ShowDialog();
-            this.Close();
-            Cursor.Current = Cursors.Default;
-
-
-            //this.Hide();
-            //objMain = new frmMain();
-            //Thread th = new Thread(new ThreadStart(CheckConnecting));
-            //th.Start();
-            //msg = new frmProgress("Loading data...");
-            //msg.ShowDialog();
-            //if (msg.DialogResult == DialogResult.OK)
-            //    th.Abort();
-            ////objMain.InitData();
+            Thread th = new Thread(new ThreadStart(InitData));
+            th.Start();
+            msg = new frmProgress("Loading data ...");
+            msg.ShowDialog();
+            if (msg.DialogResult == DialogResult.OK)
+            {
+                th.Abort();
+            }
+            if (error)
+            {
+                //Show message have error
+                MessageBox.Show("Can not connect to web service.", "Login fail!", MessageBoxButtons.OK);
+            }
+            else
+            {
+                objMain.ShowDialog();
+            }
             //objMain.ShowDialog();
-            //this.Close();
-            //Cursor.Current = Cursors.Default;
+            this.Close();            
+            Cursor.Current = Cursors.Default;
+        }
 
-        }        
-
-        private void CheckConnecting()
+        private void InitData()
         {
             try
             {
-                ////goi ham kien tra xem co ket noi toi webservice ko.
-                //msg.Inform_msg = "Dang kiem tra ket noi den server";
-                ////viet ham kiem tra ket noi
-                //Thread.Sleep(5000);
-                //msg.Inform_msg = "Dang kiem tra ket noi den database";
-                //Thread.Sleep(5000);
+                //Check connect
+                //msg.Inform_msg = "Check connect to web service.....";
+                Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
+                string strWSDL = configObl.ReadSetting(AliasMessage.WSDL_URL_CONFIG);
+                WahooWebServiceControl _WahooWebServiceControl = new WahooWebServiceControl(strWSDL);
+                if (_WahooWebServiceControl.CheckConnect())
+                {
+                    objMain.InitData();
+                }
+                else
+                {
+                    error = true;
+                }
+                //objMain.InitData();
                 msg.DialogResult = DialogResult.OK;
-                msg.Close();
+                
             }
             catch (Exception ex)
             {
-                
+                error = true;
+                msg.DialogResult = DialogResult.OK;
             }
         }
 
