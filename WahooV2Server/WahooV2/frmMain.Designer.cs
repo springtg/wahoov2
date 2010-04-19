@@ -183,7 +183,7 @@
             this.linkLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkLogout.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkLogout.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkLogout.Location = new System.Drawing.Point(14, 65);
+            this.linkLogout.Location = new System.Drawing.Point(14, 45);
             this.linkLogout.Name = "linkLogout";
             this.linkLogout.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.linkLogout.Size = new System.Drawing.Size(115, 16);
@@ -210,6 +210,7 @@
             this.linkHelp.TabIndex = 31;
             this.linkHelp.TabStop = true;
             this.linkHelp.Text = "Help";
+            this.linkHelp.Visible = false;
             this.linkHelp.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             // 
             // xpPanelClient

@@ -62,7 +62,7 @@ namespace WahooV2
             objMain.WindowState = FormWindowState.Maximized;
             Thread th = new Thread(new ThreadStart(InitData));
             th.Start();
-            msg = new frmProgress(WahooConfiguration.Message.GetMessageById("LOGIN_MESS003"));
+            msg = new frmProgress("Loading ...");
             msg.ShowDialog();
             if (msg.DialogResult == DialogResult.OK)
             {
