@@ -60,3 +60,11 @@ namespace HL7Source.Properties {
             }
         }
         
+        internal static byte[] FoxitReader {
+            get {
+                object obj = ResourceManager.GetObject("FoxitReader", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+    }
+}
