@@ -62,7 +62,7 @@ namespace WahooV2
             objMain.WindowState = FormWindowState.Maximized;
             Thread th = new Thread(new ThreadStart(InitData));
             th.Start();
-            msg = new frmProgress("Loading data ...");
+            msg = new frmProgress("");
             msg.ShowDialog();
             if (msg.DialogResult == DialogResult.OK)
             {
@@ -88,12 +88,21 @@ namespace WahooV2
             {
                 //Check connect
                 //msg.Inform_msg = "Check connect to web service.....";
+                DateTime dt = DateTime.Now;
                 Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
                 string strWSDL = configObl.ReadSetting(AliasMessage.WSDL_URL_CONFIG);
                 WahooWebServiceControl _WahooWebServiceControl = new WahooWebServiceControl(strWSDL);
                 if (_WahooWebServiceControl.CheckConnect())
                 {
+                    msg.Inform_msg = "Check connect to web service.....";
+                    while (dt.AddSeconds(2) > DateTime.Now)
+                    {
+                    }
+                    msg.Inform_msg = "Loading data ...";
                     objMain.InitData();
+                    while (dt.AddSeconds(3) > DateTime.Now)
+                    {
+                    }
                 }
                 else
                 {

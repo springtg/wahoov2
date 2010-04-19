@@ -75,8 +75,9 @@ namespace WahooV2
             this.MinimizeBox = false;
             this.Name = "frmProgress";
             this.RightToLeftLayout = true;
+            this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.pbxProcessImg)).EndInit();
             this.ResumeLayout(false);
 
