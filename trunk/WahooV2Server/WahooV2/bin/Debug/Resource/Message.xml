@@ -69,13 +69,15 @@
   <MSG MessageId="LOGIN_MESS001" Value="Username is empty." />
   <MSG MessageId="LOGIN_MESS002" Value="Invalid usename, password." />
   <MSG MessageId="LOGIN_MESS003" Value="Loading ..." />
-  <MSG MessageId="LOGIN_MESS004" Value="Can not connect to web service." />
-  <MSG MessageId="LOGIN_MESS005" Value="Check connect to web service....." />
+  <MSG MessageId="LOGIN_MESS004" Value="Connect to web server failed." />
+  <MSG MessageId="LOGIN_MESS005" Value="Check connecting to web server....." />
   <MSG MessageId="LOGIN_MESS006" Value="Loading data ..." />
+  <MSG MessageId="LOGIN_MESS007" Value="Connect failed: {0}" />
+  <MSG MessageId="LOGIN_MESS008" Value="Connected: {0}" />
   <MSG MessageId="LOGIN_CAPT001" Value="Login fail!" />
   <MSG MessageId="LOGIN_CAPT002" Value="Login fail!" />
   <MSG MessageId="LOGIN_CAPT004" Value="Login fail!" />
-  <MSG MessageId="LOGIN_CAPT005" Value="" />
+  
   <!-- END INFORM MESSAGE FOR LOGIN-->
   
   
