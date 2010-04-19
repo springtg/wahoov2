@@ -71,6 +71,9 @@
             this.lblTop = new System.Windows.Forms.Label();
             this.bgwMain = new System.ComponentModel.BackgroundWorker();
             this.tmMain = new System.Timers.Timer();
+            this.xpPanelBottom = new UIComponents.XPPanelGroup();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.statusLabelConWebService = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelLeft)).BeginInit();
             this.xpPanelLeft.SuspendLayout();
             this.xpPanelOther.SuspendLayout();
@@ -82,6 +85,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroupTop)).BeginInit();
             this.xpPanelGroupTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tmMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpPanelBottom)).BeginInit();
+            this.xpPanelBottom.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // iconList
@@ -135,7 +141,7 @@
             this.xpPanelLeft.Name = "xpPanelLeft";
             this.xpPanelLeft.PanelGradient = ((UIComponents.GradientColor)(resources.GetObject("xpPanelLeft.PanelGradient")));
             this.xpPanelLeft.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.xpPanelLeft.Size = new System.Drawing.Size(166, 734);
+            this.xpPanelLeft.Size = new System.Drawing.Size(166, 712);
             this.xpPanelLeft.TabIndex = 0;
             // 
             // xpPanelOther
@@ -894,7 +900,7 @@
             this.pnMain.Location = new System.Drawing.Point(166, 44);
             this.pnMain.Margin = new System.Windows.Forms.Padding(0);
             this.pnMain.Name = "pnMain";
-            this.pnMain.Size = new System.Drawing.Size(1106, 690);
+            this.pnMain.Size = new System.Drawing.Size(1106, 668);
             this.pnMain.TabIndex = 0;
             // 
             // xpPanelGroupTop
@@ -933,11 +939,45 @@
             this.tmMain.SynchronizingObject = this;
             this.tmMain.Elapsed += new System.Timers.ElapsedEventHandler(this.tmMain_Elapsed);
             // 
+            // xpPanelBottom
+            // 
+            this.xpPanelBottom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.xpPanelBottom.AutoScroll = true;
+            this.xpPanelBottom.BackColor = System.Drawing.Color.Transparent;
+            this.xpPanelBottom.Controls.Add(this.statusStrip1);
+            this.xpPanelBottom.Location = new System.Drawing.Point(0, 712);
+            this.xpPanelBottom.Margin = new System.Windows.Forms.Padding(0);
+            this.xpPanelBottom.Name = "xpPanelBottom";
+            this.xpPanelBottom.PanelGradient = ((UIComponents.GradientColor)(resources.GetObject("xpPanelBottom.PanelGradient")));
+            this.xpPanelBottom.Size = new System.Drawing.Size(1272, 22);
+            this.xpPanelBottom.TabIndex = 1;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusLabelConWebService});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 0);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1272, 22);
+            this.statusStrip1.TabIndex = 0;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // statusLabelConWebService
+            // 
+            this.statusLabelConWebService.AutoSize = false;
+            this.statusLabelConWebService.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
+            this.statusLabelConWebService.Name = "statusLabelConWebService";
+            this.statusLabelConWebService.Size = new System.Drawing.Size(300, 17);
+            this.statusLabelConWebService.Text = "Connect to web servicer";
+            this.statusLabelConWebService.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1272, 734);
+            this.Controls.Add(this.xpPanelBottom);
             this.Controls.Add(this.pnMain);
             this.Controls.Add(this.xpPanelGroupTop);
             this.Controls.Add(this.xpPanelLeft);
@@ -958,6 +998,11 @@
             this.xpPanelGroupTop.ResumeLayout(false);
             this.xpPanelGroupTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tmMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpPanelBottom)).EndInit();
+            this.xpPanelBottom.ResumeLayout(false);
+            this.xpPanelBottom.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1005,5 +1050,8 @@
         private System.Windows.Forms.Label lblTop;
         private System.ComponentModel.BackgroundWorker bgwMain;
         private System.Timers.Timer tmMain;
+        private UIComponents.XPPanelGroup xpPanelBottom;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel statusLabelConWebService;
     }
 }
