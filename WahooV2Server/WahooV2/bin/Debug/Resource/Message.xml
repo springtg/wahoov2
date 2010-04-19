@@ -65,6 +65,20 @@
   <MSG MessageId="USER_CONF002" Value="Successfully create user." />
   <!-- END INFORM MESSAGE FOR USER-->
 
+  <!-- START INFORM MESSAGE FOR LOGIN-->
+  <MSG MessageId="LOGIN_MESS001" Value="Username is empty." />
+  <MSG MessageId="LOGIN_MESS002" Value="Invalid usename, password." />
+  <MSG MessageId="LOGIN_MESS003" Value="Loading ..." />
+  <MSG MessageId="LOGIN_MESS004" Value="Can not connect to web service." />
+  <MSG MessageId="LOGIN_MESS005" Value="Check connect to web service....." />
+  <MSG MessageId="LOGIN_MESS006" Value="Loading data ..." />
+  <MSG MessageId="LOGIN_CAPT001" Value="Login fail!" />
+  <MSG MessageId="LOGIN_CAPT002" Value="Login fail!" />
+  <MSG MessageId="LOGIN_CAPT004" Value="Login fail!" />
+  <MSG MessageId="LOGIN_CAPT005" Value="" />
+  <!-- END INFORM MESSAGE FOR LOGIN-->
+  
+  
   <!-- ERROR MESSAGE -->
   <MSG MessageId="ERR001" Value="Are you sure to delete1 this channel?" />
   <MSG MessageId="ERR002" Value="HL7 folder must be selected." />
