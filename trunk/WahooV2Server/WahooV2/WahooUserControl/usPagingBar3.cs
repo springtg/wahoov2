@@ -513,6 +513,89 @@ namespace WahooV2.WahooUserControl
             //    setCurrentpage(iPageSelect);
             //}
 
+
+//            set ANSI_NULLS ON
+//set QUOTED_IDENTIFIER ON
+//go
+
+
+//ALTER PROCEDURE [dbo].[DownloadReport_Select_Paging2]
+//(
+//    @PageNum int =0,
+//    @PageSize int =500,
+//    @FromDate datetime = NULL,
+//    @ToDate datetime = NULL,
+//    @ClientID int = NULL,
+//    @FileName nvarchar(100) = NULL,
+//    @FileStatus    bit = NULL,
+//    @TotalRowsNum int output
+//)
+//AS
+//BEGIN
+
+//    --SET NOCOUNT ON;
+
+//    SELECT *
+//FROM     (SELECT  ROW_NUMBER() OVER(ORDER BY [Id] DESC)
+//             AS Row, [Id]
+//        ,[IdClient]
+//        ,[Filename]
+//        ,[Success]
+//        ,[TimeDownloaded]
+//        ,[IsSentToPrint]
+//        ,[TimeSentToPrint]
+//        ,[IpAddress]
+// FROM [DownloadReport]
+//WHERE
+//    (
+//        (@FileName IS NULL OR  [FileName] like '%'+ @FileName + '%')
+//        AND
+//        (@ClientID IS NULL OR ([IdClient] = @ClientID))
+//        AND
+//        --thanh cong
+//        (@FileStatus IS NULL OR ([Success] = @FileStatus AND [IsSentToPrint] = @FileStatus))
+//        AND
+//        --download thanh cong hoac that bai
+//        (@FileStatus IS NULL OR ([Success] = @FileStatus))
+//        --tu ngay @FromDate den ngay  @ToDate
+//        AND
+//        (@FromDate IS NULL OR (@FromDate <= [TimeDownloaded]))
+//        AND
+//        (@ToDate IS NULL OR (@ToDate >= [TimeDownloaded]))
+//   ))
+
+//            AS temp_DownloadReport
+//WHERE Row BETWEEN (@PageNum - 1) * @PageSize + 1 AND @PageNum * @PageSize            
+//ORDER BY Id DESC
+   
+
+
+
+//--print cast(@TotalRowsNum as nvarchar(10))
+//    -- Returns total records number
+
+//   set @TotalRowsNum = ( SELECT count(*)
+//    FROM DownloadReport-- s JOIN Person.Contact c on s.SalesPersonID = c.ContactID
+//    --JOIN Person.Address a ON a.AddressID = c.ContactID
+//    WHERE
+//        (@FileName IS NULL OR  [FileName] like '%'+ @FileName + '%')
+//        AND
+//        (@ClientID IS NULL OR ([IdClient] = @ClientID))
+//        AND
+//        --thanh cong
+//        (@FileStatus IS NULL OR ([Success] = @FileStatus AND [IsSentToPrint] = @FileStatus))
+//        AND
+//        --download thanh cong hoac that bai
+//        (@FileStatus IS NULL OR ([Success] = @FileStatus))
+//        --tu ngay @FromDate den ngay  @ToDate
+//        AND
+//        (@FromDate IS NULL OR (@FromDate <= [TimeDownloaded]))
+//        AND
+//        (@ToDate IS NULL OR (@ToDate >= [TimeDownloaded]))
+//        )
+//END
+
+
         }
     }
 }
