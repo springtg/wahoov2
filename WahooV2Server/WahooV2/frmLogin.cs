@@ -12,11 +12,13 @@ using System.Threading;
 using WahooData.DBO.Base;
 using WahooConfiguration;
 using WahooServiceControl;
+using log4net;
 
 namespace WahooV2
 {
     public partial class frmLogin : frmBase
     {
+        private static readonly ILog _logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private frmMain objMain;
         frmProgress msg;
         Boolean error = false;
@@ -28,14 +30,14 @@ namespace WahooV2
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            //if (txtUsername.Text.Trim() == "")
-            //{
-            //    MessageBox.Show("Username is empty.", "Login fail!", MessageBoxButtons.OK);
-            //    return;
-            //}
-            //User objUser = new User();
-            //objUser.Username = txtUsername.Text;
-            //objUser.Password = txtPassword.Text;
+            if (txtUsername.Text.Trim() == "")
+            {
+                MessageBox.Show("Username is empty.", "Login fail!", MessageBoxButtons.OK);
+                return;
+            }
+            User objUser = new User();
+            objUser.Username = txtUsername.Text;
+            objUser.Password = txtPassword.Text;
             //Lay ra User
             List<User> objListUser = null;
             try
@@ -47,16 +49,16 @@ namespace WahooV2
                 MessageBox.Show("Can not connect to database.", "Login fail!", MessageBoxButtons.OK);
                 return;
             }
-            
-            //if (objListUser.Count == 0)
-            //{
-            //    MessageBox.Show("Invalid usename, password", "Login fail!", MessageBoxButtons.OK);
-            //    return;
-            //}
+
+            if (objListUser.Count == 0)
+            {
+                MessageBox.Show("Invalid usename, password", "Login fail!", MessageBoxButtons.OK);
+                return;
+            }
             this.Hide();
             objMain = new frmMain();
-            //objMain.IdUser = objListUser[0].Id.Value;
-            //objMain.RoleUser = objListUser[0].Role.Value;
+            objMain.IdUser = objListUser[0].Id.Value;
+            objMain.RoleUser = objListUser[0].Role.Value;
             objMain.WindowState = FormWindowState.Maximized;
             Thread th = new Thread(new ThreadStart(InitData));
             th.Start();
@@ -103,8 +105,11 @@ namespace WahooV2
             }
             catch (Exception ex)
             {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
                 error = true;
-                msg.DialogResult = DialogResult.OK;
+                msg.DialogResult = DialogResult.OK;                
             }
         }
 
