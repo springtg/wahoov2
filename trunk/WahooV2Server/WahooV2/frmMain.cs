@@ -69,7 +69,8 @@ namespace WahooV2
         /// <param name="e"></param>
         private void frmMain_Load(object sender, EventArgs e)
         {
-            InitData();            
+            //InitData();  
+            linkDashboardClick();
         }
 
         /// <summary>
@@ -97,7 +98,7 @@ namespace WahooV2
             }
 
             //Choose Dashboard click
-            linkDashboardClick();
+            //linkDashboardClick();
             Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
             int temp = 0;
             try
