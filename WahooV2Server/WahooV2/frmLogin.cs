@@ -44,17 +44,15 @@ namespace WahooV2
                 return;
             }
             this.Hide();
-            objMain = new frmMain();
-            objMain.IdUser = objListUser[0].Id.Value;
-            objMain.RoleUser = objListUser[0].Role.Value;
-            objMain.WindowState = FormWindowState.Maximized;
+            objMain = new frmMain();            
             Thread th = new Thread(new ThreadStart(InitData));
+            
             th.Start();
-            msg = new frmProgress("Loading data ...");
+            msg = new frmProgress("Loading ...");
             msg.ShowDialog();
             if (msg.DialogResult == DialogResult.OK)
-            {
-                th.Abort();
+            {                          
+                th.Abort();                
             }
             if (error)
             {
@@ -63,6 +61,10 @@ namespace WahooV2
             }
             else
             {
+                //Thread.CurrentThread.Join();
+                objMain.IdUser = objListUser[0].Id.Value;
+                objMain.RoleUser = objListUser[0].Role.Value;
+                objMain.WindowState = FormWindowState.Maximized;
                 objMain.ShowDialog();
             }
             //objMain.ShowDialog();
@@ -76,12 +78,25 @@ namespace WahooV2
             {
                 //Check connect
                 //msg.Inform_msg = "Check connect to web service.....";
+                DateTime dt = DateTime.Now;
+                msg.Inform_msg = "Check connect to web service.....";
                 Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
                 string strWSDL = configObl.ReadSetting(AliasMessage.WSDL_URL_CONFIG);
                 WahooWebServiceControl _WahooWebServiceControl = new WahooWebServiceControl(strWSDL);
                 if (_WahooWebServiceControl.CheckConnect())
                 {
+                    //Thread.Sleep(3000);
+                    //kiem tra connect to web service trong 2 giay
+                    while (dt.AddSeconds(2) > DateTime.Now)
+                    {
+                    }
+                    msg.Inform_msg = "Loading data ...";
+                    //kiem tra connect to web service trong 1 giay
                     objMain.InitData();
+                    while (dt.AddSeconds(3) > DateTime.Now)
+                    {
+                    }                    
+                    //Thread.Sleep(3000);
                 }
                 else
                 {

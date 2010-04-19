@@ -28,9 +28,11 @@ namespace WahooV2
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProgress));
             this.pbxProcessImg = new System.Windows.Forms.PictureBox();
             this.lblMessage = new System.Windows.Forms.Label();
+            this.tmRefresh = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbxProcessImg)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,16 +52,21 @@ namespace WahooV2
             // 
             this.lblMessage.Location = new System.Drawing.Point(51, 3);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(224, 25);
+            this.lblMessage.Size = new System.Drawing.Size(340, 25);
             this.lblMessage.TabIndex = 13;
             this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tmRefresh
+            // 
+            this.tmRefresh.Enabled = true;
+            this.tmRefresh.Tick += new System.EventHandler(this.tmRefresh_Tick);
             // 
             // frmProgress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(279, 30);
+            this.ClientSize = new System.Drawing.Size(398, 30);
             this.ControlBox = false;
             this.Controls.Add(this.pbxProcessImg);
             this.Controls.Add(this.lblMessage);
@@ -79,5 +86,6 @@ namespace WahooV2
 
         internal System.Windows.Forms.PictureBox pbxProcessImg;
         internal System.Windows.Forms.Label lblMessage;
+        private System.Windows.Forms.Timer tmRefresh;
     }
 }

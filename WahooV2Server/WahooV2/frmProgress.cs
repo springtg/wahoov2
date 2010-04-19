@@ -11,6 +11,12 @@ namespace WahooV2
     public partial class frmProgress : Form
     {
         string m_inform_msg;
+
+        public string Inform_msg
+        {
+            get { return m_inform_msg; }
+            set { m_inform_msg = value; }
+        }
         public frmProgress(String msg)
         {
             try
@@ -61,6 +67,17 @@ namespace WahooV2
         private void Progress_Load(object sender, EventArgs e)
         {
             lblMessage.Text = m_inform_msg;
+        }
+
+        private void tmRefresh_Tick(object sender, EventArgs e)
+        {
+            lblMessage.Text = m_inform_msg;
+            int t_height, t_width;
+            t_height = GetHeight4Text(m_inform_msg, lblMessage.Font);
+            t_width = GetWidth4Text(m_inform_msg, lblMessage.Font);
+            lblMessage.Text = m_inform_msg;
+            lblMessage.Size = new Size(t_width, t_height + 10);
+            this.Size = new Size(t_width + 100, t_height + 20);
         }
     }
 }
