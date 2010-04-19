@@ -5,11 +5,13 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using log4net;
 
 namespace WahooV2
 {
     public partial class frmProgress : Form
     {
+        private static readonly ILog _logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         string m_inform_msg;
 
         public string Inform_msg
