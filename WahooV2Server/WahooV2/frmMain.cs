@@ -13,6 +13,7 @@ using WahooData.DBO;
 using System.Collections;
 using WahooV2.Common;
 using WahooData.BusinessHandler;
+using WahooServiceControl;
 
 namespace WahooV2
 {
@@ -70,6 +71,7 @@ namespace WahooV2
         private void frmMain_Load(object sender, EventArgs e)
         {
             //InitData();  
+            CheckConnectWebservice();
             linkDashboardClick();
         }
 
@@ -95,7 +97,7 @@ namespace WahooV2
                 linkUser.Top = 105;
                 linkSetting.Top = 105;
                 xpPanelNWG.Height = 130;
-            }
+            }            
 
             //Choose Dashboard click
             //linkDashboardClick();
@@ -116,6 +118,25 @@ namespace WahooV2
             //Load interval for timer execute
             this.tmMain.Interval = temp * 1000;
             Cursor.Current = Cursors.Default;
+        }
+
+        /// <summary>
+        /// Kiem tra connect to webservice
+        /// </summary>
+        public void CheckConnectWebservice()
+        {
+            Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
+            string strWSDL = configObl.ReadSetting(AliasMessage.WSDL_URL_CONFIG);
+            WahooWebServiceControl _WahooWebServiceControl = new WahooWebServiceControl(strWSDL);
+            string[] arrWSDL = strWSDL.Split('/');
+            if (_WahooWebServiceControl.CheckConnect())
+            {
+                statusLabelConWebService.Text = string.Format(WahooConfiguration.Message.GetMessageById("LOGIN_MESS008"), arrWSDL[0] + "//" + arrWSDL[2]);
+            }
+            else
+            {
+                statusLabelConWebService.Text = string.Format(WahooConfiguration.Message.GetMessageById("LOGIN_MESS007"), arrWSDL[0] + "//" + arrWSDL[2]);
+            }
         }
 
         /// <summary>
@@ -1454,6 +1475,8 @@ namespace WahooV2
         /// <param name="e"></param>
         private void tmMain_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
+            //kiem tra connect to webservice
+            CheckConnectWebservice();
             if (this._mExecuting == false)
             {
                 this._mExecuting = true;
