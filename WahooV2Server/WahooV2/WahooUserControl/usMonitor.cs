@@ -277,8 +277,10 @@ namespace WahooV2.WahooUserControl
             txtFilename.TextChanged += new EventHandler(txtFilename_TextChanged);
             this.Disposed += new EventHandler(usMonitor_Disposed);
             //gridReport.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(gridReport_DataBindingComplete);
-            usPagingBar21.setActiveControl(iAllPage, iCurrPge);
-            usPagingBar21.selectedPagebyUser += new usPagingBar2.getSelectPagebyUser(usPagingBar21_selectedPagebyUser);
+
+            usPagingBar31.InitControl(iAllPage, 1);
+           // usPagingBar31.setActiveControl(iAllPage, iCurrPge);
+            usPagingBar31.selectedPagebyUser += new usPagingBar3.getSelectPagebyUser(usPagingBar21_selectedPagebyUser);
             if (iAllPage != 0)
             {
                 lbPage.Text = "1/" + iAllPage.ToString();
