@@ -12,40 +12,11 @@ namespace HL7ServerTransfer
 {
     public partial class frmSettingInfo : frmBase
     {
+        #region "Method"
         public frmSettingInfo()
         {
             InitializeComponent();
-        }
-        /// <summary>
-        /// Accept infomation
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnAccept_Click(object sender, EventArgs e)
-        {
-            if (CheckInfo())
-            {
-                Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
-                configObl.WriteSetting(Alias.CLIENT_CODE_CONFIG, txtClientCode.Text);
-                configObl.WriteSetting(Alias.CLIENT_NAME_CONFIG, txtClientName.Text);
-                configObl.WriteSetting(Alias.CLIENT_EMAIL_CONFIG, txtEmail.Text);
-                string licenseKey = configObl.ReadSetting(Alias.LICENSE_KEY_CONFIG);
-                string strEncode = txtClientCode.Text + txtClientName.Text + txtEmail.Text;
-                if (licenseKey == EncodeMd5.EncodeString(strEncode))
-                {
-                    frmMain _frmMain = new frmMain();
-                    this.Hide();
-                    _frmMain.ShowDialog();
-                }
-                else
-                {
-                    frmLicenseKey _frmLicenseKey = new frmLicenseKey();
-                    this.Hide();
-                    _frmLicenseKey.ShowDialog();
-                }
-                this.Close();
-            }
-        }
+        }        
         /// <summary>
         /// Check info valid
         /// </summary>
@@ -84,7 +55,26 @@ namespace HL7ServerTransfer
             }
             return true;
         }
-
+        /// <summary>
+        /// Load info from resource file
+        /// </summary>
+        private void LoadResourceInfo()
+        {
+            _Resource = new HL7Source.Resource();
+            groupBox1.Text = _Resource.GetResourceByKey("FORM_SETTING_INFO", "GROUP_TEXT_001");
+            label1.Text = _Resource.GetResourceByKey("FORM_SETTING_INFO", "LABEL_TEXT_0001");
+            label2.Text = _Resource.GetResourceByKey("FORM_SETTING_INFO", "LABEL_TEXT_0002");
+            label3.Text = _Resource.GetResourceByKey("FORM_SETTING_INFO", "LABEL_TEXT_0003");
+            btnAccept.Text = _Resource.GetResourceByKey("FORM_SETTING_INFO", "BUTTON_TEXT_001");
+            tbnClose.Text = _Resource.GetResourceByKey("FORM_SETTING_INFO", "BUTTON_TEXT_002");
+        }
+        #endregion
+        #region "Event"
+        /// <summary>
+        /// event load form va init value for control
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmSettingInfo_Load(object sender, EventArgs e)
         {
             try
@@ -101,21 +91,45 @@ namespace HL7ServerTransfer
                 this.Close();
             }
         }
-
+        /// <summary>
+        /// Event close form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tbnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        private void LoadResourceInfo()
+        /// <summary>
+        /// Accept infomation
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAccept_Click(object sender, EventArgs e)
         {
-            _Resource = new HL7Source.Resource();
-            groupBox1.Text = _Resource.GetResourceByKey("FORM_SETTING_INFO", "GROUP_TEXT_001");
-            label1.Text = _Resource.GetResourceByKey("FORM_SETTING_INFO", "LABEL_TEXT_0001");
-            label2.Text = _Resource.GetResourceByKey("FORM_SETTING_INFO", "LABEL_TEXT_0002");
-            label3.Text = _Resource.GetResourceByKey("FORM_SETTING_INFO", "LABEL_TEXT_0003");
-            btnAccept.Text = _Resource.GetResourceByKey("FORM_SETTING_INFO", "BUTTON_TEXT_001");
-            tbnClose.Text = _Resource.GetResourceByKey("FORM_SETTING_INFO", "BUTTON_TEXT_002");
+            if (CheckInfo())
+            {
+                Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
+                configObl.WriteSetting(Alias.CLIENT_CODE_CONFIG, txtClientCode.Text);
+                configObl.WriteSetting(Alias.CLIENT_NAME_CONFIG, txtClientName.Text);
+                configObl.WriteSetting(Alias.CLIENT_EMAIL_CONFIG, txtEmail.Text);
+                string licenseKey = configObl.ReadSetting(Alias.LICENSE_KEY_CONFIG);
+                string strEncode = txtClientCode.Text + txtClientName.Text + txtEmail.Text;
+                if (licenseKey == EncodeMd5.EncodeString(strEncode))
+                {
+                    frmMain _frmMain = new frmMain();
+                    this.Hide();
+                    _frmMain.ShowDialog();
+                }
+                else
+                {
+                    frmLicenseKey _frmLicenseKey = new frmLicenseKey();
+                    this.Hide();
+                    _frmLicenseKey.ShowDialog();
+                }
+                this.Close();
+            }
         }
+        #endregion
     }
 }

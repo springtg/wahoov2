@@ -68,6 +68,7 @@ namespace HL7ServerTransfer
             // txtClientCode
             // 
             this.txtClientCode.Location = new System.Drawing.Point(75, 26);
+            this.txtClientCode.MaxLength = 10;
             this.txtClientCode.Name = "txtClientCode";
             this.txtClientCode.Size = new System.Drawing.Size(153, 20);
             this.txtClientCode.TabIndex = 1;
@@ -84,6 +85,7 @@ namespace HL7ServerTransfer
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(75, 113);
+            this.txtEmail.MaxLength = 50;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(153, 20);
             this.txtEmail.TabIndex = 5;
@@ -91,6 +93,7 @@ namespace HL7ServerTransfer
             // txtClientName
             // 
             this.txtClientName.Location = new System.Drawing.Point(75, 69);
+            this.txtClientName.MaxLength = 100;
             this.txtClientName.Name = "txtClientName";
             this.txtClientName.Size = new System.Drawing.Size(153, 20);
             this.txtClientName.TabIndex = 3;
