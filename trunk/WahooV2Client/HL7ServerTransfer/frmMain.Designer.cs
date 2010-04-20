@@ -220,11 +220,11 @@ namespace HL7ServerTransfer
             // 
             this.tmDownload.Enabled = true;
             this.tmDownload.SynchronizingObject = this;
-            this.tmDownload.Elapsed += new System.Timers.ElapsedEventHandler(this.tmDownload_Elapsed);
+            //this.tmDownload.Elapsed += new System.Timers.ElapsedEventHandler(this.tmDownload_Elapsed);
             // 
             // bgwMain
             // 
-            this.bgwMain.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwMain_DoWork);
+            //this.bgwMain.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwMain_DoWork);
             // 
             // tabMain
             // 
