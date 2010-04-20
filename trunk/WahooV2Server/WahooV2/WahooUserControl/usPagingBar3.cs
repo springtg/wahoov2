@@ -148,7 +148,7 @@ namespace WahooV2.WahooUserControl
                 _iCurrPage = _iCurrPage - 1;
                 int iBlockBottom = (_iCurrPage / _iMaxPage) + _iMaxPage;//gioi han duoi
                 int iBlockTop = (_iCurrPage % _iMaxPage) + _iMaxPage;//gioi han tren
-                _iBlock = _iCurrPage / _iMaxPage;// = iBlockBottom;
+                _iBlock = _iCurrPage / _iMaxPage - 1;// = iBlockBottom;
                 int numPage = ((_iMaxPage * _iBlock) + _iMaxPage > _iAllPage) ? _iAllPage - (_iMaxPage * _iBlock) : _iMaxPage;
                 createButtonBar(numPage, _iCurrPage, false, _iBlock);
             }
