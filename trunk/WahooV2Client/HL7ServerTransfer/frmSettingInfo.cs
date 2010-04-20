@@ -50,26 +50,37 @@ namespace HL7ServerTransfer
         /// Check info valid
         /// </summary>
         /// <returns></returns>
-        private Boolean CheckInfo()
+        private bool CheckInfo()
         {
-            if (txtClientCode.Text.Trim() == "")
+            if (txtClientCode.Text.Trim() == string.Empty)
             {
+                //must fill client code
                 ShowMessageBox("MSG_TEXT_ERROR_0000", MessageType.ERROR, getNameControl(label1));
-                //MessageBox.Show("You must fill in client code.");
                 txtClientCode.Focus();
                 return false;
             }
-            if (txtClientName.Text.Trim() == "")
+            if (txtClientName.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("You must fill in client name.");
+                //must fill in client name
+                ShowMessageBox("MSG_TEXT_ERROR_0000", MessageType.ERROR, getNameControl(label2));
                 txtClientName.Focus();
                 return false;
             }
-            if (txtEmail.Text.Trim() == "")
+            if (txtEmail.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("You must fill in email.");
+                //must fill in email.
+                ShowMessageBox("MSG_TEXT_ERROR_0000", MessageType.ERROR, getNameControl(label3));
                 txtEmail.Focus();
                 return false;
+            }
+            else
+            {
+                if (!HL7Source.UtilityFunction.isMailValid(txtEmail.Text))
+                {
+                    ShowMessageBox("MSG_TEXT_ERROR_0002", MessageType.ERROR);
+                    txtEmail.Focus();
+                    return false;
+                }
             }
             return true;
         }
@@ -82,10 +93,11 @@ namespace HL7ServerTransfer
                 txtClientCode.Text = configObl.ReadSetting(Alias.CLIENT_CODE_CONFIG);
                 txtClientName.Text = configObl.ReadSetting(Alias.CLIENT_NAME_CONFIG);
                 txtEmail.Text = configObl.ReadSetting(Alias.CLIENT_EMAIL_CONFIG);
+                LoadResourceInfo();
             }
             catch
             {
-                MessageBox.Show("Have error. Please try again");
+                ShowMessageBox("MSG_TEXT_ERROR_0001", MessageType.ERROR);
                 this.Close();
             }
         }
@@ -93,6 +105,17 @@ namespace HL7ServerTransfer
         private void tbnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void LoadResourceInfo()
+        {
+            _Resource = new HL7Source.Resource();
+            groupBox1.Text = _Resource.GetResourceByKey("FORM_SETTING_INFO", "GROUP_TEXT_001");
+            label1.Text = _Resource.GetResourceByKey("FORM_SETTING_INFO", "LABEL_TEXT_0001");
+            label2.Text = _Resource.GetResourceByKey("FORM_SETTING_INFO", "LABEL_TEXT_0002");
+            label3.Text = _Resource.GetResourceByKey("FORM_SETTING_INFO", "LABEL_TEXT_0003");
+            btnAccept.Text = _Resource.GetResourceByKey("FORM_SETTING_INFO", "BUTTON_TEXT_001");
+            tbnClose.Text = _Resource.GetResourceByKey("FORM_SETTING_INFO", "BUTTON_TEXT_002");
         }
     }
 }

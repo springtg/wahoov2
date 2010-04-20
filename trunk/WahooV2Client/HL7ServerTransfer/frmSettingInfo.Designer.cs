@@ -61,9 +61,9 @@ namespace HL7ServerTransfer
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Client code:";
+            this.label1.Text = "Client code";
             // 
             // txtClientCode
             // 
@@ -77,9 +77,9 @@ namespace HL7ServerTransfer
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 73);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.Size = new System.Drawing.Size(62, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Client name:";
+            this.label2.Text = "Client name";
             // 
             // txtEmail
             // 
@@ -100,9 +100,9 @@ namespace HL7ServerTransfer
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 117);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Email:";
+            this.label3.Text = "Email";
             // 
             // tbnClose
             // 
