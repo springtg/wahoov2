@@ -236,6 +236,7 @@ namespace HL7ServerTransfer
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
             this.tabMain.Size = new System.Drawing.Size(553, 198);
+            this.tabMain.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabMain.TabIndex = 9;
             // 
             // tabUserInfo
