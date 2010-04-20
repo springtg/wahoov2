@@ -70,7 +70,7 @@
   <MSG MessageId="LOGIN_MESS002" Value="Invalid usename, password." />
   <MSG MessageId="LOGIN_MESS003" Value="Loading ..." />
   <MSG MessageId="LOGIN_MESS004" Value="Connect to web server failed." />
-  <MSG MessageId="LOGIN_MESS005" Value="Check connecting to web server....." />
+  <MSG MessageId="LOGIN_MESS005" Value="Checking connection to web server....." />
   <MSG MessageId="LOGIN_MESS006" Value="Loading data ..." />
   <MSG MessageId="LOGIN_MESS007" Value="Connect failed: {0}" />
   <MSG MessageId="LOGIN_MESS008" Value="Connected: {0}" />
