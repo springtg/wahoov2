@@ -20,7 +20,7 @@ using Quartz;
 namespace HL7ServerTransfer
 {
     public partial class frmMain : frmBase
-    {        
+    {
         //Variable for store running program at startup
         RegistryKey rkApp = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
         //Is downloading
@@ -284,6 +284,7 @@ namespace HL7ServerTransfer
                 txtInterval.Text = timeInterval.ToString();
                 //Set transfer speed
                 txtTransferSpeed.Text = configObl.ReadSetting(Alias.TRANSFER_SPEED_CONFIG);
+                #region "Tab Printer Setting"
                 //Find printers
                 _cPrinter.getAllPrinter(ref cbPrinter, configObl);
                 //Set file format
@@ -336,6 +337,7 @@ namespace HL7ServerTransfer
                 }
                 //Set number of copies
                 txtNumOfCopies.Text = configObl.ReadSetting(Alias.NUMBER_OF_COPIES_CONFIG);
+                #endregion
                 //Set schedule
                 string scheduleStr = configObl.ReadSetting(Alias.SCHEDULE_CONFIG);
                 string[] scheduleDateArr = scheduleStr.Split('|')[0].Split(',');
@@ -398,7 +400,7 @@ namespace HL7ServerTransfer
             }
         }
 
-        
+
         /// <summary>
         /// Check information
         /// </summary>
@@ -454,7 +456,7 @@ namespace HL7ServerTransfer
         {
             Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
             string scheduleStr = configObl.ReadSetting(Alias.SCHEDULE_CONFIG);
-            string scheduleDateStr = scheduleStr.Split('|')[0]; 
+            string scheduleDateStr = scheduleStr.Split('|')[0];
             //kiem tra xem ngay hien tai co download ko
             if (scheduleDateStr.Length > 0)
             {
@@ -503,7 +505,7 @@ namespace HL7ServerTransfer
                     string[] scheduleTimerToArr = scheduleStr.Split('|')[2].Split(',');
                     DateTime dateEnd = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,
                                                     int.Parse(scheduleTimerToArr[0]), int.Parse(scheduleTimerToArr[1]), int.Parse(scheduleTimerToArr[2]));
-                    
+
                     if (DateTime.Now < dateEnd)
                     {
                         int timeInterval = 0;
@@ -570,8 +572,8 @@ namespace HL7ServerTransfer
         {
             Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
             string scheduleStr = configObl.ReadSetting(Alias.SCHEDULE_CONFIG);
-            string scheduleDateStr = scheduleStr.Split('|')[0];            
-            
+            string scheduleDateStr = scheduleStr.Split('|')[0];
+
             //neu co it nhat 1 ngay trong tuan dc chon
             if (scheduleDateStr.Length > 0)
             {
@@ -579,13 +581,13 @@ namespace HL7ServerTransfer
                 string[] scheduleTimerFromArr = scheduleStr.Split('|')[1].Split(',');
                 DateTime dateStart = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,
                                                   int.Parse(scheduleTimerFromArr[0]), int.Parse(scheduleTimerFromArr[1]), int.Parse(scheduleTimerFromArr[2]));
-                
+
                 //thoi gian ket thuc
                 string[] scheduleTimerToArr = scheduleStr.Split('|')[2].Split(',');
                 DateTime dateEnd = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,
                                                 int.Parse(scheduleTimerToArr[0]), int.Parse(scheduleTimerToArr[1]), int.Parse(scheduleTimerToArr[2]));
-                                
-                
+
+
                 int timeInterval = 0;
                 try
                 {
@@ -608,7 +610,7 @@ namespace HL7ServerTransfer
                     jobDetail = new JobDetail("ScheduleJob", "Group1", typeof(ScheduleJob));
                     jobDetail.JobDataMap["TimeStart"] = dateStart;
                     jobDetail.JobDataMap["TimeEnd"] = dateEnd;
-                    jobDetail.JobDataMap["TimeRepeat"] = timeInterval;                    
+                    jobDetail.JobDataMap["TimeRepeat"] = timeInterval;
                     CronTrigger trigger = new CronTrigger("SCheduleJobTrigger", "Group1", cronExpression);
                     sched.ScheduleJob(jobDetail, trigger);
                 }
@@ -620,7 +622,7 @@ namespace HL7ServerTransfer
                     }
                     jobDetail.JobDataMap["TimeStart"] = dateStart;
                     jobDetail.JobDataMap["TimeEnd"] = dateEnd;
-                    jobDetail.JobDataMap["TimeRepeat"] = timeInterval;  
+                    jobDetail.JobDataMap["TimeRepeat"] = timeInterval;
                     CronTrigger newtrigger = new CronTrigger("SCheduleJobTrigger", "Group1", "ScheduleJob", "Group1", cronExpression);
                     sched.ScheduleJob(jobDetail, newtrigger);
                 }
@@ -1288,6 +1290,6 @@ namespace HL7ServerTransfer
             }
         }
         */
-        #endregion        
+        #endregion
     }
 }
