@@ -17,4 +17,11 @@
     <item key="FORM_MAIN_TAB_PRINTER_SETTING" id="BUTTON_TEXT_002" value="Close"/>
   </section>
 
+  <section name="FORM_LICENSE_KEY">
+    <item key="FORM_LICENSE_KEY" id="LABEL_TEXT_0001" value="License key:"/>
+    <item key="FORM_LICENSE_KEY" id="BUTTON_TEXT_001" value="Ok"/>
+    <item key="FORM_LICENSE_KEY" id="BUTTON_TEXT_002" value="Back"/>
+    <item key="FORM_LICENSE_KEY" id="FORM_TEXT_001" value="License key"/>
+  </section>
+
 </sections>
