@@ -185,7 +185,11 @@ namespace HL7ServerTransfer
                 return DialogResult.None;
             }
         }
-
+        /// <summary>
+        /// lay text cua cua 1 control
+        /// </summary>
+        /// <param name="ctrl"></param>
+        /// <returns></returns>
         protected string getNameControl(Control ctrl)
         {
             try
