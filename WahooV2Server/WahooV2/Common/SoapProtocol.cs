@@ -29,7 +29,7 @@ namespace WahooV2.Common
             try
             {
                 //Download file connect
-                DownloadFileConnect(objChannel);
+                //DownloadFileConnect(objChannel);
                 //Download file status
                 DownloadFileStatus(objChannel);
                 //Uppload file

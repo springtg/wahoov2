@@ -74,6 +74,7 @@
             this.xpPanelBottom = new UIComponents.XPPanelGroup();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusLabelConWebService = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tmCheckConnect = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelLeft)).BeginInit();
             this.xpPanelLeft.SuspendLayout();
             this.xpPanelOther.SuspendLayout();
@@ -973,6 +974,11 @@
             this.statusLabelConWebService.Text = "Connect to web servicer";
             this.statusLabelConWebService.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // tmCheckConnect
+            // 
+            this.tmCheckConnect.Interval = 500000;
+            this.tmCheckConnect.Tick += new System.EventHandler(this.tmCheckConnect_Tick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1054,5 +1060,6 @@
         private UIComponents.XPPanelGroup xpPanelBottom;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel statusLabelConWebService;
+        private System.Windows.Forms.Timer tmCheckConnect;
     }
 }
