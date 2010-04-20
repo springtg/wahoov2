@@ -35,6 +35,8 @@ namespace WahooV2
         private WahooConfiguration.Resource _resource;
         //Check program is uploading file or not
         private Boolean _mExecuting = false;
+        //Check program connect to client 
+        private Boolean _mExecutingCheckConnect = false;
         //Check have delete control in panel
         private Boolean checkClearControl = false;
         private const int _ucWidth = 1102;
@@ -194,7 +196,7 @@ namespace WahooV2
                 _frmLogin.ShowDialog();
                 this.Close();
             }
-        }
+        }       
 
         #endregion frmMain
 
@@ -1406,7 +1408,6 @@ namespace WahooV2
 
         #endregion
 
-
         #region CUONG
 
         /// <summary>
@@ -1433,11 +1434,8 @@ namespace WahooV2
                 {
                     transferSpeed = double.Parse(configObl.ReadSetting(AliasMessage.TRANSFER_SPEED_CONFIG));
                 }
-                catch(Exception ex)
+                catch
                 {
-                    //Write log
-                    if (_logger.IsErrorEnabled)
-                        _logger.Error(ex);
                     transferSpeed = 16;
                 }
                 foreach (Channel objChannel in objListChannel)
@@ -1468,6 +1466,7 @@ namespace WahooV2
                 Cursor.Current = Cursors.Default;
             }
         }
+
         /// <summary>
         /// Timer interval
         /// </summary>
@@ -1510,6 +1509,68 @@ namespace WahooV2
                     this.tmMain.Start();
                 }
                 this._mExecuting = false;
+            }
+        }
+
+        /// <summary>
+        /// Download file connect to check connect of client
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tmCheckConnect_Tick(object sender, EventArgs e)
+        {
+            if (!_mExecutingCheckConnect)
+            {
+                _mExecutingCheckConnect = true;
+                Cursor.Current = Cursors.WaitCursor;
+                Channel objChannelSearch = new Channel();
+                objChannelSearch.Active = true;
+                objChannelSearch.IsDeployed = true;
+                List<Channel> objListChannel = WahooBusinessHandler.Get_ListChannel(objChannelSearch);
+                foreach (Channel objChannel in objListChannel)
+                {
+                    //Load infomation
+                    ArrayList arrResult = new ArrayList();
+                    try
+                    {
+                        SoapProtocol objSoapProtocol = new SoapProtocol();
+                        //Execute
+                        objSoapProtocol.DownloadFileConnect(objChannel);
+                    }
+                    catch (Exception ex)
+                    {
+                        //Write log
+                        if (_logger.IsErrorEnabled)
+                            _logger.Error(ex);
+                    }
+                }
+                //Update interval for timer execute
+                Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
+                int temp = 0;
+                try
+                {
+                    temp = int.Parse(configObl.ReadSetting("CheckConnectInterval"));
+                }
+                catch (Exception ex)
+                {
+                    //Write log
+                    if (_logger.IsErrorEnabled)
+                        _logger.Error(ex);
+                    temp = 0;
+                }
+                if (temp < 10)
+                {
+                    temp = 10;
+                }
+                temp = temp * 1000;
+                if (this.tmCheckConnect.Interval != temp)
+                {
+                    this.tmCheckConnect.Stop();
+                    this.tmCheckConnect.Interval = temp;
+                    this.tmCheckConnect.Start();
+                }
+                Cursor.Current = Cursors.Default;
+                _mExecutingCheckConnect = false;
             }
         }
         #region Dashboard
@@ -1767,6 +1828,7 @@ namespace WahooV2
         }
 
         #endregion function
+        
 
         #endregion Dashboard
 
