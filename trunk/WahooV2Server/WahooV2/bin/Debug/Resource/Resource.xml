@@ -62,6 +62,7 @@
     <item key="SETTING_FORM_CONTROL" id="LABEL_NAME_EXECUTE" value="Execute interval (Seconds):"/>
     <item key="SETTING_FORM_CONTROL" id="LABEL_NAME_TRANFER" value="Transfer Speed(Kbps):"/>
     <item key="SETTING_FORM_CONTROL" id="LABEL_NAME_WSADDRESS" value="Web service address:"/>
+    <item key="SETTING_FORM_CONTROL" id="LABEL_NAME_Encryption" value="Encryption Key:"/>
     <item key="SETTING_FORM_CONTROL" id="TEXTBOX_DASHBOARD_LENGHT" value="5"/>
     <item key="SETTING_FORM_CONTROL" id="TEXTBOX_EXECUTE_LENGHT" value="5"/>
     <item key="SETTING_FORM_CONTROL" id="TEXTBOX_TRANSFER_LENGHT" value="5"/>        
@@ -74,6 +75,7 @@
     <item key="SETTING_FORM_CONTROL" id="LABEL_NAME_CREATE" value="Create new"/>
     <item key="SETTING_FORM_CONTROL" id="LABEL_NAME_BROWSE" value="..."/>
     <item key="SETTING_FORM_CONTROL" id="TITLE_FOLDERBROWSER" value="Select folder"/>
+    
     
     
   </section>
