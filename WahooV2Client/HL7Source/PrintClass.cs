@@ -14,9 +14,9 @@ using System.Reflection;
 namespace HL7Source
 {
     public class PrintClass
-    {       
+    {
         public PrintClass()
-        {            
+        {
         }
 
         public bool PrintDocFile(string path, string printerPath)
@@ -28,18 +28,18 @@ namespace HL7Source
             {
                 Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
                 object fileName = path;
-                
+
                 object readOnly = true;
                 wordApp.ActivePrinter = printerPath;
-                 doc = wordApp.Documents.Open(
+                doc = wordApp.Documents.Open(
 
-                    ref fileName, ref nullObject, ref readOnly, ref nullObject,
+                   ref fileName, ref nullObject, ref readOnly, ref nullObject,
 
-                    ref nullObject, ref nullObject, ref nullObject, ref nullObject,
+                   ref nullObject, ref nullObject, ref nullObject, ref nullObject,
 
-                    ref nullObject, ref nullObject, ref nullObject, ref nullObject, ref nullObject,
+                   ref nullObject, ref nullObject, ref nullObject, ref nullObject, ref nullObject,
 
-                    ref nullObject, ref nullObject, ref nullObject);
+                   ref nullObject, ref nullObject, ref nullObject);
 
                 wordApp.Visible = false;
                 doc.PrintOut(ref nullObject, ref nullObject, ref nullObject, ref nullObject, ref nullObject, ref nullObject,
@@ -51,7 +51,7 @@ namespace HL7Source
                     doc.Close(ref nullObject, ref nullObject, ref nullObject);
                 }
 
-                
+
                 result = true;
             }
             catch (Exception ex)
@@ -61,21 +61,30 @@ namespace HL7Source
                     doc.Close(ref nullObject, ref nullObject, ref nullObject);
                 }
                 result = false;
-            }           
-            
+            }
+
             return result;
         }
-
-        public bool PrintPdfFile(string path, string printerPath)
+        /// <summary>
+        /// Cho phep nguoi dung goi ham in file, de thuc hien viec in file pdf
+        /// </summary>
+        /// <param name="strFileName"></param>
+        /// <param name="strPrinterName"></param>
+        /// <returns></returns>
+        public bool PrintPdfFile(string strFileName, string strPrinterName)
         {
-            if (isValidateFile(path))
+            if (isValidateFile(strFileName))
             {
-                RunInternalExe("FoxitReader.exe", "", "");
+                RunInternalExe("FoxitReader.exe", strPrinterName, strFileName);
                 return true;
             }
             return false;
         }
-
+        /// <summary>
+        /// kiem tra file chuyen den may in co hop le khong?
+        /// </summary>
+        /// <param name="strFileName"></param>
+        /// <returns></returns>
         private bool isValidateFile(string strFileName)
         {
             //Neu file la empty
@@ -90,7 +99,12 @@ namespace HL7Source
             }
             return true;
         }
-
+        /// <summary>
+        /// thuc hien viec in file pdf, tu command line cho foxitReader
+        /// </summary>
+        /// <param name="exeName"></param>
+        /// <param name="strPrinterName"></param>
+        /// <param name="strFileName"></param>
         private void RunInternalExe(string exeName, string strPrinterName, string strFileName)
         {
             //Get the current assembly
@@ -127,8 +141,12 @@ namespace HL7Source
                 Process.Start(info);// exeName, @"/p C:\1.pdf");
             }
         }
-
-        public void getAllPrinter(ref ComboBox cboPrinter,Config cfg)
+        /// <summary>
+        /// Lay tat cac may in duoc install tren may, dua vao CBO
+        /// </summary>
+        /// <param name="cboPrinter"></param>
+        /// <param name="cfg"></param>
+        public void getAllPrinter(ref ComboBox cboPrinter, Config cfg)
         {
             try
             {
@@ -144,10 +162,14 @@ namespace HL7Source
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                throw ex;
             }
         }
-
+        /// <summary>
+        /// kiem tra 1 file co phai la file PDF khong?
+        /// </summary>
+        /// <param name="strFileName"></param>
+        /// <returns></returns>
         public bool isPDFFile(string strFileName)
         {
             if (Path.GetExtension(strFileName).ToUpper().Equals(".PDF"))
@@ -156,7 +178,11 @@ namespace HL7Source
             }
             return false;
         }
-
+        /// <summary>
+        /// kiem tra file, xem file do co phai la file DOC khong?
+        /// </summary>
+        /// <param name="strFileName"></param>
+        /// <returns></returns>
         public bool isDOCFile(string strFileName)
         {
             if (Path.GetExtension(strFileName).ToUpper().Equals(".DOC"))
@@ -165,7 +191,6 @@ namespace HL7Source
             }
             return false;
         }
-
         /// <summary>
         ///method to check if a printer is online or offline
         /// </summary>
