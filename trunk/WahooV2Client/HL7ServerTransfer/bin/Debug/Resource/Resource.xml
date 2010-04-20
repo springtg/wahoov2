@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sections>
-   <section name="FORM_SETTING_INFO">
+  <section name="FORM_SETTING_INFO">
     <item key="FORM_SETTING_INFO" id="LABEL_TEXT_0001" value="Client code:"/>
     <item key="FORM_SETTING_INFO" id="LABEL_TEXT_0002" value="Client name:"/>
     <item key="FORM_SETTING_INFO" id="LABEL_TEXT_0003" value="Email:"/>
     <item key="FORM_SETTING_INFO" id="BUTTON_TEXT_001" value="Accept"/>
     <item key="FORM_SETTING_INFO" id="BUTTON_TEXT_002" value="Close"/>
+    <item key="FORM_SETTING_INFO" id="GROUP_TEXT_001" value="Client Infomation"/>
   </section>
 
-  <section name="FORM_SETTING_INFO">
+  <section name="FORM_MAIN_TAB_PRINTER_SETTING">
     <item key="FORM_MAIN_TAB_PRINTER_SETTING" id="LABEL_TEXT_0001" value="Printer:"/>
     <item key="FORM_MAIN_TAB_PRINTER_SETTING" id="LABEL_TEXT_0002" value="Print format file(s):"/>
     <item key="FORM_MAIN_TAB_PRINTER_SETTING" id="LABEL_TEXT_0003" value="Number of copies:"/>
     <item key="FORM_MAIN_TAB_PRINTER_SETTING" id="BUTTON_TEXT_001" value="Accept"/>
     <item key="FORM_MAIN_TAB_PRINTER_SETTING" id="BUTTON_TEXT_002" value="Close"/>
   </section>
-  
+
 </sections>
