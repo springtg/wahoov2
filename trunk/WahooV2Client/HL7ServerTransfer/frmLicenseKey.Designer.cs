@@ -37,30 +37,30 @@ namespace HL7ServerTransfer
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(159, 32);
+            this.btnBack.Location = new System.Drawing.Point(170, 36);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
-            this.btnBack.TabIndex = 9;
+            this.btnBack.TabIndex = 3;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(78, 32);
+            this.btnOk.Location = new System.Drawing.Point(89, 36);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
-            this.btnOk.TabIndex = 10;
+            this.btnOk.TabIndex = 2;
             this.btnOk.Text = "Ok";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // txtLicenseKey
             // 
-            this.txtLicenseKey.Location = new System.Drawing.Point(77, 6);
+            this.txtLicenseKey.Location = new System.Drawing.Point(77, 9);
             this.txtLicenseKey.Name = "txtLicenseKey";
             this.txtLicenseKey.Size = new System.Drawing.Size(168, 20);
-            this.txtLicenseKey.TabIndex = 8;
+            this.txtLicenseKey.TabIndex = 1;
             // 
             // label1
             // 
@@ -68,7 +68,7 @@ namespace HL7ServerTransfer
             this.label1.Location = new System.Drawing.Point(4, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 13);
-            this.label1.TabIndex = 7;
+            this.label1.TabIndex = 0;
             this.label1.Text = "License key:";
             // 
             // frmLicenseKey
@@ -87,6 +87,7 @@ namespace HL7ServerTransfer
             this.Name = "frmLicenseKey";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "License key";
+            this.Load += new System.EventHandler(this.frmLicenseKey_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
