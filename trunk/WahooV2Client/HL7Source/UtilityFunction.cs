@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace HL7Source
 {
@@ -29,6 +30,21 @@ namespace HL7Source
                 }
             }
             return bolValue;
+        }
+
+        /// <summary>
+        /// kiem tra 1 email co dung format khong?
+        /// </summary>
+        /// <param name="strMail"></param>
+        /// <returns></returns>
+        public static bool isMailValid(string strMail)
+        {
+            Regex re = new Regex(@"^(^\w.*@\w.*$)?$");
+            Match theMatch = re.Match(strMail);
+            if (theMatch.Success)
+                return true;//mail dung dinh dang
+            else
+                return false;//mail khong dung dinh dang
         }
     }
 }
