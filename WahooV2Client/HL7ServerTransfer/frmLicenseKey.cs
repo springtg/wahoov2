@@ -33,7 +33,7 @@ namespace HL7ServerTransfer
             }
             else
             {
-                this.ShowMessageBox("ERR001", string.Format(HL7Source.Message.GetMessageById("ERR001")), MessageType.ERROR);
+                this.ShowMessageBox("MSG_TEXT_ERR001", MessageType.ERROR, getNameControl(label1));
             }
         }
 
@@ -44,5 +44,20 @@ namespace HL7ServerTransfer
             _mfrmSettingInfo.ShowDialog();
             this.Close();
         }
+
+        private void LoadResourceInfo()
+        {
+            _Resource = new HL7Source.Resource();
+            this.Text = _Resource.GetResourceByKey("FORM_LICENSE_KEY", "FORM_TEXT_001");
+            label1.Text = _Resource.GetResourceByKey("FORM_LICENSE_KEY", "LABEL_TEXT_0001");
+            btnOk.Text = _Resource.GetResourceByKey("FORM_LICENSE_KEY", "BUTTON_TEXT_001");
+            btnBack.Text = _Resource.GetResourceByKey("FORM_LICENSE_KEY", "BUTTON_TEXT_002");
+        }
+
+        private void frmLicenseKey_Load(object sender, EventArgs e)
+        {
+            LoadResourceInfo();
+        }
+
     }
 }
