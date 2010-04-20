@@ -193,6 +193,7 @@ namespace WahooV2.WahooUserControl
             label2.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "LABEL_NAME_EXECUTE");
             label3.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "LABEL_NAME_TRANFER");
             label4.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "LABEL_NAME_WSADDRESS");
+            label7.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "LABEL_NAME_Encryption");
             //tabInformation.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "TAB_NAME_INFO");
             //tbaRsa.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "TAB_NAME_RSA");
             btnSave.Text = resource.GetResourceByKey("SETTING_FORM_CONTROL", "BUTTON_NAME_SAVE");
