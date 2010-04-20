@@ -27,10 +27,11 @@
   <MSG MessagId="HL7TRANFER_INFO_0001" Value="You can not run 2 program in a machine at the same time."/>
   <!--form setting info-->
   <MSG MessageId="MSG_TEXT_ERROR_0000" Value="You must fill in {0}."/>
-  <MSG MessageId="MSG_TEXT_ERROR_0001" Value="You must fill in client code."/>
-  <MSG MessageId="MSG_TEXT_ERROR_0002" Value="You must fill in client name."/>
-  <MSG MessageId="MSG_TEXT_ERROR_0003" Value="You must fill in email."/>
-  <MSG MessageId="MSG_TEXT_ERROR_0004" Value="Have error. Please try again"/>
+  <MSG MessageId="MSG_TEXT_ERROR_0001" Value="Have error. Please try again"/>
+  <MSG MessageId="MSG_TEXT_ERROR_0002" Value="You must fill in client code."/>
+  <MSG MessageId="MSG_TEXT_ERROR_0003" Value="You must fill in client name."/>
+  <MSG MessageId="MSG_TEXT_ERROR_0004" Value="You must fill in email."/>
+  
   
 </HL7CLIENT>
 
