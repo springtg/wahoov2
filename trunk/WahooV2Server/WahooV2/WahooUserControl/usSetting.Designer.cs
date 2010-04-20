@@ -50,7 +50,7 @@
             this.txtBlowfishKey.Location = new System.Drawing.Point(205, 133);
             this.txtBlowfishKey.Name = "txtBlowfishKey";
             this.txtBlowfishKey.Size = new System.Drawing.Size(100, 20);
-            this.txtBlowfishKey.TabIndex = 10;
+            this.txtBlowfishKey.TabIndex = 7;
             // 
             // label7
             // 
@@ -58,7 +58,7 @@
             this.label7.Location = new System.Drawing.Point(9, 140);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(81, 13);
-            this.label7.TabIndex = 9;
+            this.label7.TabIndex = 6;
             this.label7.Tag = "?";
             this.label7.Text = "Encryption Key:";
             // 
@@ -69,7 +69,7 @@
             this.txtTransferSpeed.Name = "txtTransferSpeed";
             this.txtTransferSpeed.Size = new System.Drawing.Size(100, 20);
             this.txtTransferSpeed.StrFormat = "";
-            this.txtTransferSpeed.TabIndex = 6;
+            this.txtTransferSpeed.TabIndex = 5;
             this.txtTransferSpeed.Text = "0";
             this.txtTransferSpeed.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtTransferSpeed.Value = null;
@@ -81,7 +81,7 @@
             this.txtExecuteInterval.Name = "txtExecuteInterval";
             this.txtExecuteInterval.Size = new System.Drawing.Size(100, 20);
             this.txtExecuteInterval.StrFormat = "";
-            this.txtExecuteInterval.TabIndex = 5;
+            this.txtExecuteInterval.TabIndex = 3;
             this.txtExecuteInterval.Text = "0";
             this.txtExecuteInterval.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtExecuteInterval.Value = null;
@@ -93,7 +93,7 @@
             this.txtDashboardRefresh.Name = "txtDashboardRefresh";
             this.txtDashboardRefresh.Size = new System.Drawing.Size(100, 20);
             this.txtDashboardRefresh.StrFormat = "";
-            this.txtDashboardRefresh.TabIndex = 4;
+            this.txtDashboardRefresh.TabIndex = 1;
             this.txtDashboardRefresh.Text = "0";
             this.txtDashboardRefresh.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtDashboardRefresh.Value = null;
@@ -103,14 +103,14 @@
             this.txtWsdlUrl.Location = new System.Drawing.Point(205, 168);
             this.txtWsdlUrl.Name = "txtWsdlUrl";
             this.txtWsdlUrl.Size = new System.Drawing.Size(307, 20);
-            this.txtWsdlUrl.TabIndex = 7;
+            this.txtWsdlUrl.TabIndex = 9;
             // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(368, 223);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(79, 23);
-            this.btnSave.TabIndex = 8;
+            this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -121,7 +121,7 @@
             this.label4.Location = new System.Drawing.Point(9, 175);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 13);
-            this.label4.TabIndex = 3;
+            this.label4.TabIndex = 8;
             this.label4.Text = "Web service address:";
             // 
             // label3
@@ -130,7 +130,7 @@
             this.label3.Location = new System.Drawing.Point(9, 100);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 13);
-            this.label3.TabIndex = 2;
+            this.label3.TabIndex = 4;
             this.label3.Text = "Transfer Speed(Kbps):";
             // 
             // label2
@@ -139,7 +139,7 @@
             this.label2.Location = new System.Drawing.Point(9, 64);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(137, 13);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 2;
             this.label2.Text = "Execute interval (Seconds):";
             // 
             // label1
@@ -166,7 +166,7 @@
             this.groupBox1.Location = new System.Drawing.Point(13, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(541, 204);
-            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // label5
@@ -175,14 +175,14 @@
             this.label5.Location = new System.Drawing.Point(13, 218);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(541, 2);
-            this.label5.TabIndex = 12;
+            this.label5.TabIndex = 1;
             // 
             // btnReset
             // 
             this.btnReset.Location = new System.Drawing.Point(462, 223);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 13;
+            this.btnReset.TabIndex = 3;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
