@@ -25,5 +25,7 @@ namespace HL7Source
         //Client download files
         public const string FOLDER_DOWNLOAD_CONFIG = "FolderDownload";
         public const string INTERVAL_DOWNLOAD_CONFIG = "IntervalForDownload";
+        public static string SUCCESSED_STATUS = "SUCCESSED";
+        public static string FAILED_STATUS = "FAILED";
     }
 }
