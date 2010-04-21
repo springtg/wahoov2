@@ -102,7 +102,7 @@ namespace HL7Source
                 if (workbook != null)
                 {
                     Marshal.FinalReleaseComObject(worksheet);
-                    workbook.Close( false, nullObject,nullObject);                    
+                    workbook.Close(false, nullObject, nullObject);
                     Marshal.FinalReleaseComObject(workbook);
 
                 }
@@ -115,7 +115,7 @@ namespace HL7Source
                 Console.WriteLine(ex.Message);
                 if (workbook != null)
                 {
-                    workbook.Close(false,  nullObject,  nullObject);
+                    workbook.Close(false, nullObject, nullObject);
                     Marshal.FinalReleaseComObject(workbook);
                 }
                 result = false;
@@ -185,19 +185,19 @@ namespace HL7Source
             bw.Write(ba);
             br.Close();
             bw.Close();
-            PrintDialog p = new PrintDialog();
-            if (DialogResult.OK == p.ShowDialog())
-            {
-                ProcessStartInfo info = new ProcessStartInfo();
-                info.FileName = exeName;
-                string str2 = string.Format("/t \"{0}\" \"{1}\"", strFileName, strPrinterName);
-                info.Arguments = str2;
-                info.WindowStyle = ProcessWindowStyle.Hidden;
-                info.CreateNoWindow = true;
-                info.ErrorDialog = false;
-                info.UseShellExecute = false;
-                Process.Start(info);// exeName, @"/p C:\1.pdf");
-            }
+            //PrintDialog p = new PrintDialog();
+            //if (DialogResult.OK == p.ShowDialog())
+            //{
+            ProcessStartInfo info = new ProcessStartInfo();
+            info.FileName = exeName;
+            string str2 = string.Format("/t \"{0}\" \"{1}\"", strFileName, strPrinterName);
+            info.Arguments = str2;
+            info.WindowStyle = ProcessWindowStyle.Hidden;
+            info.CreateNoWindow = true;
+            info.ErrorDialog = false;
+            info.UseShellExecute = false;
+            Process.Start(info);// exeName, @"/p C:\1.pdf");
+            //}
         }
         /// <summary>
         /// Lay tat cac may in duoc install tren may, dua vao CBO
