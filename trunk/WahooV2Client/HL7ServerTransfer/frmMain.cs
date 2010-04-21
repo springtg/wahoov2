@@ -61,11 +61,14 @@ namespace HL7ServerTransfer
                 //if (printDoc.PrinterSettings.CanDuplex == true)
                 //    printDoc.PrinterSettings.Duplex = System.Drawing.Printing.Duplex.Vertical;
                 //this._mExecuting = false;
-                StartDownloadAndStartSchedule();
+                //neu la lan dau tien chay chuong trinh thi ko goi ham StartDownloadAndStartSchedule();
+                if(!Settings.Default.boolRunFirstTime)
+                    StartDownloadAndStartSchedule();
             }
             catch (Exception ex)
             {
-
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
             }
         }
 
@@ -171,6 +174,11 @@ namespace HL7ServerTransfer
                         // Remove the value from the registry so that the application doesn't start
                         rkApp.DeleteValue("MyApp", false);
                     }
+
+                    //Luu RunFirstTime = false
+                    Settings.Default.boolRunFirstTime = false;
+                    Settings.Default.Save();
+
                     this.ShowMessageBox("INF001", string.Format(HL7Source.Message.GetMessageById("INF001")), MessageType.INFORM);
                 }
                 catch (Exception ex)

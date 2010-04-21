@@ -26,7 +26,7 @@ namespace HL7ServerTransfer.Job
         /// <param name="e"></param>
         void bw_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
-            DownloadData();
+            DownloadData();            
         }
 
         /// <summary>
