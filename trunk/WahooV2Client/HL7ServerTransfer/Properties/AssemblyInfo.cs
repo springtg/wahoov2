@@ -31,3 +31,5 @@ using System.Runtime.InteropServices;
 //
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+//For log4net 1.2.10.0
+[assembly: log4net.Config.XmlConfigurator(ConfigFile = "HL7ServerTransfer.exe.config", Watch = true)]
