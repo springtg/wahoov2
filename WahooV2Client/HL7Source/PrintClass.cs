@@ -185,7 +185,7 @@ namespace HL7Source
         /// <returns></returns>
         public bool isDOCFile(string strFileName)
         {
-            if (Path.GetExtension(strFileName).ToUpper().Equals(".DOC"))
+            if (Path.GetExtension(strFileName).ToUpper().Equals(".DOC") || Path.GetExtension(strFileName).ToUpper().Equals(".DOCX"))
             {
                 return true;
             }
