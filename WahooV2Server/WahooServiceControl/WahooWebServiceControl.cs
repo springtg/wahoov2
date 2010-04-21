@@ -18,7 +18,7 @@ namespace WahooServiceControl
         private const int MAX_RETRIES = 3;
         //Web service
         private WebService.Service _WahooService = null;
-        private WebService.AuthSoapHd objAuthSoapHeader = new WahooServiceControl.WebService.AuthSoapHd();
+        private WebService.AuthSoapHd objAuthSoapHeader = new WebService.AuthSoapHd();
         //Folder in server
         private string _mServerFolder;
         private const string USERNAME = "980@Cuong!@#$%678";
@@ -334,7 +334,7 @@ namespace WahooServiceControl
             try
             {
                 ArrayList arrResult = new ArrayList();
-                object[] filesToDownload = _WahooService.GetDownloadFiles(this._mServerFolder);
+                ArrayList filesToDownload = _WahooService.GetDownloadFiles(this._mServerFolder);
                 foreach (string file in filesToDownload)
                 {
                     WahooServiceLog log = this.DownloadFile(localFolder, file, storeFile, transferSpeed);
@@ -426,7 +426,11 @@ namespace WahooServiceControl
                 throw ex;
             }
         }
-        public object[] GetDownloadFiles()
+        /// <summary>
+        /// Get list of name to download file
+        /// </summary>
+        /// <returns></returns>
+        public ArrayList GetDownloadFiles()
         {
             return _WahooService.GetDownloadFiles(this._mServerFolder);
         }
@@ -438,7 +442,7 @@ namespace WahooServiceControl
         {
             try
             {
-                _WahooService.GetDownloadFiles(@"\Incomming");
+                _WahooService.GetIpAddress();
                 return true;
             }
             catch
@@ -455,7 +459,11 @@ namespace WahooServiceControl
         {
             return this._WahooService.CreateDirectory(path);
         }
-
+        /// <summary>
+        /// Edit file Blowfish
+        /// </summary>
+        /// <param name="blowfishKey"></param>
+        /// <returns></returns>
         public Boolean UploadBlowfishKey(string blowfishKey)
         {
             return this._WahooService.UploadBlowfishKey(blowfishKey);
