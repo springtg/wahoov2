@@ -28,11 +28,62 @@ namespace HL7ServerTransfer
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.lblMsgServerConnected = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblMsg = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.statusStrip1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblMsgServerConnected,
+            this.lblMsg,
+            this.toolStripProgressBar1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 244);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(292, 22);
+            this.statusStrip1.SizingGrip = false;
+            this.statusStrip1.TabIndex = 0;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // lblMsgServerConnected
+            // 
+            this.lblMsgServerConnected.Name = "lblMsgServerConnected";
+            this.lblMsgServerConnected.Size = new System.Drawing.Size(0, 17);
+            // 
+            // lblMsg
+            // 
+            this.lblMsg.Name = "lblMsg";
+            this.lblMsg.Size = new System.Drawing.Size(0, 17);
+            // 
+            // toolStripProgressBar1
+            // 
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
+            this.toolStripProgressBar1.Visible = false;
+            // 
+            // frmBase
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(292, 266);
+            this.Controls.Add(this.statusStrip1);
+            this.Name = "frmBase";
             this.Text = "frmBase";
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel lblMsgServerConnected;
+        private System.Windows.Forms.ToolStripStatusLabel lblMsg;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
     }
 }
