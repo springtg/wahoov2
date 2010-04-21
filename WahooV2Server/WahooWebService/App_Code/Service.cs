@@ -59,7 +59,7 @@ public class Service : System.Web.Services.WebService
             string path = Server.MapPath(".") + serverFolder;
             return transferFile.GetFiles(path);
         }
-        return null;
+        return new ArrayList();
     }
 
     [SoapHeader("spAuthenticationHeader")]
@@ -178,6 +178,7 @@ public class Service : System.Web.Services.WebService
     }
 
     [SoapHeader("spAuthenticationHeader")]
+    [WebMethod(Description = "Web service provides method to get IpAddress")]
     public string GetIpAddress()
     {
         if (spAuthenticationHeader.strUserName == "980@Cuong!@#$%678" && spAuthenticationHeader.strPassword == "78$>@!(C%7")
