@@ -2,7 +2,7 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="HL7Source.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="HL7Source_HL7WebService_Service" Type="(Web Service URL)" Scope="Application">
+    <Setting Name="HL7Source_WebService_Service" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost:51095/WahooWebService/Service.asmx</Value>
     </Setting>
   </Settings>

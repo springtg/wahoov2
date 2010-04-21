@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Collections;
 using System.IO;
-using HL7Source.HL7WebService;
+using HL7Source.WebService;
 using System.Diagnostics;
 using System.Net;
 
