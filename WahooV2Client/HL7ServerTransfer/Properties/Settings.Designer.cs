@@ -34,5 +34,17 @@ namespace HL7ServerTransfer.Properties {
                 this["boolStartup"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool boolRunFirstTime {
+            get {
+                return ((bool)(this["boolRunFirstTime"]));
+            }
+            set {
+                this["boolRunFirstTime"] = value;
+            }
+        }
     }
 }
