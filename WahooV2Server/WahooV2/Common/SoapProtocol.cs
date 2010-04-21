@@ -103,28 +103,62 @@ namespace WahooV2.Common
                     return;
                 }
                 //Download file status tu client va xoa no
-                ArrayList logList = _WahooWebServiceControl.DownloadFolder(pathForDownload, false, transferSpeed);
-                foreach (WahooServiceLog log in logList)
+                //Tuan sua 2010/04/21
+                object[] logList = _WahooWebServiceControl.DownloadFolder(pathForDownload, false, transferSpeed);
+                if (logList != null && logList.Length > 0)
                 {
-                    if (log.ErrorStatus.ToUpper() == AliasMessage.SUCCESSED_STATUS.ToUpper())
+                    for (int i = 0; i < logList.Length; i++)
                     {
                         try
                         {
-                            XmlDocument xmlDoc = new XmlDocument();
-                            string pathXml = pathForDownload + "\\" + log.FileName;
-                            xmlDoc.Load(pathXml);
-                            XmlNodeList nodeList = xmlDoc.GetElementsByTagName("Infomation");
-                            foreach (XmlNode node in nodeList)
+                            WahooServiceLog log = (WahooServiceLog)logList[i];
+                            if (log.ErrorStatus.ToUpper() == AliasMessage.SUCCESSED_STATUS.ToUpper())
                             {
-                                ImportReport(node, DataTypeProtect.ProtectInt32(objChannel.Client.Id, 0));
+                                try
+                                {
+                                    XmlDocument xmlDoc = new XmlDocument();
+                                    string pathXml = pathForDownload + "\\" + log.FileName;
+                                    xmlDoc.Load(pathXml);
+                                    XmlNodeList nodeList = xmlDoc.GetElementsByTagName("Infomation");
+                                    foreach (XmlNode node in nodeList)
+                                    {
+                                        ImportReport(node, DataTypeProtect.ProtectInt32(objChannel.Client.Id, 0));
+                                    }
+                                }
+                                catch
+                                {
+                                    return;
+                                }
                             }
                         }
                         catch
                         {
-                            return;
                         }
                     }
                 }
+
+                //ArrayList logList = _WahooWebServiceControl.DownloadFolder(pathForDownload, false, transferSpeed);
+                //foreach (WahooServiceLog log in logList)
+                //{
+                //    if (log.ErrorStatus.ToUpper() == AliasMessage.SUCCESSED_STATUS.ToUpper())
+                //    {
+                //        try
+                //        {
+                //            XmlDocument xmlDoc = new XmlDocument();
+                //            string pathXml = pathForDownload + "\\" + log.FileName;
+                //            xmlDoc.Load(pathXml);
+                //            XmlNodeList nodeList = xmlDoc.GetElementsByTagName("Infomation");
+                //            foreach (XmlNode node in nodeList)
+                //            {
+                //                ImportReport(node, DataTypeProtect.ProtectInt32(objChannel.Client.Id, 0));
+                //            }
+                //        }
+                //        catch
+                //        {
+                //            return;
+                //        }
+                //    }
+                //}
             }
             catch
             {
