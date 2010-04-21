@@ -187,7 +187,21 @@ namespace WahooV2.Common
                     isDownloaded = false;
                 }
                 //Get time downloaded
-                string timeDownloaded = node.ChildNodes[2].InnerText;
+                string strtimeDownloaded = node.ChildNodes[2].InnerText;
+                DateTime? timeDownloaded=null;
+                try 
+	            {
+                    timeDownloaded = new DateTime(DataTypeProtect.ProtectInt32(strtimeDownloaded.Substring(0, 4),0), 
+                                                    DataTypeProtect.ProtectInt32(strtimeDownloaded.Substring(4, 2),0),
+                                                    DataTypeProtect.ProtectInt32(strtimeDownloaded.Substring(6, 2),0),
+                                                    DataTypeProtect.ProtectInt32(strtimeDownloaded.Substring(8, 2),0),
+                                                    DataTypeProtect.ProtectInt32(strtimeDownloaded.Substring(10, 2),0), 
+                                                    DataTypeProtect.ProtectInt32(strtimeDownloaded.Substring(12, 2),0));
+	            }
+	            catch
+	            {
+                    timeDownloaded = DateTime.Now;
+	            }
                 //Get sent to print machine success status
                 Boolean isSentToPrint = false;
                 if (node.ChildNodes[3].InnerText == "1")
@@ -199,20 +213,34 @@ namespace WahooV2.Common
                     isSentToPrint = false;
                 }
                 //Get time sent to print
-                string timeSentToPrint = node.ChildNodes[4].InnerText;
+                string strtimeSentToPrint = node.ChildNodes[4].InnerText;
+                DateTime? timeSentToPrint = null;
+                try
+                {
+                    timeSentToPrint = new DateTime(DataTypeProtect.ProtectInt32(strtimeSentToPrint.Substring(0, 4), 0),
+                                                    DataTypeProtect.ProtectInt32(strtimeSentToPrint.Substring(4, 2), 0),
+                                                    DataTypeProtect.ProtectInt32(strtimeSentToPrint.Substring(6, 2), 0),
+                                                    DataTypeProtect.ProtectInt32(strtimeSentToPrint.Substring(8, 2), 0),
+                                                    DataTypeProtect.ProtectInt32(strtimeSentToPrint.Substring(10, 2), 0),
+                                                    DataTypeProtect.ProtectInt32(strtimeSentToPrint.Substring(12, 2), 0));
+                }
+                catch
+                {
+                    timeSentToPrint = DateTime.Now;
+                }
                 //Get ip address
                 string ipAddress = node.ChildNodes[5].InnerText;
-                CultureInfo provider = CultureInfo.InvariantCulture;
-                provider = new CultureInfo("en-us");
+                //CultureInfo provider = CultureInfo.InvariantCulture;
+                //provider = new CultureInfo("en-us");
                 //Insert to database
                 DownloadReport objInsert = new DownloadReport();
                 objInsert.IdClient = idClient;
                 objInsert.IpAddress = ipAddress;
                 objInsert.Filename = fileName;
                 objInsert.Success = isDownloaded;
-                objInsert.TimeDownloaded = DateTime.ParseExact(timeDownloaded, "d", provider);
+                objInsert.TimeDownloaded =timeDownloaded;
                 objInsert.IsSentToPrint = isSentToPrint;
-                objInsert.TimeSentToPrint = DateTime.ParseExact(timeSentToPrint, "d", provider);
+                objInsert.TimeSentToPrint = timeSentToPrint;
                 int result = WahooBusinessHandler.Add_DownloadReport(objInsert);
             }
             catch
