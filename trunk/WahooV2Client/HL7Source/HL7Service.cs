@@ -11,20 +11,41 @@ namespace HL7Source
 {
     public class HL7Service
     {
+        #region variable
+
         private const int MAX_RETRIES = 3;
-        private HL7WebService.Service _mHL7WebService;
+        //Web service
+        private WebService.Service _WahooService = null;
+        private WebService.AuthSoapHd objAuthSoapHeader = new WebService.AuthSoapHd();
+        //Folder in server
         private string _mServerFolder;
+        private const string USERNAME = "980@Cuong!@#$%678";
+        private const string PASSWORD = "78$>@!(C%7";
+
 
         public string ServerFolder
         {
             get { return _mServerFolder; }
             set { _mServerFolder = value; }
         }
+
+        #endregion variable
+
+        #region constructor
+
         public HL7Service(string url)
         {
-            _mHL7WebService = new HL7WebService.Service();
-            _mHL7WebService.Url = url;
+            _WahooService = new WebService.Service();
+            _WahooService.Url = url;
+            objAuthSoapHeader.strPassword = PASSWORD;
+            objAuthSoapHeader.strUserName = USERNAME;
+            _WahooService.AuthSoapHdValue = objAuthSoapHeader;
         }
+
+        #endregion constructor
+
+        #region function
+
         /// <summary>
         /// getBinaryFileÅFReturn array of byte which you specified.
         /// </summary>
@@ -72,16 +93,17 @@ namespace HL7Source
             }
             return tempStream.ToArray();
         }
+
         /// <summary>
         /// Upload file 
         /// </summary>
         /// <param name="fileUpload"></param>
         /// <returns></returns>
-        public HL7Log Upload(string fileUpload, Boolean storeFile,double transferSpeed)
+        public HL7Log Upload(string fileUpload, Boolean storeFile, double transferSpeed)
         {
             HL7Log result = new HL7Log();
             //Programaticly enable client to send MTOM encoded messages
-            //_mHL7WebService.RequireMtom = true;           
+            //hl7Service.RequireMtom = true;
             try
             {
                 string fileName = Path.GetFileName(fileUpload);
@@ -134,35 +156,36 @@ namespace HL7Source
                             {
                                 File.Delete(fileUpload);
                             }
-                            result.ErrorStatus = "SUCCEESS";
-                            result.Description = string.Format(HL7Source.Message.GetMessageById("LOG001"),fileUpload,DateTime.Now.ToString("HH:mm:ss") + "," + DateTime.Now.ToString("dd/MM/yyyy"));
+                            result.ErrorStatus = Alias.SUCCESSED_STATUS;
+                            result.Description = "Upload file " + fileUpload + " to server success at " + DateTime.Now.ToString("HH:mm:ss") + "," + DateTime.Now.ToString("dd/MM/yyyy") + ".";
 
                         }
                         if (buffer.Length == 0)
                         {
-                            _mHL7WebService.UploadFile(buffer, offset, this._mServerFolder, fileName, storeFile, endOfFile);
+                            _WahooService.UploadFile(buffer, offset, this._mServerFolder, fileName, storeFile, endOfFile);
                             break;	// nothing more to send
                         }
                         try
                         {
                             // send this chunk to the server.  it is sent as a byte[] parameter, but the client and server have been configured to encode byte[] using MTOM. 
-                            if (_mHL7WebService.UploadFile(buffer, offset, this._mServerFolder, fileName, storeFile, endOfFile))
+                            if (_WahooService.UploadFile(buffer, offset, this._mServerFolder, fileName, storeFile, endOfFile))
                             {
                                 // Offset is only updated AFTER a successful send of the bytes. this helps the 'retry' feature to resume the upload from the current Offset position if AppendChunk fails.
                                 offset += BytesRead;	// save the offset position for resume
                             }
                             else
-                            {                                
+                            {
+                                // rewind the filestream and keep trying
                                 fs.Position -= BytesRead;
+
                                 if (NumRetries++ >= MAX_RETRIES) // too many retries, bail out
                                 {
-                                    result.ErrorStatus = "ERROR";
-                                    result.Description = string.Format(HL7Source.Message.GetMessageById("LOG002"),fileUpload);
+                                    result.ErrorStatus = Alias.FAILED_STATUS;
+                                    result.Description = "Upload file " + fileUpload + " have error.";
                                     fs.Close();
                                     break;
                                 }
                             }
-
                         }
                         catch (Exception ex)
                         {
@@ -173,8 +196,8 @@ namespace HL7Source
 
                             if (NumRetries++ >= MAX_RETRIES) // too many retries, bail out
                             {
-                                result.ErrorStatus = "ERROR";
-                                result.Description = string.Format(HL7Source.Message.GetMessageById("LOG003"), fileUpload, ex.Message);
+                                result.ErrorStatus = Alias.FAILED_STATUS;
+                                result.Description = "Upload file " + fileUpload + " have error." + ex.Message + ".";
                                 fs.Close();
                                 break;
                             }
@@ -184,8 +207,8 @@ namespace HL7Source
             }
             catch (Exception ex)
             {
-                result.ErrorStatus = "ERROR";
-                result.Description = string.Format(HL7Source.Message.GetMessageById("LOG003"), fileUpload, ex.Message);
+                result.ErrorStatus = Alias.FAILED_STATUS;
+                result.Description = "Upload file " + fileUpload + " have error." + ex.Message + ".";
             }
             result.FileName = fileUpload;
             return result;
@@ -196,7 +219,7 @@ namespace HL7Source
         /// </summary>
         /// <param name="fileUpload"></param>
         /// <returns></returns>
-        public ArrayList UploadFolder(string fileUpload, Boolean storeFile,double transferSpeed)
+        public ArrayList UploadFolder(string fileUpload, Boolean storeFile, double transferSpeed)
         {
             ArrayList arrResult = new ArrayList();
             try
@@ -240,7 +263,7 @@ namespace HL7Source
         /// <returns></returns>
         public Boolean CreateDirectory(string path)
         {
-            return this._mHL7WebService.CreateDirectory(path);
+            return this._WahooService.CreateDirectory(path);
         }
 
         /// <summary>
@@ -250,7 +273,7 @@ namespace HL7Source
         /// <returns></returns>
         public Boolean CheckExistsDirectory(string path)
         {
-            return this._mHL7WebService.CheckExistsDirectory(path);
+            return this._WahooService.CheckExistsDirectory(path);
         }
         /// <summary>
         /// Write file when download
@@ -292,7 +315,7 @@ namespace HL7Source
             {
                 HL7Log log = new HL7Log();
                 if (!file.Contains(".part"))
-                {                    
+                {
                     try
                     {
                         //Programaticly enable client to send MTOM encoded messages
@@ -304,7 +327,7 @@ namespace HL7Source
                         if (Offset == 0 && File.Exists(LocalFilePath))   // create a new empty file
                             File.Create(LocalFilePath).Close();
 
-                        long FileSize = _mHL7WebService.GetFileSize(this._mServerFolder, Path.GetFileName(file));   // the file is on the server and we need to know how big it is before we start downloading, in order to give accurate feedback to the user.                
+                        long FileSize = _WahooService.GetFileSize(this._mServerFolder, Path.GetFileName(file));   // the file is on the server and we need to know how big it is before we start downloading, in order to give accurate feedback to the user.                
                         // open a file stream for the file we will write to in the start-up folder
                         using (FileStream fs = new FileStream(LocalFilePath, FileMode.OpenOrCreate, FileAccess.Write))
                         {
@@ -316,7 +339,7 @@ namespace HL7Source
                                 try
                                 {
                                     // although the DownloadChunk returns a byte[], it is actually sent using MTOM because of the configuration settings. 
-                                    byte[] Buffer = _mHL7WebService.DownloadFile(this._mServerFolder, Path.GetFileName(file), Offset, ChunkSize, storeFile);
+                                    byte[] Buffer = _WahooService.DownloadFile(this._mServerFolder, Path.GetFileName(file), Offset, ChunkSize, storeFile);
                                     fs.Write(Buffer, 0, Buffer.Length);
                                     Offset += Buffer.Length;	// save the offset position for resume
                                 }
@@ -328,25 +351,25 @@ namespace HL7Source
                                     if (NumRetries++ >= MAX_RETRIES)	// too many retries, bail out
                                     {
                                         fs.Close();
-                                        log.ErrorStatus = "ERROR";
-                                        log.Description = string.Format(HL7Source.Message.GetMessageById("LOG006"),Path.GetFileName(file));
+                                        log.ErrorStatus = Alias.FAILED_STATUS;
+                                        log.Description = string.Format(HL7Source.Message.GetMessageById("LOG006"), Path.GetFileName(file));
                                         break;
                                     }
                                 }
                             }
-                            log.ErrorStatus = "SUCCESS";
-                            log.Description = string.Format(HL7Source.Message.GetMessageById("LOG007"), Path.GetFileName(file), DateTime.Now.ToString("HH:mm:ss") + "," + DateTime.Now.ToString("dd/MM/yyyy")); 
+                            log.ErrorStatus = Alias.SUCCESSED_STATUS;
+                            log.Description = string.Format(HL7Source.Message.GetMessageById("LOG007"), Path.GetFileName(file), DateTime.Now.ToString("HH:mm:ss") + "," + DateTime.Now.ToString("dd/MM/yyyy"));
                         }
                     }
                     catch (Exception ex)
                     {
-                        log.ErrorStatus = "ERROR";
+                        log.ErrorStatus = Alias.FAILED_STATUS;
                         log.Description = string.Format(HL7Source.Message.GetMessageById("LOG008"), Path.GetFileName(file));
                     }
                     log.FileName = Path.GetFileName(file);
                     log.TimeDownloaded = DateTime.Now.ToString("yyyyMMddHHmmss");
-                    log.IpAddress = _mHL7WebService.GetIpAddress();
-                    if (log.ErrorStatus == "SUCCESS")
+                    log.IpAddress = _WahooService.GetIpAddress();
+                    if (log.ErrorStatus == Alias.SUCCESSED_STATUS)
                     {
                         log.IsDownloaded = true;
                     }
@@ -368,13 +391,13 @@ namespace HL7Source
             //_mHL7WebService.RequireMtom = true;
             try
             {
-                return _mHL7WebService.GetFileSize(this._mServerFolder, Path.GetFileName(fileName));
+                return _WahooService.GetFileSize(this._mServerFolder, Path.GetFileName(fileName));
             }
             catch (Exception)
             {
                 return 0;
             }
-            
+
         }
         /// <summary>
         /// Get file to download
@@ -382,13 +405,16 @@ namespace HL7Source
         /// <returns></returns>
         public object[] GetDownloadFiles()
         {
-            return _mHL7WebService.GetDownloadFiles(this._mServerFolder);
+            return _WahooService.GetDownloadFiles(this._mServerFolder);
         }
 
         public string GetBlowfishKey()
         {
-            return _mHL7WebService.GetBlowfishKey();
+            return _WahooService.GetBlowfishKey();
         }
+
+        #endregion function
+        
     }
     public class HL7Log
     {
