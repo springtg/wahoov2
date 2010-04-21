@@ -27,9 +27,9 @@ namespace HL7Source.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:51095/WahooWebService/Service.asmx")]
-        public string HL7Source_HL7WebService_Service {
+        public string HL7Source_WebService_Service {
             get {
-                return ((string)(this["HL7Source_HL7WebService_Service"]));
+                return ((string)(this["HL7Source_WebService_Service"]));
             }
         }
     }
