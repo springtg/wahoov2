@@ -329,21 +329,38 @@ namespace WahooServiceControl
         /// <param name="storeFile"></param>
         /// <param name="transferSpeed"></param>
         /// <returns></returns>
-        public ArrayList DownloadFolder(string localFolder, Boolean storeFile, double transferSpeed)
+        public object[] DownloadFolder(string localFolder, Boolean storeFile, double transferSpeed)
         {
             try
             {
-                ArrayList arrResult = new ArrayList();
-                ArrayList filesToDownload = _WahooService.GetDownloadFiles(this._mServerFolder);
-                foreach (string file in filesToDownload)
+                //Tuan sua 2010/04/21
+                object[] arrResult = null;
+                object[] filesToDownload = _WahooService.GetDownloadFiles(this._mServerFolder);
+                if (filesToDownload != null && filesToDownload.Length > 0)
                 {
-                    WahooServiceLog log = this.DownloadFile(localFolder, file, storeFile, transferSpeed);
-                    if (log != null)
+                    arrResult = new object[filesToDownload.Length];
+                    for (int i = 0; i < filesToDownload.Length; i++)
                     {
-                        arrResult.Add(log);
+                        WahooServiceLog log = this.DownloadFile(localFolder, filesToDownload[i].ToString(), storeFile, transferSpeed);
+                        if (log != null)
+                        {
+                            arrResult[i] = log;
+                        }
                     }
                 }
                 return arrResult;
+
+                //ArrayList arrResult = new ArrayList();
+                //ArrayList filesToDownload = _WahooService.GetDownloadFiles(this._mServerFolder);
+                //foreach (string file in filesToDownload)
+                //{
+                //    WahooServiceLog log = this.DownloadFile(localFolder, file, storeFile, transferSpeed);
+                //    if (log != null)
+                //    {
+                //        arrResult.Add(log);
+                //    }
+                //}
+                //return arrResult;
             }
             catch (Exception ex)
             {
@@ -430,7 +447,7 @@ namespace WahooServiceControl
         /// Get list of name to download file
         /// </summary>
         /// <returns></returns>
-        public ArrayList GetDownloadFiles()
+        public object[] GetDownloadFiles()
         {
             return _WahooService.GetDownloadFiles(this._mServerFolder);
         }
