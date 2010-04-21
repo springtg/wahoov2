@@ -127,7 +127,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Debug\Resource\Message.xml" />
-    <Content Include="bin\Debug\Resource\Message_.xml" />
     <Content Include="bin\Debug\Resource\Resource.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

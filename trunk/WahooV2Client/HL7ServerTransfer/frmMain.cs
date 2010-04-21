@@ -93,7 +93,7 @@ namespace HL7ServerTransfer
                 string txtPrintedFormat = "";
                 if (chkDoc.Checked)
                 {
-                    txtPrintedFormat += ".doc;";
+                    txtPrintedFormat += ".doc;.docx;";
                 }
                 if (chkPdf.Checked)
                 {
@@ -101,7 +101,7 @@ namespace HL7ServerTransfer
                 }
                 if (chkXsl.Checked)
                 {
-                    txtPrintedFormat += ".xsl;";
+                    txtPrintedFormat += ".xls;.xlsx";
                 }
                 if (txtPrintedFormat == "")
                 {
