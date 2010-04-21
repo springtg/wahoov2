@@ -43,8 +43,6 @@ namespace HL7ServerTransfer
             this.txtURL = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.tmDownload = new System.Timers.Timer();
-            this.bgwMain = new System.ComponentModel.BackgroundWorker();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabUserInfo = new System.Windows.Forms.TabPage();
             this.txtLicenseKey = new System.Windows.Forms.TextBox();
@@ -78,7 +76,6 @@ namespace HL7ServerTransfer
             this.label13 = new System.Windows.Forms.Label();
             this.cbPrinter = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.tmDownload)).BeginInit();
             this.tabMain.SuspendLayout();
             this.tabUserInfo.SuspendLayout();
             this.tabOption.SuspendLayout();
@@ -215,11 +212,6 @@ namespace HL7ServerTransfer
             this.label6.Size = new System.Drawing.Size(67, 13);
             this.label6.TabIndex = 32;
             this.label6.Text = "WSDL URL:";
-            // 
-            // tmDownload
-            // 
-            this.tmDownload.Enabled = true;
-            this.tmDownload.SynchronizingObject = this;
             // 
             // tabMain
             // 
@@ -593,7 +585,6 @@ namespace HL7ServerTransfer
             this.Controls.SetChildIndex(this.btnAccept, 0);
             this.Controls.SetChildIndex(this.btnReset, 0);
             this.Controls.SetChildIndex(this.tabMain, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.tmDownload)).EndInit();
             this.tabMain.ResumeLayout(false);
             this.tabUserInfo.ResumeLayout(false);
             this.tabUserInfo.PerformLayout();
@@ -623,8 +614,6 @@ namespace HL7ServerTransfer
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtInterval;
-        private System.Timers.Timer tmDownload;
-        private System.ComponentModel.BackgroundWorker bgwMain;
         private System.Windows.Forms.TextBox txtTransferSpeed;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabControl tabMain;
