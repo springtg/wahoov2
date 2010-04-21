@@ -31,6 +31,5 @@
   <MSG MessageId="MSG_TEXT_ERROR_0002" Value="Email is invalid format! You must enter Email valid!"/>
   <!--form license key-->
   <MSG MessageId="MSG_TEXT_ERR001" Value= "{0} is not valid. Please try again." />
-  
 </HL7CLIENT>
 
