@@ -257,7 +257,7 @@ namespace WahooV2.Common
                 System.Net.ServicePointManager.CertificatePolicy = new TrustAllCertificatePolicy();
                 //Create web service object
                 WahooWebServiceControl _WahooWebServiceControl = new WahooWebServiceControl(objChannel.WsdlUrl);
-                _WahooWebServiceControl.ServerFolder = objChannel.ServerFolder;
+                _WahooWebServiceControl.ServerFolder = objChannel.ServerFolder +  @"\Connect";
                 //Download file from server to DownloadFolderTemp
                 string fileName = pathForDownload + "\\CONNECT_" + objChannel.Client.ClientCode.ToUpper() + ".txt";
                 if (File.Exists(fileName))
