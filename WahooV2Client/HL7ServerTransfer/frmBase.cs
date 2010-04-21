@@ -256,9 +256,12 @@ namespace HL7ServerTransfer
 
         private void frmBase_Shown(object sender, EventArgs e)
         {
-            this.restoreToolStripMenuItem.Visible = false;
-            _Resource = new HL7Source.Resource();
-            notifyIcon1.Text = _Resource.GetResourceByKey("FORM_BASE_KEY", "NOTIFY_TEXT_0003");
+            if (!DesignMode)
+            {
+                this.restoreToolStripMenuItem.Visible = false;
+                _Resource = new HL7Source.Resource();
+                notifyIcon1.Text = _Resource.GetResourceByKey("FORM_BASE_KEY", "NOTIFY_TEXT_0003");
+            }
         }
 
         private void minimizeToolStripMenuItem_Click(object sender, EventArgs e)
