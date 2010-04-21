@@ -16,11 +16,13 @@ using System.Threading;
 using System.Xml;
 using Microsoft.Office.Interop.Word;
 using Quartz;
+using log4net;
 
 namespace HL7ServerTransfer
 {
     public partial class frmMain : frmBase
     {
+        private static readonly ILog _logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         //Variable for store running program at startup
         RegistryKey rkApp = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
         //Is downloading
@@ -174,28 +176,32 @@ namespace HL7ServerTransfer
                 catch (Exception ex)
                 {
                     this.ShowMessageBox("INF002", string.Format(HL7Source.Message.GetMessageById("INF002")), MessageType.INFORM);
-                    //Write log in Log folder
-                    string logFolder = AppDomain.CurrentDomain.BaseDirectory + "\\Log";
-                    if (!Directory.Exists(logFolder))
-                    {
-                        Directory.CreateDirectory(logFolder);
-                    }
-                    //Write log
-                    Log.Write(ex, logFolder);
+                    if (_logger.IsErrorEnabled)
+                        _logger.Error(ex);
+                    ////Write log in Log folder
+                    //string logFolder = AppDomain.CurrentDomain.BaseDirectory + "\\Log";
+                    //if (!Directory.Exists(logFolder))
+                    //{
+                    //    Directory.CreateDirectory(logFolder);
+                    //}
+                    ////Write log
+                    //Log.Write(ex, logFolder);
                 }
                 //this.ShowMessageBox("INF001", string.Format(HL7Source.Message.GetMessageById("INF001")), MessageType.INFORM);
                 StartDownloadAndStartSchedule();
             }
             catch (Exception ex)
             {
-                //Write log in Log folder
-                string logFolder = AppDomain.CurrentDomain.BaseDirectory + "\\Log";
-                if (!Directory.Exists(logFolder))
-                {
-                    Directory.CreateDirectory(logFolder);
-                }
-                //Write log
-                Log.Write(ex, logFolder);
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
+                ////Write log in Log folder
+                //string logFolder = AppDomain.CurrentDomain.BaseDirectory + "\\Log";
+                //if (!Directory.Exists(logFolder))
+                //{
+                //    Directory.CreateDirectory(logFolder);
+                //}
+                ////Write log
+                //Log.Write(ex, logFolder);
             }
         }
 
@@ -389,14 +395,16 @@ namespace HL7ServerTransfer
             }
             catch (Exception ex)
             {
-                //Write log in Log folder
-                string logFolder = AppDomain.CurrentDomain.BaseDirectory + "\\Log";
-                if (!Directory.Exists(logFolder))
-                {
-                    Directory.CreateDirectory(logFolder);
-                }
-                //Write log
-                Log.Write(ex, logFolder);
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
+                ////Write log in Log folder
+                //string logFolder = AppDomain.CurrentDomain.BaseDirectory + "\\Log";
+                //if (!Directory.Exists(logFolder))
+                //{
+                //    Directory.CreateDirectory(logFolder);
+                //}
+                ////Write log
+                //Log.Write(ex, logFolder);
             }
         }
 

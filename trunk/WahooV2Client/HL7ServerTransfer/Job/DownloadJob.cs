@@ -5,12 +5,14 @@ using System.Text;
 using HL7Source;
 using Quartz;
 using System.Xml;
+using log4net;
 
 namespace HL7ServerTransfer.Job
 {
     class DownloadJob : IJob
     {
         System.ComponentModel.BackgroundWorker bw;
+        private static readonly ILog _logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public DownloadJob()
         {
             bw = new System.ComponentModel.BackgroundWorker();
@@ -98,14 +100,16 @@ namespace HL7ServerTransfer.Job
             }
             catch (Exception ex)
             {
-                //Write log in Log folder
-                string logFolder = AppDomain.CurrentDomain.BaseDirectory + "\\Log";
-                if (!Directory.Exists(logFolder))
-                {
-                    Directory.CreateDirectory(logFolder);
-                }
-                //Write log
-                Log.Write(ex, logFolder);
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
+                ////Write log in Log folder
+                //string logFolder = AppDomain.CurrentDomain.BaseDirectory + "\\Log";
+                //if (!Directory.Exists(logFolder))
+                //{
+                //    Directory.CreateDirectory(logFolder);
+                //}
+                ////Write log
+                //Log.Write(ex, logFolder);
             }
         }
 
@@ -184,14 +188,16 @@ namespace HL7ServerTransfer.Job
             }
             catch (Exception ex)
             {
-                //Write log in Log folder
-                string logFolder = AppDomain.CurrentDomain.BaseDirectory + "\\Log";
-                if (!Directory.Exists(logFolder))
-                {
-                    Directory.CreateDirectory(logFolder);
-                }
-                //Write log
-                Log.Write(ex, logFolder);
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
+                ////Write log in Log folder
+                //string logFolder = AppDomain.CurrentDomain.BaseDirectory + "\\Log";
+                //if (!Directory.Exists(logFolder))
+                //{
+                //    Directory.CreateDirectory(logFolder);
+                //}
+                ////Write log
+                //Log.Write(ex, logFolder);
             }
         }
 
@@ -240,14 +246,16 @@ namespace HL7ServerTransfer.Job
             }
             catch (Exception ex)
             {
-                //Write log in Log folder
-                string logFolder = AppDomain.CurrentDomain.BaseDirectory + "\\Log";
-                if (!Directory.Exists(logFolder))
-                {
-                    Directory.CreateDirectory(logFolder);
-                }
-                //Write log
-                Log.Write(ex, logFolder);
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
+                ////Write log in Log folder
+                //string logFolder = AppDomain.CurrentDomain.BaseDirectory + "\\Log";
+                //if (!Directory.Exists(logFolder))
+                //{
+                //    Directory.CreateDirectory(logFolder);
+                //}
+                ////Write log
+                //Log.Write(ex, logFolder);
             }
         }
 
@@ -404,14 +412,16 @@ namespace HL7ServerTransfer.Job
             }
             catch (Exception ex)
             {
-                //Write log in Log folder
-                string logFolder = AppDomain.CurrentDomain.BaseDirectory + "\\Log";
-                if (!Directory.Exists(logFolder))
-                {
-                    Directory.CreateDirectory(logFolder);
-                }
-                //Write log
-                Log.Write(ex, logFolder);
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
+                ////Write log in Log folder
+                //string logFolder = AppDomain.CurrentDomain.BaseDirectory + "\\Log";
+                //if (!Directory.Exists(logFolder))
+                //{
+                //    Directory.CreateDirectory(logFolder);
+                //}
+                ////Write log
+                //Log.Write(ex, logFolder);
             }
         }
 
@@ -491,15 +501,18 @@ namespace HL7ServerTransfer.Job
             }
             catch (Exception ex)
             {
-                //Write log in Log folder
-                string logFolder = AppDomain.CurrentDomain.BaseDirectory + "\\Log";
-                if (!Directory.Exists(logFolder))
-                {
-                    Directory.CreateDirectory(logFolder);
-                }
-                //Write log
-                Log.Write(ex, logFolder);
-                return "";
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
+                return string.Empty;
+                ////Write log in Log folder
+                //string logFolder = AppDomain.CurrentDomain.BaseDirectory + "\\Log";
+                //if (!Directory.Exists(logFolder))
+                //{
+                //    Directory.CreateDirectory(logFolder);
+                //}
+                ////Write log
+                //Log.Write(ex, logFolder);
+                //return "";
             }
         }
 
