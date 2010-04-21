@@ -246,6 +246,8 @@ namespace HL7ServerTransfer
             if (FormWindowState.Minimized == WindowState)
             {
                 setTextNotify();
+                this.minimizeToolStripMenuItem.Visible = false;
+                this.restoreToolStripMenuItem.Visible = true;
                 Hide();
             }
         }
@@ -281,6 +283,8 @@ namespace HL7ServerTransfer
             _Resource.GetResourceByKey("FORM_BASE_KEY", "NOTIFY_TEXT_0002"), ToolTipIcon.Info);
             
         }
+
+        
 
 
     }
