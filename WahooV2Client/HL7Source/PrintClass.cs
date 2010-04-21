@@ -18,7 +18,12 @@ namespace HL7Source
         public PrintClass()
         {
         }
-
+        /// <summary>
+        /// send file word den may in
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="printerPath"></param>
+        /// <returns></returns>
         public bool PrintDocFile(string path, string printerPath)
         {
             Boolean result = false;
@@ -59,6 +64,60 @@ namespace HL7Source
                 if (doc != null)
                 {
                     doc.Close(ref nullObject, ref nullObject, ref nullObject);
+                }
+                result = false;
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// send file xls den may in
+        /// </summary>
+        /// <param name="strFileName"></param>
+        /// <param name="strPrinterName"></param>
+        /// <returns></returns>
+        public bool PrintXlsFile(string strFileName, string strPrinterName)
+        {
+            //TODO: hien tai in voi may in default cua excel, chua set duoc voi may in tuy y
+            Boolean result = false;
+            Microsoft.Office.Interop.Excel.Workbook workbook = null;
+            object nullObject = Type.Missing;
+            try
+            {
+                Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
+                object readOnly = true;
+                //excelApp.ActivePrinter = strPrinterName;
+                workbook = excelApp.Workbooks._Open(
+
+                    strFileName, nullObject, readOnly, nullObject,
+
+                    nullObject, nullObject, nullObject, nullObject,
+
+                    nullObject, nullObject, nullObject, nullObject, nullObject);
+
+                excelApp.Visible = false;
+                Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Worksheets[1];
+                worksheet.PrintOut(nullObject, nullObject, nullObject, nullObject, nullObject, nullObject,
+                                nullObject, nullObject);
+                if (workbook != null)
+                {
+                    Marshal.FinalReleaseComObject(worksheet);
+                    workbook.Close( false, nullObject,nullObject);                    
+                    Marshal.FinalReleaseComObject(workbook);
+
+                }
+                excelApp.Quit();
+                Marshal.FinalReleaseComObject(excelApp);
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                if (workbook != null)
+                {
+                    workbook.Close(false,  nullObject,  nullObject);
+                    Marshal.FinalReleaseComObject(workbook);
                 }
                 result = false;
             }
@@ -179,13 +238,26 @@ namespace HL7Source
             return false;
         }
         /// <summary>
-        /// kiem tra file, xem file do co phai la file DOC khong?
+        /// kiem tra file, xem file do co phai la file DOC hoac DOCX khong?
         /// </summary>
         /// <param name="strFileName"></param>
         /// <returns></returns>
         public bool isDOCFile(string strFileName)
         {
             if (Path.GetExtension(strFileName).ToUpper().Equals(".DOC") || Path.GetExtension(strFileName).ToUpper().Equals(".DOCX"))
+            {
+                return true;
+            }
+            return false;
+        }
+        /// <summary>
+        /// kiem tra file, xem file do co phai la file XLS hoac XLSX khong?
+        /// </summary>
+        /// <param name="strFileName"></param>
+        /// <returns></returns>
+        public bool isXLSFile(string strFileName)
+        {
+            if (Path.GetExtension(strFileName).ToUpper().Equals(".XLS") || Path.GetExtension(strFileName).ToUpper().Equals(".XLSX"))
             {
                 return true;
             }
