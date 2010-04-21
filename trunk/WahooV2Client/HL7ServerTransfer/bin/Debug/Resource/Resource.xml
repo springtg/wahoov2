@@ -23,5 +23,9 @@
     <item key="FORM_LICENSE_KEY" id="BUTTON_TEXT_002" value="Back"/>
     <item key="FORM_LICENSE_KEY" id="FORM_TEXT_001" value="License key"/>
   </section>
-
+  <section name="FORM_BASE_KEY">
+    <item key="FORM_BASE_KEY" id="NOTIFY_TEXT_0001" value="Wahoo"/>    
+    <item key="FORM_BASE_KEY" id="NOTIFY_TEXT_0002" value="Wahoo is running"/>
+    <item key="FORM_BASE_KEY" id="NOTIFY_TEXT_0003" value="Wahoo Client"/>
+  </section>
 </sections>
