@@ -26,7 +26,7 @@ namespace HL7ServerTransfer.Job
         /// <param name="e"></param>
         void bw_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
-            DownloadData();            
+            DownloadData(); 
         }
 
         /// <summary>
@@ -343,6 +343,7 @@ namespace HL7ServerTransfer.Job
                                         File.Delete(fileDest);
                                     }
                                     File.Move(sourceFile, fileDest);
+                                    //SentToPrint(fileDest);
                                     log.Description += string.Format(HL7Source.Message.GetMessageById("LOG009"));
                                     log.ErrorStatus = "ERROR";
                                 }
@@ -436,11 +437,13 @@ namespace HL7ServerTransfer.Job
             Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
             string printedExtFile = configObl.ReadSetting(Alias.PRINTED_EXTENTION_FILE);
             string[] extArr = printedExtFile.Split(';');
+            string printerPath = configObl.ReadSetting(Alias.PRINTER_NAME_DEFAULT);
+            PrintClass printObj = new PrintClass();
             Boolean isPrint = false;
             //Check file is printed or not
             foreach (string ext in extArr)
             {
-                if (Path.GetExtension(path) == ext)
+                if (Path.GetExtension(path).ToLower().Equals(ext.ToLower()))
                 {
                     isPrint = true;
                     break;
@@ -449,9 +452,7 @@ namespace HL7ServerTransfer.Job
             if (!isPrint)
             {
                 return false;
-            }
-            string printerPath = configObl.ReadSetting(Alias.PRINTER_NAME_DEFAULT);
-            PrintClass printObj = new PrintClass();
+            }           
 
             if (printObj.isDOCFile(path))
             {
