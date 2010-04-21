@@ -976,7 +976,8 @@
             // 
             // tmCheckConnect
             // 
-            this.tmCheckConnect.Interval = 500000;
+            this.tmCheckConnect.Enabled = true;
+            this.tmCheckConnect.Interval = 300000;
             this.tmCheckConnect.Tick += new System.EventHandler(this.tmCheckConnect_Tick);
             // 
             // frmMain
