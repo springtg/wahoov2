@@ -103,11 +103,11 @@ namespace HL7ServerTransfer
                 {
                     txtPrintedFormat += ".xls;.xlsx";
                 }
-                if (txtPrintedFormat == "")
-                {
-                    this.ShowMessageBox("ERR007", string.Format(HL7Source.Message.GetMessageById("ERR007")), MessageType.ERROR);
-                    return;
-                }
+                //if (txtPrintedFormat == "")
+                //{
+                //    this.ShowMessageBox("ERR007", string.Format(HL7Source.Message.GetMessageById("ERR007")), MessageType.ERROR);
+                //    return;
+                //}
                 Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
                 configObl.WriteSetting(Alias.INTERVAL_DOWNLOAD_CONFIG, txtInterval.Text);
                 configObl.WriteSetting(Alias.WEB_SERVICE_ADDRESS_CONFIG, txtURL.Text);
