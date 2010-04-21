@@ -201,5 +201,23 @@ namespace HL7ServerTransfer
                 return string.Empty;
             }
         }
+        /// <summary>
+        /// set status cua client co connected den web service khong?
+        /// </summary>
+        /// <param name="strText"></param>
+        protected void setStatusServerConnected(string strText)
+        {
+            lblMsgServerConnected.Text = strText;
+        }
+        /// <summary>
+        /// set status thao tac cua client
+        /// </summary>
+        /// <param name="strText"></param>
+        protected void setStatusMsg(string strText)
+        {
+            lblMsg.Text = strText;
+        }
+        
+        
     }
 }
