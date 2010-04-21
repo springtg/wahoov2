@@ -551,6 +551,7 @@ namespace HL7ServerTransfer
             // cbPrinter
             // 
             this.cbPrinter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPrinter.DropDownWidth = 250;
             this.cbPrinter.FormattingEnabled = true;
             this.cbPrinter.Location = new System.Drawing.Point(102, 9);
             this.cbPrinter.Name = "cbPrinter";
