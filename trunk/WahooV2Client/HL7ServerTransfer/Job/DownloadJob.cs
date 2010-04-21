@@ -523,7 +523,7 @@ namespace HL7ServerTransfer.Job
         /// <param name="log"></param>
         private void WiteFileStatus(HL7Log log)
         {
-            string statusFolder = AppDomain.CurrentDomain.BaseDirectory + "\\status";
+            string statusFolder = AppDomain.CurrentDomain.BaseDirectory + "status";
             if (!Directory.Exists(statusFolder))
             {
                 Directory.CreateDirectory(statusFolder);
