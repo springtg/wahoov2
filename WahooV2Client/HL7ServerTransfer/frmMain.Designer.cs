@@ -220,11 +220,6 @@ namespace HL7ServerTransfer
             // 
             this.tmDownload.Enabled = true;
             this.tmDownload.SynchronizingObject = this;
-            //this.tmDownload.Elapsed += new System.Timers.ElapsedEventHandler(this.tmDownload_Elapsed);
-            // 
-            // bgwMain
-            // 
-            //this.bgwMain.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwMain_DoWork);
             // 
             // tabMain
             // 
@@ -583,16 +578,21 @@ namespace HL7ServerTransfer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 233);
+            this.ClientSize = new System.Drawing.Size(556, 252);
             this.Controls.Add(this.tabMain);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnAccept);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(562, 284);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Wahoo Client";
             this.Load += new System.EventHandler(this.frmMain_Load);
+            this.Controls.SetChildIndex(this.btnAccept, 0);
+            this.Controls.SetChildIndex(this.btnReset, 0);
+            this.Controls.SetChildIndex(this.tabMain, 0);
             ((System.ComponentModel.ISupportInitialize)(this.tmDownload)).EndInit();
             this.tabMain.ResumeLayout(false);
             this.tabUserInfo.ResumeLayout(false);
@@ -605,6 +605,7 @@ namespace HL7ServerTransfer
             this.tabPrint.ResumeLayout(false);
             this.tabPrint.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
