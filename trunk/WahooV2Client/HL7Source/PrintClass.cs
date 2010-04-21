@@ -70,7 +70,6 @@ namespace HL7Source
 
             return result;
         }
-
         /// <summary>
         /// send file xls den may in
         /// </summary>
