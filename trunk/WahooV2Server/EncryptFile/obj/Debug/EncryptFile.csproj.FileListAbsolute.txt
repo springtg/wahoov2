@@ -1,0 +1,10 @@
+F:\lam viec\wahooV2\lastest wahoo\WahooServer\WahooV2Server\EncryptFile\bin\Debug\EncryptFile.exe
+F:\lam viec\wahooV2\lastest wahoo\WahooServer\WahooV2Server\EncryptFile\bin\Debug\EncryptFile.pdb
+F:\lam viec\wahooV2\lastest wahoo\WahooServer\WahooV2Server\EncryptFile\bin\Debug\WahooCommon.dll
+F:\lam viec\wahooV2\lastest wahoo\WahooServer\WahooV2Server\EncryptFile\bin\Debug\WahooCommon.pdb
+F:\lam viec\wahooV2\lastest wahoo\WahooServer\WahooV2Server\EncryptFile\obj\Debug\ResolveAssemblyReference.cache
+F:\lam viec\wahooV2\lastest wahoo\WahooServer\WahooV2Server\EncryptFile\obj\Debug\EncryptFile.Form1.resources
+F:\lam viec\wahooV2\lastest wahoo\WahooServer\WahooV2Server\EncryptFile\obj\Debug\EncryptFile.Properties.Resources.resources
+F:\lam viec\wahooV2\lastest wahoo\WahooServer\WahooV2Server\EncryptFile\obj\Debug\EncryptFile.csproj.GenerateResource.Cache
+F:\lam viec\wahooV2\lastest wahoo\WahooServer\WahooV2Server\EncryptFile\obj\Debug\EncryptFile.exe
+F:\lam viec\wahooV2\lastest wahoo\WahooServer\WahooV2Server\EncryptFile\obj\Debug\EncryptFile.pdb
