@@ -6,6 +6,7 @@ using System.Data;
 using System.Reflection;
 using System.Data.SqlClient;
 using WahooConfiguration;
+using WahooCommon;
 
 namespace WahooData.DBO.Base
 {
@@ -399,7 +400,11 @@ namespace WahooData.DBO.Base
         private static string GeneralConn()
         {
             Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
-            return configObl.ReadSetting("strConnectionString");
+            string _pass = "!@#vtc123work";
+            string _init = "@1B2c3D4e5F6g7H8";
+            string con = configObl.ReadSetting("strConnectionString");
+            RijndaelEnhanced rH = new RijndaelEnhanced(_pass, _init);
+            return rH.Decrypt(con);
         }
         /// <summary>
         /// Update all channel to STARTED, STOPED...
