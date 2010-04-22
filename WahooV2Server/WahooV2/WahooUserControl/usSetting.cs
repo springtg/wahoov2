@@ -10,6 +10,7 @@ using WahooConfiguration;
 using System.IO;
 using System.Security.Cryptography;
 using log4net;
+using WahooCommon;
 
 namespace WahooV2.WahooUserControl
 {
@@ -119,13 +120,19 @@ namespace WahooV2.WahooUserControl
         {
             try
             {
+                string _pass = "!@#vtc123work";
+                string _init = "@1B2c3D4e5F6g7H8";
+                RijndaelEnhanced rH = new RijndaelEnhanced(_pass, _init);
                 Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
                 string originalKey = configObl.ReadSetting(AliasMessage.BLOWFISH_KEY_CONFIG);
+                originalKey = rH.Decrypt(originalKey);
                 if (txtBlowfishKey.Text != originalKey)
                 {
-                    configObl.WriteSetting(AliasMessage.BLOWFISH_KEY_CONFIG, txtBlowfishKey.Text);
+                    //Ghi Blowfish Key da ma hoa
+                    string blowfishKey = rH.Encrypt(txtBlowfishKey.Text);
+                    configObl.WriteSetting(AliasMessage.BLOWFISH_KEY_CONFIG, blowfishKey);
                    WahooServiceControl.WahooWebServiceControl hl7WebSer = new WahooServiceControl.WahooWebServiceControl(txtWsdlUrl.Text);
-                    if (!hl7WebSer.UploadBlowfishKey(txtBlowfishKey.Text))
+                   if (!hl7WebSer.UploadBlowfishKey(blowfishKey))
                     {
                         this.ShowMessageBox("ERR015", MessageType.ERROR);
                         return false;
@@ -137,9 +144,8 @@ namespace WahooV2.WahooUserControl
                 configObl.WriteSetting(AliasMessage.WSDL_URL_CONFIG, txtWsdlUrl.Text);
                 return true;
             }
-            catch(Exception ex)
+            catch
             {
-                throw ex;
                 return false;
             }
         }
@@ -180,7 +186,10 @@ namespace WahooV2.WahooUserControl
                 txtTransferSpeed.Text = "16";
             }
             txtWsdlUrl.Text = configObl.ReadSetting(AliasMessage.WSDL_URL_CONFIG);
-            txtBlowfishKey.Text = configObl.ReadSetting(AliasMessage.BLOWFISH_KEY_CONFIG);
+            string _pass = "!@#vtc123work";
+            string _init = "@1B2c3D4e5F6g7H8";
+            RijndaelEnhanced rH = new RijndaelEnhanced(_pass, _init);
+            txtBlowfishKey.Text = rH.Decrypt(configObl.ReadSetting(AliasMessage.BLOWFISH_KEY_CONFIG));
             LoadResouceInfo();
         }
         /// <summary>
