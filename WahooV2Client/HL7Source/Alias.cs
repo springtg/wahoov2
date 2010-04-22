@@ -27,5 +27,8 @@ namespace HL7Source
         public const string INTERVAL_DOWNLOAD_CONFIG = "IntervalForDownload";
         public static string SUCCESSED_STATUS = "SUCCESSED";
         public static string FAILED_STATUS = "FAILED";
+        
+        //trang thai cua Execute download.
+        public static bool IsExecuting = false;
     }
 }
