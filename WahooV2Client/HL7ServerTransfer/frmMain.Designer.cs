@@ -571,7 +571,7 @@ namespace HL7ServerTransfer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(556, 252);
+            this.ClientSize = new System.Drawing.Size(556, 232);
             this.Controls.Add(this.tabMain);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnAccept);
@@ -583,9 +583,6 @@ namespace HL7ServerTransfer
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Wahoo Client";
             this.Load += new System.EventHandler(this.frmMain_Load);
-            this.Controls.SetChildIndex(this.btnAccept, 0);
-            this.Controls.SetChildIndex(this.btnReset, 0);
-            this.Controls.SetChildIndex(this.tabMain, 0);
             this.tabMain.ResumeLayout(false);
             this.tabUserInfo.ResumeLayout(false);
             this.tabUserInfo.PerformLayout();
@@ -597,7 +594,6 @@ namespace HL7ServerTransfer
             this.tabPrint.ResumeLayout(false);
             this.tabPrint.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
