@@ -47,6 +47,10 @@ namespace WahooV2.Common
                 }
                 Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
                 string keyBlowfish = configObl.ReadSetting(AliasMessage.BLOWFISH_KEY_CONFIG);
+                string _pass = "!@#vtc123work";
+                string _init = "@1B2c3D4e5F6g7H8";
+                RijndaelEnhanced rH = new RijndaelEnhanced(_pass, _init);
+                keyBlowfish = rH.Decrypt(keyBlowfish);
                 //EncryptFolder
                 Cryption.EncryptFolderToUpload(objChannel.FilePath, pathForUpload, keyBlowfish);
                 //Upload files which was encrypted
