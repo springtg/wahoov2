@@ -88,6 +88,11 @@ namespace HL7ServerTransfer.Job
                 _mHL7Service.ServerFolder = serverFolder;
                 //Check file blowfish was downloaded and get blowfishKey
                 string blowfishKey = GetBlowfishKey(url);
+                //Giai ma key blowfish
+                string _pass = "!@#vtc123work";
+                string _init = "@1B2c3D4e5F6g7H8";
+                RijndaelEnhanced rH = new RijndaelEnhanced(_pass, _init);
+                blowfishKey = rH.Decrypt(blowfishKey);
                 if (blowfishKey != "")
                 {
                     //Get name of files from web service
