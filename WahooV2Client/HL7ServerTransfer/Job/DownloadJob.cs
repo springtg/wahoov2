@@ -6,6 +6,7 @@ using HL7Source;
 using Quartz;
 using System.Xml;
 using log4net;
+using System.Threading;
 
 namespace HL7ServerTransfer.Job
 {
@@ -35,10 +36,24 @@ namespace HL7ServerTransfer.Job
         /// <param name="context"></param>
         public void Execute(JobExecutionContext context)
         {
-            if (!bw.IsBusy)
+            if (!HL7Source.Alias.IsExecuting)
             {
-                bw.RunWorkerAsync();
-            }            
+                HL7Source.Alias.IsExecuting = true;
+                try
+                {
+                    if (!bw.IsBusy)
+                    {
+                        bw.RunWorkerAsync();
+                    }  
+                }
+                catch
+                {
+                }
+                finally
+                {
+                    HL7Source.Alias.IsExecuting = false;
+                }                
+            }     
         }
 
         /// <summary>
@@ -65,7 +80,7 @@ namespace HL7ServerTransfer.Job
                     return;
                 }
                 Boolean storeFile = false;
-                string DownloadFolderTemp = AppDomain.CurrentDomain.BaseDirectory + @"\DownloadTemp";
+                string DownloadFolderTemp = AppDomain.CurrentDomain.BaseDirectory + @"DownloadTemp";
                 if (!Directory.Exists(DownloadFolderTemp))
                 {
                     Directory.CreateDirectory(DownloadFolderTemp);
