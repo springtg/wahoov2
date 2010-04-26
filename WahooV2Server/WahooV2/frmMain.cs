@@ -881,6 +881,9 @@ namespace WahooV2
         /// </summary>
         private void ShowControlWhenNoChooseItemChannel()
         {
+            this.linkNewChannel.Visible = true;
+            this.linkDeployAll.Visible = true;
+            this.linkUndeployAll.Visible = true;
             linkEditChannel.Top = linkDeleteChannel.Top = linkEnableChannel.Top = linkSaveChannel.Top = linkDeployChannel.Top = 45;
             linkEditChannel.Visible = linkDeleteChannel.Visible = linkEnableChannel.Visible = linkSaveChannel.Visible = linkDeployChannel.Visible = false;
             linkDeployAll.Top = 65;
@@ -893,6 +896,9 @@ namespace WahooV2
         /// </summary>
         private void ShowNormalControlChannel()
         {
+            this.linkNewChannel.Visible = true;
+            this.linkDeployAll.Visible = true;
+            this.linkUndeployAll.Visible = true;
             this.linkNewChannel.Visible = true;
             this.linkEditChannel.Visible = true;
             this.linkDeleteChannel.Visible = true;
