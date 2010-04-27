@@ -35,8 +35,8 @@ namespace WahooV2
         private WahooConfiguration.Resource _resource;
         //Check program is uploading file or not
         private Boolean _mExecuting = false;
-        //Check program connect to client 
-        private Boolean _mExecutingCheckConnect = false;
+        ////Check program connect to client 
+        //private Boolean _mExecutingCheckConnect = false;
         //Check have delete control in panel
         private Boolean checkClearControl = false;
         private const int _ucWidth = 1102;
@@ -1525,60 +1525,62 @@ namespace WahooV2
         /// <param name="e"></param>
         private void tmCheckConnect_Tick(object sender, EventArgs e)
         {
-            if (!_mExecutingCheckConnect)
+            if (!bgwCheckConnect.IsBusy)
             {
-                _mExecutingCheckConnect = true;
-                Cursor.Current = Cursors.WaitCursor;
-                Channel objChannelSearch = new Channel();
-                objChannelSearch.Active = true;
-                objChannelSearch.IsDeployed = true;
-                List<Channel> objListChannel = WahooBusinessHandler.Get_ListChannel(objChannelSearch);
-                foreach (Channel objChannel in objListChannel)
-                {
-                    //Load infomation
-                    ArrayList arrResult = new ArrayList();
-                    try
-                    {
-                        SoapProtocol objSoapProtocol = new SoapProtocol();
-                        //Execute
-                        objSoapProtocol.DownloadFileConnect(objChannel);
-                    }
-                    catch (Exception ex)
-                    {
-                        //Write log
-                        if (_logger.IsErrorEnabled)
-                            _logger.Error(ex);
-                    }
-                }
-                //Update interval for timer execute
-                Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
-                int temp = 0;
+                bgwCheckConnect.RunWorkerAsync();
+            }            
+        }
+
+        private void bgwCheckConnect_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Channel objChannelSearch = new Channel();
+            objChannelSearch.Active = true;
+            objChannelSearch.IsDeployed = true;
+            List<Channel> objListChannel = WahooBusinessHandler.Get_ListChannel(objChannelSearch);
+            foreach (Channel objChannel in objListChannel)
+            {
+                //Load infomation
+                ArrayList arrResult = new ArrayList();
                 try
                 {
-                    temp = int.Parse(configObl.ReadSetting("CheckConnectInterval"));
+                    SoapProtocol objSoapProtocol = new SoapProtocol();
+                    //Execute
+                    objSoapProtocol.DownloadFileConnect(objChannel);
                 }
                 catch (Exception ex)
                 {
                     //Write log
                     if (_logger.IsErrorEnabled)
                         _logger.Error(ex);
-                    temp = 0;
                 }
-                if (temp < 10)
-                {
-                    temp = 10;
-                }
-                temp = temp * 1000;
-                if (this.tmCheckConnect.Interval != temp)
-                {
-                    this.tmCheckConnect.Stop();
-                    this.tmCheckConnect.Interval = temp;
-                    this.tmCheckConnect.Start();
-                }
-                Cursor.Current = Cursors.Default;
-                _mExecutingCheckConnect = false;
+            }
+            //Update interval for timer execute
+            Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
+            int temp = 0;
+            try
+            {
+                temp = int.Parse(configObl.ReadSetting("CheckConnectInterval"));
+            }
+            catch (Exception ex)
+            {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
+                temp = 0;
+            }
+            if (temp < 5)
+            {
+                temp = 5;
+            }
+            temp = temp * 1000;
+            if (this.tmCheckConnect.Interval != temp)
+            {
+                this.tmCheckConnect.Stop();
+                this.tmCheckConnect.Interval = temp;
+                this.tmCheckConnect.Start();
             }
         }
+
         #region Dashboard
 
         #region event
@@ -1834,7 +1836,6 @@ namespace WahooV2
         }
 
         #endregion function
-        
 
         #endregion Dashboard
 
