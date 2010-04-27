@@ -75,6 +75,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusLabelConWebService = new System.Windows.Forms.ToolStripStatusLabel();
             this.tmCheckConnect = new System.Windows.Forms.Timer(this.components);
+            this.bgwCheckConnect = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelLeft)).BeginInit();
             this.xpPanelLeft.SuspendLayout();
             this.xpPanelOther.SuspendLayout();
@@ -977,8 +978,12 @@
             // tmCheckConnect
             // 
             this.tmCheckConnect.Enabled = true;
-            this.tmCheckConnect.Interval = 300000;
+            this.tmCheckConnect.Interval = 5000;
             this.tmCheckConnect.Tick += new System.EventHandler(this.tmCheckConnect_Tick);
+            // 
+            // bgwCheckConnect
+            // 
+            this.bgwCheckConnect.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwCheckConnect_DoWork);
             // 
             // frmMain
             // 
@@ -1062,5 +1067,6 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel statusLabelConWebService;
         private System.Windows.Forms.Timer tmCheckConnect;
+        private System.ComponentModel.BackgroundWorker bgwCheckConnect;
     }
 }

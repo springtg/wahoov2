@@ -102,7 +102,7 @@ namespace WahooV2
                         objUpdate.State = txtState.Text;
                         objUpdate.Zip = txtZipcode.Text;
                         objUpdate.Phone = txtPhone.Text;
-                        objUpdate.Mail = txtMail.Text;
+                        objUpdate.Mail = txtMail.Text.Trim();
                         objUpdate.Description = txtDescription.Text;
                         objUpdate.ClientCode = txtClientCode.Text;
                         objUpdate.ContactName = txtContactName.Text;
@@ -140,7 +140,7 @@ namespace WahooV2
                         objCreate.State = txtState.Text;
                         objCreate.Zip = txtZipcode.Text;
                         objCreate.Phone = txtPhone.Text;
-                        objCreate.Mail = txtMail.Text;
+                        objCreate.Mail = txtMail.Text.Trim();
                         objCreate.Description = txtDescription.Text;
                         objCreate.ClientCode = txtClientCode.Text;
                         objCreate.ContactName = txtContactName.Text;
@@ -200,7 +200,7 @@ namespace WahooV2
                 return false;
             }
             Regex re = new Regex(@"^(^\w.*@\w.*$)?$");
-            Match theMatch = re.Match(txtMail.Text);
+            Match theMatch = re.Match(txtMail.Text.Trim());
             if (!theMatch.Success)
             {
                 this.ShowMessageBox("CLIENT_ERR004", string.Format(WahooConfiguration.Message.GetMessageById("CLIENT_ERR004")), MessageType.ERROR);

@@ -73,7 +73,7 @@ namespace WahooV2
                         objUserUpdate.FirstName = txtFirstName.Text;
                         objUserUpdate.LastName = txtLastName.Text;
                         objUserUpdate.Organization = txtOrganization.Text;
-                        objUserUpdate.Email = txtEmail.Text;
+                        objUserUpdate.Email = txtEmail.Text.Trim();
                         objUserUpdate.Phone = txtPhone.Text;
                         objUserUpdate.Description = txtDescription.Text;
                         objUserUpdate.Date_Updated = DateTime.Now;
@@ -107,7 +107,7 @@ namespace WahooV2
                         objUserCreate.FirstName = txtFirstName.Text;
                         objUserCreate.LastName = txtLastName.Text;
                         objUserCreate.Organization = txtOrganization.Text;
-                        objUserCreate.Email = txtEmail.Text;
+                        objUserCreate.Email = txtEmail.Text.Trim();
                         objUserCreate.Phone = txtPhone.Text;
                         objUserCreate.Description = txtDescription.Text;
                         objUserCreate.Date_Created = DateTime.Now;
@@ -255,7 +255,7 @@ namespace WahooV2
                 return false;
             }
             Regex re = new Regex(@"^(^\w.*@\w.*$)?$");
-            Match theMatch = re.Match(txtEmail.Text);
+            Match theMatch = re.Match(txtEmail.Text.Trim());
             if (!theMatch.Success)
             {
                 this.ShowMessageBox("USER_ERR008", MessageType.ERROR);
