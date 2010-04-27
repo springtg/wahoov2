@@ -185,6 +185,9 @@ namespace WahooV2.WahooUserControl
             this.pictureBox1.Image = global::WahooV2.Properties.Resources.Connecting;
             this.pictureBox2.Image = global::WahooV2.Properties.Resources.Disconnet;
             this._mCheckLoad = 1;            
+            //NTXUAN: add for tab email notification: 27_04_2010
+            loadEmailServerSetting();
+            dataGridView1.DataSource = loadEmailList();
         }
 
         /// <summary>
@@ -759,6 +762,167 @@ namespace WahooV2.WahooUserControl
             ((DataView)gridErrorLog.DataSource).Sort = "ID DESC";
             //Bind so dong vao GridView theo Log_Size.
             gridErrorLog.DataSource = GetTopDataViewRows((DataView)gridErrorLog.DataSource, DataTypeProtect.ProtectInt32(configObl.ReadSetting(AliasMessage.Log_Size), 0));
-        }                       
+        }
+
+
+        //NTXUAN: ADD: 27_04_2010
+        #region "Email Notification"
+        /// <summary>
+        /// string path of config file
+        /// </summary>
+        string strConfigPath = System.Reflection.Assembly.GetEntryAssembly().Location + ".config";
+        /// <summary>
+        /// function to load information for Email setting tab from config file
+        /// </summary>
+        private void loadEmailServerSetting()
+        {
+            try
+            {
+                txtServerPort.TextAlign = HorizontalAlignment.Left;
+                txtServerPort.BNull = true;
+                configObl = new Config(strConfigPath);
+                txtEmailServer.Text = configObl.ReadSetting("EmailServer");
+                txtServerPort.Text = configObl.ReadSetting("ServerPort");
+                txtUsername.Text = configObl.ReadSetting("UserName");
+                txtPassword.Text = configObl.ReadSetting("Password");
+            }
+            catch
+            {
+                txtEmailServer.Text = string.Empty;
+                txtServerPort.Text = string.Empty;
+                txtUsername.Text = string.Empty;
+                txtPassword.Text = string.Empty;
+            }
+        }
+        /// <summary>
+        /// save info from tab to config file
+        /// </summary>
+        /// <returns></returns>
+        private bool saveEmailServerSetting()
+        {
+            try
+            {
+                configObl = new Config(strConfigPath);
+                configObl.WriteSetting("EmailServer", txtEmailServer.Text.Trim());
+                configObl.WriteSetting("ServerPort", txtServerPort.Text.Trim());
+                configObl.WriteSetting("UserName", txtUsername.Text.Trim());
+                configObl.WriteSetting("Password", txtPassword.Text.Trim());
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        /// <summary>
+        /// button excute action save info
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnEmailServerSettingSave_Click(object sender, EventArgs e)
+        {
+            if (saveEmailServerSetting())
+            {
+                ShowMessageBox("DASHBOARD_INF001", MessageType.INFORM);
+            }
+            else
+            {
+                ShowMessageBox("DASHBOARD_ERR001", MessageType.ERROR);
+            }
+        }
+
+        private void setDataToList(ref ListView lst)
+        {
+            DataTable tb = new DataTable();
+            if (tb == null)
+            {
+                return;
+            }
+            if (tb.Rows.Count < 1)
+            {
+                return;
+            }
+            for (int i = 0; i < tb.Rows.Count; i++)
+            {
+                ListViewItem item = new ListViewItem(Convert.ToString(i + 1));
+            }
+        }
+
+        private DataTable loadEmailList()
+        {
+            dataGridView1.AutoGenerateColumns = false;
+            return WahooData.DBO.Base.ServiceReader.EmailNotification_Select();
+        }
+
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+
+        private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            DataTable tb = (DataTable)((DataGridView)sender).DataSource;
+            if (tb == null)
+            {
+                return;
+            }
+            if (tb.Rows.Count < 1)
+            {
+                return;
+            }
+            for (int i = 0; i < tb.Rows.Count; i++)
+            {
+                if (isNewRow(tb.Rows[i]))
+                {
+                    string strDisplayName = WahooConfiguration.DataTypeProtect.ProtectString(tb.Rows[i]["DisplayName"]).Trim();
+                    string strEmail = WahooConfiguration.DataTypeProtect.ProtectString(tb.Rows[i]["Email"]).Trim();
+                    if (WahooData.DBO.Base.ServiceReader.EmailNotification_Insert(strDisplayName, strEmail))
+                    {
+                        dataGridView1.DataSource = loadEmailList();
+                    }
+                }
+                if (isModified(tb.Rows[i]))
+                {
+                    int iId = WahooConfiguration.DataTypeProtect.ProtectInt32(tb.Rows[i]["ID"]);
+                    string strDisplayName = WahooConfiguration.DataTypeProtect.ProtectString(tb.Rows[i]["DisplayName"]).Trim();
+                    string strEmail = WahooConfiguration.DataTypeProtect.ProtectString(tb.Rows[i]["Email"]).Trim();
+                    if (WahooData.DBO.Base.ServiceReader.EmailNotification_Update(iId,strDisplayName, strEmail))
+                    {
+                        dataGridView1.DataSource = loadEmailList();
+                    }
+                }
+            }
+        }
+
+        private void dataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            if (((DataGridView)sender).CurrentRow.IsNewRow)
+            {
+                return;
+            }
+            
+            if (e.ColumnIndex == 1)
+            {//DASHBOARD_ERR003
+                if (!WahooConfiguration.DataTypeProtect.ProtectString(e.FormattedValue).Trim().Equals(string.Empty))
+                {
+                    if (!EmailValid(WahooConfiguration.DataTypeProtect.ProtectString(e.FormattedValue).Trim()))
+                    {
+                        e.Cancel = true;
+                        ShowMessageBox("DASHBOARD_ERR002", MessageType.ERROR);
+                    }
+                }
+                else
+                {
+                    e.Cancel = true;
+                    ShowMessageBox("DASHBOARD_ERR003", MessageType.ERROR);
+                }
+            }
+        }
+
+        
+
+        
     }
 }
