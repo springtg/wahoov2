@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using WahooV2.ExControl;
 using log4net;
+using System.Text.RegularExpressions;
 
 namespace WahooV2.WahooUserControl
 {
@@ -217,6 +218,30 @@ namespace WahooV2.WahooUserControl
             return false;
         }
 
+        //NTXUAN: add 27_04_2010
+        protected bool isNewRow(DataRow row)
+        {
+            if (row.RowState == DataRowState.Added)
+            {
+                return true;
+            }
+            return false;
+        }
+        protected bool isModified(DataRow row)
+        {
+            if (row.RowState == DataRowState.Modified)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        protected bool EmailValid(string strEmail)
+        {
+            Regex re = new Regex(@"^(^\w.*@\w.*$)?$");
+            Match theMatch = re.Match(strEmail);
+            return theMatch.Success;
+        }
 
         #endregion
 
