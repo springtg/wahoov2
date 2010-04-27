@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using WahooV2.ExControl;
 using log4net;
 using System.Text.RegularExpressions;
+using System.Collections;
 
 namespace WahooV2.WahooUserControl
 {
@@ -84,10 +85,66 @@ namespace WahooV2.WahooUserControl
                 return DialogResult.None;
             }
         }
+        /// <summary>
+        /// </summary>
+        /// <param name="messageId"></param>
+        /// <returns></returns>
+        public DialogResult ShowMessageBox(string messageId, MessageType messageType, params object[] arrPara)
+        {
+            //1. Assign defaul return value
+            DialogResult result = DialogResult.None;
+            string messageText = string.Empty;
+            messageText = WahooConfiguration.Message.GetMessageById(messageId);
 
+            messageText = String.Format(messageText, arrPara);
+
+            try
+            {
+                //2. Display message if found
+                if (messageText != "")
+                {
+                    //2.1. Display message
+                    switch (messageType)
+                    {
+                        case MessageType.WARNING:
+                            MessageBox.Show(messageText, "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            break;
+
+                        case MessageType.INFORM:
+                            MessageBox.Show(messageText, "INFORM", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            break;
+                        case MessageType.ERROR:
+                            MessageBox.Show(messageText, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
+                        case MessageType.CONFIRM:
+                            result = MessageBox.Show(messageText, "CONFIRM", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            break;
+                        default:
+                            MessageBox.Show(messageText, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
+                    }
+                }
+                else
+                {
+                    //2.2. If not found then display inform message
+                    MessageBox.Show(String.Format("Message {0} is not found in resource file.", messageId), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                //3.Return result
+                return result;
+            }
+            catch (Exception ex)
+            {
+                //Write log
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
+                //4.Error handling
+                //Write exception here
+                return DialogResult.None;
+            }
+        }
         public DialogResult ShowMessageBox(string messageId, MessageType messageType)
         {
-            return ShowMessageBox(messageId, WahooConfiguration.Message.GetMessageById(messageId), messageType); 
+            return ShowMessageBox(messageId, WahooConfiguration.Message.GetMessageById(messageId), messageType);
         }
         #region "Comand function"
         /// <summary>
@@ -189,31 +246,31 @@ namespace WahooV2.WahooUserControl
                         }
                     }
                     else
-                    if (itemCtrl.GetType().Equals(typeof(RadioButton)))
-                    {
-                        RadioButton rbt = (RadioButton)itemCtrl;
-                        if (!itemCtrl.Tag.Equals(rbt.Checked))
+                        if (itemCtrl.GetType().Equals(typeof(RadioButton)))
                         {
-                            return true;
-                        }
-                    }
-                    else
-                        if (itemCtrl.GetType().Equals(typeof(CheckBox)))
-                        {
-                            CheckBox chb = (CheckBox)itemCtrl;
-                            if (!itemCtrl.Tag.Equals(chb.Checked))
+                            RadioButton rbt = (RadioButton)itemCtrl;
+                            if (!itemCtrl.Tag.Equals(rbt.Checked))
                             {
                                 return true;
                             }
                         }
                         else
-                            if (ctrl.HasChildren)
+                            if (itemCtrl.GetType().Equals(typeof(CheckBox)))
                             {
-                                if (hasChangeonControl(itemCtrl))
+                                CheckBox chb = (CheckBox)itemCtrl;
+                                if (!itemCtrl.Tag.Equals(chb.Checked))
                                 {
                                     return true;
                                 }
                             }
+                            else
+                                if (ctrl.HasChildren)
+                                {
+                                    if (hasChangeonControl(itemCtrl))
+                                    {
+                                        return true;
+                                    }
+                                }
             }
             return false;
         }
