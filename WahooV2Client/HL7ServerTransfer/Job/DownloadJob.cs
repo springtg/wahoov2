@@ -66,7 +66,7 @@ namespace HL7ServerTransfer.Job
                 Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
                 string url = configObl.ReadSetting(Alias.WEB_SERVICE_ADDRESS_CONFIG);
                 //Upload file connect to server
-                UploadFileConnect();
+                //UploadFileConnect();
                 string clientFolder = configObl.ReadSetting(Alias.FOLDER_DOWNLOAD_CONFIG);
                 if (!Directory.Exists(clientFolder))
                 {
