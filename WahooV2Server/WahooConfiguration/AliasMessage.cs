@@ -70,6 +70,6 @@ namespace WahooConfiguration
         public static string WSDL_URL_CONFIG = "WsdlUrl";
         public static string Log_Size = "LogSize";
         ////Number of channel
-        public static int NUMBER_CHANNEL = 10;
+        public static int NUMBER_CHANNEL = 100;
     }
 }
