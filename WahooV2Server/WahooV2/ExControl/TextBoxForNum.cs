@@ -10,6 +10,13 @@ namespace WahooV2.ExControl
     {
         private string value;
         private string _strFormat = string.Empty;
+        private bool _bNull = false;
+
+        public bool BNull
+        {
+            get { return _bNull; }
+            set { _bNull = value; }
+        }
 
         public string StrFormat
         {
@@ -75,7 +82,14 @@ namespace WahooV2.ExControl
             }
             if (result == 0)
             {
-                this.Text = "0";
+                if (!_bNull)
+                {
+                    this.Text = "0";
+                }
+                else
+                {
+                    this.Text = string.Empty;
+                }
             }
             else
             {
