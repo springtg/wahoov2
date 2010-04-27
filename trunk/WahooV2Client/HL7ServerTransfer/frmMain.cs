@@ -646,5 +646,106 @@ namespace HL7ServerTransfer
         }
 
         #endregion
+
+        private void timerUploadfileConnect_Tick(object sender, EventArgs e)
+        {
+            if (!bgwUploadfileConnect.IsBusy)
+            {
+                bgwUploadfileConnect.RunWorkerAsync();
+            }            
+        }        
+
+        private void bgwUploadfileConnect_DoWork(object sender, DoWorkEventArgs e)
+        {
+            UploadFileConnect();
+        }
+
+        /// <summary>
+        /// Upload File Connect
+        /// </summary>
+        private void UploadFileConnect()
+        {
+            try
+            {
+                Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
+                string url = configObl.ReadSetting(Alias.WEB_SERVICE_ADDRESS_CONFIG);
+                string clientCode = configObl.ReadSetting(Alias.CLIENT_CODE_CONFIG).ToUpper();
+                //Move data to folder UploadTemp to upload
+                string pathForUpload = System.Windows.Forms.Application.StartupPath + @"\UploadTemp";
+                if (!Directory.Exists(pathForUpload))
+                {
+                    Directory.CreateDirectory(pathForUpload);
+                }
+                pathForUpload += @"\Connect";
+                if (!Directory.Exists(pathForUpload))
+                {
+                    Directory.CreateDirectory(pathForUpload);
+                }
+                string clientFolder = pathForUpload;
+                //Create connect file to inform program is connected
+                StreamWriter swConnectFile = null;
+                string connectFile = pathForUpload + "\\CONNECT_" + clientCode + ".txt";
+                try
+                {
+                    if (!File.Exists(connectFile))
+                    {
+                        swConnectFile = File.AppendText(connectFile);
+                        swConnectFile.WriteLine("CONNECTED");
+                        if (swConnectFile != null)
+                        {
+                            swConnectFile.Close();
+                        }
+                    }
+                }
+                catch
+                {
+                    if (swConnectFile != null)
+                    {
+                        swConnectFile.Close();
+                    }
+                }
+                //Server folder must be \Upload\ClientCode\Connect
+                string serverFolder = configObl.ReadSetting(Alias.SERVER_FOLDER_CONFIG) + "\\" + configObl.ReadSetting(Alias.CLIENT_CODE_CONFIG) + "\\Connect";
+                //Accept SSL in web service
+                System.Net.ServicePointManager.CertificatePolicy = new TrustAllCertificatePolicy();
+                //Create object web service
+                HL7Service _mHL7Service = new HL7Service(url);
+                //Create folder \Upload\ClientCode in web service to upload data
+                if (!_mHL7Service.CreateDirectory(serverFolder))
+                {
+                    return;
+                }
+                //Check data valid
+                if (url.Trim() == "" || clientFolder.Trim() == "" || serverFolder.Trim() == "")
+                {
+                    return;
+                }
+                Boolean storeFile = true;
+                _mHL7Service.ServerFolder = serverFolder;
+                double transferSpeed = 16;
+                try
+                {
+                    transferSpeed = double.Parse(configObl.ReadSetting(Alias.TRANSFER_SPEED_CONFIG));
+                }
+                catch
+                {
+                    transferSpeed = 16;
+                }
+                _mHL7Service.Upload(connectFile, storeFile, transferSpeed);
+            }
+            catch (Exception ex)
+            {
+                if (_logger.IsErrorEnabled)
+                    _logger.Error(ex);
+                ////Write log in Log folder
+                //string logFolder = AppDomain.CurrentDomain.BaseDirectory + "\\Log";
+                //if (!Directory.Exists(logFolder))
+                //{
+                //    Directory.CreateDirectory(logFolder);
+                //}
+                ////Write log
+                //Log.Write(ex, logFolder);
+            }
+        }
     }
 }
