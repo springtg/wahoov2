@@ -30,9 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucDashboard));
             this.lblLine = new System.Windows.Forms.Label();
             this.gbLogInfo = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtLogSize = new WahooV2.ExControl.TextBoxForNum();
             this.btnSave = new System.Windows.Forms.Button();
@@ -51,6 +53,28 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabEmailNotification = new System.Windows.Forms.TabPage();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabEmailServer = new System.Windows.Forms.TabPage();
+            this.txtServerPort = new WahooV2.ExControl.TextBoxForNum();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.btnEmailServerSettingSave = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtEmailServer = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tabEmailAdress = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.startAllChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopAllChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetAllChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pauseChannelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopChannelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridDashboard = new System.Windows.Forms.DataGridView();
             this.clId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clIdClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,28 +85,26 @@
             this.clError = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clClientConnected = new System.Windows.Forms.DataGridViewImageColumn();
             this.clIsConnected = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.menuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.startAllChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stopAllChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.resetAllChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pauseChannelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stopChannelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.timerRefresh = new System.Timers.Timer();
             this.tmPicture = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.gbLogInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabLogHistory.SuspendLayout();
             this.tabAllLog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridHistAllLog)).BeginInit();
             this.tabErrorLog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridErrorLog)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridDashboard)).BeginInit();
+            this.tabEmailNotification.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabEmailServer.SuspendLayout();
+            this.tabEmailAdress.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridDashboard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timerRefresh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblLine
@@ -114,6 +136,14 @@
             this.gbLogInfo.TabStop = false;
             this.gbLogInfo.Text = "Log Information";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(362, 9);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(1, 1);
+            this.pictureBox2.TabIndex = 6;
+            this.pictureBox2.TabStop = false;
+            // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -121,12 +151,13 @@
             this.label1.Location = new System.Drawing.Point(970, 245);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 13);
-            this.label1.TabIndex = 5;
+            this.label1.TabIndex = 3;
             this.label1.Text = "Log size:";
             // 
             // txtLogSize
             // 
             this.txtLogSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtLogSize.BNull = false;
             this.txtLogSize.Location = new System.Drawing.Point(1021, 241);
             this.txtLogSize.MaxLength = 2;
             this.txtLogSize.Name = "txtLogSize";
@@ -178,15 +209,15 @@
             // 
             // tabLogHistory
             // 
-            this.tabLogHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tabLogHistory.Controls.Add(this.tabAllLog);
             this.tabLogHistory.Controls.Add(this.tabErrorLog);
+            this.tabLogHistory.Controls.Add(this.tabEmailNotification);
+            this.tabLogHistory.ItemSize = new System.Drawing.Size(150, 18);
             this.tabLogHistory.Location = new System.Drawing.Point(6, 19);
             this.tabLogHistory.Name = "tabLogHistory";
             this.tabLogHistory.SelectedIndex = 0;
             this.tabLogHistory.Size = new System.Drawing.Size(1092, 216);
+            this.tabLogHistory.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabLogHistory.TabIndex = 0;
             // 
             // tabAllLog
@@ -319,14 +350,240 @@
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             this.dataGridViewTextBoxColumn5.Visible = false;
             // 
+            // tabEmailNotification
+            // 
+            this.tabEmailNotification.Controls.Add(this.tabControl1);
+            this.tabEmailNotification.Location = new System.Drawing.Point(4, 22);
+            this.tabEmailNotification.Name = "tabEmailNotification";
+            this.tabEmailNotification.Padding = new System.Windows.Forms.Padding(3);
+            this.tabEmailNotification.Size = new System.Drawing.Size(1084, 190);
+            this.tabEmailNotification.TabIndex = 2;
+            this.tabEmailNotification.Text = "email notification";
+            this.tabEmailNotification.UseVisualStyleBackColor = true;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabEmailServer);
+            this.tabControl1.Controls.Add(this.tabEmailAdress);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.ItemSize = new System.Drawing.Size(150, 18);
+            this.tabControl1.Location = new System.Drawing.Point(3, 3);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1078, 184);
+            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tabControl1.TabIndex = 0;
+            // 
+            // tabEmailServer
+            // 
+            this.tabEmailServer.Controls.Add(this.txtServerPort);
+            this.tabEmailServer.Controls.Add(this.txtPassword);
+            this.tabEmailServer.Controls.Add(this.txtUsername);
+            this.tabEmailServer.Controls.Add(this.btnEmailServerSettingSave);
+            this.tabEmailServer.Controls.Add(this.label5);
+            this.tabEmailServer.Controls.Add(this.label4);
+            this.tabEmailServer.Controls.Add(this.label3);
+            this.tabEmailServer.Controls.Add(this.txtEmailServer);
+            this.tabEmailServer.Controls.Add(this.label2);
+            this.tabEmailServer.Location = new System.Drawing.Point(4, 22);
+            this.tabEmailServer.Name = "tabEmailServer";
+            this.tabEmailServer.Padding = new System.Windows.Forms.Padding(3);
+            this.tabEmailServer.Size = new System.Drawing.Size(1070, 158);
+            this.tabEmailServer.TabIndex = 0;
+            this.tabEmailServer.Text = "Email Server Setting";
+            this.tabEmailServer.UseVisualStyleBackColor = true;
+            // 
+            // txtServerPort
+            // 
+            this.txtServerPort.BNull = true;
+            this.txtServerPort.Location = new System.Drawing.Point(78, 38);
+            this.txtServerPort.MaxLength = 13;
+            this.txtServerPort.Name = "txtServerPort";
+            this.txtServerPort.Size = new System.Drawing.Size(192, 20);
+            this.txtServerPort.StrFormat = "";
+            this.txtServerPort.TabIndex = 3;
+            this.txtServerPort.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtServerPort.Value = null;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(78, 82);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(192, 20);
+            this.txtPassword.TabIndex = 7;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(78, 60);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(193, 20);
+            this.txtUsername.TabIndex = 5;
+            // 
+            // btnEmailServerSettingSave
+            // 
+            this.btnEmailServerSettingSave.Location = new System.Drawing.Point(105, 108);
+            this.btnEmailServerSettingSave.Name = "btnEmailServerSettingSave";
+            this.btnEmailServerSettingSave.Size = new System.Drawing.Size(166, 23);
+            this.btnEmailServerSettingSave.TabIndex = 8;
+            this.btnEmailServerSettingSave.Text = "Save Email Server Setting";
+            this.btnEmailServerSettingSave.UseVisualStyleBackColor = true;
+            this.btnEmailServerSettingSave.Click += new System.EventHandler(this.btnEmailServerSettingSave_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(16, 86);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Password:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(9, 64);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "User Name:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 42);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Server port:";
+            // 
+            // txtEmailServer
+            // 
+            this.txtEmailServer.Location = new System.Drawing.Point(78, 16);
+            this.txtEmailServer.Name = "txtEmailServer";
+            this.txtEmailServer.Size = new System.Drawing.Size(192, 20);
+            this.txtEmailServer.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Mail server:";
+            // 
+            // tabEmailAdress
+            // 
+            this.tabEmailAdress.Controls.Add(this.dataGridView1);
+            this.tabEmailAdress.Location = new System.Drawing.Point(4, 22);
+            this.tabEmailAdress.Name = "tabEmailAdress";
+            this.tabEmailAdress.Padding = new System.Windows.Forms.Padding(3);
+            this.tabEmailAdress.Size = new System.Drawing.Size(1070, 158);
+            this.tabEmailAdress.TabIndex = 1;
+            this.tabEmailAdress.Text = "Email Adress List";
+            this.tabEmailAdress.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Silver;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8});
+            this.dataGridView1.Location = new System.Drawing.Point(6, 3);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 30;
+            this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Silver;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridView1.ShowRowErrors = false;
+            this.dataGridView1.Size = new System.Drawing.Size(528, 152);
+            this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridView1_CellValidating);
+            this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "DisplayName";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Display Name";
+            this.dataGridViewTextBoxColumn7.MaxInputLength = 50;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Email";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Email";
+            this.dataGridViewTextBoxColumn8.MaxInputLength = 50;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // menuStrip
+            // 
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.startAllChannelsToolStripMenuItem,
+            this.stopAllChannelsToolStripMenuItem,
+            this.resetAllChannelsToolStripMenuItem,
+            this.pauseChannelToolStripMenuItem,
+            this.stopChannelToolStripMenuItem});
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(175, 114);
+            // 
+            // startAllChannelsToolStripMenuItem
+            // 
+            this.startAllChannelsToolStripMenuItem.Image = global::WahooV2.Properties.Resources.wh_start_all;
+            this.startAllChannelsToolStripMenuItem.Name = "startAllChannelsToolStripMenuItem";
+            this.startAllChannelsToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.startAllChannelsToolStripMenuItem.Text = "Start All Channels";
+            this.startAllChannelsToolStripMenuItem.Click += new System.EventHandler(this.startAllChannelsToolStripMenuItem_Click);
+            // 
+            // stopAllChannelsToolStripMenuItem
+            // 
+            this.stopAllChannelsToolStripMenuItem.Image = global::WahooV2.Properties.Resources.wh_stop_all;
+            this.stopAllChannelsToolStripMenuItem.Name = "stopAllChannelsToolStripMenuItem";
+            this.stopAllChannelsToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.stopAllChannelsToolStripMenuItem.Text = "Stop All Channels";
+            this.stopAllChannelsToolStripMenuItem.Click += new System.EventHandler(this.stopAllChannelsToolStripMenuItem_Click);
+            // 
+            // resetAllChannelsToolStripMenuItem
+            // 
+            this.resetAllChannelsToolStripMenuItem.Image = global::WahooV2.Properties.Resources.wh_refresh;
+            this.resetAllChannelsToolStripMenuItem.Name = "resetAllChannelsToolStripMenuItem";
+            this.resetAllChannelsToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.resetAllChannelsToolStripMenuItem.Text = "Reset All Channels";
+            // 
+            // pauseChannelToolStripMenuItem
+            // 
+            this.pauseChannelToolStripMenuItem.Image = global::WahooV2.Properties.Resources.wh_start;
+            this.pauseChannelToolStripMenuItem.Name = "pauseChannelToolStripMenuItem";
+            this.pauseChannelToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.pauseChannelToolStripMenuItem.Text = "Pause Channel";
+            this.pauseChannelToolStripMenuItem.Click += new System.EventHandler(this.pauseChannelToolStripMenuItem_Click);
+            // 
+            // stopChannelToolStripMenuItem
+            // 
+            this.stopChannelToolStripMenuItem.Image = global::WahooV2.Properties.Resources.wh_stop;
+            this.stopChannelToolStripMenuItem.Name = "stopChannelToolStripMenuItem";
+            this.stopChannelToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.stopChannelToolStripMenuItem.Text = "Stop Channel";
+            this.stopChannelToolStripMenuItem.Click += new System.EventHandler(this.stopChannelToolStripMenuItem_Click);
+            // 
             // gridDashboard
             // 
             this.gridDashboard.AllowUserToAddRows = false;
             this.gridDashboard.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Silver;
-            this.gridDashboard.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Silver;
+            this.gridDashboard.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.gridDashboard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -437,56 +694,6 @@
             this.clIsConnected.ReadOnly = true;
             this.clIsConnected.Visible = false;
             // 
-            // menuStrip
-            // 
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.startAllChannelsToolStripMenuItem,
-            this.stopAllChannelsToolStripMenuItem,
-            this.resetAllChannelsToolStripMenuItem,
-            this.pauseChannelToolStripMenuItem,
-            this.stopChannelToolStripMenuItem});
-            this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(175, 114);
-            // 
-            // startAllChannelsToolStripMenuItem
-            // 
-            this.startAllChannelsToolStripMenuItem.Image = global::WahooV2.Properties.Resources.wh_start_all;
-            this.startAllChannelsToolStripMenuItem.Name = "startAllChannelsToolStripMenuItem";
-            this.startAllChannelsToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.startAllChannelsToolStripMenuItem.Text = "Start All Channels";
-            this.startAllChannelsToolStripMenuItem.Click += new System.EventHandler(this.startAllChannelsToolStripMenuItem_Click);
-            // 
-            // stopAllChannelsToolStripMenuItem
-            // 
-            this.stopAllChannelsToolStripMenuItem.Image = global::WahooV2.Properties.Resources.wh_stop_all;
-            this.stopAllChannelsToolStripMenuItem.Name = "stopAllChannelsToolStripMenuItem";
-            this.stopAllChannelsToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.stopAllChannelsToolStripMenuItem.Text = "Stop All Channels";
-            this.stopAllChannelsToolStripMenuItem.Click += new System.EventHandler(this.stopAllChannelsToolStripMenuItem_Click);
-            // 
-            // resetAllChannelsToolStripMenuItem
-            // 
-            this.resetAllChannelsToolStripMenuItem.Image = global::WahooV2.Properties.Resources.wh_refresh;
-            this.resetAllChannelsToolStripMenuItem.Name = "resetAllChannelsToolStripMenuItem";
-            this.resetAllChannelsToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.resetAllChannelsToolStripMenuItem.Text = "Reset All Channels";
-            // 
-            // pauseChannelToolStripMenuItem
-            // 
-            this.pauseChannelToolStripMenuItem.Image = global::WahooV2.Properties.Resources.wh_start;
-            this.pauseChannelToolStripMenuItem.Name = "pauseChannelToolStripMenuItem";
-            this.pauseChannelToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.pauseChannelToolStripMenuItem.Text = "Pause Channel";
-            this.pauseChannelToolStripMenuItem.Click += new System.EventHandler(this.pauseChannelToolStripMenuItem_Click);
-            // 
-            // stopChannelToolStripMenuItem
-            // 
-            this.stopChannelToolStripMenuItem.Image = global::WahooV2.Properties.Resources.wh_stop;
-            this.stopChannelToolStripMenuItem.Name = "stopChannelToolStripMenuItem";
-            this.stopChannelToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.stopChannelToolStripMenuItem.Text = "Stop Channel";
-            this.stopChannelToolStripMenuItem.Click += new System.EventHandler(this.stopChannelToolStripMenuItem_Click);
-            // 
             // imageList
             // 
             this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
@@ -525,14 +732,6 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(362, 9);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1, 1);
-            this.pictureBox2.TabIndex = 6;
-            this.pictureBox2.TabStop = false;
-            // 
             // ucDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -546,16 +745,22 @@
             this.Load += new System.EventHandler(this.ucDashboard_Load);
             this.gbLogInfo.ResumeLayout(false);
             this.gbLogInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabLogHistory.ResumeLayout(false);
             this.tabAllLog.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridHistAllLog)).EndInit();
             this.tabErrorLog.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridErrorLog)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridDashboard)).EndInit();
+            this.tabEmailNotification.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabEmailServer.ResumeLayout(false);
+            this.tabEmailServer.PerformLayout();
+            this.tabEmailAdress.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridDashboard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timerRefresh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -603,5 +808,21 @@
         private System.Windows.Forms.DataGridViewImageColumn clClientConnected;
         private System.Windows.Forms.DataGridViewTextBoxColumn clIsConnected;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TabPage tabEmailNotification;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabEmailServer;
+        private System.Windows.Forms.TabPage tabEmailAdress;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.Button btnEmailServerSettingSave;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtEmailServer;
+        private System.Windows.Forms.Label label2;
+        private WahooV2.ExControl.TextBoxForNum txtServerPort;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
     }
 }
