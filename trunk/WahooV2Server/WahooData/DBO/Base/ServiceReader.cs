@@ -482,5 +482,88 @@ namespace WahooData.DBO.Base
                 throw;
             }
         }
+
+        public static bool EmailNotification_Delete(int id)
+        {
+            try
+            {
+                SqlParameter param = new SqlParameter("@ID", id);
+                int i = SqlHelper.ExecuteNonQuery(ServiceReader._conectionString, CommandType.StoredProcedure, "EmailNotification_Delete", param);
+                if (i > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex; 
+            }
+        }
+
+        public static bool EmailNotification_Insert(string strDisplayName, string strEmail)
+        {
+            try
+            {
+                SqlParameter[] param = new SqlParameter[2];
+                param[0] = new SqlParameter("@DisplayName", strDisplayName);
+                param[1] = new SqlParameter("@Email", strEmail);
+                int i = SqlHelper.ExecuteNonQuery(ServiceReader._conectionString, CommandType.StoredProcedure, "EmailNotification_Insert", param);
+                if (i > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static bool EmailNotification_Update(int id,string strDisplayName, string strEmail)
+        {
+            try
+            {
+                SqlParameter[] param = new SqlParameter[3];
+                param[0] = new SqlParameter("@ID", id);
+                param[1] = new SqlParameter("@DisplayName", strDisplayName);
+                param[2] = new SqlParameter("@Email", strEmail);
+                int i = SqlHelper.ExecuteNonQuery(ServiceReader._conectionString, CommandType.StoredProcedure, "EmailNotification_Update", param);
+                if (i > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static DataTable EmailNotification_Select()
+        {
+            try
+            {
+                return SqlHelper.ExecuteDataset(ServiceReader._conectionString, CommandType.StoredProcedure, "EmailNotification_select").Tables[0];
+             
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
     }
 }
