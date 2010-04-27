@@ -28,6 +28,7 @@ namespace HL7ServerTransfer
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.txtTransferSpeed = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -76,6 +77,8 @@ namespace HL7ServerTransfer
             this.label13 = new System.Windows.Forms.Label();
             this.cbPrinter = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.timerUploadfileConnect = new System.Windows.Forms.Timer(this.components);
+            this.bgwUploadfileConnect = new System.ComponentModel.BackgroundWorker();
             this.tabMain.SuspendLayout();
             this.tabUserInfo.SuspendLayout();
             this.tabOption.SuspendLayout();
@@ -567,6 +570,16 @@ namespace HL7ServerTransfer
             this.label12.TabIndex = 0;
             this.label12.Text = "Printer:";
             // 
+            // timerUploadfileConnect
+            // 
+            this.timerUploadfileConnect.Enabled = true;
+            this.timerUploadfileConnect.Interval = 3000;
+            this.timerUploadfileConnect.Tick += new System.EventHandler(this.timerUploadfileConnect_Tick);
+            // 
+            // bgwUploadfileConnect
+            // 
+            this.bgwUploadfileConnect.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwUploadfileConnect_DoWork);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -646,6 +659,8 @@ namespace HL7ServerTransfer
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.CheckBox chkXsl;
+        private System.Windows.Forms.Timer timerUploadfileConnect;
+        private System.ComponentModel.BackgroundWorker bgwUploadfileConnect;
     }
 }
 
