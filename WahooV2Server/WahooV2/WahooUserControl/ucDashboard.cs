@@ -854,13 +854,6 @@ namespace WahooV2.WahooUserControl
             return WahooData.DBO.Base.ServiceReader.EmailNotification_Select();
         }
 
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-
-        }
-        #endregion
-
         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             DataTable tb = (DataTable)((DataGridView)sender).DataSource;
@@ -888,7 +881,7 @@ namespace WahooV2.WahooUserControl
                     int iId = WahooConfiguration.DataTypeProtect.ProtectInt32(tb.Rows[i]["ID"]);
                     string strDisplayName = WahooConfiguration.DataTypeProtect.ProtectString(tb.Rows[i]["DisplayName"]).Trim();
                     string strEmail = WahooConfiguration.DataTypeProtect.ProtectString(tb.Rows[i]["Email"]).Trim();
-                    if (WahooData.DBO.Base.ServiceReader.EmailNotification_Update(iId,strDisplayName, strEmail))
+                    if (WahooData.DBO.Base.ServiceReader.EmailNotification_Update(iId, strDisplayName, strEmail))
                     {
                         dataGridView1.DataSource = loadEmailList();
                     }
@@ -902,9 +895,9 @@ namespace WahooV2.WahooUserControl
             {
                 return;
             }
-            
+
             if (e.ColumnIndex == 1)
-            {//DASHBOARD_ERR003
+            {
                 if (!WahooConfiguration.DataTypeProtect.ProtectString(e.FormattedValue).Trim().Equals(string.Empty))
                 {
                     if (!EmailValid(WahooConfiguration.DataTypeProtect.ProtectString(e.FormattedValue).Trim()))
@@ -920,6 +913,50 @@ namespace WahooV2.WahooUserControl
                 }
             }
         }
+
+        private void dataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            if (!e.Row.IsNewRow)
+            {
+                string Name = WahooConfiguration.DataTypeProtect.ProtectString(e.Row.Cells[0].Value);
+                string Email = WahooConfiguration.DataTypeProtect.ProtectString(e.Row.Cells[1].Value);
+                object[] obj = new object[2];
+                obj[0] = Name;
+                obj[1] = Email;
+                if (ShowMessageBox("DASHBOARD_CFM001", MessageType.CONFIRM, obj) == DialogResult.No)// ("Are you sure you want to delete this row?", "Delete confirmation");
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    DataTable tb = ((DataTable)((DataGridView)sender).DataSource);
+                    if (tb == null)
+                    {
+                        return;
+                    }
+                    if (tb.Rows.Count < 1)
+                    {
+                        return;
+                    }
+                    int id = WahooConfiguration.DataTypeProtect.ProtectInt32(tb.Rows[e.Row.Index]["ID"]);
+                    if (WahooData.DBO.Base.ServiceReader.EmailNotification_Delete(id))
+                    {
+                        dataGridView1.DataSource = loadEmailList();
+                    }
+                }
+            }
+        }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Delete)
+            {
+                dataGridView1_UserDeletingRow(sender, new DataGridViewRowCancelEventArgs(dataGridView1.CurrentRow));
+            }
+        }
+
+        #endregion
+
 
         
 
