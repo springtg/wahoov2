@@ -118,6 +118,11 @@
   <MSG MessageId="ERR034" Value="You must choose channel to edit." />
   <MSG MessageId="ERR035" Value="The infomation invalid." />
   <MSG MessageId="ERR036" Value="You only create {0} channels." />
+  <!--NTXUAN: ADD for Email Server Setting:27_04_2010-->
+  <MSG MessageId="DASHBOARD_ERR001" Value="Email Setting server Update fail!" />
+  <MSG MessageId="DASHBOARD_INF001" Value="Email Setting server Update sucess!" />
+  <MSG MessageId="DASHBOARD_ERR002" Value="Email Invalid!" />
+  <MSG MessageId="DASHBOARD_ERR003" Value="Email is not empty!" />
   <!-- INFORM MESSAGE -->
   <MSG MessageId="CONF001" Value="Active channels associated with this client, you can not delete this client." />
   <MSG MessageId="CONF002" Value="Successfully Output HL7 file." />
