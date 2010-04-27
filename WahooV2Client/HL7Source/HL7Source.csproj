@@ -71,6 +71,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Resource.cs" />
+    <Compile Include="RijndaelEnhanced.cs" />
     <Compile Include="TrustAllCertificatePolicy.cs" />
     <Compile Include="UtilityFunction.cs" />
     <Compile Include="Web References\WebService\Reference.cs">
@@ -88,6 +89,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Web References\WebService\Service.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -100,10 +102,10 @@
     <EmbeddedResource Include="Resources\FoxitReader.exe" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:51095/WahooWebService/Service.asmx">
+    <WebReferenceUrl Include="https://localhost/wahoo/Service.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\WebService\</RelPath>
-      <UpdateFromURL>http://localhost:51095/WahooWebService/Service.asmx</UpdateFromURL>
+      <UpdateFromURL>https://localhost/wahoo/Service.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -118,7 +120,6 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\WebService\Service.disco" />
-    <None Include="Web References\WebService\Service.wsdl" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
