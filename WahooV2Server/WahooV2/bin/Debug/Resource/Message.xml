@@ -123,6 +123,7 @@
   <MSG MessageId="DASHBOARD_INF001" Value="Email Setting server Update sucess!" />
   <MSG MessageId="DASHBOARD_ERR002" Value="Email Invalid!" />
   <MSG MessageId="DASHBOARD_ERR003" Value="Email is not empty!" />
+  <MSG MessageId="DASHBOARD_CFM001" Value="Are you sure you want to delete {0}_{1}?" />
   <!-- INFORM MESSAGE -->
   <MSG MessageId="CONF001" Value="Active channels associated with this client, you can not delete this client." />
   <MSG MessageId="CONF002" Value="Successfully Output HL7 file." />
