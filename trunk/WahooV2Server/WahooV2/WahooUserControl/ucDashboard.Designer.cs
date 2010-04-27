@@ -89,6 +89,7 @@
             this.timerRefresh = new System.Timers.Timer();
             this.tmPicture = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tabMessage = new System.Windows.Forms.TabPage();
             this.gbLogInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabLogHistory.SuspendLayout();
@@ -365,6 +366,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabEmailServer);
             this.tabControl1.Controls.Add(this.tabEmailAdress);
+            this.tabControl1.Controls.Add(this.tabMessage);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.ItemSize = new System.Drawing.Size(150, 18);
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
@@ -409,6 +411,7 @@
             // 
             this.txtPassword.Location = new System.Drawing.Point(78, 82);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(192, 20);
             this.txtPassword.TabIndex = 7;
             // 
@@ -416,7 +419,7 @@
             // 
             this.txtUsername.Location = new System.Drawing.Point(78, 60);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(193, 20);
+            this.txtUsername.Size = new System.Drawing.Size(192, 20);
             this.txtUsername.TabIndex = 5;
             // 
             // btnEmailServerSettingSave
@@ -507,7 +510,9 @@
             this.dataGridView1.ShowRowErrors = false;
             this.dataGridView1.Size = new System.Drawing.Size(528, 152);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView1_UserDeletingRow);
             this.dataGridView1.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridView1_CellValidating);
+            this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
             // 
             // dataGridViewTextBoxColumn7
@@ -732,6 +737,16 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // tabMessage
+            // 
+            this.tabMessage.Location = new System.Drawing.Point(4, 22);
+            this.tabMessage.Name = "tabMessage";
+            this.tabMessage.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMessage.Size = new System.Drawing.Size(1070, 158);
+            this.tabMessage.TabIndex = 2;
+            this.tabMessage.Text = "Message";
+            this.tabMessage.UseVisualStyleBackColor = true;
+            // 
             // ucDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -824,5 +839,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.TabPage tabMessage;
     }
 }
