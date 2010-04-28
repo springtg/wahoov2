@@ -30,5 +30,7 @@ namespace HL7Source
         
         //trang thai cua Execute download.
         public static bool IsExecuting = false;
+        //thoi gian de upload file connect(s)
+        public static int INTERVAL_UPLOAD_FILECONNECT = 3;
     }
 }
