@@ -97,6 +97,7 @@
             this.timerRefresh = new System.Timers.Timer();
             this.tmPicture = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.timerClientDisconnected = new System.Windows.Forms.Timer(this.components);
             this.gbLogInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabLogHistory.SuspendLayout();
@@ -828,6 +829,11 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // timerClientDisconnected
+            // 
+            this.timerClientDisconnected.Enabled = true;
+            this.timerClientDisconnected.Tick += new System.EventHandler(this.timerClientDisconnected_Tick);
+            // 
             // ucDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -930,5 +936,6 @@
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnSaveMessage;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer timerClientDisconnected;
     }
 }
