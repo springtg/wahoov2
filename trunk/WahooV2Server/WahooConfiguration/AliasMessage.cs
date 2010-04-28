@@ -71,5 +71,7 @@ namespace WahooConfiguration
         public static string Log_Size = "LogSize";
         ////Number of channel
         public static int NUMBER_CHANNEL = 100;
+        //thoi gian de download file connect(s)
+        public static int INTERVAL_DOWNLOAD_FILECONNECT = 5;
     }
 }
