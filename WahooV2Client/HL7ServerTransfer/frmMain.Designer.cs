@@ -572,8 +572,6 @@ namespace HL7ServerTransfer
             // 
             // timerUploadfileConnect
             // 
-            this.timerUploadfileConnect.Enabled = true;
-            this.timerUploadfileConnect.Interval = 3000;
             this.timerUploadfileConnect.Tick += new System.EventHandler(this.timerUploadfileConnect_Tick);
             // 
             // bgwUploadfileConnect

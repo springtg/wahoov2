@@ -56,11 +56,11 @@ namespace HL7ServerTransfer
                 _cPrinter = new PrintClass();
                 //Load info
                 ResetHL7Setup();
-                //System.Drawing.Printing.PrintDocument printDoc;
-                //printDoc = new System.Drawing.Printing.PrintDocument();                
-                //if (printDoc.PrinterSettings.CanDuplex == true)
-                //    printDoc.PrinterSettings.Duplex = System.Drawing.Printing.Duplex.Vertical;
-                //this._mExecuting = false;
+
+                //start timerUploadfileConnect
+                this.timerUploadfileConnect.Interval = Alias.INTERVAL_UPLOAD_FILECONNECT * 1000;
+                this.timerUploadfileConnect.Start();
+
                 //neu la lan dau tien chay chuong trinh thi ko goi ham StartDownloadAndStartSchedule();
                 if(!Settings.Default.boolRunFirstTime)
                     StartDownloadAndStartSchedule();
@@ -103,11 +103,7 @@ namespace HL7ServerTransfer
                 {
                     txtPrintedFormat += ".xls;.xlsx";
                 }
-                //if (txtPrintedFormat == "")
-                //{
-                //    this.ShowMessageBox("ERR007", string.Format(HL7Source.Message.GetMessageById("ERR007")), MessageType.ERROR);
-                //    return;
-                //}
+                
                 Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
                 configObl.WriteSetting(Alias.INTERVAL_DOWNLOAD_CONFIG, txtInterval.Text);
                 configObl.WriteSetting(Alias.WEB_SERVICE_ADDRESS_CONFIG, txtURL.Text);
@@ -185,15 +181,7 @@ namespace HL7ServerTransfer
                 {
                     this.ShowMessageBox("INF002", string.Format(HL7Source.Message.GetMessageById("INF002")), MessageType.INFORM);
                     if (_logger.IsErrorEnabled)
-                        _logger.Error(ex);
-                    ////Write log in Log folder
-                    //string logFolder = AppDomain.CurrentDomain.BaseDirectory + "\\Log";
-                    //if (!Directory.Exists(logFolder))
-                    //{
-                    //    Directory.CreateDirectory(logFolder);
-                    //}
-                    ////Write log
-                    //Log.Write(ex, logFolder);
+                        _logger.Error(ex);                    
                 }
                 //this.ShowMessageBox("INF001", string.Format(HL7Source.Message.GetMessageById("INF001")), MessageType.INFORM);
                 StartDownloadAndStartSchedule();
@@ -201,15 +189,7 @@ namespace HL7ServerTransfer
             catch (Exception ex)
             {
                 if (_logger.IsErrorEnabled)
-                    _logger.Error(ex);
-                ////Write log in Log folder
-                //string logFolder = AppDomain.CurrentDomain.BaseDirectory + "\\Log";
-                //if (!Directory.Exists(logFolder))
-                //{
-                //    Directory.CreateDirectory(logFolder);
-                //}
-                ////Write log
-                //Log.Write(ex, logFolder);
+                    _logger.Error(ex);                
             }
         }
 
@@ -234,21 +214,7 @@ namespace HL7ServerTransfer
         private void btnReset_Click(object sender, EventArgs e)
         {
             ResetHL7Setup();
-        }
-
-        //private void chkPdf_CheckedChanged_1(object sender, EventArgs e)
-        //{
-        //    Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
-        //    string acrobatFile = configObl.ReadSetting(Alias.ACROBAT_EXE_PATH);
-        //    if (chkPdf.Checked)
-        //    {
-        //        if (!File.Exists(acrobatFile))
-        //        {
-        //            ChooseAcrobatExe frmChooseAcroExe = new ChooseAcrobatExe();
-        //            frmChooseAcroExe.ShowDialog();
-        //        }
-        //    }
-        //}
+        }        
 
         #endregion
 
@@ -404,15 +370,7 @@ namespace HL7ServerTransfer
             catch (Exception ex)
             {
                 if (_logger.IsErrorEnabled)
-                    _logger.Error(ex);
-                ////Write log in Log folder
-                //string logFolder = AppDomain.CurrentDomain.BaseDirectory + "\\Log";
-                //if (!Directory.Exists(logFolder))
-                //{
-                //    Directory.CreateDirectory(logFolder);
-                //}
-                ////Write log
-                //Log.Write(ex, logFolder);
+                    _logger.Error(ex);                
             }
         }
 
@@ -736,15 +694,7 @@ namespace HL7ServerTransfer
             catch (Exception ex)
             {
                 if (_logger.IsErrorEnabled)
-                    _logger.Error(ex);
-                ////Write log in Log folder
-                //string logFolder = AppDomain.CurrentDomain.BaseDirectory + "\\Log";
-                //if (!Directory.Exists(logFolder))
-                //{
-                //    Directory.CreateDirectory(logFolder);
-                //}
-                ////Write log
-                //Log.Write(ex, logFolder);
+                    _logger.Error(ex);                
             }
         }
     }
