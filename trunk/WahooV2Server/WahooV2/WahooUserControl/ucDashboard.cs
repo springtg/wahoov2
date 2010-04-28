@@ -189,6 +189,7 @@ namespace WahooV2.WahooUserControl
             loadEmailServerSetting();
             dataGridView1.DataSource = loadEmailList();
             loadMessageInfo();
+            timerClientDisconnected.Start();
         }
 
         /// <summary>
@@ -1041,10 +1042,13 @@ namespace WahooV2.WahooUserControl
             }
         }
 
+
+
         private string replaceConst(string strMessagTamplate, params object[] para)
         {
             return string.Format(strMessagTamplate, para);
         }
+
 
 
 #endregion
@@ -1057,6 +1061,26 @@ namespace WahooV2.WahooUserControl
             }
             else
                 ShowMessageBox("DASHBOARD_ERR006", MessageType.ERROR);
+        }
+
+        private void timerClientDisconnected_Tick(object sender, EventArgs e)
+        {
+            DataTable tb = WahooData.DBO.Base.ServiceReader.getClientDisconnected();
+            if (tb != null)
+            {
+                if (tb.Rows.Count > 0)
+                {
+                    for (int i = 0; i < tb.Rows.Count; i++)
+                    {
+                        if (sendMailtoList())
+                        {
+                            //ShowMessageBox("DASHBOARD_ERR006", MessageType.ERROR);
+                        }
+                        else
+                            ShowMessageBox("DASHBOARD_ERR006", MessageType.ERROR);
+                    }
+                }
+            }
         }
         
 
