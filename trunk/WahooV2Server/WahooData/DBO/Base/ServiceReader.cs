@@ -564,6 +564,19 @@ namespace WahooData.DBO.Base
             }
         }
 
+        public static DataTable getClientDisconnected()
+        {
+            try
+            {
+                SqlParameter[] para=new SqlParameter[1];
+                para[0]=new SqlParameter("@Minute",10);
+                return SqlHelper.ExecuteDataset(ServiceReader._conectionString, CommandType.StoredProcedure, "sp_Get_CLient_Disconnected", para).Tables[0];
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
 
     }
 }
