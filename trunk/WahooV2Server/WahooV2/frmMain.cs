@@ -75,6 +75,9 @@ namespace WahooV2
             //InitData();  
             CheckConnectWebservice();
             linkDashboardClick();
+            //start tmCheckConnect
+            this.tmCheckConnect.Interval = AliasMessage.INTERVAL_DOWNLOAD_FILECONNECT * 1000;
+            this.tmCheckConnect.Start();
         }
 
         /// <summary>
@@ -1553,32 +1556,7 @@ namespace WahooV2
                     if (_logger.IsErrorEnabled)
                         _logger.Error(ex);
                 }
-            }
-            //Update interval for timer execute
-            Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
-            int temp = 0;
-            try
-            {
-                temp = int.Parse(configObl.ReadSetting("CheckConnectInterval"));
-            }
-            catch (Exception ex)
-            {
-                //Write log
-                if (_logger.IsErrorEnabled)
-                    _logger.Error(ex);
-                temp = 0;
-            }
-            if (temp < 5)
-            {
-                temp = 5;
-            }
-            temp = temp * 1000;
-            if (this.tmCheckConnect.Interval != temp)
-            {
-                this.tmCheckConnect.Stop();
-                this.tmCheckConnect.Interval = temp;
-                this.tmCheckConnect.Start();
-            }
+            }            
         }
 
         #region Dashboard

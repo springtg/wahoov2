@@ -32,19 +32,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.iconList = new System.Windows.Forms.ImageList(this.components);
             this.xpPanelLeft = new UIComponents.XPPanelGroup();
-            this.xpPanelOther = new UIComponents.XPPanel(100);
+            this.xpPanelOther = new UIComponents.XPPanel();
             this.linkLogout = new System.Windows.Forms.LinkLabel();
             this.linkHelp = new System.Windows.Forms.LinkLabel();
-            this.xpPanelClient = new UIComponents.XPPanel(136);
+            this.xpPanelClient = new UIComponents.XPPanel();
             this.linkReport = new System.Windows.Forms.LinkLabel();
             this.linkDeleteClient = new System.Windows.Forms.LinkLabel();
             this.linkEditClient = new System.Windows.Forms.LinkLabel();
             this.linkNewClient = new System.Windows.Forms.LinkLabel();
-            this.xpPanelUser = new UIComponents.XPPanel(115);
+            this.xpPanelUser = new UIComponents.XPPanel();
             this.linkDeleteUser = new System.Windows.Forms.LinkLabel();
             this.linkEditUser = new System.Windows.Forms.LinkLabel();
             this.linkNewUser = new System.Windows.Forms.LinkLabel();
-            this.xpPanelChannelTask = new UIComponents.XPPanel(216);
+            this.xpPanelChannelTask = new UIComponents.XPPanel();
             this.linkUndeployAll = new System.Windows.Forms.LinkLabel();
             this.linkDeployAll = new System.Windows.Forms.LinkLabel();
             this.linkDeployChannel = new System.Windows.Forms.LinkLabel();
@@ -53,13 +53,13 @@
             this.linkEnableChannel = new System.Windows.Forms.LinkLabel();
             this.linkSaveChannel = new System.Windows.Forms.LinkLabel();
             this.linkNewChannel = new System.Windows.Forms.LinkLabel();
-            this.xpPanelDashboardTask = new UIComponents.XPPanel(155);
+            this.xpPanelDashboardTask = new UIComponents.XPPanel();
             this.linkStopChannel = new System.Windows.Forms.LinkLabel();
             this.linkPauseChannel = new System.Windows.Forms.LinkLabel();
             this.linkStopAllChannel = new System.Windows.Forms.LinkLabel();
             this.linkResetAllChannel = new System.Windows.Forms.LinkLabel();
             this.linkStartAllChannel = new System.Windows.Forms.LinkLabel();
-            this.xpPanelNWG = new UIComponents.XPPanel(172);
+            this.xpPanelNWG = new UIComponents.XPPanel();
             this.linkSetting = new System.Windows.Forms.LinkLabel();
             this.linkBridge = new System.Windows.Forms.LinkLabel();
             this.linkDashboard = new System.Windows.Forms.LinkLabel();
@@ -977,8 +977,6 @@
             // 
             // tmCheckConnect
             // 
-            this.tmCheckConnect.Enabled = true;
-            this.tmCheckConnect.Interval = 5000;
             this.tmCheckConnect.Tick += new System.EventHandler(this.tmCheckConnect_Tick);
             // 
             // bgwCheckConnect
