@@ -1041,6 +1041,11 @@ namespace WahooV2.WahooUserControl
             }
         }
 
+        private string replaceConst(string strMessagTamplate, params object[] para)
+        {
+            return string.Format(strMessagTamplate, para);
+        }
+
 
 #endregion
 
@@ -1048,7 +1053,7 @@ namespace WahooV2.WahooUserControl
         {
             if (sendMailtoList())
             {
-               // ShowMessageBox("DASHBOARD_ERR006", MessageType.ERROR);
+               //ShowMessageBox("DASHBOARD_ERR006", MessageType.ERROR);
             }
             else
                 ShowMessageBox("DASHBOARD_ERR006", MessageType.ERROR);
