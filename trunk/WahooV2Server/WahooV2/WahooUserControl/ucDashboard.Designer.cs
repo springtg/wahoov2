@@ -69,6 +69,13 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabMessage = new System.Windows.Forms.TabPage();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnSaveMessage = new System.Windows.Forms.Button();
+            this.txtMailBody = new System.Windows.Forms.TextBox();
+            this.txtMailSubject = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.menuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.startAllChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopAllChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,7 +96,7 @@
             this.timerRefresh = new System.Timers.Timer();
             this.tmPicture = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tabMessage = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.gbLogInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabLogHistory.SuspendLayout();
@@ -102,6 +109,7 @@
             this.tabEmailServer.SuspendLayout();
             this.tabEmailAdress.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabMessage.SuspendLayout();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridDashboard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timerRefresh)).BeginInit();
@@ -378,6 +386,7 @@
             // 
             // tabEmailServer
             // 
+            this.tabEmailServer.Controls.Add(this.button1);
             this.tabEmailServer.Controls.Add(this.txtServerPort);
             this.tabEmailServer.Controls.Add(this.txtPassword);
             this.tabEmailServer.Controls.Add(this.txtUsername);
@@ -530,6 +539,75 @@
             this.dataGridViewTextBoxColumn8.HeaderText = "Email";
             this.dataGridViewTextBoxColumn8.MaxInputLength = 50;
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // tabMessage
+            // 
+            this.tabMessage.Controls.Add(this.btnRefresh);
+            this.tabMessage.Controls.Add(this.btnSaveMessage);
+            this.tabMessage.Controls.Add(this.txtMailBody);
+            this.tabMessage.Controls.Add(this.txtMailSubject);
+            this.tabMessage.Controls.Add(this.label7);
+            this.tabMessage.Controls.Add(this.label6);
+            this.tabMessage.Location = new System.Drawing.Point(4, 22);
+            this.tabMessage.Name = "tabMessage";
+            this.tabMessage.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMessage.Size = new System.Drawing.Size(1070, 158);
+            this.tabMessage.TabIndex = 2;
+            this.tabMessage.Text = "Message";
+            this.tabMessage.UseVisualStyleBackColor = true;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(616, 44);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 5;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // btnSaveMessage
+            // 
+            this.btnSaveMessage.Location = new System.Drawing.Point(616, 20);
+            this.btnSaveMessage.Name = "btnSaveMessage";
+            this.btnSaveMessage.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveMessage.TabIndex = 4;
+            this.btnSaveMessage.Text = "Save";
+            this.btnSaveMessage.UseVisualStyleBackColor = true;
+            this.btnSaveMessage.Click += new System.EventHandler(this.btnSaveMessage_Click);
+            // 
+            // txtMailBody
+            // 
+            this.txtMailBody.Location = new System.Drawing.Point(104, 45);
+            this.txtMailBody.Multiline = true;
+            this.txtMailBody.Name = "txtMailBody";
+            this.txtMailBody.Size = new System.Drawing.Size(494, 107);
+            this.txtMailBody.TabIndex = 3;
+            // 
+            // txtMailSubject
+            // 
+            this.txtMailSubject.Location = new System.Drawing.Point(104, 20);
+            this.txtMailSubject.Name = "txtMailSubject";
+            this.txtMailSubject.Size = new System.Drawing.Size(494, 20);
+            this.txtMailSubject.TabIndex = 2;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(22, 49);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(79, 13);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Message body:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(22, 24);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(46, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Subject:";
             // 
             // menuStrip
             // 
@@ -737,15 +815,15 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // tabMessage
+            // button1
             // 
-            this.tabMessage.Location = new System.Drawing.Point(4, 22);
-            this.tabMessage.Name = "tabMessage";
-            this.tabMessage.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMessage.Size = new System.Drawing.Size(1070, 158);
-            this.tabMessage.TabIndex = 2;
-            this.tabMessage.Text = "Message";
-            this.tabMessage.UseVisualStyleBackColor = true;
+            this.button1.Location = new System.Drawing.Point(390, 42);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ucDashboard
             // 
@@ -772,6 +850,8 @@
             this.tabEmailServer.PerformLayout();
             this.tabEmailAdress.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabMessage.ResumeLayout(false);
+            this.tabMessage.PerformLayout();
             this.menuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridDashboard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timerRefresh)).EndInit();
@@ -840,5 +920,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.TabPage tabMessage;
+        private System.Windows.Forms.TextBox txtMailBody;
+        private System.Windows.Forms.TextBox txtMailSubject;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnSaveMessage;
+        private System.Windows.Forms.Button button1;
     }
 }
