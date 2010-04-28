@@ -188,6 +188,7 @@ namespace WahooV2.WahooUserControl
             //NTXUAN: add for tab email notification: 27_04_2010
             loadEmailServerSetting();
             dataGridView1.DataSource = loadEmailList();
+            loadMessageInfo();
         }
 
         /// <summary>
@@ -955,9 +956,103 @@ namespace WahooV2.WahooUserControl
             }
         }
 
-        #endregion
+        private void loadMessageInfo()
+        {
+            configObl = new Config(strConfigPath);
+            txtMailSubject.Text = configObl.ReadSetting("MailSubject");
+            txtMailBody.Text = configObl.ReadSetting("MailBody"); 
+        }
+
+        private bool updateMessageInfo(string strSubject, string strBody)
+        {
+            try
+            {
+                configObl = new Config(strConfigPath);
+                configObl.WriteSetting("MailSubject",strSubject);
+                configObl.WriteSetting("MailBody",strBody);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private void btnSaveMessage_Click(object sender, EventArgs e)
+        {
+            if (updateMessageInfo(txtMailSubject.Text, txtMailBody.Text))
+            {
+                ShowMessageBox("DASHBOARD_INF002", MessageType.INFORM);
+                loadMessageInfo();
+            }
+            else
+                ShowMessageBox("DASHBOARD_ERR004", MessageType.ERROR);
+
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            loadMessageInfo();
+        }
+
+        private bool sendMailtoList()
+        {
+            try
+            {
+                DataTable tb = (DataTable)dataGridView1.DataSource;
+                if (tb != null)
+                {
+                    //chuan bi thong tin server
+                    configObl=new Config(strConfigPath);
+                    string mailServer = configObl.ReadSetting("EmailServer");
+                    int mailport = WahooConfiguration.DataTypeProtect.ProtectInt32(configObl.ReadSetting("ServerPort"));
+                    string mailusername = configObl.ReadSetting("UserName");
+                    string mailpassword = configObl.ReadSetting("Password");
+                    string mailSubject = configObl.ReadSetting("MailSubject");
+                    string mailbody = configObl.ReadSetting("MailBody");
+                    //chuan bi mail list
+                    string mailTo = string.Empty;
+                    for (int i = 0; i < tb.Rows.Count; i++)
+                    {
+                        mailTo = mailTo + WahooConfiguration.DataTypeProtect.ProtectString(tb.Rows[i]["Email"]).Trim() + ",";
+                    }
+                    WahooV2.Common.CMailSmtp mail = new WahooV2.Common.CMailSmtp();
+                    mail.MailTo = mailTo;
+                    mail.MailSubject = mailSubject;
+                    mail.MailFrom = mailusername;
+                    mail.SMTPServer = mailServer;
+                    mail.SMTPPort = mailport;
+                    mail.MailBody = mailbody;
+                    mail.SMTPSSL = true;
+                    mail.SMTPUsername = mailusername;
+                    mail.SMTPPassword = mailpassword;
+                    return mail.Send();
+//                    return true;
+                }
+                else
+                {
+                    ShowMessageBox("DASHBOARD_ERR005", MessageType.ERROR);
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
 
+#endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (sendMailtoList())
+            {
+               // ShowMessageBox("DASHBOARD_ERR006", MessageType.ERROR);
+            }
+            else
+                ShowMessageBox("DASHBOARD_ERR006", MessageType.ERROR);
+        }
         
 
         
