@@ -7,7 +7,8 @@ using System.IO;
 using System.Collections;
 using System.Web.Services.Protocols;
 
-[WebService(Namespace = "http://www.dotnetslackers.com/wse/documentlibrarysample")]
+//[WebService(Namespace = "http://www.dotnetslackers.com/wse/documentlibrarysample")]
+[WebService(Namespace = "http://www.northwesterngroup.com")]
 [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
 // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
 // [System.Web.Script.Services.ScriptService]
