@@ -319,10 +319,9 @@ namespace WahooV2.Common
                             if (objChannel.IsConnected == false)
                             {
                                 objChannel.DateLastDisconnect = null;
+                                objChannel.IsConnected = true;
+                                objChannel.Update();
                             }
-
-                            objChannel.IsConnected = true;
-                            objChannel.Update();
                         }
                         catch (Exception)
                         {
@@ -360,9 +359,9 @@ namespace WahooV2.Common
                         if (objChannel.IsConnected == true)
                         {
                             objChannel.DateLastDisconnect = DateTime.Now;
-                        }
-                        objChannel.IsConnected = false;
-                        objChannel.Update();
+                            objChannel.IsConnected = false;
+                            objChannel.Update();
+                        }                        
                     }
                     catch (Exception)
                     {
@@ -394,9 +393,9 @@ namespace WahooV2.Common
                         if (objChannel.IsConnected == true)
                         {
                             objChannel.DateLastDisconnect = DateTime.Now;
-                        }
-                        objChannel.IsConnected = false;
-                        objChannel.Update();
+                            objChannel.IsConnected = false;
+                            objChannel.Update();
+                        }                        
                     }
                     catch
                     {
@@ -433,9 +432,9 @@ namespace WahooV2.Common
                     if (objChannel.IsConnected == true)
                     {
                         objChannel.DateLastDisconnect = DateTime.Now;
-                    }
-                    objChannel.IsConnected = false;
-                    objChannel.Update();
+                        objChannel.IsConnected = false;
+                        objChannel.Update();
+                    }                    
                 }
                 catch (Exception)
                 {
