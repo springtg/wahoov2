@@ -53,6 +53,9 @@ namespace HL7ServerTransfer
         {
             try
             {
+                ////Luu RunFirstTime = false
+                //Settings.Default.boolRunFirstTime = true;
+                //Settings.Default.Save();
                 _cPrinter = new PrintClass();
                 //Load info
                 ResetHL7Setup();
@@ -62,8 +65,13 @@ namespace HL7ServerTransfer
                 this.timerUploadfileConnect.Start();
 
                 //neu la lan dau tien chay chuong trinh thi ko goi ham StartDownloadAndStartSchedule();
-                if(!Settings.Default.boolRunFirstTime)
+                if (!Settings.Default.boolRunFirstTime)
+                {
                     StartDownloadAndStartSchedule();
+                    this.WindowState = FormWindowState.Minimized;
+                    this.ShowInTaskbar = false;
+                    frmMain_Resize(sender, e);
+                }
             }
             catch (Exception ex)
             {
@@ -697,5 +705,61 @@ namespace HL7ServerTransfer
                     _logger.Error(ex);                
             }
         }
+
+        private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                notifyIcon1.ContextMenuStrip = contextMenuStrip1;
+            }
+        }
+
+        private void retoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+                this.retoreToolStripMenuItem.Visible = false;
+                this.minimizeToolStripMenuItem.Visible = true;
+                this.ShowInTaskbar = true;
+                Show();
+                WindowState = FormWindowState.Normal;
+        }
+
+        private void minimizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.minimizeToolStripMenuItem.Visible = false;
+            this.retoreToolStripMenuItem.Visible = true;
+            this.WindowState = FormWindowState.Minimized;
+            this.ShowInTaskbar = false;
+            setTextNotify();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            notifyIcon1.Dispose();
+            System.Windows.Forms.Application.Exit();
+        }
+
+        private void setTextNotify()
+        {
+            _Resource = new HL7Source.Resource();
+            notifyIcon1.ShowBalloonTip(100, _Resource.GetResourceByKey("FORM_BASE_KEY", "NOTIFY_TEXT_0001"),
+            _Resource.GetResourceByKey("FORM_BASE_KEY", "NOTIFY_TEXT_0002"), ToolTipIcon.Info);
+        }
+
+        private void frmMain_Resize(object sender, EventArgs e)
+        {
+            if (FormWindowState.Minimized == WindowState)
+            {
+                setTextNotify();
+                this.minimizeToolStripMenuItem.Visible = false;
+                this.retoreToolStripMenuItem.Visible = true;
+                Hide();
+            }
+        }
+
+        private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            sched.Shutdown();
+        }
+
     }
 }

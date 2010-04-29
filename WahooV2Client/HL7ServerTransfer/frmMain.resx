@@ -142,6 +142,54 @@
   <metadata name="bgwUploadfileConnect.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>175, 17</value>
   </metadata>
+  <metadata name="notifyIcon1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>337, 17</value>
+  </metadata>
+  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>444, 17</value>
+  </metadata>
+  <data name="notifyIcon1.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAICAAAAAAAACoCAAAFgAAACgAAAAgAAAAQAAAAAEACAAAAAAAgAQAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAQEBAAICAgADAwMABAQEAAUFBQAGBgYABwcHAAoKCgANDQ0ADg4OABAQEAASEhIAFBQUABcX
+        FwAYGBgAGxsbAB8fHwAhISEAIiIiACUlJQAmJiYAJycnACgoKAApKSkAKioqACwsLAAuLi4AMDAwADIy
+        MgAzMzMANDQ0ADU1NQA2NjYAODg4ADo6OgA/Pz8AQUFBAENDQwBFRUUAR0dHAEpKSgBMTEwAT09PAFFR
+        UQBTU1MAVFRUAFhYWABZWVkAWlpaAFxcXABgYGAAYWFhAGdnZwBoaGgAaWlpAGtrawBsbGwAb29vAHBw
+        cABxcXEAdHR0AHZ2dgB6enoAfX19AIGBgQCGhoYAiYmJAIuLiwCMjIwAjo6OAI+PjwCQkJAAkpKSAJOT
+        kwCUlJQAl5eXAJmZmQCbm5sAnZ2dAJ6engCgoKAAoaGhAKOjowClpaUApqamAKmpqQCqqqoAsLCwALGx
+        sQCzs7MAtbW1ALK9uwCxvrwAurq6ALy8vAC/v78ArMTCALPBwAC2w8EAucfGALfKxwCyzcoAtM3JALTP
+        zAC6yskAvMzLAL3OywC20c4Au9DNAL/QzQC409AAutLQALrV0gC81NIAvtTSALzX1AC/19UAv9rXAMTD
+        xQDBxsUAxMTEAMXPzwDHz84AzMvNAM3NzQDOzs4AwNDPAMDV0gDG1NMAwdbUAMLX1QDL0dAAzdLRAMnU
+        0gDI1tUAytfVAMnX1gDM1tYAwNnVAMDb2ADD29kAxNrYAMLd2gDD3tsAxNzaAMTf3ADL29oAzNrYAMjd
+        2gDM3NsAyd7cAMrf3QDQ0NAA0dHRANLS0gDU09UA1NTUANfX1wDT29oA1NrZANDd2wDY2NgA2djaANra
+        2gDc3NwAx+LfAMri4ADM4uAAyuXiAM3l4wDM5+QAz+flAM3o5QDQ4+AA1ePiANTl4gDR5+UA1ublANzn
+        5QDd5+cA0+nnANLr5wDa6OcA3unnANbr6QDT7usA1OzqANTv7ADZ6egA2+noAN7o6ADY7+sA3+3rANXw
+        7QDc8e8A2PPwANn08QDa9fIA3PTyAODg4ADh4+MA4urpAOfp6QDm7OsA5u7uAOnp6QDq6uoA6+vrAO3s
+        7gDu7u4A7+/vAOnx8ADv9PMA7/P0AOz09ADv9/YA5f/9AOb//gDs//wA8fHxAPHw8gDy8vIA8/PzAPD2
+        9QDx9/YA9PT0APX39wD29vYA9/f3APb4+AD0+vkA9/n6APb6+wD2/PsA8P78APT8/AD0/v4A9v//APj4
+        +AD5+fkA+vr6APv7+wD5+/wA/Pv9APr8/QD4//8A+v7/APz8/AD9/f0A/fz+AP79/wD9//8A/v7+AP/+
+        /wD///8A7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v
+        7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v
+        7+/v7+/v7+/v7+/v7+/EwsLZxIyMb2+mp2+MwsLbxHZvbHZ2i2aA29vbs9vm76dsZm9vpozCrKetp4xv
+        b29vjIynubm5w5NtbWSE2ObUxK6nuadvb2+AjKZhjLm9p45vb3Vvb21lf8HByp/m5u/EgICLi5OYuaeM
+        jL2njI6AqLWuroyurrWTiIh7n+/v766Tk72TaWlpk729Yn+zrq6TaWmTva6fYmLKysqgzs7v5pOKfpPN
+        ze/v5ubvvYSAfp/Kvdzm7+/v2ISEd8jv7+/mk5OEn9TU7+/v7+/KhISErsrK2+bv7+/UhIR6zu/v3O/h
+        3O/v7+/v7+/v7+/v7+/v7+/v7+bm5u/v7+/c7+/vfHx+3O/v7+/v7+/v3Jmjd8jv7+/v7+/v5ubvopnO
+        zu8cAABW7+/v7+/v7++ZFxIAou/v7+/v7+/vfHcICEhI7xcLC03v7+/v7+/v7y8AAEjv7+/v7+/v7+8i
+        IgsATU3vHAgAUe/v7+/v7+9RACIi79zv7+/v7+/vPwAAAAtISO8cAAhW7+/v7+/v700AIiLv3O/v7+/v
+        7+8+AAAAC0hI7xwAAFjv7+/v76KiCwuioqJW7+/v7+/vdwAODxwAVlHvFwsLUe/v7+/vLC8ASO/vKT/v
+        7+/v3NwoAEE/PwBWVu8cAABW7+/v70gAACXvUU0IQe/v7+9APwAi3Nw7C0hD7yUAAF7v3NyiDwsPXu8s
+        KQhD7+/vdw8PCF7v7zYLSEjvHAAIUe/v7ykANjbv7yUlCEHv7+8lAAAz7+/vOwBNTe8cAABR7+/vKQA2
+        Nu/vJSUIQe/v7yUAADPv7+82AE1R7yUAAFHvTU0AF87c7+8vLABI7+9IABwczu/v7zsAVlbvFwAAXpkX
+        FwBW7+/v7yIiCzt8mRIAVljv7+/vOwBISO8cAAhYLwAAL+/v7+/vLywIQSwsADPv7+/v7+87C0hI7xwA
+        ACIAFxfc7+/v7+8pKQAXAAAX3O/v7+/v7zYASEjcJQAAAABWWO/v7+/v7y8sAAAICFHv7+/v7+/vOwhR
+        Ue8XAAAANu/v3O/v7+/vLCwACDY77+/v7+/v7+82AE1N7xIAAAAz7+/c7+/v7+8sLAAINjvv7+/v7+/v
+        7zYATU3vFxcXD8jc7+/v7+/v7yUpDxeZme/v7+/v7+/vOwtISNxYSEh87+/v7+/v7+/vWFhBme/v7+/v
+        7+/v7+9eTaKi7wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAA
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAICAAAAAAAACoCAAAFgAAACgAAAAgAAAAQAAAAAEACAAAAAAAgAQAAAAAAAAAAAAAAAAAAAAA
