@@ -28,11 +28,12 @@ namespace WahooV2.Common
         private int mTryAgainDelayTime;
         private string[] mMailAttachments;
         private string mErrorMsg;
-
+        private bool mIsBodyHtml;
         public CMailSmtp()
         {
             // Default values
             MailObject = new MailMessage();
+            mIsBodyHtml = false; ;
             mMailFrom = "";
             mMailTo = "";
             mMailSubject = "";
@@ -64,6 +65,7 @@ namespace WahooV2.Common
         public int TryAgainDelayTime { set { mTryAgainDelayTime = value; } get { return mTryAgainDelayTime; } }
         public string[] MailAttachments { set { mMailAttachments = value; } get { return mMailAttachments; } }
         public string ErrorMsg { set { mErrorMsg = value; } }
+        public bool MIsBodyHtml { set { mIsBodyHtml = value; } get { return mIsBodyHtml; } }
 
 
         /// <summary>
@@ -80,6 +82,7 @@ namespace WahooV2.Common
 
             Email.Subject = mMailSubject;
             Email.Body = mMailBody;
+            Email.IsBodyHtml = mIsBodyHtml;
 
             for (int k = 0; k < MailAttachments.Length; k++)
             {
