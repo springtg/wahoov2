@@ -73,5 +73,9 @@ namespace WahooConfiguration
         public static int NUMBER_CHANNEL = 100;
         //thoi gian de download file connect(s)
         public static int INTERVAL_DOWNLOAD_FILECONNECT = 5;
+        //thoi gian bat dau kiem tra client disconnect
+        public static int FROM_MINUTE = 10;
+        //thoi gian ket thuc kiem tra client disconnect
+        public static int TO_MINUTE = 20;
     }
 }
