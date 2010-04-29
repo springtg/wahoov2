@@ -26,6 +26,7 @@ namespace WahooData.DBO
         private bool? _IsDeployed;
         private string _WsdlUrl;
         private bool? _IsConnected;
+        private DateTime? _DateLastDisconnect;
 
         #endregion
 
@@ -65,7 +66,7 @@ namespace WahooData.DBO
         /// <param name="IsDeployed">Sets bool? value for IsDeployed</param>
         /// <param name="WsdlUrl">Sets string value for WsdlUrl</param>
         /// <param name="IsConnected">Sets bool? value for IsConnected</param>
-        public Channel(int? id, int? idClient, DateTime? dateCreated, DateTime? dateUpdated, string channelName, bool? active, string description, string filePath, string statusExecute, int? sent, int? error, string serverFolder, bool? storeFile, bool? isDeployed, string wsdlUrl, bool? isConnected)
+        public Channel(int? id, int? idClient, DateTime? dateCreated, DateTime? dateUpdated, string channelName, bool? active, string description, string filePath, string statusExecute, int? sent, int? error, string serverFolder, bool? storeFile, bool? isDeployed, string wsdlUrl, bool? isConnected, DateTime? dateLastDisconnect)
         {
             this.Id = id;
             this.IdClient = idClient;
@@ -83,6 +84,7 @@ namespace WahooData.DBO
             this.IsDeployed = isDeployed;
             this.WsdlUrl = wsdlUrl;
             this.IsConnected = isConnected;
+            this.DateLastDisconnect = dateLastDisconnect;
         }
 
         #endregion
@@ -373,6 +375,22 @@ namespace WahooData.DBO
 
                 Client clientFilter = new Client(this.IdClient.Value);
                 return this.DataContext.ClientController.GetItem(clientFilter);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets DateTime? value for DateCreated
+        /// </summary>
+        [ColumnAttribute("DateLastDisconnect", SqlDbType.DateTime, 8, false)]
+        public DateTime? DateLastDisconnect
+        {
+            set
+            {
+                this._DateLastDisconnect = value;
+            }
+            get
+            {
+                return this._DateLastDisconnect;
             }
         }
 
