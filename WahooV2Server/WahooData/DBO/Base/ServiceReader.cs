@@ -568,8 +568,9 @@ namespace WahooData.DBO.Base
         {
             try
             {
-                SqlParameter[] para=new SqlParameter[1];
-                para[0]=new SqlParameter("@Minute",10);
+                SqlParameter[] para=new SqlParameter[2];
+                para[0] = new SqlParameter("@FromMinute", AliasMessage.FROM_MINUTE);
+                para[1] = new SqlParameter("@ToMinute", AliasMessage.TO_MINUTE);
                 return SqlHelper.ExecuteDataset(ServiceReader._conectionString, CommandType.StoredProcedure, "sp_Get_CLient_Disconnected", para).Tables[0];
             }
             catch(Exception ex)
