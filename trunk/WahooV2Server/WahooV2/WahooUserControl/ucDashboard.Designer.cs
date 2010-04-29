@@ -832,6 +832,7 @@
             // timerClientDisconnected
             // 
             this.timerClientDisconnected.Enabled = true;
+            this.timerClientDisconnected.Interval = 600000;
             this.timerClientDisconnected.Tick += new System.EventHandler(this.timerClientDisconnected_Tick);
             // 
             // ucDashboard

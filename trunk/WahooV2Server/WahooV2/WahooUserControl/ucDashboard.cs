@@ -24,11 +24,11 @@ namespace WahooV2.WahooUserControl
         delegate void ProcessDelegate();
         #endregion
 
-        #region variable        
+        #region variable
         Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
         private static readonly ILog _logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         //DataTable _mDashboard to store list of dashboard( bind with grid)
-        private DataTable _mDashboard=new DataTable();
+        private DataTable _mDashboard = new DataTable();
         //List of history info( bind with history grid)
         private DataTable _mHistoryData = new DataTable();
         //Check is refreshing grid data
@@ -71,8 +71,8 @@ namespace WahooV2.WahooUserControl
         public ucDashboard()
         {
             InitializeComponent();
-        }  
-       
+        }
+
         #region event
 
         /// <summary>
@@ -184,7 +184,7 @@ namespace WahooV2.WahooUserControl
             //}
             this.pictureBox1.Image = global::WahooV2.Properties.Resources.Connecting;
             this.pictureBox2.Image = global::WahooV2.Properties.Resources.Disconnet;
-            this._mCheckLoad = 1;            
+            this._mCheckLoad = 1;
             //NTXUAN: add for tab email notification: 27_04_2010
             loadEmailServerSetting();
             dataGridView1.DataSource = loadEmailList();
@@ -215,9 +215,9 @@ namespace WahooV2.WahooUserControl
                         gridHistAllLog.DataSource = new DataView(this._mHistoryData);
                         ((DataView)gridHistAllLog.DataSource).RowFilter = "IDCHANNEL=" + this._mIdDashboard.ToString();
                         ((DataView)gridHistAllLog.DataSource).Sort = "ID DESC";
-                        
+
                         //Bind so dong vao GridView theo Log_Size.
-                        gridHistAllLog.DataSource = GetTopDataViewRows((DataView)gridHistAllLog.DataSource, DataTypeProtect.ProtectInt32(configObl.ReadSetting(AliasMessage.Log_Size),0));
+                        gridHistAllLog.DataSource = GetTopDataViewRows((DataView)gridHistAllLog.DataSource, DataTypeProtect.ProtectInt32(configObl.ReadSetting(AliasMessage.Log_Size), 0));
 
                         gridErrorLog.DataSource = new DataView(this._mHistoryData);
                         ((DataView)gridErrorLog.DataSource).RowFilter = "IDCHANNEL=" + this._mIdDashboard.ToString() + " AND STATUS='" + AliasMessage.FAILED_STATUS + "'";
@@ -325,7 +325,7 @@ namespace WahooV2.WahooUserControl
                 GridMouseDown(sender, e);
             }
         }
-        
+
         #endregion event
 
         #region function
@@ -334,7 +334,7 @@ namespace WahooV2.WahooUserControl
         {
             DataTable dt = dv.Table.Clone();
 
-            for (int i = 0; i < n ; i++)
+            for (int i = 0; i < n; i++)
             {
                 if (i >= dv.Count)
                 {
@@ -343,7 +343,7 @@ namespace WahooV2.WahooUserControl
                 dt.ImportRow(dv[i].Row);
             }
             return new DataView(dt, dv.RowFilter, dv.Sort, dv.RowStateFilter);
-        } 
+        }
 
         /// <summary>
         /// Pause channel
@@ -359,14 +359,14 @@ namespace WahooV2.WahooUserControl
             try
             {
                 Channel objChannel = new Channel();
-                this._mIdDashboard=DataTypeProtect.ProtectInt32(gridDashboard.SelectedRows[0].Cells[this.clId.Name].Value.ToString(),0);
+                this._mIdDashboard = DataTypeProtect.ProtectInt32(gridDashboard.SelectedRows[0].Cells[this.clId.Name].Value.ToString(), 0);
                 objChannel.Id = this._mIdDashboard;
                 objChannel = WahooBusinessHandler.Get_Channel(objChannel);
                 string statusExecute = gridDashboard.SelectedRows[0].Cells[this.clStatusExecute.Name].Value.ToString();
                 DataRow[] rows = _mDashboard.Select("Id=" + this._mIdDashboard.ToString());
                 if (statusExecute != AliasMessage.STARTED_STATUS)
                 {
-                    objChannel.StatusExecute=AliasMessage.STARTED_STATUS;
+                    objChannel.StatusExecute = AliasMessage.STARTED_STATUS;
                     objChannel.Update();
                     rows[0]["STATUSEXECUTE"] = AliasMessage.STARTED_STATUS;
                     kq = AliasMessage.PAUSE_CHANNEL_CONTROL;
@@ -406,8 +406,8 @@ namespace WahooV2.WahooUserControl
                 return;
             }
             try
-            {                
-                this._mIdDashboard = DataTypeProtect.ProtectInt32(gridDashboard.SelectedRows[0].Cells[this.clId.Name].Value.ToString(),0);
+            {
+                this._mIdDashboard = DataTypeProtect.ProtectInt32(gridDashboard.SelectedRows[0].Cells[this.clId.Name].Value.ToString(), 0);
                 Channel objChannel = new Channel();
                 this._mIdDashboard = DataTypeProtect.ProtectInt32(gridDashboard.SelectedRows[0].Cells[this.clId.Name].Value.ToString(), 0);
                 objChannel.Id = this._mIdDashboard;
@@ -522,7 +522,7 @@ namespace WahooV2.WahooUserControl
                 CreateHistoryOfChannel(objListHistoryOfChannel);
                 //When have data
                 if (gridDashboard.SelectedRows.Count > 0)
-                {                    
+                {
                     this._mIdDashboard = DataTypeProtect.ProtectInt32(gridDashboard.SelectedRows[0].Cells[this.clId.Name].Value.ToString(), 0);
                     gridHistAllLog.DataSource = new DataView(this._mHistoryData);
                     ((DataView)gridHistAllLog.DataSource).RowFilter = "IDCHANNEL=" + this._mIdDashboard.ToString();
@@ -552,12 +552,12 @@ namespace WahooV2.WahooUserControl
             if (DataTypeProtect.ProtectString(configObl.ReadSetting(AliasMessage.PAUSE_LOG_CONFIG)) == "0")
             {
                 btnPause.Tag = "0";
-                btnPause.Image = global::WahooV2.Properties.Resources.wh_pause;                
+                btnPause.Image = global::WahooV2.Properties.Resources.wh_pause;
             }
             else
             {
                 btnPause.Tag = "1";
-                btnPause.Image = global::WahooV2.Properties.Resources.wh_start;                
+                btnPause.Image = global::WahooV2.Properties.Resources.wh_start;
             }
             txtLogSize.Text = DataTypeProtect.ProtectString(configObl.ReadSetting(AliasMessage.Log_Size));
         }
@@ -585,7 +585,7 @@ namespace WahooV2.WahooUserControl
                 newRow["STATUSEXECUTE"] = obj.StatusExecute;
                 newRow["SENT"] = obj.Sent;
                 newRow["ERROR"] = obj.Error;
-                newRow["Img"] = (obj.IsConnected==true) ? global::WahooV2.Properties.Resources.Connecting : global::WahooV2.Properties.Resources.Disconnet;                
+                newRow["Img"] = (obj.IsConnected == true) ? global::WahooV2.Properties.Resources.Connecting : global::WahooV2.Properties.Resources.Disconnet;
                 newRow["ISCONNECTED"] = obj.IsConnected;
                 _mDashboard.Rows.Add(newRow);
             }
@@ -599,9 +599,9 @@ namespace WahooV2.WahooUserControl
             _mHistoryData.Columns.Add("IDCHANNEL", System.Type.GetType("System.Int32"));
             _mHistoryData.Columns.Add("DESCRIPTION", System.Type.GetType("System.String"));
             _mHistoryData.Columns.Add("STATUS", System.Type.GetType("System.String"));
-            _mHistoryData.Rows.Clear();            
+            _mHistoryData.Rows.Clear();
             foreach (HistoryOfChannel obj in objListHistoryOfChannel)
-            {     
+            {
                 DataRow newRow = _mHistoryData.NewRow();
                 newRow["ID"] = obj.Id;
                 newRow["IDCHANNEL"] = obj.IdChannel;
@@ -610,49 +610,49 @@ namespace WahooV2.WahooUserControl
                 _mHistoryData.Rows.Add(newRow);
             }
         }
-        #endregion function 
+        #endregion function
 
         private void timerRefresh_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-                int temp = 0;
-                try
-                {
+            int temp = 0;
+            try
+            {
 
-                    Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
-                    temp = int.Parse(configObl.ReadSetting(AliasMessage.DASHBOARD_INTERVAL_CONFIG));
-                    BindGrid();
-                }
-                catch(Exception ex)
-                {
-                    temp = 0;
-                    throw ex;                    
-                }
-                if (temp < 10)
-                {
-                    temp = 10;
-                }
-                temp = temp * 1000;
-                //Check timer interval for refresh timer( change when timer interval is changed)
-                if (this.timerRefresh.Interval != temp)
-                {
-                    this.timerRefresh.Stop();
-                    this.timerRefresh.Interval = temp;
-                    this.timerRefresh.Start();
+                Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
+                temp = int.Parse(configObl.ReadSetting(AliasMessage.DASHBOARD_INTERVAL_CONFIG));
+                BindGrid();
+            }
+            catch (Exception ex)
+            {
+                temp = 0;
+                throw ex;
+            }
+            if (temp < 10)
+            {
+                temp = 10;
+            }
+            temp = temp * 1000;
+            //Check timer interval for refresh timer( change when timer interval is changed)
+            if (this.timerRefresh.Interval != temp)
+            {
+                this.timerRefresh.Stop();
+                this.timerRefresh.Interval = temp;
+                this.timerRefresh.Start();
 
-                }
-               // 
-                
+            }
+            // 
+
         }
 
         private void tmPicture_Tick(object sender, EventArgs e)
         {
-            
+
             if (this.gridDashboard.Rows.Count > 0)
             {
 
                 ReplayImage(true, this.pictureBox1.Image, this.pictureBox2.Image, gridDashboard, 5);
             }
-            
+
         }
         /// <summary>
         /// chang image theo thoi gian, va validate cell hien hanh
@@ -663,7 +663,7 @@ namespace WahooV2.WahooUserControl
         /// <param name="dgv"></param>
         /// <param name="iRow"></param>
         /// <param name="iColumn"></param>
-        private void ReplayImage(bool bImage1,Image img1,Image img2, DataGridView dgv, int iColumn)
+        private void ReplayImage(bool bImage1, Image img1, Image img2, DataGridView dgv, int iColumn)
         {
             for (int i = 0; i < dgv.RowCount; i++)
             {
@@ -678,7 +678,7 @@ namespace WahooV2.WahooUserControl
                     dgv.Rows[i].Cells[7].Value = img2;
                     dgv.InvalidateCell(7, i);
                 }
-                
+
 
             }
         }
@@ -687,7 +687,7 @@ namespace WahooV2.WahooUserControl
         {
             do
             {
-              //record the time when current step begins to process
+                //record the time when current step begins to process
                 this._CurrentStep++;
                 Random rndIntValue = new Random();
                 //let current process sleep for several seconds
@@ -760,7 +760,7 @@ namespace WahooV2.WahooUserControl
             gridHistAllLog.DataSource = GetTopDataViewRows((DataView)gridHistAllLog.DataSource, DataTypeProtect.ProtectInt32(configObl.ReadSetting(AliasMessage.Log_Size), 0));
 
             gridErrorLog.DataSource = new DataView(this._mHistoryData);
-            ((DataView)gridErrorLog.DataSource).RowFilter = "IDCHANNEL=" + this._mIdDashboard.ToString() + " AND STATUS='" + AliasMessage.FAILED_STATUS +"'";
+            ((DataView)gridErrorLog.DataSource).RowFilter = "IDCHANNEL=" + this._mIdDashboard.ToString() + " AND STATUS='" + AliasMessage.FAILED_STATUS + "'";
             ((DataView)gridErrorLog.DataSource).Sort = "ID DESC";
             //Bind so dong vao GridView theo Log_Size.
             gridErrorLog.DataSource = GetTopDataViewRows((DataView)gridErrorLog.DataSource, DataTypeProtect.ProtectInt32(configObl.ReadSetting(AliasMessage.Log_Size), 0));
@@ -961,7 +961,7 @@ namespace WahooV2.WahooUserControl
         {
             configObl = new Config(strConfigPath);
             txtMailSubject.Text = configObl.ReadSetting("MailSubject");
-            txtMailBody.Text = configObl.ReadSetting("MailBody"); 
+            txtMailBody.Text = configObl.ReadSetting("MailBody");
         }
 
         private bool updateMessageInfo(string strSubject, string strBody)
@@ -969,8 +969,8 @@ namespace WahooV2.WahooUserControl
             try
             {
                 configObl = new Config(strConfigPath);
-                configObl.WriteSetting("MailSubject",strSubject);
-                configObl.WriteSetting("MailBody",strBody);
+                configObl.WriteSetting("MailSubject", strSubject);
+                configObl.WriteSetting("MailBody", strBody);
                 return true;
             }
             catch
@@ -996,7 +996,7 @@ namespace WahooV2.WahooUserControl
             loadMessageInfo();
         }
 
-        private bool sendMailtoList()
+        private bool sendMailtoList(DataTable tbClient)
         {
             try
             {
@@ -1004,13 +1004,46 @@ namespace WahooV2.WahooUserControl
                 if (tb != null)
                 {
                     //chuan bi thong tin server
-                    configObl=new Config(strConfigPath);
+                    configObl = new Config(strConfigPath);
                     string mailServer = configObl.ReadSetting("EmailServer");
                     int mailport = WahooConfiguration.DataTypeProtect.ProtectInt32(configObl.ReadSetting("ServerPort"));
                     string mailusername = configObl.ReadSetting("UserName");
                     string mailpassword = configObl.ReadSetting("Password");
                     string mailSubject = configObl.ReadSetting("MailSubject");
                     string mailbody = configObl.ReadSetting("MailBody");
+
+                    string strClientList = string.Empty;
+                    int iCont = tbClient.Rows.Count;
+
+                    strClientList = "<table style='width: 600px;'>";
+                    strClientList += "<tr style='background-color: #FF6699'>";
+                    strClientList += "<td style='width: 86px'>";
+                    strClientList += "Client Code";
+                    strClientList += "</td>";
+                    strClientList += "<td style='width: 130px'>";
+                    strClientList += "Client Name";
+                    strClientList += "</td>";
+                    strClientList += "<td style='width: 127px'>";
+                    strClientList += "Channel Name";
+                    strClientList += "</td>";
+                    strClientList += "<td>";
+                    strClientList += "Date";
+                    strClientList += "</td>";
+                    strClientList += "</tr>";
+                    for (int i = 0; i < iCont; i++)
+                    {
+                        if (i % 2 == 0)
+                            strClientList += "<tr style='background-color: #FFCCFF'>";
+                        else
+                            strClientList += "<tr style='background-color: #ffffee'>";
+                        strClientList += "<td style='width: 86px'>" + WahooConfiguration.DataTypeProtect.ProtectString(tbClient.Rows[i]["IdClient"]) + "</td>";
+                        strClientList += "<td style='width: 130px'>" + WahooConfiguration.DataTypeProtect.ProtectString(tbClient.Rows[i]["Name"]) + "</td>";
+                        strClientList += "<td style='width: 127px'>" + WahooConfiguration.DataTypeProtect.ProtectString(tbClient.Rows[i]["ChannelName"]) + "</td>";
+                        strClientList += "<td>" + WahooConfiguration.DataTypeProtect.ProtectString(tbClient.Rows[i]["DateLastDisconnect"]) + "</td>";
+                        strClientList += "</tr>";
+                    }
+                    strClientList += "</table>";
+                    mailbody = "<table style='width: 600px;'><tr><td>" + mailbody.Replace("[ClientList]", "</td></tr><tr><td>" + strClientList + "</td></tr><tr><td>") + "</td></tr></table>";
                     //chuan bi mail list
                     string mailTo = string.Empty;
                     for (int i = 0; i < tb.Rows.Count; i++)
@@ -1024,11 +1057,12 @@ namespace WahooV2.WahooUserControl
                     mail.SMTPServer = mailServer;
                     mail.SMTPPort = mailport;
                     mail.MailBody = mailbody;
+                    mail.MIsBodyHtml = true;
                     mail.SMTPSSL = true;
                     mail.SMTPUsername = mailusername;
                     mail.SMTPPassword = mailpassword;
                     return mail.Send();
-//                    return true;
+                    //                    return true;
                 }
                 else
                 {
@@ -1044,46 +1078,33 @@ namespace WahooV2.WahooUserControl
 
 
 
-        private string replaceConst(string strMessagTamplate, params object[] para)
-        {
-            return string.Format(strMessagTamplate, para);
-        }
-
-
-
-#endregion
+        #endregion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (sendMailtoList())
-            {
-               //ShowMessageBox("DASHBOARD_ERR006", MessageType.ERROR);
-            }
-            else
-                ShowMessageBox("DASHBOARD_ERR006", MessageType.ERROR);
+            //if (sendMailtoList())
+            //{
+            //   //ShowMessageBox("DASHBOARD_ERR006", MessageType.ERROR);
+            //}
+            //else
+            //    ShowMessageBox("DASHBOARD_ERR006", MessageType.ERROR);
         }
 
         private void timerClientDisconnected_Tick(object sender, EventArgs e)
         {
+            
             DataTable tb = WahooData.DBO.Base.ServiceReader.getClientDisconnected();
             if (tb != null)
             {
                 if (tb.Rows.Count > 0)
                 {
-                    for (int i = 0; i < tb.Rows.Count; i++)
-                    {
-                        if (sendMailtoList())
-                        {
-                            //ShowMessageBox("DASHBOARD_ERR006", MessageType.ERROR);
-                        }
-                        else
-                            ShowMessageBox("DASHBOARD_ERR006", MessageType.ERROR);
-                    }
+                    if (!sendMailtoList(tb))
+                        ShowMessageBox("DASHBOARD_ERR006", MessageType.ERROR);
                 }
             }
         }
-        
 
-        
+
+
     }
 }
