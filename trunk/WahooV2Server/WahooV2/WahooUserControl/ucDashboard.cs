@@ -162,6 +162,8 @@ namespace WahooV2.WahooUserControl
         /// <param name="e"></param>
         private void ucDashboard_Load(object sender, EventArgs e)
         {
+            //NTXUAN: add, load resource info for control, 29,04,2010
+            loadReourceInfo();
             LoadValueControl();
             BindGrid();
             //gridDashboard.DataSource = WahooBusinessHandler.Get_ListChannel(new Channel());
@@ -190,6 +192,43 @@ namespace WahooV2.WahooUserControl
             dataGridView1.DataSource = loadEmailList();
             loadMessageInfo();
             timerClientDisconnected.Start();
+        }
+
+        private void loadReourceInfo()
+        {
+            try
+            {
+                resource = new Resource();
+                clStatusExecute.HeaderText= resource.GetResourceByKey("DASHBOARD_FORM_CONTROL", "GRID_COLUMN_HEADER_TEXT_STATUS");
+                clName.HeaderText= resource.GetResourceByKey("DASHBOARD_FORM_CONTROL", "GRID_COLUMN_HEADER_TEXT_CHANNEL_NAME");
+                clDescription.HeaderText= resource.GetResourceByKey("DASHBOARD_FORM_CONTROL", "GRID_COLUMN_HEADER_TEXT_CHANNEL_DESCRIPTION");
+                clSent.HeaderText= resource.GetResourceByKey("DASHBOARD_FORM_CONTROL", "GRID_COLUMN_HEADER_TEXT_FILE_SENT");
+                clError.HeaderText= resource.GetResourceByKey("DASHBOARD_FORM_CONTROL", "GRID_COLUMN_HEADER_TEXT_FILE_SENT_ERROR");
+                clClientConnected.HeaderText= resource.GetResourceByKey("DASHBOARD_FORM_CONTROL", "GRID_COLUMN_HEADER_TEXT_CONNECTIVITY");
+                dataGridViewTextBoxColumn7.HeaderText= resource.GetResourceByKey("DASHBOARD_FORM_CONTROL", "GRID_COLUMN_HEADER_TEXT_DISPLAY_NAME");
+                dataGridViewTextBoxColumn8.HeaderText=resource.GetResourceByKey("DASHBOARD_FORM_CONTROL", "GRID_COLUMN_HEADER_TEXT_EMAIL");
+                gbLogInfo.Text= resource.GetResourceByKey("DASHBOARD_FORM_CONTROL", "GROUP_TEXT");
+                tabAllLog.Text = resource.GetResourceByKey("DASHBOARD_FORM_CONTROL", "TAB_PAGE_ALL_LOG");
+                tabErrorLog.Text= resource.GetResourceByKey("DASHBOARD_FORM_CONTROL", "TAB_PAGE_ERROR_LOG");
+                tabEmailNotification.Text= resource.GetResourceByKey("DASHBOARD_FORM_CONTROL", "TAB_PAGE_EMAIL_NOTIFICATION");
+                tabEmailServer.Text= resource.GetResourceByKey("DASHBOARD_FORM_CONTROL", "TAB_PAGE_EMAIL_SERVER_SETTING");
+                tabEmailAdress.Text= resource.GetResourceByKey("DASHBOARD_FORM_CONTROL", "TAB_PAGE_EMAIL_ADDRESS_LIST");
+                tabMessage.Text= resource.GetResourceByKey("DASHBOARD_FORM_CONTROL", "TAB_PAGE_MESSAGE");
+                label2.Text= resource.GetResourceByKey("DASHBOARD_FORM_CONTROL", "LABEL_TEXT_MAIL_SERVER");
+                label3.Text = resource.GetResourceByKey("DASHBOARD_FORM_CONTROL", "LABEL_TEXT_SERVER_PORT");
+                label4.Text = resource.GetResourceByKey("DASHBOARD_FORM_CONTROL", "LABEL_TEXT_USER_NAME");
+                label5.Text = resource.GetResourceByKey("DASHBOARD_FORM_CONTROL", "LABEL_TEXT_PASSWORD");
+                label6.Text = resource.GetResourceByKey("DASHBOARD_FORM_CONTROL", "LABEL_TEXT_SUBJECT");
+                label7.Text = resource.GetResourceByKey("DASHBOARD_FORM_CONTROL", "LABEL_TEXT_MESSAGE_BODY");
+                label1.Text = resource.GetResourceByKey("DASHBOARD_FORM_CONTROL", "LABEL_TEXT_LOG_SIZE");
+                btnEmailServerSettingSave.Text= resource.GetResourceByKey("DASHBOARD_FORM_CONTROL", "BUTTON_TEXT_SAVE_MAIL_SERVER_SETIING");
+                btnSaveMessage.Text = resource.GetResourceByKey("DASHBOARD_FORM_CONTROL", "BUTTON_TEXT_SAVE_MESSAGE_INFO");
+                btnRefresh.Text = resource.GetResourceByKey("DASHBOARD_FORM_CONTROL", "BUTTON_TEXT_RELOAD_MESSAGE_INFO");
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         /// <summary>
