@@ -459,6 +459,8 @@ namespace WahooServiceControl
         {
             try
             {
+                //Accept SSL in web service
+                System.Net.ServicePointManager.CertificatePolicy = new TrustAllCertificatePolicy();
                 _WahooService.GetIpAddress();
                 return true;
             }
