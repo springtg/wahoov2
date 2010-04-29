@@ -841,7 +841,11 @@ namespace WahooV2.WahooUserControl
             dataGridView1.AutoGenerateColumns = false;
             return WahooData.DBO.Base.ServiceReader.EmailNotification_Select();
         }
-
+        /// <summary>
+        /// bind du lieu den grid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             DataTable tb = (DataTable)((DataGridView)sender).DataSource;
@@ -876,7 +880,11 @@ namespace WahooV2.WahooUserControl
                 }
             }
         }
-
+        /// <summary>
+        /// validate du lieu tren luoi khi nguoi dung nhap
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             if (((DataGridView)sender).CurrentRow.IsNewRow)
@@ -901,7 +909,11 @@ namespace WahooV2.WahooUserControl
                 }
             }
         }
-
+        /// <summary>
+        /// nguoi dung delete 1 dong du lieu tren gird
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
             if (!e.Row.IsNewRow)
@@ -934,7 +946,11 @@ namespace WahooV2.WahooUserControl
                 }
             }
         }
-
+        /// <summary>
+        /// xu ly khi co key DEL duoc nhan len grid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Delete)
@@ -971,7 +987,11 @@ namespace WahooV2.WahooUserControl
                 return false;
             }
         }
-
+        /// <summary>
+        /// save lai thay doi
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSaveMessage_Click(object sender, EventArgs e)
         {
             if (updateMessageInfo(txtMailSubject.Text, txtMailBody.Text))
@@ -983,12 +1003,20 @@ namespace WahooV2.WahooUserControl
                 ShowMessageBox("DASHBOARD_ERR004", MessageType.ERROR);
 
         }
-
+        /// <summary>
+        /// refload lai thong tin
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             loadMessageInfo();
         }
-
+        /// <summary>
+        /// goi lsit mail, gom nhung thong cua client bi disconneted
+        /// </summary>
+        /// <param name="tbClient"></param>
+        /// <returns></returns>
         private bool sendMailtoList(DataTable tbClient)
         {
             try
@@ -1068,7 +1096,11 @@ namespace WahooV2.WahooUserControl
                 return false;
             }
         }
-
+        /// <summary>
+        /// moi 10 phut se kiem tra lai 1 lan
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timerClientDisconnected_Tick(object sender, EventArgs e)
         {
 
