@@ -314,6 +314,13 @@ namespace WahooV2.Common
                             //BinaryReader br = new BinaryReader(imgStream);
                             //objChannel.ImageConnect = br.ReadBytes((int)numBytes);
                             //objChannel.Update();
+
+                            // tra thoi gian cuoi cung disconnect ve null 
+                            if (objChannel.IsConnected == false)
+                            {
+                                objChannel.DateLastDisconnect = null;
+                            }
+
                             objChannel.IsConnected = true;
                             objChannel.Update();
                         }
@@ -348,6 +355,12 @@ namespace WahooV2.Common
                         //BinaryReader br = new BinaryReader(imgStream);
                         //objChannel.ImageConnect = br.ReadBytes((int)numBytes);
                         //objChannel.Update();
+
+                        //gian cuoi cung disconnect la thoi gian hien tai
+                        if (objChannel.IsConnected == true)
+                        {
+                            objChannel.DateLastDisconnect = DateTime.Now;
+                        }
                         objChannel.IsConnected = false;
                         objChannel.Update();
                     }
@@ -376,6 +389,12 @@ namespace WahooV2.Common
                         //BinaryReader br = new BinaryReader(imgStream);
                         //objChannel.ImageConnect = br.ReadBytes((int)numBytes);
                         //objChannel.Update();
+
+                        //gian cuoi cung disconnect la thoi gian hien tai
+                        if (objChannel.IsConnected == true)
+                        {
+                            objChannel.DateLastDisconnect = DateTime.Now;
+                        }
                         objChannel.IsConnected = false;
                         objChannel.Update();
                     }
@@ -409,6 +428,12 @@ namespace WahooV2.Common
                     //BinaryReader br = new BinaryReader(imgStream);
                     //objChannel.ImageConnect = br.ReadBytes((int)numBytes);
                     //objChannel.Update();
+
+                    //gian cuoi cung disconnect la thoi gian hien tai
+                    if (objChannel.IsConnected == true)
+                    {
+                        objChannel.DateLastDisconnect = DateTime.Now;
+                    }
                     objChannel.IsConnected = false;
                     objChannel.Update();
                 }
