@@ -56,7 +56,6 @@
             this.tabEmailNotification = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabEmailServer = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
             this.txtServerPort = new WahooV2.ExControl.TextBoxForNum();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
@@ -390,7 +389,6 @@
             // 
             // tabEmailServer
             // 
-            this.tabEmailServer.Controls.Add(this.button1);
             this.tabEmailServer.Controls.Add(this.txtServerPort);
             this.tabEmailServer.Controls.Add(this.txtPassword);
             this.tabEmailServer.Controls.Add(this.txtUsername);
@@ -407,16 +405,6 @@
             this.tabEmailServer.TabIndex = 0;
             this.tabEmailServer.Text = "Email Server Setting";
             this.tabEmailServer.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(390, 42);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtServerPort
             // 
@@ -936,7 +924,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnSaveMessage;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Timer timerClientDisconnected;
     }
 }
