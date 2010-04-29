@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sections>
   <comment>Controls name for form Client</comment>
+  
   <section name="CLIENT_FORM_CONTROL">
     <item key="CLIENT_FORM_CONTROL" id="CREATE_NAME_COLUMN" value="Create Client"/>
     <item key="CLIENT_FORM_CONTROL" id="UPDATE_NAME_COLUMN" value="Edit Client"/>
   </section>
+  
   <section name="USER_FORM_CONTROL">
     <item key="USER_FORM_CONTROL" id="FORM_NAME_CREATE" value="Create User"/>
     <item key="USER_FORM_CONTROL" id="FORM_NAME_UPDATE" value="Edit User"/>
@@ -50,10 +52,7 @@
     <item key="MONITOR_FORM_CONTROL" id="GRID_COLUMN_IPADDRESS" value="Ip address"/>
     <item key="MONITOR_FORM_CONTROL" id="GRID_COLUMN_FILENAME" value="File name"/>
     <item key="MONITOR_FORM_CONTROL" id="GRID_COLUMN_DOWNLOADED" value="Downloaded"/>
-    <item key="MONITOR_FORM_CONTROL" id="GRID_COLUMN_SENTTOPRINTER" value="Sent to print"/>
-    
-    
-    
+    <item key="MONITOR_FORM_CONTROL" id="GRID_COLUMN_SENTTOPRINTER" value="Sent to print"/>   
   </section>
   
   <section  name="SETTING_FORM_CONTROL">
@@ -117,5 +116,33 @@
     <item key="NEWCHANNEL_FORM_CONTROL" id="LABLE_NAME_ZIPCODE" value="Zip Code:"/>
     <item key="NEWCHANNEL_FORM_CONTROL" id="BUTTON_NAME_BROWSE" value="..."/>
   </section>
-  
+
+  <section  name="DASHBOARD_FORM_CONTROL">
+    <item key="DASHBOARD_FORM_CONTROL" id="GRID_COLUMN_HEADER_TEXT_STATUS" value="Status"/>
+    <item key="DASHBOARD_FORM_CONTROL" id="GRID_COLUMN_HEADER_TEXT_CHANNEL_NAME" value="Channel Name"/>
+    <item key="DASHBOARD_FORM_CONTROL" id="GRID_COLUMN_HEADER_TEXT_CHANNEL_DESCRIPTION" value="Channel Description"/>
+    <item key="DASHBOARD_FORM_CONTROL" id="GRID_COLUMN_HEADER_TEXT_FILE_SENT" value="File(s) Sent"/>
+    <item key="DASHBOARD_FORM_CONTROL" id="GRID_COLUMN_HEADER_TEXT_FILE_SENT_ERROR" value="File(s) Sent Error"/>
+    <item key="DASHBOARD_FORM_CONTROL" id="GRID_COLUMN_HEADER_TEXT_CONNECTIVITY" value="Connectivity"/>
+    <item key="DASHBOARD_FORM_CONTROL" id="GRID_COLUMN_HEADER_TEXT_DISPLAY_NAME" value="Display name"/>
+    <item key="DASHBOARD_FORM_CONTROL" id="GRID_COLUMN_HEADER_TEXT_EMAIL" value="Email"/>
+    <item key="DASHBOARD_FORM_CONTROL" id="GROUP_TEXT" value="Log Information"/>
+    <item key="DASHBOARD_FORM_CONTROL" id="TAB_PAGE_ALL_LOG" value="All Log"/>
+    <item key="DASHBOARD_FORM_CONTROL" id="TAB_PAGE_ERROR_LOG" value="Error log"/>
+    <item key="DASHBOARD_FORM_CONTROL" id="TAB_PAGE_EMAIL_NOTIFICATION" value="Email notification"/>
+    <item key="DASHBOARD_FORM_CONTROL" id="TAB_PAGE_EMAIL_SERVER_SETTING" value="Email Server Setting"/>
+    <item key="DASHBOARD_FORM_CONTROL" id="TAB_PAGE_EMAIL_ADDRESS_LIST" value="Email Adress List"/>
+    <item key="DASHBOARD_FORM_CONTROL" id="TAB_PAGE_MESSAGE" value="Message"/>
+    <item key="DASHBOARD_FORM_CONTROL" id="LABEL_TEXT_MAIL_SERVER" value="Mail server:"/>
+    <item key="DASHBOARD_FORM_CONTROL" id="LABEL_TEXT_SERVER_PORT" value="Server port:"/>
+    <item key="DASHBOARD_FORM_CONTROL" id="LABEL_TEXT_USER_NAME" value="User Name:"/>
+    <item key="DASHBOARD_FORM_CONTROL" id="LABEL_TEXT_PASSWORD" value="Password:"/>
+    <item key="DASHBOARD_FORM_CONTROL" id="LABEL_TEXT_SUBJECT" value="Subject:"/>
+    <item key="DASHBOARD_FORM_CONTROL" id="LABEL_TEXT_MESSAGE_BODY" value="Message body:"/>
+    <item key="DASHBOARD_FORM_CONTROL" id="LABEL_TEXT_LOG_SIZE" value="Log size:"/>
+    <item key="DASHBOARD_FORM_CONTROL" id="BUTTON_TEXT_SAVE_MAIL_SERVER_SETIING" value="Save Email Server Setting"/>
+    <item key="DASHBOARD_FORM_CONTROL" id="BUTTON_TEXT_SAVE_MESSAGE_INFO" value="Save"/>
+    <item key="DASHBOARD_FORM_CONTROL" id="BUTTON_TEXT_RELOAD_MESSAGE_INFO" value="Refresh"/>
+
+  </section>
 </sections>
