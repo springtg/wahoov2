@@ -832,24 +832,10 @@ namespace WahooV2.WahooUserControl
                 ShowMessageBox("DASHBOARD_ERR001", MessageType.ERROR);
             }
         }
-
-        private void setDataToList(ref ListView lst)
-        {
-            DataTable tb = new DataTable();
-            if (tb == null)
-            {
-                return;
-            }
-            if (tb.Rows.Count < 1)
-            {
-                return;
-            }
-            for (int i = 0; i < tb.Rows.Count; i++)
-            {
-                ListViewItem item = new ListViewItem(Convert.ToString(i + 1));
-            }
-        }
-
+        /// <summary>
+        /// Load danh sach mail list
+        /// </summary>
+        /// <returns></returns>
         private DataTable loadEmailList()
         {
             dataGridView1.AutoGenerateColumns = false;
@@ -956,14 +942,21 @@ namespace WahooV2.WahooUserControl
                 dataGridView1_UserDeletingRow(sender, new DataGridViewRowCancelEventArgs(dataGridView1.CurrentRow));
             }
         }
-
+        /// <summary>
+        /// load thong tin email info from config
+        /// </summary>
         private void loadMessageInfo()
         {
             configObl = new Config(strConfigPath);
             txtMailSubject.Text = configObl.ReadSetting("MailSubject");
             txtMailBody.Text = configObl.ReadSetting("MailBody");
         }
-
+        /// <summary>
+        /// cap nhat thong tin cho message info
+        /// </summary>
+        /// <param name="strSubject"></param>
+        /// <param name="strBody"></param>
+        /// <returns></returns>
         private bool updateMessageInfo(string strSubject, string strBody)
         {
             try
@@ -1076,23 +1069,9 @@ namespace WahooV2.WahooUserControl
             }
         }
 
-
-
-        #endregion
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //if (sendMailtoList())
-            //{
-            //   //ShowMessageBox("DASHBOARD_ERR006", MessageType.ERROR);
-            //}
-            //else
-            //    ShowMessageBox("DASHBOARD_ERR006", MessageType.ERROR);
-        }
-
         private void timerClientDisconnected_Tick(object sender, EventArgs e)
         {
-            
+
             DataTable tb = WahooData.DBO.Base.ServiceReader.getClientDisconnected();
             if (tb != null)
             {
@@ -1104,7 +1083,7 @@ namespace WahooV2.WahooUserControl
             }
         }
 
-
+        #endregion
 
     }
 }
