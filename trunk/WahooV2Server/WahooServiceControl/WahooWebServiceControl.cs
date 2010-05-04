@@ -429,7 +429,7 @@ namespace WahooServiceControl
                             log.Description = "Download file from server to " + Path.GetFileName(file) + " success at " + DateTime.Now.ToString("HH:mm:ss") + "," + DateTime.Now.ToString("dd/MM/yyyy") + ".";
                         }
                     }
-                    catch (Exception ex)
+                    catch 
                     {
                         log.ErrorStatus = AliasMessage.FAILED_STATUS;
                         log.Description = "Download file " + Path.GetFileName(file) + " from server have error. File in server is not exists.";
