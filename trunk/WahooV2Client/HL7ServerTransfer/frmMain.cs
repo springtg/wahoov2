@@ -714,30 +714,6 @@ namespace HL7ServerTransfer
             }
         }
 
-        private void retoreToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-                this.retoreToolStripMenuItem.Visible = false;
-                this.minimizeToolStripMenuItem.Visible = true;
-                this.ShowInTaskbar = true;
-                Show();
-                WindowState = FormWindowState.Normal;
-        }
-
-        private void minimizeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.minimizeToolStripMenuItem.Visible = false;
-            this.retoreToolStripMenuItem.Visible = true;
-            this.WindowState = FormWindowState.Minimized;
-            this.ShowInTaskbar = false;
-            setTextNotify();
-        }
-
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            notifyIcon1.Dispose();
-            System.Windows.Forms.Application.Exit();
-        }
-
         private void setTextNotify()
         {
             _Resource = new HL7Source.Resource();
@@ -759,6 +735,40 @@ namespace HL7ServerTransfer
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             sched.Shutdown();
+        }
+
+        private void retoreToolStripMenuItem_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.retoreToolStripMenuItem.Visible = false;
+                this.minimizeToolStripMenuItem.Visible = true;
+                this.ShowInTaskbar = true;
+                Show();
+                WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private void minimizeToolStripMenuItem_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.minimizeToolStripMenuItem.Visible = false;
+                this.retoreToolStripMenuItem.Visible = true;
+                this.WindowState = FormWindowState.Minimized;
+                this.ShowInTaskbar = false;
+                setTextNotify();
+            }
+        }
+
+        private void exitToolStripMenuItem_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                notifyIcon1.Dispose();
+                this.Close();
+                System.Windows.Forms.Application.Exit();
+            }
         }
 
     }
