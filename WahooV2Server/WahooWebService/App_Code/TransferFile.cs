@@ -49,7 +49,7 @@ public class TransferFile
             }
             return true;
         }
-        catch (Exception ex)
+        catch 
         {
             if (fs != null)
             {
@@ -133,7 +133,7 @@ public class TransferFile
                         result = TmpBuffer;
                     return result;
                 }
-                catch (Exception ex)
+                catch
                 {
                     return new byte[0];
                 }

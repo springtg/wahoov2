@@ -20,6 +20,7 @@
     </SccAuxPath>
     <SccProvider>
     </SccProvider>
+    <ApplicationIcon>NWG_Ico.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -346,6 +347,8 @@
     <Content Include="bin\Debug\Resource\Resource.xml" />
     <Content Include="bin\Debug\XPPanel.dll" />
     <None Include="Resources\disconect1.gif" />
+    <Content Include="HTMLPage1.htm" />
+    <Content Include="NWG_Ico.ico" />
     <Content Include="Resources\edit.png" />
     <None Include="Resources\wh_folder_explore.png" />
     <None Include="Resources\loading.gif" />

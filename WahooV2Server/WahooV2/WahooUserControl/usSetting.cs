@@ -105,9 +105,8 @@ namespace WahooV2.WahooUserControl
                 //}
                 return true;
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
                 this.ShowMessageBox("ERR035", string.Format(WahooConfiguration.Message.GetMessageById("ERR035")), MessageType.ERROR);
                 return false;
             }
