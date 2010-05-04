@@ -29,6 +29,7 @@ namespace WahooV2.Common
         private string[] mMailAttachments;
         private string mErrorMsg;
         private bool mIsBodyHtml;
+        
         public CMailSmtp()
         {
             // Default values
@@ -94,11 +95,11 @@ namespace WahooV2.Common
             }
             // Smtp Client
             SmtpClient SmtpMail = new SmtpClient(mSMTPServer, mSMTPPort);
+            SmtpMail.UseDefaultCredentials = false;
             SmtpMail.Credentials = new NetworkCredential(mSMTPUsername, mSMTPPassword);
             SmtpMail.EnableSsl = mSMTPSSL;
 
             SmtpMail.SendCompleted += new SendCompletedEventHandler(this.SendCompleted);
-
             Boolean bTemp = true;
             try
             {
