@@ -1142,14 +1142,28 @@ namespace WahooV2.WahooUserControl
         /// <param name="e"></param>
         private void timerClientDisconnected_Tick(object sender, EventArgs e)
         {
-
-            DataTable tb = WahooData.DBO.Base.ServiceReader.getClientDisconnected();
-            if (tb != null)
+            //kiem tra neu trong Email server khong co thiet lap, thi ngung vec goi mail
+            if (txtEmailServer.Text.Equals(string.Empty) || txtServerPort.Text.Equals(string.Empty)
+                || txtUsername.Text.Equals(string.Empty) || txtPassword.Text.Equals(string.Empty))
             {
-                if (tb.Rows.Count > 0)
+                timerClientDisconnected.Stop();
+                timerClientDisconnected.Enabled = false;
+            }
+            else
+            {
+                DataTable tb = WahooData.DBO.Base.ServiceReader.getClientDisconnected();
+                if (tb != null)
                 {
-                    if (!sendMailtoList(tb))
-                        ShowMessageBox("DASHBOARD_ERR006", MessageType.ERROR);
+                    if (tb.Rows.Count > 0)
+                    {
+                        if (!sendMailtoList(tb))
+                        {
+                            //co loi khi goi mail, ngung viec goi mail
+                            ShowMessageBox("DASHBOARD_ERR006", MessageType.ERROR);
+                            timerClientDisconnected.Stop();
+                            timerClientDisconnected.Enabled = false;
+                        }
+                    }
                 }
             }
         }
