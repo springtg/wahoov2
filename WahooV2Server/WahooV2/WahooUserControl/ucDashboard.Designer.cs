@@ -412,7 +412,7 @@
             this.txtServerPort.Location = new System.Drawing.Point(78, 38);
             this.txtServerPort.MaxLength = 13;
             this.txtServerPort.Name = "txtServerPort";
-            this.txtServerPort.Size = new System.Drawing.Size(192, 20);
+            this.txtServerPort.Size = new System.Drawing.Size(166, 20);
             this.txtServerPort.StrFormat = "";
             this.txtServerPort.TabIndex = 3;
             this.txtServerPort.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -423,19 +423,19 @@
             this.txtPassword.Location = new System.Drawing.Point(78, 82);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(192, 20);
+            this.txtPassword.Size = new System.Drawing.Size(166, 20);
             this.txtPassword.TabIndex = 7;
             // 
             // txtUsername
             // 
             this.txtUsername.Location = new System.Drawing.Point(78, 60);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(192, 20);
+            this.txtUsername.Size = new System.Drawing.Size(166, 20);
             this.txtUsername.TabIndex = 5;
             // 
             // btnEmailServerSettingSave
             // 
-            this.btnEmailServerSettingSave.Location = new System.Drawing.Point(105, 108);
+            this.btnEmailServerSettingSave.Location = new System.Drawing.Point(78, 108);
             this.btnEmailServerSettingSave.Name = "btnEmailServerSettingSave";
             this.btnEmailServerSettingSave.Size = new System.Drawing.Size(166, 23);
             this.btnEmailServerSettingSave.TabIndex = 8;
@@ -474,7 +474,7 @@
             // 
             this.txtEmailServer.Location = new System.Drawing.Point(78, 16);
             this.txtEmailServer.Name = "txtEmailServer";
-            this.txtEmailServer.Size = new System.Drawing.Size(192, 20);
+            this.txtEmailServer.Size = new System.Drawing.Size(166, 20);
             this.txtEmailServer.TabIndex = 1;
             // 
             // label2
