@@ -39,7 +39,9 @@ namespace HL7Source
         /// <returns></returns>
         public static bool isMailValid(string strMail)
         {
-            Regex re = new Regex(@"^(^\w.*@\w.*$)?$");
+            Regex re = new Regex(@"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?");
+            //Regex re = new Regex(@"^(^\w.*@\w.*$)?$");
+            
             Match theMatch = re.Match(strMail);
             if (theMatch.Success)
                 return true;//mail dung dinh dang
