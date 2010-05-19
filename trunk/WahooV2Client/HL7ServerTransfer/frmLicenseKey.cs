@@ -23,8 +23,8 @@ namespace HL7ServerTransfer
             string clientCode = configObl.ReadSetting(Alias.CLIENT_CODE_CONFIG);
             string clientName = configObl.ReadSetting(Alias.CLIENT_NAME_CONFIG);
             string email = configObl.ReadSetting(Alias.CLIENT_EMAIL_CONFIG);
-            string strEncode = clientCode + clientName + email;
-            if (txtLicenseKey.Text.Trim().ToLower() == EncodeMd5.EncodeString(strEncode).Trim().ToLower())
+            string strEncode = clientCode.Replace(" ", "").Trim() + clientName.Replace(" ", "").Trim() + email.Replace(" ", "").Trim();
+            if (txtLicenseKey.Text.Replace(" ", "").Trim().ToUpper() == EncodeMd5.EncodeString(strEncode.ToUpper()).Trim().ToUpper())
             {
                 frmMain _frmMain = new frmMain();
                 this.Hide();
