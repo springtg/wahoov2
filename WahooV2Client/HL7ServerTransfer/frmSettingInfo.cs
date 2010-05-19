@@ -110,12 +110,12 @@ namespace HL7ServerTransfer
             if (CheckInfo())
             {
                 Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
-                configObl.WriteSetting(Alias.CLIENT_CODE_CONFIG, txtClientCode.Text.Trim().ToUpper());
+                configObl.WriteSetting(Alias.CLIENT_CODE_CONFIG, txtClientCode.Text.Trim());
                 configObl.WriteSetting(Alias.CLIENT_NAME_CONFIG, txtClientName.Text.Trim());
-                configObl.WriteSetting(Alias.CLIENT_EMAIL_CONFIG, txtEmail.Text.Trim().ToLower());
+                configObl.WriteSetting(Alias.CLIENT_EMAIL_CONFIG, txtEmail.Text.Trim());
                 string licenseKey = configObl.ReadSetting(Alias.LICENSE_KEY_CONFIG);
-                string strEncode = txtClientCode.Text.Trim().ToUpper() + txtClientName.Text.Trim() + txtEmail.Text.Trim().ToLower();
-                if (licenseKey.Trim().ToLower()== EncodeMd5.EncodeString(strEncode).Trim().ToLower())
+                string strEncode = txtClientCode.Text.Replace(" ", "").Trim() + txtClientName.Text.Replace(" ", "").Trim() + txtEmail.Text.Replace(" ", "").Trim();
+                if (licenseKey.Trim().ToUpper()== EncodeMd5.EncodeString(strEncode.ToUpper()).Trim().ToUpper())
                 {
                     frmMain _frmMain = new frmMain();
                     this.Hide();
