@@ -37,6 +37,7 @@ namespace HL7ServerTransfer
             // 
             // btnBack
             // 
+            this.btnBack.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnBack.Location = new System.Drawing.Point(170, 36);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
@@ -73,8 +74,10 @@ namespace HL7ServerTransfer
             // 
             // frmLicenseKey
             // 
+            this.AcceptButton = this.btnOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnBack;
             this.ClientSize = new System.Drawing.Size(255, 67);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnOk);

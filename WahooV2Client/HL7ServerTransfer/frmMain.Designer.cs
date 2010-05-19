@@ -144,6 +144,7 @@ namespace HL7ServerTransfer
             // 
             // btnReset
             // 
+            this.btnReset.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnReset.Location = new System.Drawing.Point(478, 178);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
@@ -154,6 +155,7 @@ namespace HL7ServerTransfer
             // 
             // btnAccept
             // 
+            this.btnAccept.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnAccept.Location = new System.Drawing.Point(397, 178);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(75, 23);
@@ -609,12 +611,12 @@ namespace HL7ServerTransfer
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 98);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 76);
             // 
             // retoreToolStripMenuItem
             // 
             this.retoreToolStripMenuItem.Name = "retoreToolStripMenuItem";
-            this.retoreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.retoreToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.retoreToolStripMenuItem.Text = "Retore";
             this.retoreToolStripMenuItem.Visible = false;
             this.retoreToolStripMenuItem.MouseDown += new System.Windows.Forms.MouseEventHandler(this.retoreToolStripMenuItem_MouseDown);
@@ -622,26 +624,28 @@ namespace HL7ServerTransfer
             // minimizeToolStripMenuItem
             // 
             this.minimizeToolStripMenuItem.Name = "minimizeToolStripMenuItem";
-            this.minimizeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.minimizeToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.minimizeToolStripMenuItem.Text = "Minimize";
             this.minimizeToolStripMenuItem.MouseDown += new System.Windows.Forms.MouseEventHandler(this.minimizeToolStripMenuItem_MouseDown);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(121, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.MouseDown += new System.Windows.Forms.MouseEventHandler(this.exitToolStripMenuItem_MouseDown);
             // 
             // frmMain
             // 
+            this.AcceptButton = this.btnAccept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnReset;
             this.ClientSize = new System.Drawing.Size(556, 206);
             this.Controls.Add(this.tabMain);
             this.Controls.Add(this.btnReset);

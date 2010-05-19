@@ -24,7 +24,7 @@ namespace HL7ServerTransfer
             string clientName = configObl.ReadSetting(Alias.CLIENT_NAME_CONFIG);
             string email = configObl.ReadSetting(Alias.CLIENT_EMAIL_CONFIG);
             string strEncode = clientCode + clientName + email;
-            if (txtLicenseKey.Text == EncodeMd5.EncodeString(strEncode))
+            if (txtLicenseKey.Text.Trim().ToLower() == EncodeMd5.EncodeString(strEncode).Trim().ToLower())
             {
                 frmMain _frmMain = new frmMain();
                 this.Hide();
