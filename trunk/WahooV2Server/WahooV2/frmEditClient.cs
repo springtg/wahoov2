@@ -199,9 +199,10 @@ namespace WahooV2
                 txtMail.Focus();
                 return false;
             }
-            Regex re = new Regex(@"^(^\w.*@\w.*$)?$");
+            Regex re = new Regex(@"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?");
+            //Regex re = new Regex(@"^(^\w.*@\w.*$)?$");
             Match theMatch = re.Match(txtMail.Text.Trim());
-            if (!theMatch.Success)
+            if (!theMatch.Success || txtMail.Text.Contains(" "))
             {
                 this.ShowMessageBox("CLIENT_ERR004", string.Format(WahooConfiguration.Message.GetMessageById("CLIENT_ERR004")), MessageType.ERROR);
                 txtMail.Focus();
@@ -219,9 +220,9 @@ namespace WahooV2
             Byte[] originalBytes;
             Byte[] encodedBytes;
             MD5 md5;
-            string clientCode = txtClientCode.Text;
-            string clientName = txtClientName.Text;
-            string email = txtMail.Text;
+            string clientCode = txtClientCode.Text.Trim();
+            string clientName = txtClientName.Text.Replace(" ", "").Trim();
+            string email = txtMail.Text.Replace(" ", "").Trim();
             string strEncode = clientCode + clientName + email;
             strEncode = strEncode.ToUpper();
             //Instantiate MD5CryptoServiceProvider, get bytes for original password and compute hash (encoded password)
