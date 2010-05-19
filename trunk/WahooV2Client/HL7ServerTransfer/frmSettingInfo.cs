@@ -46,7 +46,7 @@ namespace HL7ServerTransfer
             }
             else
             {
-                if (!HL7Source.UtilityFunction.isMailValid(txtEmail.Text.Trim()))
+                if (!HL7Source.UtilityFunction.isMailValid(txtEmail.Text.Trim()) || txtEmail.Text.Contains(" "))
                 {
                     ShowMessageBox("MSG_TEXT_ERROR_0002", MessageType.ERROR);
                     txtEmail.Focus();
