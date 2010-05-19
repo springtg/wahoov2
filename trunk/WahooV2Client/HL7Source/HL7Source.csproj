@@ -102,10 +102,10 @@
     <EmbeddedResource Include="Resources\FoxitReader.exe" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="https://localhost/wahoo/Service.asmx">
+    <WebReferenceUrl Include="http://localhost/wahoo/Service.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\WebService\</RelPath>
-      <UpdateFromURL>https://localhost/wahoo/Service.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost/wahoo/Service.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

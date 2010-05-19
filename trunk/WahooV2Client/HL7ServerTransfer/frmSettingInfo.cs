@@ -46,7 +46,7 @@ namespace HL7ServerTransfer
             }
             else
             {
-                if (!HL7Source.UtilityFunction.isMailValid(txtEmail.Text))
+                if (!HL7Source.UtilityFunction.isMailValid(txtEmail.Text.Trim()))
                 {
                     ShowMessageBox("MSG_TEXT_ERROR_0002", MessageType.ERROR);
                     txtEmail.Focus();
@@ -110,12 +110,12 @@ namespace HL7ServerTransfer
             if (CheckInfo())
             {
                 Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
-                configObl.WriteSetting(Alias.CLIENT_CODE_CONFIG, txtClientCode.Text);
-                configObl.WriteSetting(Alias.CLIENT_NAME_CONFIG, txtClientName.Text);
-                configObl.WriteSetting(Alias.CLIENT_EMAIL_CONFIG, txtEmail.Text);
+                configObl.WriteSetting(Alias.CLIENT_CODE_CONFIG, txtClientCode.Text.Trim().ToUpper());
+                configObl.WriteSetting(Alias.CLIENT_NAME_CONFIG, txtClientName.Text.Trim());
+                configObl.WriteSetting(Alias.CLIENT_EMAIL_CONFIG, txtEmail.Text.Trim().ToLower());
                 string licenseKey = configObl.ReadSetting(Alias.LICENSE_KEY_CONFIG);
-                string strEncode = txtClientCode.Text + txtClientName.Text + txtEmail.Text;
-                if (licenseKey == EncodeMd5.EncodeString(strEncode))
+                string strEncode = txtClientCode.Text.Trim().ToUpper() + txtClientName.Text.Trim() + txtEmail.Text.Trim().ToLower();
+                if (licenseKey.Trim().ToLower()== EncodeMd5.EncodeString(strEncode).Trim().ToLower())
                 {
                     frmMain _frmMain = new frmMain();
                     this.Hide();
