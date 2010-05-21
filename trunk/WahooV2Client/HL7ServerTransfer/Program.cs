@@ -30,7 +30,8 @@ namespace HL7ServerTransfer
             string email = configObl.ReadSetting("ClientEmail");
             string strEncode = clientCode + clientName + email;
             string licenseKey = configObl.ReadSetting("LicenseKey");
-            if (licenseKey == EncodeMd5.EncodeString(strEncode))
+            //TODO: su dung no clience
+            if (!licenseKey.Equals(string.Empty))// == EncodeMd5.EncodeString(strEncode))
             {
                 Application.Run(new frmMain());
             }
