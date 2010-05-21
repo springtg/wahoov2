@@ -24,7 +24,8 @@ namespace HL7ServerTransfer
             string clientName = configObl.ReadSetting(Alias.CLIENT_NAME_CONFIG);
             string email = configObl.ReadSetting(Alias.CLIENT_EMAIL_CONFIG);
             string strEncode = clientCode.Replace(" ", "").Trim() + clientName.Replace(" ", "").Trim() + email.Replace(" ", "").Trim();
-            if (txtLicenseKey.Text.Replace(" ", "").Trim().ToUpper() == EncodeMd5.EncodeString(strEncode.ToUpper()).Trim().ToUpper())
+            if (!txtLicenseKey.Text.Trim().Equals(string.Empty))
+              //if( txtLicenseKey.Text.Replace(" ", "").Trim().ToUpper() == EncodeMd5.EncodeString(strEncode.ToUpper()).Trim().ToUpper())
             {
                 frmMain _frmMain = new frmMain();
                 this.Hide();
@@ -33,7 +34,7 @@ namespace HL7ServerTransfer
             }
             else
             {
-                this.ShowMessageBox("MSG_TEXT_ERR001", MessageType.ERROR, getNameControl(label1));
+                ShowMessageBox("MSG_TEXT_ERR001", MessageType.ERROR, getNameControl(label1));
             }
         }
 
