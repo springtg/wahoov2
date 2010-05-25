@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="BlowFish.cs" />
     <Compile Include="Cryption.cs" />
+    <Compile Include="EncodeMd5.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RijndaelEnhanced.cs" />
   </ItemGroup>

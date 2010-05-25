@@ -217,20 +217,20 @@ namespace WahooV2
         private string CreateLicenseKey()
         {
             //Declarations
-            Byte[] originalBytes;
-            Byte[] encodedBytes;
-            MD5 md5;
+            //Byte[] originalBytes;
+            //Byte[] encodedBytes;
+            //MD5 md5;
             string clientCode = txtClientCode.Text.Trim();
             string clientName = txtClientName.Text.Replace(" ", "").Trim();
             string email = txtMail.Text.Replace(" ", "").Trim();
             string strEncode = clientCode + clientName + email;
             strEncode = strEncode.ToUpper();
-            //Instantiate MD5CryptoServiceProvider, get bytes for original password and compute hash (encoded password)
-            md5 = new MD5CryptoServiceProvider();
-            originalBytes = ASCIIEncoding.Default.GetBytes(strEncode);
-            encodedBytes = md5.ComputeHash(originalBytes);
-            //Convert encoded bytes back to a 'readable' string
-            string licenseKey = BitConverter.ToString(encodedBytes);
+            ////Instantiate MD5CryptoServiceProvider, get bytes for original password and compute hash (encoded password)
+            //md5 = new MD5CryptoServiceProvider();
+            //originalBytes = ASCIIEncoding.Default.GetBytes(strEncode);
+            //encodedBytes = md5.ComputeHash(originalBytes);
+            ////Convert encoded bytes back to a 'readable' string
+            string licenseKey = WahooCommon.EncodeMd5.EncodeString(strEncode);// BitConverter.ToString(encodedBytes);
             return licenseKey;
         }
         #endregion function          
