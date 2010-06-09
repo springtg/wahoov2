@@ -1,14 +1,9 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Drawing.Printing;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.Management;
-using System.Runtime.InteropServices.ComTypes;
 using System.Windows.Forms;
 using System.IO;
-using System.Drawing;
 using System.Reflection;
 
 namespace HL7Source

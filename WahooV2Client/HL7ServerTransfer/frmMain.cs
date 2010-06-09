@@ -1,30 +1,27 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using Microsoft.Win32;
 using HL7Source;
 using HL7ServerTransfer.Job;
 using HL7ServerTransfer.Properties;
 using System.IO;
-using System.Collections;
-using System.Security.Cryptography;
-using System.Threading;
-using System.Xml;
-using Microsoft.Office.Interop.Word;
 using Quartz;
 using log4net;
+using System.Net;
+using System.Management;
 
 namespace HL7ServerTransfer
 {
     public partial class frmMain : frmBase
     {
+        private const string STRERROR = "ERROR";
+        private const string STRNOERROR = "NOERROR";
         private static readonly ILog _logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         //Variable for store running program at startup
+        //Sua lai theo thong tin
         RegistryKey rkApp = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+        //RegistryKey rkApp = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
         //Is downloading
         private Boolean _mExecuting = false;
         //Folder in web server
@@ -111,7 +108,7 @@ namespace HL7ServerTransfer
                 {
                     txtPrintedFormat += ".xls;.xlsx";
                 }
-                
+
                 Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
                 configObl.WriteSetting(Alias.INTERVAL_DOWNLOAD_CONFIG, txtInterval.Text);
                 configObl.WriteSetting(Alias.WEB_SERVICE_ADDRESS_CONFIG, txtURL.Text);
@@ -189,40 +186,17 @@ namespace HL7ServerTransfer
                 {
                     this.ShowMessageBox("INF002", string.Format(HL7Source.Message.GetMessageById("INF002")), MessageType.INFORM);
                     if (_logger.IsErrorEnabled)
-                        _logger.Error(ex);                    
+                        _logger.Error(ex);
                 }
                 //this.ShowMessageBox("INF001", string.Format(HL7Source.Message.GetMessageById("INF001")), MessageType.INFORM);
-                StartDownloadAndStartSchedule();
+                // StartDownloadAndStartSchedule();//dong lenh nay duoc doi qua btnstart
             }
             catch (Exception ex)
             {
                 if (_logger.IsErrorEnabled)
-                    _logger.Error(ex);                
+                    _logger.Error(ex);
             }
         }
-
-        /// <summary>
-        /// Change infomations
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void changeInfomationsItem_Click(object sender, EventArgs e)
-        {
-            frmSettingInfo _mfrmSettingInfo = new frmSettingInfo();
-            this.Hide();
-            _mfrmSettingInfo.ShowDialog();
-            this.Close();
-        }
-
-        private void exitItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            ResetHL7Setup();
-        }        
 
         #endregion
 
@@ -378,7 +352,7 @@ namespace HL7ServerTransfer
             catch (Exception ex)
             {
                 if (_logger.IsErrorEnabled)
-                    _logger.Error(ex);                
+                    _logger.Error(ex);
             }
         }
 
@@ -407,11 +381,12 @@ namespace HL7ServerTransfer
                 this.ShowMessageBox("ERR005", string.Format(HL7Source.Message.GetMessageById("ERR005")), MessageType.ERROR);
                 return false;
             }
-            if (txtURL.Text.Trim() == "")
-            {
-                this.ShowMessageBox("ERR003", string.Format(HL7Source.Message.GetMessageById("ERR003")), MessageType.ERROR);
-                return false;
-            }
+            //NTXUAN: Cap nhat, ko cho bao loi va URL web service, khi update lai setting
+            //if (txtURL.Text.Trim() == "")
+            //{
+            //    this.ShowMessageBox("ERR003", string.Format(HL7Source.Message.GetMessageById("ERR003")), MessageType.ERROR);
+            //    return false;
+            //}
             if (txtDownloadFolder.Text == "")
             {
                 this.ShowMessageBox("ERR004", string.Format(HL7Source.Message.GetMessageById("ERR004")), MessageType.ERROR);
@@ -618,13 +593,15 @@ namespace HL7ServerTransfer
             if (!bgwUploadfileConnect.IsBusy)
             {
                 bgwUploadfileConnect.RunWorkerAsync();
-            }            
-        }        
+            }
+        }
 
         private void bgwUploadfileConnect_DoWork(object sender, DoWorkEventArgs e)
         {
             UploadFileConnect();
         }
+
+
 
         /// <summary>
         /// Upload File Connect
@@ -702,7 +679,7 @@ namespace HL7ServerTransfer
             catch (Exception ex)
             {
                 if (_logger.IsErrorEnabled)
-                    _logger.Error(ex);                
+                    _logger.Error(ex);
             }
         }
 
@@ -734,7 +711,12 @@ namespace HL7ServerTransfer
 
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
-            sched.Shutdown();
+            if (this.WindowState != FormWindowState.Minimized)
+            {
+                sched.Shutdown();
+                if (watcher != null)
+                    watcher.Stop();
+            }
         }
 
         private void retoreToolStripMenuItem_MouseDown(object sender, MouseEventArgs e)
@@ -770,6 +752,257 @@ namespace HL7ServerTransfer
                 System.Windows.Forms.Application.Exit();
             }
         }
+        #region "Start Program"
 
+
+        public bool ConnectionAvailable(string strServer)
+        {
+
+            try
+            {
+
+                HttpWebRequest reqFP = (HttpWebRequest)HttpWebRequest.Create(strServer);
+
+                HttpWebResponse rspFP = (HttpWebResponse)reqFP.GetResponse();
+
+                if (HttpStatusCode.OK == rspFP.StatusCode)
+                {
+
+                    // HTTP = 200 - Internet connection available, server online
+
+                    rspFP.Close();
+
+                    return true;
+
+                }
+
+                else
+                {
+
+                    // Other status - Server or connection not available
+
+                    rspFP.Close();
+
+                    return false;
+
+                }
+
+            }
+
+            catch (WebException)
+            {
+                // Exception - connection not available
+
+                return false;
+
+            }
+
+        }
+        private string isError = STRNOERROR;
+        ManagementEventWatcher watcher;
+        private void InitToStart(string urltext, string fd, bool bdoc, bool bxls, string printername, object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker bgw = (BackgroundWorker)sender;
+            try
+            {
+                bgw.ReportProgress(1, "Checking.........");
+                TimeWait(3);
+                //kiem tra thong tin nguoi dung
+
+                //kiem tra setting: URL + inbound folder
+                bgw.ReportProgress(1, "Checking Webservice URL.....");
+                TimeWait(3);
+                if (urltext.Equals(string.Empty))
+                {
+                    //TODO: thong bao loi cho nguoi dung                    
+                    ShowMessageBox("MSG_TEXT_ERR002", MessageType.ERROR);
+                    e.Result = STRERROR;
+                    bgw.ReportProgress(100, STRERROR);
+                    return;
+                }
+                else
+                {
+                    bgw.ReportProgress(1, "Checking Connection to Webservice URL.....");
+                    TimeWait(3);
+                    if (ConnectionAvailable(urltext))
+                    {
+                        bgw.ReportProgress(1, "URL is connected");
+                        toolStripStatusLabel_Status.Text = "Connected to " + ExtractDomainName(urltext, true);
+                        TimeWait(3);
+                    }
+                    else
+                    {
+
+                        ShowMessageBox("MSG_TEXT_ERR004", MessageType.ERROR);
+                        e.Result = STRERROR;
+                        bgw.ReportProgress(100, STRERROR);
+                        return;
+                    }
+                    //TODO: kiem tra connect den
+                    //neu khong conect duoc, thong bao cho nguoi dung
+
+                }
+                bgw.ReportProgress(1, "Checking download folder.....");
+                TimeWait(3);
+                if (fd.Equals(string.Empty))
+                {
+                    ShowMessageBox("MSG_TEXT_ERR003", MessageType.ERROR);
+                    e.Result = STRERROR;
+                    bgw.ReportProgress(100, STRERROR);
+                    return;
+                }
+                //Kiem tra schedule
+                //Kiem tra Printing setting                
+                bgw.ReportProgress(1, "Checking Printer setting........");
+                TimeWait(3);
+                if (bdoc || bxls)
+                {
+                    if (printername.Equals(string.Empty))
+                    {
+                        ShowMessageBox("MSG_TEXT_ERR005", MessageType.ERROR);
+                        e.Result = STRERROR;
+                        bgw.ReportProgress(100, STRERROR);
+                        return;
+                    }
+                    PrintClass pr = new PrintClass();
+                    if (!pr.IsPrinterOnline(printername))
+                    {
+                        ShowMessageBox("MSG_TEXT_ERR007", MessageType.WARNING, printername);
+                        toolStripStatusLabel_Printer.Text = printername + " : Offline";
+                    }
+                    else
+                        toolStripStatusLabel_Printer.Text = printername + " : Online";
+                    //handle printer status
+                    ConnectionOptions opt = new ConnectionOptions();
+
+                    //Sets required privilege
+                    /////////////////////////////////////////////////////////////
+                    opt.EnablePrivileges = true;
+                    ManagementScope scope = new ManagementScope("root\\CIMV2", opt);
+                    //  string wqlQuery = @"SELECT * FROM __InstanceModificationEvent WITHIN 3 WHERE TargetInstance ISA 'Win32_Printer' AND TargetInstance.Name = '"+printername+"'";
+
+                    WqlEventQuery query = new WqlEventQuery();//wqlQuery);
+                    query.EventClassName = "__InstanceModificationEvent";
+                    query.WithinInterval = new TimeSpan(0, 0, 1);
+                    query.Condition = @"TargetInstance ISA 'Win32_Printer' AND TargetInstance.Name = '" + printername + "'";
+                    watcher = new ManagementEventWatcher(scope, query);
+                    watcher.EventArrived +=
+                    new EventArrivedEventHandler(onEvent);
+                    watcher.Start();
+                }
+                e.Result = STRNOERROR;
+                bgw.ReportProgress(100, STRNOERROR);
+                return;
+            }
+            catch (Exception ex)
+            {
+                e.Result = STRERROR;
+                bgw.ReportProgress(100, STRERROR);
+                return;
+            }
+
+        }
+        public void onEvent(object sender, EventArrivedEventArgs e)
+        {
+            Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
+            string strprintername = configObl.ReadSetting("PrinterNameDefault");
+            PrintClass pr = new PrintClass();
+            if (!pr.IsPrinterOnline(strprintername))
+            {
+                toolStripStatusLabel_Printer.Text = strprintername + " : Offline";
+            }
+            else
+                toolStripStatusLabel_Printer.Text = strprintername + " : Online";
+            //watcher.Stop();
+        }
+        public string ExtractDomainName(string Url, bool isSSL)
+        {
+            int pos = Url.IndexOf("://");
+            if (pos == -1 || pos > 5)
+                if (isSSL)
+                    Url = "https://" + Url;
+                else
+                    Url = "http://" + Url;
+            return new Uri(Url).Host;
+        }
+
+        Waiting waitform = null;
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            waitform = new Waiting("Checking.........");
+            waitform.Location = new System.Drawing.Point(this.Location.X + 100, this.Location.Y + 100);
+            waitform.Show();
+            if (!backgroundWorker1.IsBusy)
+            {
+                backgroundWorker1.RunWorkerAsync();
+            }
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            sched.PauseAll();
+            timerUploadfileConnect.Enabled = false;
+            btnAccept.Enabled = true;
+            btnStart.Enabled = true;
+            btnStop.Enabled = false;
+            toolStripStatusLabel_StatusApp.Text = "Stopped";
+            if (watcher != null)
+            {
+                watcher.Stop();
+            }
+        }
+
+        private void TimeWait(int inttime)
+        {
+            DateTime dt = new DateTime();
+            while (dt.AddSeconds(inttime) > DateTime.Now)
+            {
+            }
+        }
+
+        #endregion
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Config configObl = new Config(System.Reflection.Assembly.GetEntryAssembly().Location + ".config");
+            string strprintername = configObl.ReadSetting("PrinterNameDefault");
+            InitToStart(txtURL.Text, txtDownloadFolder.Text, chkDoc.Checked, chkPdf.Checked, strprintername, sender, e);
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            if (!e.UserState.Equals(STRERROR))
+            {
+                waitform.LBMessage = Convert.ToString(e.UserState);
+            }
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (!e.Result.Equals(STRERROR))
+            {
+                timerUploadfileConnect.Enabled = true;
+                sched.ResumeAll();
+                btnAccept.Enabled = false;
+                btnStart.Enabled = false;
+                btnStop.Enabled = true;
+                StartDownloadAndStartSchedule();
+                toolStripStatusLabel_StatusApp.Text = "Started";
+                if (watcher != null)
+                {
+                    watcher.Start();
+                }
+            }
+            else
+            {
+                btnAccept.Enabled = true;
+                btnStart.Enabled = true;
+                btnStop.Enabled = false;
+                toolStripStatusLabel_Printer.Text = string.Empty;
+                toolStripStatusLabel_Status.Text = string.Empty;
+                toolStripStatusLabel_StatusApp.Text = "Can't Start";
+            }
+            waitform.Close();
+        }
     }
 }

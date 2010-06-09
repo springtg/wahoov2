@@ -35,13 +35,7 @@ namespace HL7ServerTransfer
             this.chkStartup = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnReset = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
-            this.btnSourceFolder = new System.Windows.Forms.Button();
-            this.txtDownloadFolder = new System.Windows.Forms.TextBox();
-            this.txtURL = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabUserInfo = new System.Windows.Forms.TabPage();
             this.txtLicenseKey = new System.Windows.Forms.TextBox();
@@ -52,6 +46,11 @@ namespace HL7ServerTransfer
             this.txtClientName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tabOption = new System.Windows.Forms.TabPage();
+            this.btnSourceFolder = new System.Windows.Forms.Button();
+            this.txtDownloadFolder = new System.Windows.Forms.TextBox();
+            this.txtURL = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtTransferSpeed = new WahooV2.ExControl.TextBoxForNum();
             this.txtInterval = new WahooV2.ExControl.TextBoxForNum();
             this.label15 = new System.Windows.Forms.Label();
@@ -85,6 +84,15 @@ namespace HL7ServerTransfer
             this.minimizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel_Status = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel_Printer = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel_StatusApp = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.btnStop = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tabMain.SuspendLayout();
             this.tabUserInfo.SuspendLayout();
             this.tabOption.SuspendLayout();
@@ -92,12 +100,13 @@ namespace HL7ServerTransfer
             this.groupBox1.SuspendLayout();
             this.tabPrint.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 91);
+            this.label4.Location = new System.Drawing.Point(27, 33);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 13);
             this.label4.TabIndex = 4;
@@ -105,29 +114,30 @@ namespace HL7ServerTransfer
             // 
             // txtClientCode
             // 
-            this.txtClientCode.Location = new System.Drawing.Point(99, 12);
+            this.txtClientCode.Location = new System.Drawing.Point(71, 13);
             this.txtClientCode.MaxLength = 10;
             this.txtClientCode.Name = "txtClientCode";
             this.txtClientCode.ReadOnly = true;
-            this.txtClientCode.Size = new System.Drawing.Size(100, 20);
+            this.txtClientCode.Size = new System.Drawing.Size(287, 20);
             this.txtClientCode.TabIndex = 1;
             // 
             // chkStartup
             // 
             this.chkStartup.AutoSize = true;
+            this.chkStartup.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.chkStartup.Checked = true;
             this.chkStartup.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkStartup.Location = new System.Drawing.Point(14, 12);
+            this.chkStartup.Location = new System.Drawing.Point(0, 115);
             this.chkStartup.Name = "chkStartup";
-            this.chkStartup.Size = new System.Drawing.Size(186, 17);
+            this.chkStartup.Size = new System.Drawing.Size(127, 17);
             this.chkStartup.TabIndex = 0;
-            this.chkStartup.Text = "Run program on Windows Startup";
+            this.chkStartup.Text = "Startup with Window:";
             this.chkStartup.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(207, 52);
+            this.label2.Location = new System.Drawing.Point(202, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(12, 13);
             this.label2.TabIndex = 3;
@@ -136,79 +146,22 @@ namespace HL7ServerTransfer
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 52);
+            this.label1.Location = new System.Drawing.Point(11, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Interval Download:";
             // 
-            // btnReset
-            // 
-            this.btnReset.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnReset.Location = new System.Drawing.Point(478, 178);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 2;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
             // btnAccept
             // 
             this.btnAccept.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnAccept.Location = new System.Drawing.Point(397, 178);
+            this.btnAccept.Location = new System.Drawing.Point(314, 178);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(75, 23);
             this.btnAccept.TabIndex = 1;
-            this.btnAccept.Text = "Accept";
+            this.btnAccept.Text = "Save";
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
-            // 
-            // btnSourceFolder
-            // 
-            this.btnSourceFolder.Image = ((System.Drawing.Image)(resources.GetObject("btnSourceFolder.Image")));
-            this.btnSourceFolder.Location = new System.Drawing.Point(435, 119);
-            this.btnSourceFolder.Name = "btnSourceFolder";
-            this.btnSourceFolder.Size = new System.Drawing.Size(28, 23);
-            this.btnSourceFolder.TabIndex = 12;
-            this.btnSourceFolder.UseVisualStyleBackColor = true;
-            this.btnSourceFolder.Click += new System.EventHandler(this.btnSourceFolder_Click);
-            // 
-            // txtDownloadFolder
-            // 
-            this.txtDownloadFolder.BackColor = System.Drawing.Color.White;
-            this.txtDownloadFolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDownloadFolder.ForeColor = System.Drawing.Color.Black;
-            this.txtDownloadFolder.Location = new System.Drawing.Point(99, 120);
-            this.txtDownloadFolder.Name = "txtDownloadFolder";
-            this.txtDownloadFolder.ReadOnly = true;
-            this.txtDownloadFolder.Size = new System.Drawing.Size(330, 20);
-            this.txtDownloadFolder.TabIndex = 11;
-            // 
-            // txtURL
-            // 
-            this.txtURL.Location = new System.Drawing.Point(99, 87);
-            this.txtURL.Name = "txtURL";
-            this.txtURL.Size = new System.Drawing.Size(408, 20);
-            this.txtURL.TabIndex = 9;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 124);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Inbound folder:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 91);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 13);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "WSDL URL:";
             // 
             // tabMain
             // 
@@ -225,14 +178,9 @@ namespace HL7ServerTransfer
             // 
             // tabUserInfo
             // 
-            this.tabUserInfo.Controls.Add(this.btnSourceFolder);
             this.tabUserInfo.Controls.Add(this.txtLicenseKey);
-            this.tabUserInfo.Controls.Add(this.txtDownloadFolder);
             this.tabUserInfo.Controls.Add(this.label10);
-            this.tabUserInfo.Controls.Add(this.txtURL);
-            this.tabUserInfo.Controls.Add(this.label3);
             this.tabUserInfo.Controls.Add(this.label5);
-            this.tabUserInfo.Controls.Add(this.label6);
             this.tabUserInfo.Controls.Add(this.label7);
             this.tabUserInfo.Controls.Add(this.txtEmail);
             this.tabUserInfo.Controls.Add(this.txtClientCode);
@@ -248,16 +196,16 @@ namespace HL7ServerTransfer
             // 
             // txtLicenseKey
             // 
-            this.txtLicenseKey.Location = new System.Drawing.Point(375, 49);
+            this.txtLicenseKey.Location = new System.Drawing.Point(71, 97);
             this.txtLicenseKey.Name = "txtLicenseKey";
             this.txtLicenseKey.ReadOnly = true;
-            this.txtLicenseKey.Size = new System.Drawing.Size(153, 20);
+            this.txtLicenseKey.Size = new System.Drawing.Size(287, 20);
             this.txtLicenseKey.TabIndex = 7;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(302, 53);
+            this.label10.Location = new System.Drawing.Point(4, 101);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(67, 13);
             this.label10.TabIndex = 6;
@@ -266,7 +214,7 @@ namespace HL7ServerTransfer
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 16);
+            this.label5.Location = new System.Drawing.Point(6, 17);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 13);
             this.label5.TabIndex = 0;
@@ -275,7 +223,7 @@ namespace HL7ServerTransfer
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 53);
+            this.label7.Location = new System.Drawing.Point(6, 45);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 13);
             this.label7.TabIndex = 4;
@@ -283,24 +231,24 @@ namespace HL7ServerTransfer
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(375, 12);
+            this.txtEmail.Location = new System.Drawing.Point(71, 69);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.ReadOnly = true;
-            this.txtEmail.Size = new System.Drawing.Size(153, 20);
+            this.txtEmail.Size = new System.Drawing.Size(287, 20);
             this.txtEmail.TabIndex = 3;
             // 
             // txtClientName
             // 
-            this.txtClientName.Location = new System.Drawing.Point(99, 49);
+            this.txtClientName.Location = new System.Drawing.Point(71, 41);
             this.txtClientName.Name = "txtClientName";
             this.txtClientName.ReadOnly = true;
-            this.txtClientName.Size = new System.Drawing.Size(153, 20);
+            this.txtClientName.Size = new System.Drawing.Size(287, 20);
             this.txtClientName.TabIndex = 5;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(328, 16);
+            this.label9.Location = new System.Drawing.Point(30, 73);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(35, 13);
             this.label9.TabIndex = 2;
@@ -308,6 +256,11 @@ namespace HL7ServerTransfer
             // 
             // tabOption
             // 
+            this.tabOption.Controls.Add(this.btnSourceFolder);
+            this.tabOption.Controls.Add(this.txtDownloadFolder);
+            this.tabOption.Controls.Add(this.txtURL);
+            this.tabOption.Controls.Add(this.label3);
+            this.tabOption.Controls.Add(this.label6);
             this.tabOption.Controls.Add(this.txtTransferSpeed);
             this.tabOption.Controls.Add(this.txtInterval);
             this.tabOption.Controls.Add(this.label4);
@@ -320,13 +273,59 @@ namespace HL7ServerTransfer
             this.tabOption.Padding = new System.Windows.Forms.Padding(3);
             this.tabOption.Size = new System.Drawing.Size(545, 149);
             this.tabOption.TabIndex = 1;
-            this.tabOption.Text = "Option";
+            this.tabOption.Text = "Setting";
             this.tabOption.UseVisualStyleBackColor = true;
+            // 
+            // btnSourceFolder
+            // 
+            this.btnSourceFolder.Image = ((System.Drawing.Image)(resources.GetObject("btnSourceFolder.Image")));
+            this.btnSourceFolder.Location = new System.Drawing.Point(449, 86);
+            this.btnSourceFolder.Name = "btnSourceFolder";
+            this.btnSourceFolder.Size = new System.Drawing.Size(28, 23);
+            this.btnSourceFolder.TabIndex = 17;
+            this.btnSourceFolder.UseVisualStyleBackColor = true;
+            this.btnSourceFolder.Click += new System.EventHandler(this.btnSourceFolder_Click);
+            // 
+            // txtDownloadFolder
+            // 
+            this.txtDownloadFolder.BackColor = System.Drawing.Color.White;
+            this.txtDownloadFolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDownloadFolder.ForeColor = System.Drawing.Color.Black;
+            this.txtDownloadFolder.Location = new System.Drawing.Point(113, 87);
+            this.txtDownloadFolder.Name = "txtDownloadFolder";
+            this.txtDownloadFolder.ReadOnly = true;
+            this.txtDownloadFolder.Size = new System.Drawing.Size(330, 20);
+            this.txtDownloadFolder.TabIndex = 16;
+            // 
+            // txtURL
+            // 
+            this.txtURL.Location = new System.Drawing.Point(113, 59);
+            this.txtURL.Name = "txtURL";
+            this.txtURL.Size = new System.Drawing.Size(364, 20);
+            this.txtURL.TabIndex = 14;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(29, 91);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Inbound folder:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(75, 63);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(32, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "URL:";
             // 
             // txtTransferSpeed
             // 
             this.txtTransferSpeed.BNull = true;
-            this.txtTransferSpeed.Location = new System.Drawing.Point(113, 91);
+            this.txtTransferSpeed.Location = new System.Drawing.Point(113, 33);
             this.txtTransferSpeed.MaxLength = 13;
             this.txtTransferSpeed.Name = "txtTransferSpeed";
             this.txtTransferSpeed.Size = new System.Drawing.Size(91, 20);
@@ -338,7 +337,7 @@ namespace HL7ServerTransfer
             // txtInterval
             // 
             this.txtInterval.BNull = true;
-            this.txtInterval.Location = new System.Drawing.Point(113, 49);
+            this.txtInterval.Location = new System.Drawing.Point(113, 7);
             this.txtInterval.MaxLength = 13;
             this.txtInterval.Name = "txtInterval";
             this.txtInterval.Size = new System.Drawing.Size(91, 20);
@@ -350,7 +349,7 @@ namespace HL7ServerTransfer
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(207, 91);
+            this.label15.Location = new System.Drawing.Point(202, 37);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(20, 13);
             this.label15.TabIndex = 6;
@@ -381,7 +380,7 @@ namespace HL7ServerTransfer
             this.groupBox1.Controls.Add(this.chkSaturday);
             this.groupBox1.Location = new System.Drawing.Point(6, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(536, 173);
+            this.groupBox1.Size = new System.Drawing.Size(536, 143);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -512,7 +511,7 @@ namespace HL7ServerTransfer
             // 
             this.chkXsl.AutoSize = true;
             this.chkXsl.Enabled = false;
-            this.chkXsl.Location = new System.Drawing.Point(205, 53);
+            this.chkXsl.Location = new System.Drawing.Point(205, 40);
             this.chkXsl.Name = "chkXsl";
             this.chkXsl.Size = new System.Drawing.Size(41, 17);
             this.chkXsl.TabIndex = 5;
@@ -523,7 +522,7 @@ namespace HL7ServerTransfer
             // chkPdf
             // 
             this.chkPdf.AutoSize = true;
-            this.chkPdf.Location = new System.Drawing.Point(155, 53);
+            this.chkPdf.Location = new System.Drawing.Point(155, 40);
             this.chkPdf.Name = "chkPdf";
             this.chkPdf.Size = new System.Drawing.Size(44, 17);
             this.chkPdf.TabIndex = 4;
@@ -535,7 +534,7 @@ namespace HL7ServerTransfer
             this.chkDoc.AutoSize = true;
             this.chkDoc.Checked = true;
             this.chkDoc.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkDoc.Location = new System.Drawing.Point(102, 53);
+            this.chkDoc.Location = new System.Drawing.Point(102, 40);
             this.chkDoc.Name = "chkDoc";
             this.chkDoc.Size = new System.Drawing.Size(47, 17);
             this.chkDoc.TabIndex = 3;
@@ -544,7 +543,7 @@ namespace HL7ServerTransfer
             // 
             // txtNumOfCopies
             // 
-            this.txtNumOfCopies.Location = new System.Drawing.Point(102, 93);
+            this.txtNumOfCopies.Location = new System.Drawing.Point(102, 64);
             this.txtNumOfCopies.Name = "txtNumOfCopies";
             this.txtNumOfCopies.ReadOnly = true;
             this.txtNumOfCopies.Size = new System.Drawing.Size(48, 20);
@@ -554,7 +553,7 @@ namespace HL7ServerTransfer
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 97);
+            this.label14.Location = new System.Drawing.Point(3, 68);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(93, 13);
             this.label14.TabIndex = 6;
@@ -563,7 +562,7 @@ namespace HL7ServerTransfer
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 55);
+            this.label13.Location = new System.Drawing.Point(6, 42);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(90, 13);
             this.label13.TabIndex = 2;
@@ -582,11 +581,11 @@ namespace HL7ServerTransfer
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 17);
+            this.label12.Location = new System.Drawing.Point(24, 17);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(40, 13);
+            this.label12.Size = new System.Drawing.Size(72, 13);
             this.label12.TabIndex = 0;
-            this.label12.Text = "Printer:";
+            this.label12.Text = "Select printer:";
             // 
             // timerUploadfileConnect
             // 
@@ -640,15 +639,88 @@ namespace HL7ServerTransfer
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.MouseDown += new System.Windows.Forms.MouseEventHandler(this.exitToolStripMenuItem_MouseDown);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel_Status,
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabel_Printer,
+            this.toolStripStatusLabel2,
+            this.toolStripStatusLabel_StatusApp});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 205);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(556, 22);
+            this.statusStrip1.TabIndex = 3;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel_Status
+            // 
+            this.toolStripStatusLabel_Status.Name = "toolStripStatusLabel_Status";
+            this.toolStripStatusLabel_Status.Size = new System.Drawing.Size(47, 17);
+            this.toolStripStatusLabel_Status.Text = "Stopped";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.AutoSize = false;
+            this.toolStripStatusLabel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(1, 17);
+            // 
+            // toolStripStatusLabel_Printer
+            // 
+            this.toolStripStatusLabel_Printer.Name = "toolStripStatusLabel_Printer";
+            this.toolStripStatusLabel_Printer.Size = new System.Drawing.Size(0, 17);
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.AutoSize = false;
+            this.toolStripStatusLabel2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(1, 17);
+            // 
+            // toolStripStatusLabel_StatusApp
+            // 
+            this.toolStripStatusLabel_StatusApp.Name = "toolStripStatusLabel_StatusApp";
+            this.toolStripStatusLabel_StatusApp.Size = new System.Drawing.Size(0, 17);
+            // 
+            // btnStart
+            // 
+            this.btnStart.Location = new System.Drawing.Point(395, 178);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(75, 23);
+            this.btnStart.TabIndex = 4;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // btnStop
+            // 
+            this.btnStop.Enabled = false;
+            this.btnStop.Location = new System.Drawing.Point(476, 178);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(75, 23);
+            this.btnStop.TabIndex = 4;
+            this.btnStop.Text = "Stop";
+            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
+            // 
             // frmMain
             // 
             this.AcceptButton = this.btnAccept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnReset;
-            this.ClientSize = new System.Drawing.Size(556, 206);
+            this.ClientSize = new System.Drawing.Size(556, 227);
+            this.Controls.Add(this.btnStop);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.btnStart);
             this.Controls.Add(this.tabMain);
-            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnAccept);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -671,7 +743,10 @@ namespace HL7ServerTransfer
             this.tabPrint.ResumeLayout(false);
             this.tabPrint.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -681,13 +756,7 @@ namespace HL7ServerTransfer
         private System.Windows.Forms.CheckBox chkStartup;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnAccept;
-        private System.Windows.Forms.Button btnSourceFolder;
-        private System.Windows.Forms.TextBox txtDownloadFolder;
-        private System.Windows.Forms.TextBox txtURL;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabControl tabMain;
         private System.Windows.Forms.TabPage tabUserInfo;
@@ -732,6 +801,20 @@ namespace HL7ServerTransfer
         private System.Windows.Forms.ToolStripMenuItem minimizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.Button btnSourceFolder;
+        private System.Windows.Forms.TextBox txtDownloadFolder;
+        private System.Windows.Forms.TextBox txtURL;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_Status;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_Printer;
+        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Button btnStop;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_StatusApp;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 
