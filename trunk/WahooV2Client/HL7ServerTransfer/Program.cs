@@ -38,7 +38,9 @@ namespace HL7ServerTransfer
             {
                 Application.Run(new SettingInfo());
             }
-            //Application.Run(new frmMain());
+
+
+           // Application.Run(new frmMain());
         }
     }
 }

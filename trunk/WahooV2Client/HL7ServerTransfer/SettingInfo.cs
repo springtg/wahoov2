@@ -79,6 +79,7 @@ namespace HL7ServerTransfer
             label1.Text = _Resource.GetResourceByKey("FORM_SETTING_INFO", "LABEL_TEXT_0001");
             label2.Text = _Resource.GetResourceByKey("FORM_SETTING_INFO", "LABEL_TEXT_0002");
             label3.Text = _Resource.GetResourceByKey("FORM_SETTING_INFO", "LABEL_TEXT_0003");
+            groupBox2.Text = _Resource.GetResourceByKey("FORM_LICENSE_KEY", "LABEL_TEXT_0001");
             label4.Text = _Resource.GetResourceByKey("FORM_LICENSE_KEY", "LABEL_TEXT_0001");
             btnAccept.Text = _Resource.GetResourceByKey("FORM_SETTING_INFO", "BUTTON_TEXT_001");
             tbnClose.Text = _Resource.GetResourceByKey("FORM_SETTING_INFO", "BUTTON_TEXT_002");
@@ -133,7 +134,7 @@ namespace HL7ServerTransfer
                 frmMain _frmMain = new frmMain();
                 this.Hide();
                 _frmMain.ShowDialog();
-                this.Close();
+                //this.Close();
             }
         }
         #endregion

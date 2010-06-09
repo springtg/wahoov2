@@ -31,5 +31,13 @@
   <MSG MessageId="MSG_TEXT_ERROR_0002" Value="Email is invalid format! You must enter Email valid!"/>
   <!--form license key-->
   <MSG MessageId="MSG_TEXT_ERR001" Value= "{0} is not valid. Please try again." />
+  <!--phan kiem tra khi nhan nut start-->
+  <MSG MessageId="MSG_TEXT_ERR002" Value= "URL is not empty!" />
+  <MSG MessageId="MSG_TEXT_ERR003" Value= "Inbound folder is not empty!" />
+  <MSG MessageId="MSG_TEXT_ERR004" Value= "UnConnected to {0}!" />
+  <MSG MessageId="MSG_TEXT_ERR005" Value= "Printer is not selected!" />
+  <MSG MessageId="MSG_TEXT_ERR006" Value= "Printer {0} is online!" />
+  <MSG MessageId="MSG_TEXT_ERR007" Value= "Printer {0} is offline!" />
+  <MSG MessageId="MSG_TEXT_ERR008" Value= "Printer {0} is inknown!" />
 </HL7CLIENT>
 
